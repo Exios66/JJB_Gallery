@@ -1,4 +1,4 @@
-# JJB_Gallery
+# GitHub Based Portfolio & Gallery
 
 Personal Portfolio &amp; Gallery of Previous Work Of Jack J. Burleson.
 
@@ -75,7 +75,7 @@ This portfolio showcases selected projects and experiences.
 
 ---
 
-## Publications & Talks
+## Publications/Presentations
 
 - **[Title of Publication/Talk]**, Venue or Conference, Year [[Link](#)]
 - Add more as needed...
