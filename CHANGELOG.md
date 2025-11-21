@@ -5,9 +5,17 @@
 ### Added
 
 - Initial release
+- Added requirements.txt with the following dependencies:
+  - numpy
+  - pandas
+  - seaborn
+  - matplotlib
+  - scikit-learn
 
 ### Changed
 
-- Nothing
+- N/A
 
-### Removed     
+### Removed
+
+- N/A
