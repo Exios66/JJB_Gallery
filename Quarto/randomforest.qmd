@@ -22,7 +22,7 @@ Random forests are ensemble models that aggregate many decision trees to reduce 
 
 ## Mathematical Model
 
-Each tree \(T_b\) is trained on a bootstrap sample \(\mathcal{D}_b\) and a random subset of features. The forest prediction for a classification task with \(B\) trees is the majority vote:
+Each tree $T_b$ is trained on a bootstrap sample $\mathcal{D}_b$ and a random subset of features. The forest prediction for a classification task with $B$ trees is the majority vote:
 
 \[
 \hat{y} = \mathrm{mode}\left(\{T_b(\mathbf{x})\}_{b=1}^{B}\right)
