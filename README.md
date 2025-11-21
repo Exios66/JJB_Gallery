@@ -3,7 +3,7 @@
 Personal Portfolio &amp; Gallery of Previous Work.
 <!-- Badges -->
 <p align="left">
-  <a href="https://github.com/yourusername/JJB_Gallery/actions">
+  <a href="https://github.com/Exios66/JJB_Gallery/actions">
     <img alt="GitHub Workflow Status" src="https://img.shields.io/github/actions/workflow/status/Exios66/JJB_Gallery/ci.yml?branch=main&label=CI&logo=github">
   </a>
   <a href="https://github.com/Exios66/JJB_Gallery/blob/main/LICENSE">
