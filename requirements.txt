@@ -6,3 +6,13 @@ scikit-learn
 jupyter
 quarto
 ipykernel
+notebook
+pytest
+black
+isort
+jupyterlab
+xgboost
+lightgbm
+catboost
+polars
+scipy
