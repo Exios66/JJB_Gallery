@@ -1,7 +1,7 @@
 # JJB_Gallery
 
-Personal Portfolio &amp; Gallery of Previous Work.
-<!-- Badges -->
+Personal Portfolio &amp; Gallery of Previous Work Of Jack J. Burleson.
+
 <p align="left">
   <a href="https://github.com/Exios66/JJB_Gallery/actions">
     <img alt="GitHub Workflow Status" src="https://img.shields.io/github/actions/workflow/status/Exios66/JJB_Gallery/ci.yml?branch=main&label=CI&logo=github">
