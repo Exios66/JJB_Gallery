@@ -15,3 +15,23 @@ Open the preview server in your browser:
 ```bash
 open http://localhost:4343
 ```
+
+Activate the Python virtual environment:
+
+```bash
+source .venv/bin/activate
+```
+
+Deactivate the Python virtual environment:
+
+```bash
+deactivate
+```
+
+Clear cached memory to help preserve system memory and RAM (requires sudo privileges):
+
+```bash
+sudo sync; sudo sh -c 'echo 3 > /proc/sys/vm/drop_caches'
+```
+
+
