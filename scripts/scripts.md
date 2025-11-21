@@ -1,5 +1,7 @@
 # SCRIPTS
 
+1. render_randomforest.sh
+
 Run the render_randomforest.sh script to render the randomforest.qmd file to a html and pdf file. This script will also start a preview server on the default port 4343.
 
 Run the script:
