@@ -37,14 +37,16 @@ Personal Portfolio &amp; Gallery of Previous Work Of Jack J. Burleson.
 
 ## Table of Contents
 
-- [JJB\_Gallery](#jjb_gallery)
+- [GitHub Based Portfolio \& Gallery](#github-based-portfolio--gallery)
   - [Table of Contents](#table-of-contents)
   - [About Me](#about-me)
   - [Project Gallery](#project-gallery)
   - [Skills](#skills)
-  - [Publications \& Talks](#publications--talks)
+  - [Publications/Presentations](#publicationspresentations)
   - [Contact](#contact)
   - [Socials](#socials)
+  - [Further Reading](#further-reading)
+
 ---
 
 ## About Me
