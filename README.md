@@ -35,7 +35,6 @@ Personal Portfolio &amp; Gallery of Previous Work.
   </a>
 </p>
 
-
 ## Table of Contents
 
 - [JJB\_Gallery](#jjb_gallery)
@@ -59,8 +58,8 @@ This portfolio showcases selected projects and experiences.
 
 | Project | Description | Link |
 |---------|-------------|------|
-| Project Title 1 | Short summary of what it is and what you did | [Repository/Article/Live Demo](#) |
-| Project Title 2 | Short summary of what it is and what you did | [Repository/Article/Live Demo](#) |
+| Project Title 1 | Short summary of what it is and what you did | Repository/Article/Live Demo |
+| Project Title 2 | Short summary of what it is and what you did | Repository/Article/Live Demo |
 | ...     |             |      |
 
 *Add a new row for every project, or use detailed subsections below.*
@@ -91,5 +90,4 @@ This portfolio showcases selected projects and experiences.
 
 ---
 
-> 
-
+>
