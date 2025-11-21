@@ -44,7 +44,7 @@ Personal Portfolio &amp; Gallery of Previous Work Of Jack J. Burleson.
   - [Skills](#skills)
   - [Publications \& Talks](#publications--talks)
   - [Contact](#contact)
-
+  - [Socials](#socials)
 ---
 
 ## About Me
@@ -87,6 +87,12 @@ This portfolio showcases selected projects and experiences.
 - Email: [your.email@example.com](mailto:your.email@example.com)
 - LinkedIn: [YourLinkedIn](#)
 - Website/Blog: [YourSite](#)
+
+## Socials
+
+---
+
+## Further Reading
 
 ---
 
