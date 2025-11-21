@@ -4,22 +4,22 @@ Personal Portfolio &amp; Gallery of Previous Work.
 <!-- Badges -->
 <p align="left">
   <a href="https://github.com/yourusername/JJB_Gallery/actions">
-    <img alt="GitHub Workflow Status" src="https://img.shields.io/github/actions/workflow/status/yourusername/JJB_Gallery/ci.yml?branch=main&label=CI&logo=github">
+    <img alt="GitHub Workflow Status" src="https://img.shields.io/github/actions/workflow/status/Exios66/JJB_Gallery/ci.yml?branch=main&label=CI&logo=github">
   </a>
-  <a href="https://github.com/yourusername/JJB_Gallery/blob/main/LICENSE">
-    <img alt="License" src="https://img.shields.io/github/license/yourusername/JJB_Gallery?color=blue">
+  <a href="https://github.com/Exios66/JJB_Gallery/blob/main/LICENSE">
+    <img alt="License" src="https://img.shields.io/github/license/Exios66/JJB_Gallery?color=blue">
   </a>
-  <a href="https://github.com/yourusername/JJB_Gallery/releases">
-    <img alt="GitHub release" src="https://img.shields.io/github/v/release/yourusername/JJB_Gallery?include_prereleases">
+  <a href="https://github.com/Exios66/JJB_Gallery/releases">
+    <img alt="GitHub release" src="https://img.shields.io/github/v/release/Exios66/JJB_Gallery?include_prereleases">
   </a>
-  <a href="https://github.com/yourusername/JJB_Gallery/commits/main">
-    <img alt="Last Commit" src="https://img.shields.io/github/last-commit/yourusername/JJB_Gallery">
+  <a href="https://github.com/Exios66/JJB_Gallery/commits/main">
+    <img alt="Last Commit" src="https://img.shields.io/github/last-commit/Exios66/JJB_Gallery">
   </a>
-  <a href="https://github.com/yourusername/JJB_Gallery/issues">
-    <img alt="GitHub issues" src="https://img.shields.io/github/issues/yourusername/JJB_Gallery">
+  <a href="https://github.com/Exios66/JJB_Gallery/issues">
+    <img alt="GitHub issues" src="https://img.shields.io/github/issues/Exios66/JJB_Gallery">
   </a>
-  <a href="https://github.com/yourusername/JJB_Gallery/pulls">
-    <img alt="GitHub pull requests" src="https://img.shields.io/github/issues-pr/yourusername/JJB_Gallery">
+  <a href="https://github.com/Exios66/JJB_Gallery/pulls">
+    <img alt="GitHub pull requests" src="https://img.shields.io/github/issues-pr/Exios66/JJB_Gallery">
   </a>
   <a href="https://www.python.org">
     <img alt="Python Version" src="https://img.shields.io/badge/python-3.8%2B-blue.svg">
@@ -30,8 +30,8 @@ Personal Portfolio &amp; Gallery of Previous Work.
   <a href="https://github.com/pre-commit/pre-commit">
     <img alt="pre-commit" src="https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit">
   </a>
-  <a href="https://results.pre-commit.ci/latest/github/yourusername/JJB_Gallery/main">
-    <img alt="pre-commit.ci status" src="https://results.pre-commit.ci/badge/github/yourusername/JJB_Gallery/main.svg">
+  <a href="https://results.pre-commit.ci/latest/github/Exios66/JJB_Gallery/main">
+    <img alt="pre-commit.ci status" src="https://results.pre-commit.ci/badge/github/Exios66/JJB_Gallery/main.svg">
   </a>
 </p>
 
