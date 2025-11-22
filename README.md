@@ -49,7 +49,7 @@ Personal Portfolio &amp; Gallery of Previous Work Of Jack J. Burleson.
 
 ## About Me
 
-Hi! I'm [Your Name], a [your professional title, e.g. "Data Scientist", "Software Developer", etc.] passionate about [your main focus/interests].  
+Hi! I'm Jack J. Burleson, a data scientist, neuroscience researcher, and experimental machine learning engineer.
 This portfolio showcases selected projects and experiences.
 
 ---
@@ -96,4 +96,4 @@ This portfolio showcases selected projects and experiences.
 
 ---
 
->
+## Local GitHub Wiki
