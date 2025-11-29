@@ -3,7 +3,7 @@ Custom ML Tools for CrewAI agents.
 Provides specialized tools for machine learning operations.
 """
 
-from crewai_tools import BaseTool  # type: ignore
+from crewai.tools.base_tool import BaseTool  # type: ignore
 from typing import Any, Type
 from pydantic import BaseModel, Field  # type: ignore
 import pandas as pd

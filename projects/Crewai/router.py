@@ -5,7 +5,7 @@ Routes user queries to the appropriate agent swarm.
 
 from crewai import Agent, Task, Crew, Process  # type: ignore
 from typing import Dict, Any
-from .config import config
+from config import config
 
 
 class MetaRouter:
