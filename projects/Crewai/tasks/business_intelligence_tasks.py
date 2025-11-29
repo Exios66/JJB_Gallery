@@ -11,7 +11,7 @@ from ..config import config
 def create_market_research_task(agent) -> Task:
     """Create market research task for competitive intelligence."""
     return Task(
-        description="""Conduct comprehensive market research and competitive analysis:
+        description="""Conduct comprehensive market research and competitive analysis on topic: {topic}
         1. Analyze the target market size, growth trends, and dynamics
         2. Identify key competitors and assess their market positioning
         3. Evaluate competitive strengths, weaknesses, and strategies
@@ -30,7 +30,7 @@ def create_market_research_task(agent) -> Task:
 def create_data_analysis_task(agent) -> Task:
     """Create data analysis task for business insights."""
     return Task(
-        description="""Analyze business data and generate actionable insights:
+        description="""Analyze business data and generate actionable insights regarding: {topic}
         1. Process and analyze relevant business data sets
         2. Identify key performance indicators and metrics
         3. Discover patterns, trends, and anomalies in the data
@@ -50,7 +50,7 @@ def create_data_analysis_task(agent) -> Task:
 def create_strategy_consulting_task(agent) -> Task:
     """Create strategy consulting task for strategic planning."""
     return Task(
-        description="""Develop strategic recommendations and business roadmap:
+        description="""Develop strategic recommendations and business roadmap for: {topic}
         1. Synthesize market research and data analysis findings
         2. Identify strategic opportunities and challenges
         3. Develop strategic recommendations and action plans
@@ -73,7 +73,7 @@ def create_strategy_consulting_task(agent) -> Task:
 def create_financial_analysis_task(agent) -> Task:
     """Create financial analysis task for financial modeling."""
     return Task(
-        description="""Perform financial analysis and modeling:
+        description="""Perform financial analysis and modeling related to: {topic}
         1. Analyze financial performance and key financial metrics
         2. Create financial models and projections
         3. Assess financial health and viability
@@ -96,7 +96,7 @@ def create_financial_analysis_task(agent) -> Task:
 def create_business_reporting_task(agent) -> Task:
     """Create business reporting task for executive summary."""
     return Task(
-        description="""Create comprehensive executive business report:
+        description="""Create comprehensive executive business report on: {topic}
         1. Synthesize all analysis findings (market, data, strategy, financial)
         2. Create executive summary with key insights and recommendations
         3. Structure report for executive audience
@@ -134,4 +134,3 @@ def get_business_intelligence_workflow_tasks(agents: Dict[str, Any]) -> List[Tas
         create_financial_analysis_task(agents["financial_analyst"]),
         create_business_reporting_task(agents["business_reporter"]),
     ]
-

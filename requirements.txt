@@ -29,3 +29,4 @@ shap
 crewai
 crewai-tools
 pydantic
+streamlit

@@ -6,6 +6,24 @@ A comprehensive multi-agent framework using CrewAI, featuring multiple specializ
 
 This project implements a versatile multi-agent system where different specialized agent swarms collaborate on complex workflows. Each swarm contains domain-specific agents designed for particular tasks and industries.
 
+## 🖥️ Chat Interfaces
+
+### Streamlit Web App (Recommended)
+
+Interact with the swarms using a modern chat interface.
+
+```bash
+streamlit run interface_web.py
+```
+
+### Terminal CLI
+
+Interact via the command line.
+
+```bash
+python interface_cli.py
+```
+
 ## 🚀 Available Agent Swarms
 
 ### 1. 🤖 ML Analysis Swarm
