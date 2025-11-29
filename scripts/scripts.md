@@ -18,35 +18,92 @@ open http://localhost:4343
 
 ## 2. free_ram.sh
 
-The free_ram.sh script frees up unnecessary RAM by clearing various caches and temporary files that accumulate during development. This script is particularly useful when working with large Jupyter notebooks, Python projects, or Quarto documents that generate cached files.
+The free_ram.sh script is an **enhanced** tool that frees up unnecessary RAM, disk space, and compute resources by clearing extensive caches, temporary files, and idle processes. This script is particularly useful when working with large Jupyter notebooks, Python projects, or when your system is running low on resources.
 
 ### What it clears
 
-- **Python cache files**: `__pycache__` directories, `.pyc`, and `.pyo` files
+#### Python & Development Tools
+- **Python cache files**: `__pycache__` directories, `.pyc`, `.pyo`, and `.py[cod]` files
 - **Jupyter/IPython checkpoints**: `.ipynb_checkpoints` directories
 - **Quarto cache**: Quarto freeze directories and user cache
 - **pip cache**: Cached pip packages
-- **Python bytecode**: Additional bytecode files
+- **Conda cache**: Conda package cache
+- **Poetry cache**: Poetry package cache
+- **pipx cache**: pipx package cache
+- **Virtual environment caches**: Cache files in `.venv`, `venv`, and `env` directories
+
+#### Package Manager Caches
+- **npm cache**: Node.js package manager cache
+- **yarn cache**: Yarn package manager cache
+- **Homebrew cache** (macOS): Homebrew package cache
+- **Cargo cache** (Rust): Rust package manager cache
+- **Go module cache**: Go language module cache
+
+#### System & Application Caches
+- **Docker cache**: Docker images, containers, and volumes (unused)
+- **Browser caches**: Chrome, Firefox, Safari caches (macOS)
+- **IDE caches**: VS Code, PyCharm, IntelliJ IDEA caches
+- **System temporary files**: Old temp files (7+ days)
+- **System logs**: Old log files (30+ days)
+- **Font cache** (macOS): System font cache
+- **DNS cache**: System DNS resolver cache
+
+#### System Resources (Optional)
+- **System page cache** (Linux): Kernel page cache (requires sudo)
+- **Swap files**: Clear and reset swap (Linux, requires sudo)
+- **Idle processes**: Kill high CPU/low priority processes (optional, dangerous)
 
 ### Usage
 
 ```bash
+# Standard cleanup (safe, recommended)
 ./scripts/free_ram.sh
+
+# Aggressive cleanup including idle processes (use with caution)
+KILL_IDLE_PROCESSES=yes ./scripts/free_ram.sh
 ```
 
 ### Features
 
-- Cross-platform support (macOS and Linux)
-- Colored output for better readability
-- Memory usage reporting before and after cleanup
-- Safe cleanup (doesn't require sudo on macOS for basic operations)
-- Summary of total space freed
+- **Comprehensive cleanup**: Clears 20+ different cache types
+- **Cross-platform support**: Works on macOS and Linux
+- **Colored output**: Easy-to-read status messages
+- **Memory reporting**: Shows before/after memory status
+- **Safe by default**: Only clears caches, not user data
+- **Smart cleanup**: Only removes old temporary files (7+ days)
+- **Space tracking**: Reports total space freed
+- **Permission-aware**: Skips operations requiring sudo if not available
+- **Process management**: Optional idle process termination
+
+### Advanced Options
+
+#### Kill Idle Processes
+
+To terminate idle or high-CPU processes (use with extreme caution):
+
+```bash
+KILL_IDLE_PROCESSES=yes ./scripts/free_ram.sh
+```
+
+**Warning**: This may close applications that appear idle but are actually working.
 
 ### Notes
 
-- On Linux, system page cache clearing requires sudo privileges
-- The script will skip operations that require elevated privileges if not available
-- All cleanup operations are safe and only remove cache/temporary files
+- **System-level operations** (page cache, swap, DNS) require sudo privileges
+- The script will **skip** operations that require elevated privileges if not available
+- **All cleanup operations are safe** and only remove cache/temporary files
+- **User data is never deleted** - only caches and temporary files
+- Old files are preserved (only files 7+ days old are removed from temp directories)
+- Browser caches will be cleared - you may need to re-login to some websites
+- IDE caches will be cleared - first launch after cleanup may be slower
+
+### What Gets Preserved
+
+- Your source code and project files
+- Git history and repository data
+- Installed packages (only caches are cleared)
+- User preferences and settings
+- Active application data
 
 ## Virtual Environment Management
 
