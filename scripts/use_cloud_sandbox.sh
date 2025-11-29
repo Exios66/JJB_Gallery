@@ -34,7 +34,21 @@ if [ ! -f "$CONFIG_FILE" ]; then
     exit 1
 fi
 
-source "$CONFIG_FILE"
+# Validate config file before sourcing
+if grep -q "your-server.com\|example.com\|user@" "$CONFIG_FILE"; then
+    print_error "Invalid configuration detected in .cloud_sandbox/config.env"
+    print_error "The config file contains placeholder values."
+    print_info "Please reconfigure: ./scripts/setup_cloud_sandbox.sh"
+    print_info "Or remove the config file to start fresh: rm .cloud_sandbox/config.env"
+    exit 1
+fi
+
+# Source config file safely
+source "$CONFIG_FILE" 2>/dev/null || {
+    print_error "Error loading configuration file"
+    print_info "Please reconfigure: ./scripts/setup_cloud_sandbox.sh"
+    exit 1
+}
 
 case "${SANDBOX_TYPE:-}" in
     github_codespaces)

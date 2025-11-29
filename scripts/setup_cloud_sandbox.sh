@@ -126,14 +126,54 @@ EOF
         print_info "Setting up Remote SSH Server configuration..."
         
         read -p "Enter SSH host (e.g., user@example.com): " ssh_host
+        ssh_host=${ssh_host:-}
+        
+        if [ -z "$ssh_host" ] || [[ "$ssh_host" == *"example.com"* ]] || [[ "$ssh_host" == *"your-server"* ]]; then
+            print_error "Invalid SSH host. Please provide a real SSH host."
+            exit 1
+        fi
+        
         read -p "Enter remote Python path (default: /usr/bin/python3): " remote_python
         remote_python=${remote_python:-/usr/bin/python3}
-        read -p "Enter remote workspace path: " remote_workspace
         
-        echo "SSH_HOST=$ssh_host" > "$CONFIG_FILE"
-        echo "REMOTE_PYTHON=$remote_python" >> "$CONFIG_FILE"
-        echo "REMOTE_WORKSPACE=$remote_workspace" >> "$CONFIG_FILE"
-        echo "SANDBOX_TYPE=ssh" >> "$CONFIG_FILE"
+        # Validate Python path doesn't contain commands
+        if [[ "$remote_python" == *"ssh"* ]] || [[ "$remote_python" == *"which"* ]]; then
+            print_error "Python path should be a file path, not a command."
+            print_info "If you need to find the Python path, run on the server: which python3"
+            exit 1
+        fi
+        
+        read -p "Enter remote workspace path: " remote_workspace
+        remote_workspace=${remote_workspace:-}
+        
+        if [ -z "$remote_workspace" ] || [[ "$remote_workspace" == *"ssh"* ]] || [[ "$remote_workspace" == *"which"* ]]; then
+            print_error "Remote workspace should be a directory path, not a command."
+            exit 1
+        fi
+        
+        # Write config with validation
+        {
+            echo "SSH_HOST=$ssh_host"
+            echo "REMOTE_PYTHON=$remote_python"
+            echo "REMOTE_WORKSPACE=$remote_workspace"
+            echo "SANDBOX_TYPE=ssh"
+        } > "$CONFIG_FILE"
+        
+        print_success "SSH configuration saved!"
+        print_info "To use remote Python:"
+        echo "  ./scripts/use_cloud_sandbox.sh"
+        
+        # Test SSH connection
+        read -p "Test SSH connection now? [Y/n]: " test_ssh
+        test_ssh=${test_ssh:-Y}
+        if [[ "$test_ssh" =~ ^[Yy]$ ]]; then
+            print_info "Testing SSH connection..."
+            if ssh -o ConnectTimeout=5 "$ssh_host" "echo 'SSH connection successful'" 2>/dev/null; then
+                print_success "SSH connection works!"
+            else
+                print_warning "Could not connect via SSH. Please verify your SSH host and credentials."
+            fi
+        fi
         
         print_success "SSH configuration saved!"
         print_info "To use remote Python:"
