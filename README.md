@@ -2,6 +2,7 @@
 
 Personal Portfolio &amp; Gallery of Previous Work Of Jack J. Burleson.
 
+<!-- markdownlint-disable MD033 -->
 <p align="left">
   <a href="https://github.com/Exios66/JJB_Gallery/actions">
     <img alt="GitHub Workflow Status" src="https://img.shields.io/github/actions/workflow/status/Exios66/JJB_Gallery/ci.yml?branch=main&label=CI&logo=github">
@@ -34,6 +35,7 @@ Personal Portfolio &amp; Gallery of Previous Work Of Jack J. Burleson.
     <img alt="pre-commit.ci status" src="https://results.pre-commit.ci/badge/github/Exios66/JJB_Gallery/main.svg">
   </a>
 </p>
+<!-- markdownlint-enable MD033 -->
 
 ## Table of Contents
 
@@ -79,7 +81,7 @@ This portfolio showcases selected projects and experiences.
 
 ## Publications/Presentations
 
-- **[Title of Publication/Talk]**, Venue or Conference, Year [[Link](#)]
+- **[Title of Publication/Talk]**, Venue or Conference, Year (add link URL)
 - Add more as needed...
 
 ---
@@ -87,8 +89,8 @@ This portfolio showcases selected projects and experiences.
 ## Contact
 
 - Email: [your.email@example.com](mailto:your.email@example.com)
-- LinkedIn: [YourLinkedIn](#)
-- Website/Blog: [YourSite](#)
+- LinkedIn: YourLinkedIn (add your LinkedIn URL)
+- Website/Blog: YourSite (add your website URL)
 
 ## Socials
 
