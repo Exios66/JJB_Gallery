@@ -4,6 +4,17 @@ This directory contains configuration for remote Python environments to avoid lo
 
 ## Quick Start
 
+### Auto-launch Codespace (Fastest)
+
+1. Install GitHub CLI: `brew install gh && gh auth login` (macOS)
+2. Push repo to GitHub: `git push`
+3. Auto-launch: `./scripts/setup_cloud_sandbox.sh`
+   - Choose option 1 (GitHub Codespaces)
+   - Then run: `./scripts/launch_codespace.sh`
+4. Done! Codespace opens automatically with all packages installed.
+
+### Manual Setup
+
 Run the setup script:
 ```bash
 ./scripts/setup_cloud_sandbox.sh

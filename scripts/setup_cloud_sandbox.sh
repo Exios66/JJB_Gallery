@@ -117,7 +117,8 @@ EOF
         print_success "GitHub Codespaces configuration created!"
         print_info "Next steps:"
         echo "  1. Push repository to GitHub"
-        echo "  2. Create a codespace from the repository"
+        echo "  2. Auto-launch Codespace: ./scripts/launch_codespace.sh"
+        echo "     OR manually create from GitHub web interface"
         echo "  3. All dependencies will install automatically in the cloud"
         ;;
         

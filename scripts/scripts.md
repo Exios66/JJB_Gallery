@@ -131,3 +131,107 @@ After setting up a cloud sandbox, use this script to execute Python commands in 
 - For Codespaces: Codespace already created
 
 For detailed instructions, see `.cloud_sandbox/README.md`.
+
+## 6. Git SSH Setup (setup_git_ssh.sh)
+
+The setup_git_ssh.sh script configures SSH keys for GitHub and switches your repository to use SSH protocol. This eliminates password prompts and works better with automation tools.
+
+### Why SSH?
+
+- ✅ No password prompts during git operations
+- ✅ Better integration with GitHub CLI and Codespaces
+- ✅ More secure for automated workflows
+- ✅ Required for some advanced GitHub features
+
+### Usage
+
+```bash
+./scripts/setup_git_ssh.sh
+```
+
+### What it does
+
+1. ✅ Checks for existing SSH keys
+2. ✅ Generates new SSH key if needed (Ed25519)
+3. ✅ Starts SSH agent and adds key
+4. ✅ Copies public key to clipboard
+5. ✅ Guides you to add key to GitHub
+6. ✅ Tests SSH connection
+7. ✅ Updates git remote from HTTPS to SSH (optional)
+
+### After Setup
+
+Once configured:
+- All `git push/pull` operations use SSH
+- No password prompts required
+- Works seamlessly with `gh` CLI commands
+- Better integration with GitHub Codespaces
+
+### Current Status
+
+Your repository currently uses HTTPS protocol. To switch to SSH, run:
+```bash
+./scripts/setup_git_ssh.sh
+```
+
+For detailed Git protocol recommendations, see `docs/GIT_PROTOCOL_GUIDE.md`.
+
+## 5. Auto-launch Codespace (launch_codespace.sh)
+
+The launch_codespace.sh script automatically creates and launches a GitHub Codespace in the free tier. This provides instant cloud development environment without manual setup.
+
+### Prerequisites
+
+- GitHub CLI (`gh`) installed
+- Repository pushed to GitHub
+- GitHub CLI authenticated (`gh auth login`)
+
+### Usage
+
+```bash
+./scripts/launch_codespace.sh
+```
+
+### What it does
+
+1. ✅ Checks for GitHub CLI installation
+2. ✅ Verifies authentication
+3. ✅ Finds or creates a Codespace
+4. ✅ Waits for Codespace to be ready
+5. ✅ Opens in VS Code (if installed) or web browser
+6. ✅ Uses free tier machine (2 cores, 4GB RAM)
+
+### Features
+
+- Automatic Codespace creation
+- Reuses existing Codespace if available
+- Opens in preferred editor (VS Code or browser)
+- Uses free tier resources (60 hours/month)
+- All packages auto-installed from requirements.txt
+
+### Installation
+
+**macOS:**
+```bash
+brew install gh
+gh auth login
+```
+
+**Linux:**
+```bash
+# See https://cli.github.com/manual/installation
+```
+
+**Windows:**
+```bash
+winget install GitHub.cli
+gh auth login
+```
+
+### Troubleshooting
+
+If the script fails:
+- Ensure repository is pushed: `git push -u origin main`
+- Verify authentication: `gh auth status`
+- Check Codespace quota: `gh api user/codespaces`
+- Manually create: Go to GitHub → Code → Codespaces → Create codespace

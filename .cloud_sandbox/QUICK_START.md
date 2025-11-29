@@ -1,20 +1,38 @@
 # Cloud Sandbox Quick Start
 
-## Fastest Setup: GitHub Codespaces
+## Fastest Setup: GitHub Codespaces (Auto-launch)
 
-1. **Push to GitHub** (if not already):
+### Option 1: Automatic Launch (Recommended)
+
+1. **Install GitHub CLI** (if not installed):
+   ```bash
+   # macOS
+   brew install gh
+   gh auth login
+   ```
+
+2. **Push to GitHub** (if not already):
    ```bash
    git add .
    git commit -m "Add cloud sandbox configuration"
    git push
    ```
 
-2. **Create Codespace**:
-   - Go to your GitHub repository
-   - Click "Code" → "Codespaces" → "Create codespace on main"
-   - Wait ~2-3 minutes for setup
+3. **Auto-launch Codespace**:
+   ```bash
+   ./scripts/launch_codespace.sh
+   ```
 
-3. **Done!** All packages are installed in the cloud. Start coding!
+4. **Done!** Codespace opens automatically with all packages installed!
+
+### Option 2: Manual Launch
+
+1. Push to GitHub
+2. Go to your GitHub repository
+3. Click "Code" → "Codespaces" → "Create codespace on main"
+4. Wait ~2-3 minutes for setup
+
+Both methods use the free tier (60 hours/month).
 
 ## Alternative: Docker (Local)
 
