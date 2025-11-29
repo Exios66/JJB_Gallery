@@ -71,10 +71,11 @@ class ResearchAcademicCrew:
 
         task_lit_search = Task(
             description="""Conduct a systematic literature search on: {topic}
-            1. Identify 5-10 seminal papers (historical foundation).
-            2. Identify 5-10 state-of-the-art papers (last 2-3 years).
-            3. Summarize the key contribution of each paper.
-            4. Extract citation counts and venue impact factors.""",
+            1. Use the Paper Analyzer Tool to extract key insights from papers.
+            2. Identify 5-10 seminal papers (historical foundation).
+            3. Identify 5-10 state-of-the-art papers (last 2-3 years).
+            4. Summarize the key contribution of each paper.
+            5. Extract citation counts and venue impact factors.""",
             expected_output="Annotated bibliography of key papers.",
             agent=literature_reviewer,
             output_file=config.get_output_path("annotated_bibliography.md")
@@ -82,10 +83,11 @@ class ResearchAcademicCrew:
 
         task_method_analysis = Task(
             description="""Analyze the methodologies used in the identified papers for: {topic}
-            1. Compare experimental setups and datasets used.
-            2. Evaluate the statistical validity of the results.
-            3. Identify common limitations or assumptions.
-            4. Contrast different theoretical approaches.""",
+            1. Use the Methodology Evaluator Tool to assess research designs.
+            2. Compare experimental setups and datasets used.
+            3. Evaluate the statistical validity of the results.
+            4. Identify common limitations or assumptions.
+            5. Contrast different theoretical approaches.""",
             expected_output="Critical methodology analysis report.",
             agent=methodology_analyst,
             context=[task_lit_search],
@@ -94,11 +96,12 @@ class ResearchAcademicCrew:
 
         task_review_writing = Task(
             description="""Write a comprehensive academic literature review on: {topic}
-            1. Introduction defining the scope.
-            2. Thematic organization of the literature.
-            3. Critical discussion of methodologies (incorporating analyst findings).
-            4. Identification of research gaps and future directions.
-            5. Standard academic citation format.""",
+            1. Use the Citation Manager Tool to format references.
+            2. Introduction defining the scope.
+            3. Thematic organization of the literature.
+            4. Critical discussion of methodologies (incorporating analyst findings).
+            5. Identification of research gaps and future directions.
+            6. Standard academic citation format.""",
             expected_output="Full academic literature review paper.",
             agent=academic_synthesizer,
             context=[task_lit_search, task_method_analysis],

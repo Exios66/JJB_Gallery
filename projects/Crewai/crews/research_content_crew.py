@@ -67,10 +67,11 @@ class ResearchContentCrew:
 
         task_keyword_research = Task(
             description="""Perform SEO keyword research for the topic: {topic}
-            1. Identify primary and secondary keywords.
-            2. Analyze search intent (informational vs transactional).
-            3. Identify questions people are asking (PAA).
-            4. Analyze top-ranking competitors for this topic.""",
+            1. Use the Keyword Researcher Tool and SEO Analyzer Tool.
+            2. Identify primary and secondary keywords.
+            3. Analyze search intent (informational vs transactional).
+            4. Identify questions people are asking (PAA).
+            5. Analyze top-ranking competitors for this topic.""",
             expected_output="SEO strategy document with keyword list and competitor analysis.",
             agent=seo_strategist,
             output_file=config.get_output_path("seo_strategy.md")
@@ -78,10 +79,11 @@ class ResearchContentCrew:
 
         task_outlining = Task(
             description="""Create a comprehensive content outline for: {topic}
-            1. Use H2/H3 headers based on the SEO strategy.
-            2. Include key talking points for each section.
-            3. Specify where to include diagrams or code snippets.
-            4. Ensure a logical flow from introduction to conclusion.""",
+            1. Use the Content Analyzer Tool to structure the outline.
+            2. Use H2/H3 headers based on the SEO strategy.
+            3. Include key talking points for each section.
+            4. Specify where to include diagrams or code snippets.
+            5. Ensure a logical flow from introduction to conclusion.""",
             expected_output="Detailed content outline.",
             agent=content_outliner,
             context=[task_keyword_research],
@@ -90,10 +92,11 @@ class ResearchContentCrew:
 
         task_drafting = Task(
             description="""Draft a complete technical article based on the outline for: {topic}
-            1. Write engaging, clear prose.
-            2. Incorporate the target keywords naturally.
-            3. Include placeholder code blocks where appropriate.
-            4. Write a compelling introduction and conclusion.""",
+            1. Use the Content Analyzer Tool to check readability and flow.
+            2. Write engaging, clear prose.
+            3. Incorporate the target keywords naturally.
+            4. Include placeholder code blocks where appropriate.
+            5. Write a compelling introduction and conclusion.""",
             expected_output="First draft of the technical article.",
             agent=technical_writer,
             context=[task_keyword_research, task_outlining],

@@ -63,10 +63,11 @@ class DevCodeCrew:
 
         task_architecture = Task(
             description="""Design the software architecture for: {topic}
-            1. Define the system components and their interactions.
-            2. Select appropriate design patterns (e.g., MVC, Singleton).
-            3. Outline data models and API endpoints.
-            4. Identify potential bottlenecks.""",
+            1. Use the Architecture Analyzer Tool to evaluate design options.
+            2. Define the system components and their interactions.
+            3. Select appropriate design patterns (e.g., MVC, Singleton).
+            4. Outline data models and API endpoints.
+            5. Identify potential bottlenecks.""",
             expected_output="Technical design document and architecture diagram description.",
             agent=software_architect,
             output_file=config.get_output_path("architecture_design.md")
@@ -74,10 +75,11 @@ class DevCodeCrew:
 
         task_implementation = Task(
             description="""Implement the solution based on the architecture for: {topic}
-            1. Write the core logic in Python.
-            2. Include docstrings and type hints.
-            3. Ensure error handling is robust.
-            4. Provide example usage snippets.""",
+            1. Use the Code Executor Tool to verify code snippets.
+            2. Write the core logic in Python.
+            3. Include docstrings and type hints.
+            4. Ensure error handling is robust.
+            5. Provide example usage snippets.""",
             expected_output="Python source code files and implementation notes.",
             agent=senior_developer,
             context=[task_architecture],
@@ -86,10 +88,11 @@ class DevCodeCrew:
 
         task_review = Task(
             description="""Review the implementation code for: {topic}
-            1. Check for adherence to the design spec.
-            2. Identify logic errors or inefficiencies.
-            3. Suggest refactoring for readability.
-            4. Verify security best practices.""",
+            1. Use the Code Analyzer Tool and Test Generator Tool.
+            2. Check for adherence to the design spec.
+            3. Identify logic errors or inefficiencies.
+            4. Suggest refactoring for readability.
+            5. Verify security best practices.""",
             expected_output="Code review report with change requests and approval status.",
             agent=code_reviewer,
             context=[task_architecture, task_implementation],

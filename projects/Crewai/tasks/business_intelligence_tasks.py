@@ -12,13 +12,14 @@ def create_market_research_task(agent) -> Task:
     """Create market research task for competitive intelligence."""
     return Task(
         description="""Conduct comprehensive market research and competitive analysis on topic: {topic}
-        1. Analyze the target market size, growth trends, and dynamics
-        2. Identify key competitors and assess their market positioning
-        3. Evaluate competitive strengths, weaknesses, and strategies
-        4. Analyze market segmentation and customer demographics
-        5. Assess market opportunities and threats
-        6. Review industry trends and emerging market forces
-        7. Provide competitive intelligence and market insights
+        1. Use the Market Analyzer Tool and Competitive Intelligence Tool.
+        2. Analyze the target market size, growth trends, and dynamics
+        3. Identify key competitors and assess their market positioning
+        4. Evaluate competitive strengths, weaknesses, and strategies
+        5. Analyze market segmentation and customer demographics
+        6. Assess market opportunities and threats
+        7. Review industry trends and emerging market forces
+        8. Provide competitive intelligence and market insights
 
         Focus on actionable market intelligence that informs strategic decision-making.""",
         expected_output="Comprehensive market research report with competitive analysis, market trends, and strategic insights.",
@@ -31,13 +32,14 @@ def create_data_analysis_task(agent) -> Task:
     """Create data analysis task for business insights."""
     return Task(
         description="""Analyze business data and generate actionable insights regarding: {topic}
-        1. Process and analyze relevant business data sets
-        2. Identify key performance indicators and metrics
-        3. Discover patterns, trends, and anomalies in the data
-        4. Generate data-driven insights and recommendations
-        5. Create visualizations and summaries of findings
-        6. Assess data quality and reliability
-        7. Provide actionable recommendations based on data analysis
+        1. Use the Data Processing Tool to analyze data sets.
+        2. Process and analyze relevant business data sets
+        3. Identify key performance indicators and metrics
+        4. Discover patterns, trends, and anomalies in the data
+        5. Generate data-driven insights and recommendations
+        6. Create visualizations and summaries of findings
+        7. Assess data quality and reliability
+        8. Provide actionable recommendations based on data analysis
 
         Focus on transforming data into strategic business insights.""",
         expected_output="Data analysis report with insights, visualizations, and data-driven recommendations.",
@@ -50,13 +52,14 @@ def create_strategy_consulting_task(agent) -> Task:
     """Create strategy consulting task for strategic planning."""
     return Task(
         description="""Develop strategic recommendations and business roadmap for: {topic}
-        1. Synthesize market research and data analysis findings
-        2. Identify strategic opportunities and challenges
-        3. Develop strategic recommendations and action plans
-        4. Create business roadmap with milestones and timelines
-        5. Assess resource requirements and implementation considerations
-        6. Evaluate risks and mitigation strategies
-        7. Provide strategic guidance for achieving business objectives
+        1. Use the Market Analyzer Tool to inform strategy.
+        2. Synthesize market research and data analysis findings
+        3. Identify strategic opportunities and challenges
+        4. Develop strategic recommendations and action plans
+        5. Create business roadmap with milestones and timelines
+        6. Assess resource requirements and implementation considerations
+        7. Evaluate risks and mitigation strategies
+        8. Provide strategic guidance for achieving business objectives
 
         Focus on creating actionable strategic plans that drive business success.""",
         expected_output="Strategic plan with recommendations, roadmap, and implementation guidance.",
@@ -69,13 +72,14 @@ def create_financial_analysis_task(agent) -> Task:
     """Create financial analysis task for financial modeling."""
     return Task(
         description="""Perform financial analysis and modeling related to: {topic}
-        1. Analyze financial performance and key financial metrics
-        2. Create financial models and projections
-        3. Assess financial health and viability
-        4. Evaluate investment requirements and returns
-        5. Analyze cost structures and profitability
-        6. Provide financial recommendations and risk assessment
-        7. Create financial summaries and forecasts
+        1. Use the Financial Modeling Tool and Data Processing Tool.
+        2. Analyze financial performance and key financial metrics
+        3. Create financial models and projections
+        4. Assess financial health and viability
+        5. Evaluate investment requirements and returns
+        6. Analyze cost structures and profitability
+        7. Provide financial recommendations and risk assessment
+        8. Create financial summaries and forecasts
 
         Focus on financial insights that support strategic decision-making.""",
         expected_output="Financial analysis report with models, forecasts, and financial recommendations.",
@@ -88,13 +92,14 @@ def create_business_reporting_task(agent) -> Task:
     """Create business reporting task for executive summary."""
     return Task(
         description="""Create comprehensive executive business report on: {topic}
-        1. Synthesize all analysis findings (market, data, strategy, financial)
-        2. Create executive summary with key insights and recommendations
-        3. Structure report for executive audience
-        4. Highlight critical findings and strategic priorities
-        5. Provide clear action items and next steps
-        6. Ensure report is clear, concise, and actionable
-        7. Create presentation-ready format
+        1. Use the Business Report Generator Tool.
+        2. Synthesize all analysis findings (market, data, strategy, financial)
+        3. Create executive summary with key insights and recommendations
+        4. Structure report for executive audience
+        5. Highlight critical findings and strategic priorities
+        6. Provide clear action items and next steps
+        7. Ensure report is clear, concise, and actionable
+        8. Create presentation-ready format
 
         Write in clear, executive-level language suitable for C-level decision-makers.""",
         expected_output="Comprehensive executive business report with integrated insights, recommendations, and action plans.",

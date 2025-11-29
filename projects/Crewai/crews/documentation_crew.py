@@ -62,10 +62,11 @@ class DocumentationCrew:
 
         task_planning = Task(
             description="""Plan the documentation structure for: {topic}
-            1. Identify the target audience (devs, users, admins).
-            2. Define the required sections (e.g., Getting Started, API Ref, Tutorials).
-            3. Create a detailed Table of Contents.
-            4. Define terminology and conventions.""",
+            1. Use the Document Structure Tool to create the outline.
+            2. Identify the target audience (devs, users, admins).
+            3. Define the required sections (e.g., Getting Started, API Ref, Tutorials).
+            4. Create a detailed Table of Contents.
+            5. Define terminology and conventions.""",
             expected_output="Documentation plan and table of contents.",
             agent=doc_architect,
             output_file=config.get_output_path("docs_plan.md")
@@ -73,10 +74,11 @@ class DocumentationCrew:
 
         task_writing = Task(
             description="""Write the core documentation based on the plan for: {topic}
-            1. Draft content for each section.
-            2. Include code examples and prerequisites.
-            3. Use clear headings and lists.
-            4. Address common user pain points.""",
+            1. Use the Code Example Generator Tool for code snippets.
+            2. Draft content for each section.
+            3. Include code examples and prerequisites.
+            4. Use clear headings and lists.
+            5. Address common user pain points.""",
             expected_output="Draft documentation content.",
             agent=technical_writer,
             context=[task_planning],
@@ -85,10 +87,11 @@ class DocumentationCrew:
 
         task_editing = Task(
             description="""Review and polish the documentation for: {topic}
-            1. Check for clarity, flow, and tone.
-            2. Verify technical accuracy (where possible).
-            3. Fix grammar and style issues.
-            4. Format for final publication (Markdown).""",
+            1. Use the Documentation Validator Tool and Markdown Formatter Tool.
+            2. Check for clarity, flow, and tone.
+            3. Verify technical accuracy (where possible).
+            4. Fix grammar and style issues.
+            5. Format for final publication (Markdown).""",
             expected_output="Final, polished technical documentation.",
             agent=doc_editor,
             context=[task_planning, task_writing],

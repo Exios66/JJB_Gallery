@@ -69,10 +69,11 @@ class ResearchCrew:
 
         task_deep_dive = Task(
             description="""Conduct a deep-dive research investigation into: {topic}
-            1. Define the core concepts and key players.
-            2. Identify the major challenges and current solutions.
-            3. Gather statistics and concrete data points.
-            4. List authoritative sources and references.""",
+            1. Use the Data Gathering Tool to collect information from multiple sources.
+            2. Define the core concepts and key players.
+            3. Identify the major challenges and current solutions.
+            4. Gather statistics and concrete data points.
+            5. List authoritative sources and references.""",
             expected_output="Detailed research dossier with verified facts and sources.",
             agent=lead_researcher,
             output_file=config.get_output_path("research_dossier.md")
@@ -80,10 +81,11 @@ class ResearchCrew:
 
         task_trends = Task(
             description="""Analyze current and future trends related to: {topic}
-            1. Identify recent shifts (last 12 months).
-            2. Predict near-term developments (next 6-18 months).
-            3. Analyze the impact of these trends on the broader ecosystem.
-            4. Highlight opportunities and risks.""",
+            1. Use the Trend Analyzer Tool to identify patterns and shifts.
+            2. Identify recent shifts (last 12 months).
+            3. Predict near-term developments (next 6-18 months).
+            4. Analyze the impact of these trends on the broader ecosystem.
+            5. Highlight opportunities and risks.""",
             expected_output="Trend analysis report with market predictions.",
             agent=trend_analyst,
             output_file=config.get_output_path("trend_analysis.md")
@@ -91,10 +93,11 @@ class ResearchCrew:
 
         task_synthesis = Task(
             description="""Synthesize the research dossier and trend analysis into a final report on: {topic}
-            1. Create an executive summary.
-            2. Integrate the deep-dive facts with the forward-looking trends.
-            3. Ensure a logical flow and professional tone.
-            4. Conclude with actionable insights.""",
+            1. Use the Research Synthesis Tool to compile findings.
+            2. Create an executive summary.
+            3. Integrate the deep-dive facts with the forward-looking trends.
+            4. Ensure a logical flow and professional tone.
+            5. Conclude with actionable insights.""",
             expected_output="Comprehensive research report suitable for strategic planning.",
             agent=research_writer,
             context=[task_deep_dive, task_trends],
