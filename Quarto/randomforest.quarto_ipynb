@@ -1,0 +1,318 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "---\n",
+        "title: \"Random Forests in Practice\"\n",
+        "author: \"Data Science Lab\"\n",
+        "date: \"2025-11-21\"\n",
+        "format:\n",
+        "  html:\n",
+        "    toc: true\n",
+        "    toc-title: \"Contents\"\n",
+        "    toc-depth: 2\n",
+        "    code-fold: true\n",
+        "  pdf:\n",
+        "    toc: true\n",
+        "execute:\n",
+        "  echo: true\n",
+        "  warning: false\n",
+        "  message: false\n",
+        "---\n",
+        "\n",
+        "## Overview\n",
+        "\n",
+        "Random forests are ensemble models that aggregate many decision trees to reduce variance and improve generalization.[^breiman2001] This document walks through training and interpreting a random forest classifier in Python, with a mix of narrative, math, and visuals.\n",
+        "\n",
+        "## Mathematical Model\n",
+        "\n",
+        "Each tree $T_b$ is trained on a bootstrap sample $\\mathcal{D}_b$ and a random subset of features. The forest prediction for a classification task with $B$ trees is the majority vote:\n",
+        "\n",
+        "$$\n",
+        "\\hat{y} = \\mathrm{mode}\\left(\\{T_b(\\mathbf{x})\\}_{b=1}^{B}\\right)\n",
+        "$$\n",
+        "\n",
+        "For regression, the trees are averaged:\n",
+        "\n",
+        "$$\n",
+        "\\hat{y} = \\frac{1}{B}\\sum_{b=1}^{B} T_b(\\mathbf{x})\n",
+        "$$\n",
+        "\n",
+        "The randomization across bootstrapped data and feature subsampling drives decorrelation between trees, delivering lower variance than single-tree models.\n",
+        "\n",
+        "## Environment Setup"
+      ],
+      "id": "a241035c"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "import importlib\n",
+        "import subprocess\n",
+        "import sys\n",
+        "\n",
+        "def ensure(package):\n",
+        "    try:\n",
+        "        importlib.import_module(package)\n",
+        "    except ImportError:\n",
+        "        subprocess.check_call([sys.executable, \"-m\", \"pip\", \"install\", package])\n",
+        "\n",
+        "for pkg in (\"numpy\", \"pandas\", \"seaborn\", \"matplotlib\", \"scikit-learn\"):\n",
+        "    ensure(pkg)"
+      ],
+      "id": "43ff49aa",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "import numpy as np\n",
+        "import pandas as pd\n",
+        "import seaborn as sns\n",
+        "import matplotlib.pyplot as plt\n",
+        "\n",
+        "from sklearn.datasets import load_breast_cancer\n",
+        "from sklearn.model_selection import train_test_split, cross_val_score\n",
+        "from sklearn.ensemble import RandomForestClassifier\n",
+        "from sklearn.metrics import RocCurveDisplay, ConfusionMatrixDisplay, classification_report\n",
+        "\n",
+        "sns.set_theme(style=\"whitegrid\")"
+      ],
+      "id": "73b0565d",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Data Loading and Preparation\n",
+        "\n",
+        "We will use the Breast Cancer Wisconsin dataset bundled with scikit-learn, which contains 30 features computed from digitized fine needle aspirate images.[^sklearn_breast]"
+      ],
+      "id": "c1da5b0f"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "dataset = load_breast_cancer(as_frame=True)\n",
+        "df = dataset.frame\n",
+        "df.head()"
+      ],
+      "id": "255b06ab",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "Split the data into training and testing sets (stratified to maintain label balance)."
+      ],
+      "id": "bfba0de8"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "X_train, X_test, y_train, y_test = train_test_split(\n",
+        "    df.drop(columns=\"target\"),\n",
+        "    df[\"target\"],\n",
+        "    test_size=0.25,\n",
+        "    random_state=42,\n",
+        "    stratify=df[\"target\"]\n",
+        ")\n",
+        "\n",
+        "X_train.shape, X_test.shape"
+      ],
+      "id": "2b8d6cae",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Model Training"
+      ],
+      "id": "213f261f"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "rf = RandomForestClassifier(\n",
+        "    n_estimators=400,\n",
+        "    max_features=\"sqrt\",\n",
+        "    min_samples_leaf=2,\n",
+        "    random_state=42,\n",
+        "    n_jobs=-1\n",
+        ")\n",
+        "rf.fit(X_train, y_train)"
+      ],
+      "id": "2c85490e",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "Evaluate cross-validated training performance to estimate generalization ability."
+      ],
+      "id": "04ffdcc5"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "cv_scores = cross_val_score(rf, X_train, y_train, cv=5)\n",
+        "cv_scores.mean(), cv_scores.std()"
+      ],
+      "id": "a1c4fbdd",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Diagnostics"
+      ],
+      "id": "6aa14511"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "y_pred = rf.predict(X_test)\n",
+        "print(classification_report(y_test, y_pred, target_names=dataset.target_names))"
+      ],
+      "id": "0f890a69",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "### Receiver Operating Characteristic"
+      ],
+      "id": "bfd4fd2d"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "fig, ax = plt.subplots(figsize=(6, 4))\n",
+        "RocCurveDisplay.from_estimator(rf, X_test, y_test, ax=ax)\n",
+        "ax.set_title(\"Random Forest ROC Curve\")\n",
+        "plt.tight_layout()"
+      ],
+      "id": "49c1a172",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "### Confusion Matrix"
+      ],
+      "id": "c269e79f"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "fig, ax = plt.subplots(figsize=(4, 4))\n",
+        "ConfusionMatrixDisplay.from_estimator(rf, X_test, y_test, display_labels=dataset.target_names, ax=ax, cmap=\"Blues\")\n",
+        "ax.set_title(\"Confusion Matrix\")\n",
+        "plt.tight_layout()"
+      ],
+      "id": "516c939a",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Feature Importance Visualization"
+      ],
+      "id": "bb08d9f6"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "importances = pd.Series(rf.feature_importances_, index=df.columns[:-1]).sort_values(ascending=False)\n",
+        "top_features = importances.head(15)\n",
+        "\n",
+        "try:\n",
+        "    sns\n",
+        "except NameError:\n",
+        "    import seaborn as sns\n",
+        "    sns.set_theme(style=\"whitegrid\")\n",
+        "\n",
+        "plt.figure(figsize=(8, 5))\n",
+        "sns.barplot(x=top_features.values, y=top_features.index, palette=\"viridis\")\n",
+        "plt.title(\"Top 15 Feature Importances\")\n",
+        "plt.xlabel(\"Gini Importance\")\n",
+        "plt.ylabel(\"Feature\")\n",
+        "plt.tight_layout()"
+      ],
+      "id": "5adfa2b7",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Hyperparameter Considerations\n",
+        "\n",
+        "- `n_estimators`: Increasing trees generally improves stability until diminishing returns set in.\n",
+        "- `max_depth` or `min_samples_leaf`: Control tree complexity, mitigating overfitting.\n",
+        "- `max_features`: Governs the degree of feature randomness; `sqrt` is typical for classification.\n",
+        "- `class_weight`: Useful for imbalanced datasets to penalize misclassification of minority classes.\n",
+        "\n",
+        "Grid search or Bayesian optimization can systematically explore these settings.[^bergstra2012]\n",
+        "\n",
+        "## Practical Tips\n",
+        "\n",
+        "- **Feature scaling**: Not required because trees are invariant to monotonic transformations.\n",
+        "- **Missing values**: scikit-learn's implementation does not handle NaNs; impute beforehand.\n",
+        "- **Interpretability**: Use SHAP values or permutation importance for richer explanations.\n",
+        "- **Out-of-bag (OOB) estimates**: Enable `oob_score=True` to get a built-in validation metric without a separate hold-out set.\n",
+        "\n",
+        "## References\n",
+        "\n",
+        "- Breiman, L. (2001). Random forests. *Machine Learning*, 45(1), 5–32. [https://doi.org/10.1023/A:1010933404324](https://doi.org/10.1023/A:1010933404324)^[^breiman2001]\n",
+        "- scikit-learn Breast Cancer Dataset docs. [https://scikit-learn.org/stable/datasets/toy_dataset.html](https://scikit-learn.org/stable/datasets/toy_dataset.html)^[^sklearn_breast]\n",
+        "- Bergstra, J., & Bengio, Y. (2012). Random search for hyper-parameter optimization. *Journal of Machine Learning Research*, 13, 281–305. [https://jmlr.org/papers/v13/bergstra12a.html](https://jmlr.org/papers/v13/bergstra12a.html)^[^bergstra2012]\n",
+        "\n",
+        "[^breiman2001]: Introduced the random forest algorithm with theoretical justification and empirical benchmarks.\n",
+        "[^sklearn_breast]: Official description of the dataset, feature definitions, and usage considerations.\n",
+        "[^bergstra2012]: Demonstrated the efficiency gains of random search over grid search for hyperparameter tuning.\n"
+      ],
+      "id": "0fc5d683"
+    }
+  ],
+  "metadata": {
+    "kernelspec": {
+      "name": "python3",
+      "language": "python",
+      "display_name": "Python 3 (ipykernel)",
+      "path": "/Users/luciusjmorningstar/Desktop/GIT-REPOSITORY/JJB_Gallery/.venv/share/jupyter/kernels/python3"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 5
+}
