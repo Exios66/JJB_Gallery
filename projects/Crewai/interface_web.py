@@ -20,6 +20,7 @@ configure_crewai_environment()
 
 from main import run_analysis, get_crew_class
 from router import MetaRouter
+from ui_config import CREW_TOOLS
 
 st.set_page_config(page_title="CrewAI Swarm Chat", page_icon="🤖", layout="wide")
 
@@ -42,9 +43,23 @@ with st.sidebar:
             "business_intelligence", "dev_code", "documentation"
         ]
         selected_crew = st.selectbox("Select Swarm", crew_options)
+        
+        # Show tools for selected crew
+        if selected_crew in CREW_TOOLS:
+            with st.expander("🛠️ Available Tools", expanded=False):
+                for tool in CREW_TOOLS[selected_crew]:
+                    st.markdown(f"- `{tool}`")
     else:
         selected_crew = None
         st.info("Meta-Agent will analyze your message to pick the best swarm.")
+        
+        # Show all tools
+        with st.expander("🛠️ All System Tools", expanded=False):
+            st.markdown("**Total Tools Available: 31**")
+            for crew, tools in CREW_TOOLS.items():
+                st.markdown(f"**{crew.replace('_', ' ').title()} Swarm:**")
+                for tool in tools:
+                    st.markdown(f"- `{tool}`")
 
     input_mode = st.radio(
         "Input Mode",

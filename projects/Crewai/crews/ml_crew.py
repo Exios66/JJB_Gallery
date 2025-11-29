@@ -71,10 +71,11 @@ class MLCrew:
 
         task_eda = Task(
             description="""Perform comprehensive Exploratory Data Analysis (EDA) on the dataset related to: {topic}
-            1. Analyze data distribution, missing values, and outliers.
-            2. Identify correlations and potential data quality issues.
-            3. Propose specific feature engineering steps.
-            4. assess class balance (if classification) or target distribution.""",
+            1. Use the DatasetAnalyzerTool to analyze the data structure.
+            2. Analyze data distribution, missing values, and outliers.
+            3. Identify correlations and potential data quality issues.
+            4. Propose specific feature engineering steps.
+            5. assess class balance (if classification) or target distribution.""",
             expected_output="Detailed EDA report with data quality assessment and feature engineering plan.",
             agent=data_scientist,
             output_file=config.get_output_path("ml_eda_report.md")
@@ -82,10 +83,11 @@ class MLCrew:
 
         task_training = Task(
             description="""Based on the EDA, design and train a Random Forest model for: {topic}
-            1. Implement the proposed feature engineering.
-            2. Select initial hyperparameters.
-            3. Train the model using cross-validation.
-            4. Explore hyperparameter optimization strategies.""",
+            1. Use the HyperparameterOptimizerTool to find optimal settings.
+            2. Implement the proposed feature engineering.
+            3. Select initial hyperparameters.
+            4. Train the model using cross-validation.
+            5. Explore hyperparameter optimization strategies.""",
             expected_output="Model training log with selected hyperparameters and cross-validation scores.",
             agent=ml_engineer,
             context=[task_eda],
@@ -94,10 +96,12 @@ class MLCrew:
 
         task_evaluation = Task(
             description="""Evaluate the trained model's performance:
-            1. Analyze precision, recall, F1-score, or RMSE/MAE.
-            2. Generate and interpret feature importance plots.
-            3. Check for overfitting or underfitting.
-            4. Provide recommendations for model improvement.""",
+            1. Use the ModelEvaluatorTool to generate metrics.
+            2. Use the FeatureImportanceTool to explain model decisions.
+            3. Analyze precision, recall, F1-score, or RMSE/MAE.
+            4. Generate and interpret feature importance plots.
+            5. Check for overfitting or underfitting.
+            6. Provide recommendations for model improvement.""",
             expected_output="Comprehensive model evaluation report with metrics and feature importance analysis.",
             agent=model_evaluator,
             context=[task_training],
