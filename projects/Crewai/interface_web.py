@@ -11,9 +11,15 @@ from pathlib import Path
 # Add project root to path
 sys.path.insert(0, str(Path(__file__).parent))
 
+# Import config first to set up LLM environment
+from config import config
+from llm_config import configure_crewai_environment, get_setup_instructions
+
+# Configure LLM provider on startup
+configure_crewai_environment()
+
 from main import run_analysis, get_crew_class
 from router import MetaRouter
-from config import config
 
 st.set_page_config(page_title="CrewAI Swarm Chat", page_icon="🤖", layout="wide")
 

@@ -43,7 +43,6 @@ def create_data_analysis_task(agent) -> Task:
         expected_output="Data analysis report with insights, visualizations, and data-driven recommendations.",
         agent=agent,
         output_file=config.get_output_path("data_analysis_report.md"),
-        context=[create_market_research_task.__name__],
     )
 
 
@@ -63,10 +62,6 @@ def create_strategy_consulting_task(agent) -> Task:
         expected_output="Strategic plan with recommendations, roadmap, and implementation guidance.",
         agent=agent,
         output_file=config.get_output_path("strategic_plan_report.md"),
-        context=[
-            create_market_research_task.__name__,
-            create_data_analysis_task.__name__,
-        ],
     )
 
 
@@ -86,10 +81,6 @@ def create_financial_analysis_task(agent) -> Task:
         expected_output="Financial analysis report with models, forecasts, and financial recommendations.",
         agent=agent,
         output_file=config.get_output_path("financial_analysis_report.md"),
-        context=[
-            create_market_research_task.__name__,
-            create_data_analysis_task.__name__,
-        ],
     )
 
 
@@ -109,12 +100,6 @@ def create_business_reporting_task(agent) -> Task:
         expected_output="Comprehensive executive business report with integrated insights, recommendations, and action plans.",
         agent=agent,
         output_file=config.get_output_path("executive_business_report.md"),
-        context=[
-            create_market_research_task.__name__,
-            create_data_analysis_task.__name__,
-            create_strategy_consulting_task.__name__,
-            create_financial_analysis_task.__name__,
-        ],
     )
 
 
@@ -127,10 +112,23 @@ def get_business_intelligence_workflow_tasks(agents: Dict[str, Any]) -> List[Tas
     Returns:
         List of tasks in execution order
     """
+    # Create tasks in order
+    task_market_research = create_market_research_task(agents["market_researcher"])
+    task_data_analysis = create_data_analysis_task(agents["data_analyst"])
+    task_strategy = create_strategy_consulting_task(agents["strategy_consultant"])
+    task_financial = create_financial_analysis_task(agents["financial_analyst"])
+    task_reporting = create_business_reporting_task(agents["business_reporter"])
+    
+    # Update context with actual task objects
+    task_data_analysis.context = [task_market_research]
+    task_strategy.context = [task_market_research, task_data_analysis]
+    task_financial.context = [task_market_research, task_data_analysis]
+    task_reporting.context = [task_market_research, task_data_analysis, task_strategy, task_financial]
+    
     return [
-        create_market_research_task(agents["market_researcher"]),
-        create_data_analysis_task(agents["data_analyst"]),
-        create_strategy_consulting_task(agents["strategy_consultant"]),
-        create_financial_analysis_task(agents["financial_analyst"]),
-        create_business_reporting_task(agents["business_reporter"]),
+        task_market_research,
+        task_data_analysis,
+        task_strategy,
+        task_financial,
+        task_reporting,
     ]

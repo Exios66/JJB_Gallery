@@ -22,12 +22,14 @@ from crews import (
 )
 try:
     from config import config
+    from llm_config import get_setup_instructions, get_llm_for_agent
 except ImportError:
     # Fallback for when running as a module
     import sys
     from pathlib import Path
     sys.path.insert(0, str(Path(__file__).parent))
     from config import config
+    from llm_config import get_setup_instructions, get_llm_for_agent
 
 
 def setup_environment():
@@ -35,30 +37,54 @@ def setup_environment():
     print("🔧 Setting up CrewAI ML Agent Swarm...")
     print("=" * 60)
 
-    # Check environment configuration
-    env_status = MLCrew.validate_environment()
+    # Check environment configuration using new multi-provider system
+    env_status = config.validate_environment()
 
-    print("Environment Check:")
-    for key, configured in env_status.items():
-        status = "✅" if configured else "❌"
-        print(f"  {status} {key}")
+    print("\n📊 LLM Provider Status:")
+    print("-" * 60)
+    
+    providers = config.get_available_providers()
+    for provider_name, description, is_available in providers:
+        status = "✅" if is_available else "❌"
+        print(f"  {status} {description}")
+    
+    # Show detected provider
+    detected_provider = env_status.get("_DETECTED_PROVIDER")
+    if detected_provider:
+        print(f"\n🎯 Auto-detected provider: {detected_provider.upper()}")
+        if detected_provider == "ollama":
+            print("   💰 Using FREE local model - no API costs!")
+    else:
+        print("\n❌ No LLM provider detected!")
 
-    all_configured = all(env_status.values())
-
-    if not all_configured:
-        print("\n⚠️  Missing API keys detected!")
-        print("Please set up your environment variables:")
-        print("1. Copy config/.env.example to .env")
-        print("2. Fill in your API keys (at minimum OPENAI_API_KEY)")
-        print("3. For web search: add SERPER_API_KEY")
-        print("\nAlternatively, set environment variables directly.")
-
-        if not env_status["OPENAI_API_KEY"]:
-            print("\n💡 For local models (Ollama):")
-            print("  Set OPENAI_API_BASE=http://localhost:11434/v1")
-            print("  Set OPENAI_MODEL_NAME=your-model-name")
-            return False
-
+    # Check if at least one provider is available
+    has_llm_provider = env_status.get("LLM_PROVIDER", False)
+    
+    # Check web search (optional)
+    has_search = env_status.get("SERPER_API_KEY", False)
+    
+    if not has_llm_provider:
+        print("\n" + "=" * 60)
+        print("⚠️  NO LLM PROVIDER CONFIGURED!")
+        print("=" * 60)
+        print(get_setup_instructions())
+        print("\n💡 RECOMMENDATION: Use Ollama (FREE, local, no API costs)")
+        print("   Quick start: https://ollama.ai → Install → ollama pull llama3.1:8b")
+        return False
+    else:
+        # Try to initialize LLM to verify it works
+        print("\n🔍 Verifying LLM connection...")
+        llm = get_llm_for_agent()
+        if llm:
+            print("✅ LLM configured successfully!")
+        else:
+            print("⚠️  LLM configuration available but failed to initialize")
+            print("   Check your provider settings and ensure required packages are installed")
+    
+    if not has_search:
+        print("\n⚠️  SERPER_API_KEY not set - web search features will be limited")
+        print("   (Optional) Get free API key: https://serper.dev")
+    
     print("\n✅ Environment setup complete!")
     return True
 
@@ -142,8 +168,8 @@ def show_status():
     print("=" * 50)
 
     # Check environment
-    env_status = MLCrew.validate_environment()
-    env_ready = all(env_status.values())
+    env_status = config.validate_environment()
+    env_ready = env_status.get("LLM_PROVIDER", False)
 
     print(f"Environment Ready: {'✅' if env_ready else '❌'}")
     print(f"API Keys Configured: {sum(env_status.values())}/4")
@@ -190,6 +216,7 @@ def main():
             print("Commands:")
             print("  (no args)          Run ML analysis workflow")
             print("  --setup            Setup environment and validate configuration")
+            print("  --setup-llm        Show LLM provider setup instructions")
             print("  --status           Show current status and configuration")
             print("  --list-crews       List all available crew types")
             print("  --run <crew_type>  Run specific crew workflow")
@@ -210,6 +237,10 @@ def main():
             if success:
                 print("\n🎯 Ready to run agent swarms!")
                 print("Execute: python main.py --run ml")
+            return
+
+        elif command == "--setup-llm":
+            print(get_setup_instructions())
             return
 
         elif command == "--status":

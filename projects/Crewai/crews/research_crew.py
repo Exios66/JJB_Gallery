@@ -110,3 +110,9 @@ class ResearchCrew:
     @staticmethod
     def get_status() -> Dict[str, Any]:
         return {"agents_available": 3}
+    
+    @staticmethod
+    def validate_environment() -> Dict[str, bool]:
+        """Validate environment configuration (delegates to config)."""
+        from config import config
+        return config.validate_environment()

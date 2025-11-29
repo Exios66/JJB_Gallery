@@ -144,3 +144,14 @@ class BusinessIntelligenceCrew:
             "operational_efficiency",
             "customer_satisfaction",
         ]
+    
+    @staticmethod
+    def get_status() -> Dict[str, Any]:
+        """Get crew status information."""
+        return {"agents_available": 5}
+    
+    @staticmethod
+    def validate_environment() -> Dict[str, bool]:
+        """Validate environment configuration (delegates to config)."""
+        from config import config
+        return config.validate_environment()
