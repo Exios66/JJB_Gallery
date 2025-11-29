@@ -16,3 +16,15 @@ lightgbm
 catboost
 polars
 scipy
+quarto-cli
+pip
+importlib-metadata
+tabulate
+ipython
+ipywidgets
+nbconvert
+nbformat
+jupyter-contrib-nbextensions
+shap
+crewai
+crewai-tools
