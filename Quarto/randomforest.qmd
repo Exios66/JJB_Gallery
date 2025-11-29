@@ -5,6 +5,7 @@ date: "2025-11-21"
 format:
   html:
     toc: true
+    toc-location: left
     toc-title: "Contents"
     toc-depth: 2
     code-fold: true
