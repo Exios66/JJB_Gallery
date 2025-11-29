@@ -209,3 +209,6 @@ __marimo__/
 # macOS resource fork files
 ._*
 .DS_Store
+
+# Cloud sandbox configuration (sensitive info)
+.cloud_sandbox/config.env
