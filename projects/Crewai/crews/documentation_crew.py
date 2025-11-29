@@ -5,7 +5,7 @@ Manages technical writing, editing, and documentation architecture.
 
 from crewai import Crew, Process, Agent, Task  # type: ignore
 from typing import Dict, Any, Optional, List
-from ..config import config
+from config import config
 
 
 class DocumentationCrew:

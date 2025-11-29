@@ -5,8 +5,8 @@ Manages machine learning analysis and random forest evaluation with a specialize
 
 from crewai import Crew, Process, Agent, Task  # type: ignore
 from typing import Dict, Any, Optional, List
-from ..config import config
-from ..tools.ml_tools import DatasetAnalyzerTool, ModelEvaluatorTool, FeatureImportanceTool, HyperparameterOptimizerTool
+from config import config
+from tools.ml_tools import DatasetAnalyzerTool, ModelEvaluatorTool, FeatureImportanceTool, HyperparameterOptimizerTool
 
 
 class MLCrew:

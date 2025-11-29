@@ -5,7 +5,7 @@ Contains tasks for complete ML research analysis workflow.
 
 from crewai import Task  # type: ignore
 from typing import List, Dict, Any, Optional
-from ..config import config
+from config import config
 
 
 def create_literature_review_task(agent) -> Task:

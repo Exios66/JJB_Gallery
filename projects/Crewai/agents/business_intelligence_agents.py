@@ -5,7 +5,7 @@ Specialized agents for market research, data analysis, strategy, finance, and re
 
 from crewai import Agent  # type: ignore
 from crewai_tools import SerperDevTool  # type: ignore
-from ..config import config
+from config import config
 
 
 class MarketResearcherAgent:

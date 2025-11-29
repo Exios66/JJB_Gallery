@@ -5,7 +5,7 @@ Manages business analysis, market research, and strategic insights workflows.
 
 from crewai import Crew, Process  # type: ignore
 from typing import Dict, Any, Optional, List
-from ..config import config
+from config import config
 
 
 class BusinessIntelligenceCrew:
@@ -25,7 +25,7 @@ class BusinessIntelligenceCrew:
     def _create_agents(self) -> Dict[str, Any]:
         """Create all specialized business intelligence agents."""
         # Import here to avoid circular imports
-        from ..agents.business_intelligence_agents import (  # type: ignore
+        from agents.business_intelligence_agents import (  # type: ignore
             MarketResearcherAgent,
             DataAnalystAgent,
             StrategyConsultantAgent,
@@ -44,7 +44,7 @@ class BusinessIntelligenceCrew:
     def _create_tasks(self) -> List[Any]:
         """Create the business intelligence workflow tasks."""
         # Import here to avoid circular imports
-        from ..tasks.business_intelligence_tasks import get_business_intelligence_workflow_tasks  # type: ignore
+        from tasks.business_intelligence_tasks import get_business_intelligence_workflow_tasks  # type: ignore
         return get_business_intelligence_workflow_tasks(self.agents)
 
     def _create_crew(self) -> Crew:

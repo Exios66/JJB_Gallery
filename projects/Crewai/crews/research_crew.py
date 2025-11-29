@@ -6,7 +6,7 @@ Manages general research tasks, trend analysis, and synthesis.
 from crewai import Crew, Process, Agent, Task  # type: ignore
 from crewai_tools import SerperDevTool  # type: ignore
 from typing import Dict, Any, Optional, List
-from ..config import config
+from config import config
 
 
 class ResearchCrew:

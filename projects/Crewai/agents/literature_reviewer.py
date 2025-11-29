@@ -5,7 +5,7 @@ Specializes in academic research, papers, and scholarly analysis.
 
 from crewai import Agent  # type: ignore
 from crewai_tools import SerperDevTool  # type: ignore
-from ..config import config
+from config import config
 
 
 class LiteratureReviewerAgent:

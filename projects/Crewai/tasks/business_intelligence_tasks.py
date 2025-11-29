@@ -5,7 +5,7 @@ Contains tasks for complete business intelligence analysis workflow.
 
 from crewai import Task  # type: ignore
 from typing import List, Dict, Any
-from ..config import config
+from config import config
 
 
 def create_market_research_task(agent) -> Task:
