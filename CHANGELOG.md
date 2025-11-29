@@ -14,6 +14,7 @@
 ### Added in v1.0
 
 #### Initial release
+
 - Added requirements.txt with the following dependencies:
   - numpy
   - pandas
