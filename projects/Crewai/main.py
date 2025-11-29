@@ -22,14 +22,17 @@ from crews import (
 )
 try:
     from config import config
-    from llm_config import get_setup_instructions, get_llm_for_agent
+    from llm_config import get_setup_instructions, get_llm_for_agent, configure_crewai_environment
 except ImportError:
     # Fallback for when running as a module
     import sys
     from pathlib import Path
     sys.path.insert(0, str(Path(__file__).parent))
     from config import config
-    from llm_config import get_setup_instructions, get_llm_for_agent
+    from llm_config import get_setup_instructions, get_llm_for_agent, configure_crewai_environment
+
+# Configure LLM environment on import
+configure_crewai_environment()
 
 
 def setup_environment():
