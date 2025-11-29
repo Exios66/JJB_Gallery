@@ -162,6 +162,7 @@ The setup_git_ssh.sh script configures SSH keys for GitHub and switches your rep
 ### After Setup
 
 Once configured:
+
 - All `git push/pull` operations use SSH
 - No password prompts required
 - Works seamlessly with `gh` CLI commands
@@ -170,6 +171,7 @@ Once configured:
 ### Current Status
 
 Your repository currently uses HTTPS protocol. To switch to SSH, run:
+
 ```bash
 ./scripts/setup_git_ssh.sh
 ```
@@ -180,19 +182,19 @@ For detailed Git protocol recommendations, see `docs/GIT_PROTOCOL_GUIDE.md`.
 
 The launch_codespace.sh script automatically creates and launches a GitHub Codespace in the free tier. This provides instant cloud development environment without manual setup.
 
-### Prerequisites
+### Required Tools & Setup
 
 - GitHub CLI (`gh`) installed
 - Repository pushed to GitHub
 - GitHub CLI authenticated (`gh auth login`)
 
-### Usage
+### How to Use
 
 ```bash
 ./scripts/launch_codespace.sh
 ```
 
-### What it does
+### What this script does
 
 1. ✅ Checks for GitHub CLI installation
 2. ✅ Verifies authentication
@@ -212,17 +214,20 @@ The launch_codespace.sh script automatically creates and launches a GitHub Codes
 ### Installation
 
 **macOS:**
+
 ```bash
 brew install gh
 gh auth login
 ```
 
 **Linux:**
+
 ```bash
 # See https://cli.github.com/manual/installation
 ```
 
 **Windows:**
+
 ```bash
 winget install GitHub.cli
 gh auth login
@@ -231,6 +236,7 @@ gh auth login
 ### Troubleshooting
 
 If the script fails:
+
 - Ensure repository is pushed: `git push -u origin main`
 - Verify authentication: `gh auth status`
 - Check Codespace quota: `gh api user/codespaces`

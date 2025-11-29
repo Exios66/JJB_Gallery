@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.8.24">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <meta name="author" content="Jack J. Burleson">
 <meta name="dcterms.date" content="2025-11-17">
@@ -22,8 +22,14 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+* {
+  box-sizing: border-box;
+}
 /* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -52,8 +58,11 @@ pre.numberSource code > span > a:first-child::before
     padding: 0 4px; width: 4em;
   }
 pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
+/* Table column widths for decision guide */
+#decision-guide colgroup col:nth-child(1) { width: 24%; }
+#decision-guide colgroup col:nth-child(2) { width: 22%; }
+#decision-guide colgroup col:nth-child(3) { width: 24%; }
+#decision-guide colgroup col:nth-child(4) { width: 28%; }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
@@ -205,7 +214,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">Random Forest Algorithms: Applications to Large-Scale Datasets</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
+<div class="quarto-title-block"><div><h1 class="title">Random Forest Algorithms: Applications to Large-Scale Datasets</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
 <p class="subtitle lead">A Comprehensive Analysis of Ensemble Learning Methods</p>
 </div>
 
@@ -1360,10 +1369,10 @@ Automatic feature selection through L1 regularization</code></pre>
 <h3 class="anchored" data-anchor-id="decision-guide">Decision Guide</h3>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 24%">
-<col style="width: 22%">
-<col style="width: 24%">
-<col style="width: 28%">
+<col>
+<col>
+<col>
+<col>
 </colgroup>
 <thead>
 <tr class="header">
