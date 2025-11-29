@@ -105,6 +105,28 @@ KILL_IDLE_PROCESSES=yes ./scripts/free_ram.sh
 - User preferences and settings
 - Active application data
 
+## 7. Rerender for GitHub Pages (rerender_gh_pages.sh)
+
+The rerender_gh_pages.sh script is designed to properly purge old artifacts and re-render the Quarto document for deployment to GitHub Pages. It ensures that the `index.html` in the root directory is correctly generated and that all resource files are in place.
+
+### Usage
+
+```bash
+./scripts/rerender_gh_pages.sh
+```
+
+### What it does
+
+1. ✅ Cleans up old `index.html` and Quarto cache/freeze directories.
+2. ✅ Activates the virtual environment (if available) to ensure correct dependencies.
+3. ✅ Renders the `Quarto/randomforest.qmd` file to HTML.
+4. ✅ Moves the output HTML to `index.html` in the repository root.
+5. ✅ Moves/updates the support files directory (`randomforest_files`) to the repository root.
+
+### When to use
+
+Run this script whenever you make changes to the Quarto document (`Quarto/randomforest.qmd`) and want to update the public-facing page on GitHub Pages.
+
 ## Virtual Environment Management
 
 Activate the Python virtual environment:
