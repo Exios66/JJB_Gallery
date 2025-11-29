@@ -70,6 +70,10 @@ table.caption-top colgroup col:nth-child(3) {
 table.caption-top colgroup col:nth-child(4) {
   width: 28%;
 }
+/* Navigation link styles - moved from inline styles */
+.nav-link {
+  width: 100%;
+}
 </style>
 
 
@@ -127,88 +131,88 @@ window.Quarto = {
    
   <ul>
   <li><a href="#abstract" id="toc-abstract" class="nav-link active" data-scroll-target="#abstract" style="width:100%; border-left:1px solid #0d6efd; color:#0d6efd !important">Abstract</a></li>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction" style="width:100%">Introduction</a>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a>
   <ul class="collapse">
-  <li><a href="#key-advantages" id="toc-key-advantages" class="nav-link" data-scroll-target="#key-advantages" style="width:100%">Key Advantages</a></li>
+  <li><a href="#key-advantages" id="toc-key-advantages" class="nav-link" data-scroll-target="#key-advantages">Key Advantages</a></li>
   </ul></li>
-  <li><a href="#theoretical-foundations" id="toc-theoretical-foundations" class="nav-link" data-scroll-target="#theoretical-foundations" style="width:100%">Theoretical Foundations</a>
+  <li><a href="#theoretical-foundations" id="toc-theoretical-foundations" class="nav-link" data-scroll-target="#theoretical-foundations">Theoretical Foundations</a>
   <ul class="collapse">
-  <li><a href="#bootstrap-aggregation-bagging" id="toc-bootstrap-aggregation-bagging" class="nav-link" data-scroll-target="#bootstrap-aggregation-bagging" style="width:100%">Bootstrap Aggregation (Bagging)</a></li>
-  <li><a href="#random-feature-selection" id="toc-random-feature-selection" class="nav-link" data-scroll-target="#random-feature-selection" style="width:100%">Random Feature Selection</a></li>
-  <li><a href="#mathematical-formulation" id="toc-mathematical-formulation" class="nav-link" data-scroll-target="#mathematical-formulation" style="width:100%">Mathematical Formulation</a></li>
+  <li><a href="#bootstrap-aggregation-bagging" id="toc-bootstrap-aggregation-bagging" class="nav-link" data-scroll-target="#bootstrap-aggregation-bagging">Bootstrap Aggregation (Bagging)</a></li>
+  <li><a href="#random-feature-selection" id="toc-random-feature-selection" class="nav-link" data-scroll-target="#random-feature-selection">Random Feature Selection</a></li>
+  <li><a href="#mathematical-formulation" id="toc-mathematical-formulation" class="nav-link" data-scroll-target="#mathematical-formulation">Mathematical Formulation</a></li>
   </ul></li>
-  <li><a href="#implementation-core-components" id="toc-implementation-core-components" class="nav-link" data-scroll-target="#implementation-core-components" style="width:100%">Implementation: Core Components</a>
+  <li><a href="#implementation-core-components" id="toc-implementation-core-components" class="nav-link" data-scroll-target="#implementation-core-components">Implementation: Core Components</a>
   <ul class="collapse">
-  <li><a href="#essential-libraries-and-setup" id="toc-essential-libraries-and-setup" class="nav-link" data-scroll-target="#essential-libraries-and-setup" style="width:100%">Essential Libraries and Setup</a></li>
-  <li><a href="#data-preparation-for-large-datasets" id="toc-data-preparation-for-large-datasets" class="nav-link" data-scroll-target="#data-preparation-for-large-datasets" style="width:100%">Data Preparation for Large Datasets</a></li>
-  <li><a href="#random-forest-classifier-critical-implementation" id="toc-random-forest-classifier-critical-implementation" class="nav-link" data-scroll-target="#random-forest-classifier-critical-implementation" style="width:100%">Random Forest Classifier: Critical Implementation</a></li>
-  <li><a href="#feature-importance-analysis" id="toc-feature-importance-analysis" class="nav-link" data-scroll-target="#feature-importance-analysis" style="width:100%">Feature Importance Analysis</a></li>
-  <li><a href="#hyperparameter-tuning-for-large-datasets" id="toc-hyperparameter-tuning-for-large-datasets" class="nav-link" data-scroll-target="#hyperparameter-tuning-for-large-datasets" style="width:100%">Hyperparameter Tuning for Large Datasets</a></li>
-  <li><a href="#random-forest-regressor-regression-applications" id="toc-random-forest-regressor-regression-applications" class="nav-link" data-scroll-target="#random-forest-regressor-regression-applications" style="width:100%">Random Forest Regressor: Regression Applications</a></li>
-  <li><a href="#handling-imbalanced-datasets" id="toc-handling-imbalanced-datasets" class="nav-link" data-scroll-target="#handling-imbalanced-datasets" style="width:100%">Handling Imbalanced Datasets</a></li>
+  <li><a href="#essential-libraries-and-setup" id="toc-essential-libraries-and-setup" class="nav-link" data-scroll-target="#essential-libraries-and-setup">Essential Libraries and Setup</a></li>
+  <li><a href="#data-preparation-for-large-datasets" id="toc-data-preparation-for-large-datasets" class="nav-link" data-scroll-target="#data-preparation-for-large-datasets">Data Preparation for Large Datasets</a></li>
+  <li><a href="#random-forest-classifier-critical-implementation" id="toc-random-forest-classifier-critical-implementation" class="nav-link" data-scroll-target="#random-forest-classifier-critical-implementation">Random Forest Classifier: Critical Implementation</a></li>
+  <li><a href="#feature-importance-analysis" id="toc-feature-importance-analysis" class="nav-link" data-scroll-target="#feature-importance-analysis">Feature Importance Analysis</a></li>
+  <li><a href="#hyperparameter-tuning-for-large-datasets" id="toc-hyperparameter-tuning-for-large-datasets" class="nav-link" data-scroll-target="#hyperparameter-tuning-for-large-datasets">Hyperparameter Tuning for Large Datasets</a></li>
+  <li><a href="#random-forest-regressor-regression-applications" id="toc-random-forest-regressor-regression-applications" class="nav-link" data-scroll-target="#random-forest-regressor-regression-applications">Random Forest Regressor: Regression Applications</a></li>
+  <li><a href="#handling-imbalanced-datasets" id="toc-handling-imbalanced-datasets" class="nav-link" data-scroll-target="#handling-imbalanced-datasets">Handling Imbalanced Datasets</a></li>
   </ul></li>
-  <li><a href="#performance-optimization-for-large-datasets" id="toc-performance-optimization-for-large-datasets" class="nav-link" data-scroll-target="#performance-optimization-for-large-datasets" style="width:100%">Performance Optimization for Large Datasets</a>
+  <li><a href="#performance-optimization-for-large-datasets" id="toc-performance-optimization-for-large-datasets" class="nav-link" data-scroll-target="#performance-optimization-for-large-datasets">Performance Optimization for Large Datasets</a>
   <ul class="collapse">
-  <li><a href="#incremental-learning-and-memory-efficiency" id="toc-incremental-learning-and-memory-efficiency" class="nav-link" data-scroll-target="#incremental-learning-and-memory-efficiency" style="width:100%">Incremental Learning and Memory Efficiency</a></li>
-  <li><a href="#parallel-processing-configuration" id="toc-parallel-processing-configuration" class="nav-link" data-scroll-target="#parallel-processing-configuration" style="width:100%">Parallel Processing Configuration</a></li>
+  <li><a href="#incremental-learning-and-memory-efficiency" id="toc-incremental-learning-and-memory-efficiency" class="nav-link" data-scroll-target="#incremental-learning-and-memory-efficiency">Incremental Learning and Memory Efficiency</a></li>
+  <li><a href="#parallel-processing-configuration" id="toc-parallel-processing-configuration" class="nav-link" data-scroll-target="#parallel-processing-configuration">Parallel Processing Configuration</a></li>
   </ul></li>
-  <li><a href="#datasets-for-random-forest-applications" id="toc-datasets-for-random-forest-applications" class="nav-link" data-scroll-target="#datasets-for-random-forest-applications" style="width:100%">Datasets for Random Forest Applications</a>
+  <li><a href="#datasets-for-random-forest-applications" id="toc-datasets-for-random-forest-applications" class="nav-link" data-scroll-target="#datasets-for-random-forest-applications">Datasets for Random Forest Applications</a>
   <ul class="collapse">
-  <li><a href="#publicly-available-large-scale-datasets" id="toc-publicly-available-large-scale-datasets" class="nav-link" data-scroll-target="#publicly-available-large-scale-datasets" style="width:100%">Publicly Available Large-Scale Datasets</a></li>
-  <li><a href="#dataset-loading-function" id="toc-dataset-loading-function" class="nav-link" data-scroll-target="#dataset-loading-function" style="width:100%">Dataset Loading Function</a></li>
+  <li><a href="#publicly-available-large-scale-datasets" id="toc-publicly-available-large-scale-datasets" class="nav-link" data-scroll-target="#publicly-available-large-scale-datasets">Publicly Available Large-Scale Datasets</a></li>
+  <li><a href="#dataset-loading-function" id="toc-dataset-loading-function" class="nav-link" data-scroll-target="#dataset-loading-function">Dataset Loading Function</a></li>
   </ul></li>
-  <li><a href="#further-machine-learning-resources" id="toc-further-machine-learning-resources" class="nav-link" data-scroll-target="#further-machine-learning-resources" style="width:100%">Further Machine Learning Resources</a>
+  <li><a href="#further-machine-learning-resources" id="toc-further-machine-learning-resources" class="nav-link" data-scroll-target="#further-machine-learning-resources">Further Machine Learning Resources</a>
   <ul class="collapse">
-  <li><a href="#online-courses-and-tutorials" id="toc-online-courses-and-tutorials" class="nav-link" data-scroll-target="#online-courses-and-tutorials" style="width:100%">Online Courses and Tutorials</a></li>
-  <li><a href="#books-and-textbooks" id="toc-books-and-textbooks" class="nav-link" data-scroll-target="#books-and-textbooks" style="width:100%">Books and Textbooks</a></li>
-  <li><a href="#software-and-libraries" id="toc-software-and-libraries" class="nav-link" data-scroll-target="#software-and-libraries" style="width:100%">Software and Libraries</a></li>
-  <li><a href="#research-communities" id="toc-research-communities" class="nav-link" data-scroll-target="#research-communities" style="width:100%">Research Communities</a></li>
+  <li><a href="#online-courses-and-tutorials" id="toc-online-courses-and-tutorials" class="nav-link" data-scroll-target="#online-courses-and-tutorials">Online Courses and Tutorials</a></li>
+  <li><a href="#books-and-textbooks" id="toc-books-and-textbooks" class="nav-link" data-scroll-target="#books-and-textbooks">Books and Textbooks</a></li>
+  <li><a href="#software-and-libraries" id="toc-software-and-libraries" class="nav-link" data-scroll-target="#software-and-libraries">Software and Libraries</a></li>
+  <li><a href="#research-communities" id="toc-research-communities" class="nav-link" data-scroll-target="#research-communities">Research Communities</a></li>
   </ul></li>
-  <li><a href="#literature-review" id="toc-literature-review" class="nav-link" data-scroll-target="#literature-review" style="width:100%">Literature Review</a>
+  <li><a href="#literature-review" id="toc-literature-review" class="nav-link" data-scroll-target="#literature-review">Literature Review</a>
   <ul class="collapse">
-  <li><a href="#foundational-papers" id="toc-foundational-papers" class="nav-link" data-scroll-target="#foundational-papers" style="width:100%">Foundational Papers</a></li>
-  <li><a href="#recent-advances-and-applications" id="toc-recent-advances-and-applications" class="nav-link" data-scroll-target="#recent-advances-and-applications" style="width:100%">Recent Advances and Applications</a></li>
-  <li><a href="#large-scale-applications" id="toc-large-scale-applications" class="nav-link" data-scroll-target="#large-scale-applications" style="width:100%">Large-Scale Applications</a></li>
-  <li><a href="#feature-importance-and-interpretability" id="toc-feature-importance-and-interpretability" class="nav-link" data-scroll-target="#feature-importance-and-interpretability" style="width:100%">Feature Importance and Interpretability</a></li>
-  <li><a href="#theoretical-developments" id="toc-theoretical-developments" class="nav-link" data-scroll-target="#theoretical-developments" style="width:100%">Theoretical Developments</a></li>
+  <li><a href="#foundational-papers" id="toc-foundational-papers" class="nav-link" data-scroll-target="#foundational-papers">Foundational Papers</a></li>
+  <li><a href="#recent-advances-and-applications" id="toc-recent-advances-and-applications" class="nav-link" data-scroll-target="#recent-advances-and-applications">Recent Advances and Applications</a></li>
+  <li><a href="#large-scale-applications" id="toc-large-scale-applications" class="nav-link" data-scroll-target="#large-scale-applications">Large-Scale Applications</a></li>
+  <li><a href="#feature-importance-and-interpretability" id="toc-feature-importance-and-interpretability" class="nav-link" data-scroll-target="#feature-importance-and-interpretability">Feature Importance and Interpretability</a></li>
+  <li><a href="#theoretical-developments" id="toc-theoretical-developments" class="nav-link" data-scroll-target="#theoretical-developments">Theoretical Developments</a></li>
   </ul></li>
-  <li><a href="#gradient-boosting-methods" id="toc-gradient-boosting-methods" class="nav-link" data-scroll-target="#gradient-boosting-methods" style="width:100%">Gradient Boosting Methods</a>
+  <li><a href="#gradient-boosting-methods" id="toc-gradient-boosting-methods" class="nav-link" data-scroll-target="#gradient-boosting-methods">Gradient Boosting Methods</a>
   <ul class="collapse">
-  <li><a href="#theoretical-foundations-1" id="toc-theoretical-foundations-1" class="nav-link" data-scroll-target="#theoretical-foundations-1" style="width:100%">Theoretical Foundations</a></li>
-  <li><a href="#xgboost-extreme-gradient-boosting" id="toc-xgboost-extreme-gradient-boosting" class="nav-link" data-scroll-target="#xgboost-extreme-gradient-boosting" style="width:100%">XGBoost: Extreme Gradient Boosting</a></li>
-  <li><a href="#lightgbm-light-gradient-boosting-machine" id="toc-lightgbm-light-gradient-boosting-machine" class="nav-link" data-scroll-target="#lightgbm-light-gradient-boosting-machine" style="width:100%">LightGBM: Light Gradient Boosting Machine</a></li>
-  <li><a href="#comparison-random-forest-vs-gradient-boosting" id="toc-comparison-random-forest-vs-gradient-boosting" class="nav-link" data-scroll-target="#comparison-random-forest-vs-gradient-boosting" style="width:100%">Comparison: Random Forest vs Gradient Boosting</a></li>
+  <li><a href="#theoretical-foundations-1" id="toc-theoretical-foundations-1" class="nav-link" data-scroll-target="#theoretical-foundations-1">Theoretical Foundations</a></li>
+  <li><a href="#xgboost-extreme-gradient-boosting" id="toc-xgboost-extreme-gradient-boosting" class="nav-link" data-scroll-target="#xgboost-extreme-gradient-boosting">XGBoost: Extreme Gradient Boosting</a></li>
+  <li><a href="#lightgbm-light-gradient-boosting-machine" id="toc-lightgbm-light-gradient-boosting-machine" class="nav-link" data-scroll-target="#lightgbm-light-gradient-boosting-machine">LightGBM: Light Gradient Boosting Machine</a></li>
+  <li><a href="#comparison-random-forest-vs-gradient-boosting" id="toc-comparison-random-forest-vs-gradient-boosting" class="nav-link" data-scroll-target="#comparison-random-forest-vs-gradient-boosting">Comparison: Random Forest vs Gradient Boosting</a></li>
   </ul></li>
-  <li><a href="#support-vector-machines-for-large-scale-data" id="toc-support-vector-machines-for-large-scale-data" class="nav-link" data-scroll-target="#support-vector-machines-for-large-scale-data" style="width:100%">Support Vector Machines for Large-Scale Data</a>
+  <li><a href="#support-vector-machines-for-large-scale-data" id="toc-support-vector-machines-for-large-scale-data" class="nav-link" data-scroll-target="#support-vector-machines-for-large-scale-data">Support Vector Machines for Large-Scale Data</a>
   <ul class="collapse">
-  <li><a href="#linear-svm-with-stochastic-gradient-descent" id="toc-linear-svm-with-stochastic-gradient-descent" class="nav-link" data-scroll-target="#linear-svm-with-stochastic-gradient-descent" style="width:100%">Linear SVM with Stochastic Gradient Descent</a></li>
-  <li><a href="#kernel-approximation-for-non-linear-svms" id="toc-kernel-approximation-for-non-linear-svms" class="nav-link" data-scroll-target="#kernel-approximation-for-non-linear-svms" style="width:100%">Kernel Approximation for Non-Linear SVMs</a></li>
+  <li><a href="#linear-svm-with-stochastic-gradient-descent" id="toc-linear-svm-with-stochastic-gradient-descent" class="nav-link" data-scroll-target="#linear-svm-with-stochastic-gradient-descent">Linear SVM with Stochastic Gradient Descent</a></li>
+  <li><a href="#kernel-approximation-for-non-linear-svms" id="toc-kernel-approximation-for-non-linear-svms" class="nav-link" data-scroll-target="#kernel-approximation-for-non-linear-svms">Kernel Approximation for Non-Linear SVMs</a></li>
   </ul></li>
-  <li><a href="#neural-networks-for-large-scale-learning" id="toc-neural-networks-for-large-scale-learning" class="nav-link" data-scroll-target="#neural-networks-for-large-scale-learning" style="width:100%">Neural Networks for Large-Scale Learning</a>
+  <li><a href="#neural-networks-for-large-scale-learning" id="toc-neural-networks-for-large-scale-learning" class="nav-link" data-scroll-target="#neural-networks-for-large-scale-learning">Neural Networks for Large-Scale Learning</a>
   <ul class="collapse">
-  <li><a href="#multi-layer-perceptron-with-scikit-learn" id="toc-multi-layer-perceptron-with-scikit-learn" class="nav-link" data-scroll-target="#multi-layer-perceptron-with-scikit-learn" style="width:100%">Multi-Layer Perceptron with scikit-learn</a></li>
-  <li><a href="#deep-learning-with-tensorflowkeras-optional" id="toc-deep-learning-with-tensorflowkeras-optional" class="nav-link" data-scroll-target="#deep-learning-with-tensorflowkeras-optional" style="width:100%">Deep Learning with TensorFlow/Keras (Optional)</a></li>
+  <li><a href="#multi-layer-perceptron-with-scikit-learn" id="toc-multi-layer-perceptron-with-scikit-learn" class="nav-link" data-scroll-target="#multi-layer-perceptron-with-scikit-learn">Multi-Layer Perceptron with scikit-learn</a></li>
+  <li><a href="#deep-learning-with-tensorflowkeras-optional" id="toc-deep-learning-with-tensorflowkeras-optional" class="nav-link" data-scroll-target="#deep-learning-with-tensorflowkeras-optional">Deep Learning with TensorFlow/Keras (Optional)</a></li>
   </ul></li>
-  <li><a href="#regularized-linear-models" id="toc-regularized-linear-models" class="nav-link" data-scroll-target="#regularized-linear-models" style="width:100%">Regularized Linear Models</a>
+  <li><a href="#regularized-linear-models" id="toc-regularized-linear-models" class="nav-link" data-scroll-target="#regularized-linear-models">Regularized Linear Models</a>
   <ul class="collapse">
-  <li><a href="#ridge-regression" id="toc-ridge-regression" class="nav-link" data-scroll-target="#ridge-regression" style="width:100%">Ridge Regression</a></li>
-  <li><a href="#elastic-net-combining-l1-and-l2-regularization" id="toc-elastic-net-combining-l1-and-l2-regularization" class="nav-link" data-scroll-target="#elastic-net-combining-l1-and-l2-regularization" style="width:100%">Elastic Net: Combining L1 and L2 Regularization</a></li>
-  <li><a href="#lasso-for-feature-selection" id="toc-lasso-for-feature-selection" class="nav-link" data-scroll-target="#lasso-for-feature-selection" style="width:100%">Lasso for Feature Selection</a></li>
+  <li><a href="#ridge-regression" id="toc-ridge-regression" class="nav-link" data-scroll-target="#ridge-regression">Ridge Regression</a></li>
+  <li><a href="#elastic-net-combining-l1-and-l2-regularization" id="toc-elastic-net-combining-l1-and-l2-regularization" class="nav-link" data-scroll-target="#elastic-net-combining-l1-and-l2-regularization">Elastic Net: Combining L1 and L2 Regularization</a></li>
+  <li><a href="#lasso-for-feature-selection" id="toc-lasso-for-feature-selection" class="nav-link" data-scroll-target="#lasso-for-feature-selection">Lasso for Feature Selection</a></li>
   </ul></li>
-  <li><a href="#comparative-analysis-of-ml-techniques" id="toc-comparative-analysis-of-ml-techniques" class="nav-link" data-scroll-target="#comparative-analysis-of-ml-techniques" style="width:100%">Comparative Analysis of ML Techniques</a>
+  <li><a href="#comparative-analysis-of-ml-techniques" id="toc-comparative-analysis-of-ml-techniques" class="nav-link" data-scroll-target="#comparative-analysis-of-ml-techniques">Comparative Analysis of ML Techniques</a>
   <ul class="collapse">
-  <li><a href="#performance-comparison-on-large-datasets" id="toc-performance-comparison-on-large-datasets" class="nav-link" data-scroll-target="#performance-comparison-on-large-datasets" style="width:100%">Performance Comparison on Large Datasets</a></li>
+  <li><a href="#performance-comparison-on-large-datasets" id="toc-performance-comparison-on-large-datasets" class="nav-link" data-scroll-target="#performance-comparison-on-large-datasets">Performance Comparison on Large Datasets</a></li>
   </ul></li>
-  <li><a href="#when-to-use-each-technique" id="toc-when-to-use-each-technique" class="nav-link" data-scroll-target="#when-to-use-each-technique" style="width:100%">When to Use Each Technique</a>
+  <li><a href="#when-to-use-each-technique" id="toc-when-to-use-each-technique" class="nav-link" data-scroll-target="#when-to-use-each-technique">When to Use Each Technique</a>
   <ul class="collapse">
-  <li><a href="#decision-guide" id="toc-decision-guide" class="nav-link" data-scroll-target="#decision-guide" style="width:100%">Decision Guide</a></li>
-  <li><a href="#scalability-considerations" id="toc-scalability-considerations" class="nav-link" data-scroll-target="#scalability-considerations" style="width:100%">Scalability Considerations</a></li>
+  <li><a href="#decision-guide" id="toc-decision-guide" class="nav-link" data-scroll-target="#decision-guide">Decision Guide</a></li>
+  <li><a href="#scalability-considerations" id="toc-scalability-considerations" class="nav-link" data-scroll-target="#scalability-considerations">Scalability Considerations</a></li>
   </ul></li>
-  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion" style="width:100%">Conclusion</a>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a>
   <ul class="collapse">
-  <li><a href="#key-takeaways" id="toc-key-takeaways" class="nav-link" data-scroll-target="#key-takeaways" style="width:100%">Key Takeaways</a></li>
+  <li><a href="#key-takeaways" id="toc-key-takeaways" class="nav-link" data-scroll-target="#key-takeaways">Key Takeaways</a></li>
   </ul></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references" style="width:100%">References</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
 </nav>
 </div>
