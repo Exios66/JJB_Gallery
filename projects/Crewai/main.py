@@ -20,7 +20,14 @@ from crews import (
     DevCodeCrew,
     DocumentationCrew,
 )
-from config import config
+try:
+    from config import config
+except ImportError:
+    # Fallback for when running as a module
+    import sys
+    from pathlib import Path
+    sys.path.insert(0, str(Path(__file__).parent))
+    from config import config
 
 
 def setup_environment():

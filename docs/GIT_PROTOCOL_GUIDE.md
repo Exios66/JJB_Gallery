@@ -14,6 +14,7 @@
 **Best for**: Automated workflows, GitHub CLI integration, no password prompts
 
 **Setup**:
+
 ```bash
 # 1. Generate SSH key (if you don't have one)
 ssh-keygen -t ed25519 -C "exios4@protonmail.com"
@@ -41,6 +42,7 @@ git remote set-url origin git@github.com:Exios66/JJB_Gallery.git
 ```
 
 **Benefits**:
+
 - ✅ No password prompts
 - ✅ Works seamlessly with GitHub CLI (`gh`)
 - ✅ Better for automation scripts
@@ -51,9 +53,10 @@ git remote set-url origin git@github.com:Exios66/JJB_Gallery.git
 
 **Best for**: Simple setup, works everywhere, no SSH keys needed
 
-**Current Status**: You're already using HTTPS! 
+**Current Status**: You're already using HTTPS!
 
 **To secure it**:
+
 ```bash
 # Use GitHub CLI for authentication (recommended)
 gh auth login
@@ -65,6 +68,7 @@ gh auth login
 ```
 
 **Benefits**:
+
 - ✅ Already configured
 - ✅ Works behind firewalls/proxies
 - ✅ Simple setup
@@ -76,7 +80,7 @@ gh auth login
 
 For your project with `main` and `gh-pages` branches:
 
-```
+```text
 main (production)          ←─ Stable releases
   │
   ├─ gh-pages (deployment) ←─ GitHub Pages site
@@ -108,7 +112,7 @@ git commit -m "feat: add cloud sandbox auto-launch script"
 
 Use [Conventional Commits](https://www.conventionalcommits.org/):
 
-```
+```text
 feat: add new feature
 fix: bug fix
 docs: documentation changes
@@ -119,6 +123,7 @@ chore: maintenance tasks
 ```
 
 **Examples**:
+
 ```bash
 git commit -m "feat: add cloud sandbox setup script"
 git commit -m "fix: resolve import errors in crewai agents"
@@ -159,6 +164,7 @@ git push origin gh-pages
 ### 1. Pre-push Checklist
 
 Before pushing:
+
 ```bash
 # 1. Check status
 git status
@@ -198,6 +204,7 @@ git push origin main
 ### 3. Branch Protection Rules
 
 Consider setting up on GitHub:
+
 - Require pull requests for `main`
 - Require status checks
 - Require review (if working with team)
@@ -232,6 +239,8 @@ git config --global core.editor "code --wait"  # VS Code
 # or: git config --global core.editor "nano"
 
 # Enable helpful aliases
+
+```bash
 git config --global alias.st status
 git config --global alias.co checkout
 git config --global alias.br branch
@@ -242,6 +251,7 @@ git config --global alias.last 'log -1 HEAD'
 ### Credential Management
 
 **For HTTPS**:
+
 ```bash
 # macOS: Use keychain
 git config --global credential.helper osxkeychain
@@ -263,6 +273,7 @@ git config --global credential.helper 'cache --timeout=3600'
 5. ✅ More secure for automated workflows
 
 **If you prefer simplicity**: **HTTPS + GitHub CLI** is also fine:
+
 ```bash
 gh auth login
 # This handles HTTPS authentication automatically
@@ -287,6 +298,7 @@ git fetch origin
 ## Troubleshooting
 
 ### Authentication Issues (HTTPS)
+
 ```bash
 # Re-authenticate with GitHub CLI
 gh auth login
@@ -296,6 +308,7 @@ git remote set-url origin https://YOUR_TOKEN@github.com/Exios66/JJB_Gallery.git
 ```
 
 ### SSH Connection Issues
+
 ```bash
 # Test SSH
 ssh -T git@github.com
@@ -308,6 +321,7 @@ ssh-add ~/.ssh/id_ed25519
 ```
 
 ### Large File Issues
+
 ```bash
 # Use Git LFS for large files
 git lfs install
@@ -318,15 +332,16 @@ git add .gitattributes
 ## Summary
 
 **Recommended Protocol**: **SSH** for your use case
+
 - Better automation support
 - Works with GitHub CLI/Codespaces
 - No password prompts
 - More secure
 
 **Alternative**: **HTTPS + GitHub CLI** if you prefer simplicity
+
 - Already configured
 - `gh auth login` handles authentication
 - Works well with your current setup
 
 Both work great! Choose based on your preference for automation vs simplicity.
-

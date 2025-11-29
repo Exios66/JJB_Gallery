@@ -28,3 +28,4 @@ jupyter-contrib-nbextensions
 shap
 crewai
 crewai-tools
+pydantic
