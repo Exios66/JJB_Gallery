@@ -1,6 +1,6 @@
-# GitHub Based Portfolio & Gallery
+# GitHub-Based Portfolio & Gallery of Jack J. Burleson
 
-Personal Portfolio &amp; Gallery of Previous Work Of Jack J. Burleson.
+Welcome! This repository serves as the official portfolio and gallery for **Jack J. Burleson**, showcasing a curated selection of previous work, open-source projects, research, and presentations.
 
 <!-- markdownlint-disable MD033 -->
 <p align="left">
@@ -37,14 +37,16 @@ Personal Portfolio &amp; Gallery of Previous Work Of Jack J. Burleson.
 </p>
 <!-- markdownlint-enable MD033 -->
 
+---
 ## Table of Contents
 
-- [GitHub Based Portfolio \& Gallery](#github-based-portfolio--gallery)
+- [GitHub-Based Portfolio \& Gallery of Jack J. Burleson](#github-based-portfolio--gallery-of-jack-j-burleson)
   - [Table of Contents](#table-of-contents)
   - [About Me](#about-me)
   - [Project Gallery](#project-gallery)
+  - [Recent Additions](#recent-additions)
   - [Skills](#skills)
-  - [Publications/Presentations](#publicationspresentations)
+  - [Publications \& Presentations](#publications--presentations)
   - [Contact](#contact)
   - [Socials](#socials)
   - [Further Reading](#further-reading)
@@ -53,8 +55,9 @@ Personal Portfolio &amp; Gallery of Previous Work Of Jack J. Burleson.
 
 ## About Me
 
-Hi! I'm [Your Name], a [your professional title, e.g. "Data Scientist", "Software Developer", etc.] passionate about [your main focus/interests].  
-This portfolio showcases selected projects and experiences.
+Hi! I'm **Jack J. Burleson** – data scientist, research engineer, and open-source enthusiast.  
+I am passionate about making data science, machine learning, and advanced analytics accessible and meaningful through clear code and insightful visualizations.  
+This portfolio highlights select projects in engineering, data analysis, machine learning, and technical writing.
 
 ---
 
@@ -62,42 +65,72 @@ This portfolio showcases selected projects and experiences.
 
 | Project | Description | Link |
 |---------|-------------|------|
-| Project Title 1 | Short summary of what it is and what you did | Repository/Article/Live Demo |
-| Project Title 2 | Short summary of what it is and what you did | Repository/Article/Live Demo |
-| ...     |             |      |
+| **CrewAI Multi-Agent Swarm System** | Multi-agent architecture using CrewAI, with specialized swarms for ML, research, business intelligence, and documentation; includes Streamlit & CLI interfaces. | [CrewAI/README.md](projects/Crewai/README.md) |
+| **Terminal Agents** | AI coding agents for the terminal; includes “build” and “plan” agents, supporting code exploration and editing with easy installation and cross-platform support. | [terminal_agents/README.md](projects/terminal_agents/README.md) |
+| **Random Forest Essentials** | Quarto document and analytical notebooks on Random Forest theory and practical application, including automated rendering scripts. | [Quarto/RandomForest](Quarto/RandomForest) |
+| **Jupyter ML & Pandas Notebooks** | Collections of essential notebooks demonstrating the use of Pandas and scikit-learn in data workflows. | [notebooks/](notebooks/) |
+| **PyPI-Ready Python Template** | Modern Python project template with pre-commit, Black, and CI configuration, ready for immediate use as a best-practices starter. | [Template Repo](https://github.com/Exios66/python-template) |
+| ... | ... | ... |
 
-*Add a new row for every project, or use detailed subsections below.*
+*More projects, research, and documentation are regularly added. See repository folders for latest content.*
+
+---
+
+## Recent Additions
+
+- **CrewAI Swarm System:** Full-featured, multi-swarm agent orchestration, ML/research/business/reporting specializations ([README](projects/Crewai/README.md))
+- **Terminal Coding Agents:** Terminal-based agent system, built-in “build” and “plan” agents with live installation quick start ([README](projects/terminal_agents/README.md))
+- **Quarto Random Forest Docs:** In-depth theory & application docs on Random Forests, includes scripts to render to PDF/HTML ([Docs](Quarto/RandomForest))
+- **Jupyter Notebooks:** ML and pandas essentials, plus scikit-learn examples ([notebooks/](notebooks/))
+- **.gitignore Improvements:** Now excludes macOS ._*, .DS_Store, and other platform/editor artifacts ([.gitignore](.gitignore))
+- **Changelog:** Track recent changes in [CHANGELOG.md](CHANGELOG.md)
 
 ---
 
 ## Skills
 
-- Programming: `Python`, `R`, `JavaScript`, ...
-- Data: `Pandas`, `NumPy`, `scikit-learn`, ...
-- Visualization: `Matplotlib`, `Seaborn`, ...
-- Other: `Git`, `SQL`, ...
+- **Programming:** `Python` (advanced), `R`, `JavaScript`, `bash`, `Make`
+- **Data Analysis:** `Pandas`, `NumPy`, `scikit-learn`, `seaborn`, `matplotlib`
+- **Visualization:** `matplotlib`, `seaborn`, `Quarto`, `Jupyter`
+- **Machine Learning & AI:** `scikit-learn`, `CrewAI`, agent-based simulation, feature engineering
+- **Documentation:** `Quarto`, `Markdown`, `Jupyter Notebooks`
+- **CI/CD & Tooling:** `pre-commit`, `Black`, `GitHub Actions`, `Poetry`, `.gitignore` hygiene
+- **Other:** `Git`, `SQL`, `Docker`, technical writing, code review
 
 ---
 
-## Publications/Presentations
+## Publications & Presentations
 
-- **[Title of Publication/Talk]**, Venue or Conference, Year (add link URL)
-- Add more as needed...
+- **Random Forest Essentials** – Quarto doc, 2024. ([Link](Quarto/RandomForest))
+- **Talking to Agents: architecting Multi-Agent Systems** – Internal seminar, 2024.
+- *(More manuscripts and presentations to be added.)*
+- For a list of all talks and publications, see [docs/publications.md](docs/publications.md) _(Coming soon)_
 
 ---
 
 ## Contact
 
-- Email: [your.email@example.com](mailto:your.email@example.com)
-- LinkedIn: YourLinkedIn (add your LinkedIn URL)
-- Website/Blog: YourSite (add your website URL)
+- Email: [jackburleson.dev@gmail.com](mailto:jackburleson.dev@gmail.com)
+- LinkedIn: [linkedin.com/in/jack-j-burleson](https://linkedin.com/in/jack-j-burleson)
+- Website: [jackburleson.dev](https://jackburleson.dev)
+
+---
 
 ## Socials
+
+- [GitHub](https://github.com/Exios66)
+- [Twitter/X](https://twitter.com/Exios66)
+- [LinkedIn](https://linkedin.com/in/jack-j-burleson)
+- [HuggingFace](https://huggingface.co/Exios66)
 
 ---
 
 ## Further Reading
 
----
+- [Terminal Agents Project README](projects/terminal_agents/README.md)
+- [CrewAI Multi-Agent System README](projects/Crewai/README.md)
+- [CHANGELOG.md](CHANGELOG.md)
+- [SECURITY.md](SECURITY.md)
+- [Official Python Template Repo](https://github.com/Exios66/python-template)
 
->
+_Repository updated regularly. Check project directories for the latest code, docs, and research._
