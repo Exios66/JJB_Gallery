@@ -5,6 +5,7 @@ This document provides a comprehensive overview of all specialized tools availab
 ## 🔧 Tool Categories
 
 ### 1. ML Tools (`tools/ml_tools.py`)
+
 **Used by:** MLCrew
 
 - **DatasetAnalyzerTool** - Analyzes datasets, provides statistical summaries, missing value reports, and data quality insights
@@ -13,6 +14,7 @@ This document provides a comprehensive overview of all specialized tools availab
 - **HyperparameterOptimizerTool** - Provides hyperparameter optimization strategies and recommendations
 
 **Agents Using These Tools:**
+
 - Data Scientist → DatasetAnalyzerTool
 - ML Engineer → HyperparameterOptimizerTool
 - Model Evaluator → ModelEvaluatorTool, FeatureImportanceTool
@@ -20,6 +22,7 @@ This document provides a comprehensive overview of all specialized tools availab
 ---
 
 ### 2. Research Tools (`tools/research_tools.py`)
+
 **Used by:** ResearchCrew
 
 - **DataGatheringTool** - Gathers and organizes research data from multiple sources
@@ -28,6 +31,7 @@ This document provides a comprehensive overview of all specialized tools availab
 - **ResearchSynthesisTool** - Synthesizes information from multiple research sources into coherent summaries
 
 **Agents Using These Tools:**
+
 - Lead Researcher → DataGatheringTool, CitationManagerTool
 - Trend Analyst → TrendAnalyzerTool, DataGatheringTool
 - Research Writer → ResearchSynthesisTool, CitationManagerTool
@@ -35,6 +39,7 @@ This document provides a comprehensive overview of all specialized tools availab
 ---
 
 ### 3. Academic Tools (`tools/academic_tools.py`)
+
 **Used by:** ResearchAcademicCrew
 
 - **PaperAnalyzerTool** - Analyzes academic papers, extracts key findings, methodologies, and contributions
@@ -43,6 +48,7 @@ This document provides a comprehensive overview of all specialized tools availab
 - **LiteratureGapIdentifierTool** - Identifies gaps in existing literature and research opportunities
 
 **Agents Using These Tools:**
+
 - Literature Reviewer → PaperAnalyzerTool, CitationNetworkTool, CitationManagerTool
 - Methodology Analyst → MethodologyEvaluatorTool, PaperAnalyzerTool
 - Academic Synthesizer → LiteratureGapIdentifierTool, CitationManagerTool, CitationNetworkTool
@@ -50,6 +56,7 @@ This document provides a comprehensive overview of all specialized tools availab
 ---
 
 ### 4. Content Tools (`tools/content_tools.py`)
+
 **Used by:** ResearchContentCrew
 
 - **SEOAnalyzerTool** - Analyzes SEO factors, keyword density, and content optimization opportunities
@@ -58,6 +65,7 @@ This document provides a comprehensive overview of all specialized tools availab
 - **CompetitorContentAnalyzerTool** - Analyzes competitor content strategies and identifies opportunities
 
 **Agents Using These Tools:**
+
 - SEO Strategist → SEOAnalyzerTool, KeywordResearchTool, CompetitorContentAnalyzerTool
 - Content Outliner → KeywordResearchTool, ContentAnalyzerTool
 - Technical Writer → ContentAnalyzerTool, SEOAnalyzerTool
@@ -65,6 +73,7 @@ This document provides a comprehensive overview of all specialized tools availab
 ---
 
 ### 5. Business Intelligence Tools (`tools/business_intelligence_tools.py`)
+
 **Used by:** BusinessIntelligenceCrew
 
 - **MarketAnalyzerTool** - Analyzes market dynamics, competition, and industry trends
@@ -74,6 +83,7 @@ This document provides a comprehensive overview of all specialized tools availab
 - **BusinessReportGeneratorTool** - Generates comprehensive business reports and executive summaries
 
 **Agents Using These Tools:**
+
 - Market Researcher → MarketAnalyzerTool, CompetitiveIntelligenceTool
 - Data Analyst → DataProcessingTool
 - Strategy Consultant → MarketAnalyzerTool, CompetitiveIntelligenceTool
@@ -83,6 +93,7 @@ This document provides a comprehensive overview of all specialized tools availab
 ---
 
 ### 6. Development Tools (`tools/dev_tools.py`)
+
 **Used by:** DevCodeCrew
 
 - **CodeExecutorTool** - Executes Python code snippets safely and returns results
@@ -92,6 +103,7 @@ This document provides a comprehensive overview of all specialized tools availab
 - **ArchitectureAnalyzerTool** - Analyzes software architecture and design patterns
 
 **Agents Using These Tools:**
+
 - Software Architect → ArchitectureAnalyzerTool, FileManagerTool
 - Senior Developer → CodeExecutorTool, FileManagerTool, CodeAnalyzerTool
 - Code Reviewer → CodeAnalyzerTool, TestGeneratorTool, CodeExecutorTool
@@ -99,6 +111,7 @@ This document provides a comprehensive overview of all specialized tools availab
 ---
 
 ### 7. Documentation Tools (`tools/documentation_tools.py`)
+
 **Used by:** DocumentationCrew
 
 - **DocumentStructureTool** - Plans and structures documentation projects
@@ -107,6 +120,7 @@ This document provides a comprehensive overview of all specialized tools availab
 - **CodeExampleGeneratorTool** - Generates and validates code examples for documentation
 
 **Agents Using These Tools:**
+
 - Doc Architect → DocumentStructureTool
 - Technical Writer → CodeExampleGeneratorTool, MarkdownFormatterTool
 - Doc Editor → DocumentationValidatorTool, MarkdownFormatterTool
@@ -116,6 +130,7 @@ This document provides a comprehensive overview of all specialized tools availab
 ## 🎯 Tool Capabilities
 
 All tools can:
+
 - ✅ Execute code and run scripts (where applicable)
 - ✅ Process and analyze data
 - ✅ Generate structured outputs (JSON, reports, etc.)
@@ -152,4 +167,3 @@ result = crew.kickoff(inputs={"topic": "Your topic here"})
 ```
 
 All tools are configured and ready to use!
-

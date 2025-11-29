@@ -7,20 +7,23 @@ Prioritizes free/open-source options to reduce costs.
 import os
 from typing import Optional, Any
 from config import config
+from offline_llm import OfflineLLM
 
 
 def get_llm_for_agent() -> Optional[Any]:
     """
     Get the configured LLM for CrewAI agents.
     Automatically selects the best available provider with priority on free options.
+    Returns OfflineLLM if no provider is found.
     
     Returns:
-        Configured LLM instance or None if no provider available
+        Configured LLM instance
     """
     provider = config.detect_best_provider()
     
     if not provider:
-        return None
+        print("⚠️  No LLM provider detected. Using Offline Knowledge Base.")
+        return _setup_offline_llm()
     
     try:
         if provider == "ollama":
@@ -35,9 +38,20 @@ def get_llm_for_agent() -> Optional[Any]:
             return _setup_azure_llm()
         else:
             print(f"⚠️  Unknown provider: {provider}")
-            return None
+            return _setup_offline_llm()
     except Exception as e:
-        print(f"⚠️  Error setting up {provider} LLM: {e}")
+        print(f"⚠️  Error setting up {provider} LLM: {e}. Falling back to offline mode.")
+        return _setup_offline_llm()
+
+
+def _setup_offline_llm() -> Any:
+    """Setup Offline LLM provider using CSV knowledge base."""
+    try:
+        llm = OfflineLLM()
+        print("✅ Using Offline Knowledge Base (No API Key required)")
+        return llm
+    except Exception as e:
+        print(f"❌ Failed to setup Offline LLM: {e}")
         return None
 
 
@@ -182,8 +196,13 @@ def configure_crewai_environment():
     """
     provider = config.detect_best_provider()
     
+    # Fallback to offline mode if no provider found
     if not provider:
-        return False
+        print("⚠️  No LLM provider detected. configuring for Offline Mode.")
+        # Set dummy values to bypass CrewAI's strict validation
+        os.environ["OPENAI_API_KEY"] = "offline-mode-dummy-key"
+        os.environ["OPENAI_MODEL_NAME"] = "offline-model"
+        return True
     
     try:
         if provider == "ollama":

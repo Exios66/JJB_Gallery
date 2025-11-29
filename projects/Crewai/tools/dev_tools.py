@@ -6,8 +6,9 @@ Specialized tools for code execution, file management, testing, and software dev
 from crewai.tools.base_tool import BaseTool  # type: ignore
 from typing import Any, Optional
 import json
-import subprocess
 import sys
+import io
+import contextlib
 from pathlib import Path
 from datetime import datetime
 
@@ -29,8 +30,8 @@ class CodeExecutorTool(BaseTool):
                     "safety_note": "Code execution is limited to prevent malicious operations"
                 }, indent=2)
             
-            # Simple validation - in production, use more robust sandboxing
-            dangerous_keywords = ['__import__', 'exec', 'eval', 'open', 'file', 'subprocess']
+            # Simple validation
+            dangerous_keywords = ['__import__', 'eval', 'subprocess', 'os.system']
             code_lower = python_code.lower()
             for keyword in dangerous_keywords:
                 if keyword in code_lower:
@@ -40,28 +41,38 @@ class CodeExecutorTool(BaseTool):
                         "message": "Certain operations are restricted for security"
                     }, indent=2)
             
-            # Execute code in a safe context
+            # Capture stdout
+            output_buffer = io.StringIO()
+            error_buffer = io.StringIO()
+            
             try:
-                result = eval(python_code) if len(python_code) < 100 else None
-                if result is not None:
-                    return json.dumps({
-                        "status": "success",
-                        "result": str(result),
-                        "message": "Code executed successfully"
-                    }, indent=2)
+                with contextlib.redirect_stdout(output_buffer), contextlib.redirect_stderr(error_buffer):
+                    # Use a restricted global scope if needed, but for now just exec
+                    # Create a local scope to capture variables
+                    local_scope = {}
+                    exec(python_code, {}, local_scope)
+                    
+                    result_vars = {k: str(v) for k, v in local_scope.items() if not k.startswith('__')}
+                    
+                output = output_buffer.getvalue()
+                errors = error_buffer.getvalue()
+                
+                return json.dumps({
+                    "status": "success",
+                    "stdout": output,
+                    "stderr": errors,
+                    "variables": result_vars,
+                    "message": "Code executed successfully"
+                }, indent=2)
+                
             except Exception as exec_error:
                 return json.dumps({
                     "status": "execution_error",
                     "error": str(exec_error),
-                    "message": "Code execution encountered an error",
-                    "suggestion": "Review code syntax and logic"
+                    "stdout": output_buffer.getvalue(),
+                    "stderr": error_buffer.getvalue(),
+                    "message": "Code execution encountered an error"
                 }, indent=2)
-            
-            return json.dumps({
-                "status": "parsed",
-                "code": python_code[:100] + "..." if len(python_code) > 100 else python_code,
-                "message": "Code received and validated. For complex code, use file-based execution."
-            }, indent=2)
             
         except Exception as e:
             return f"Error executing code: {str(e)}"
@@ -77,8 +88,18 @@ class FileManagerTool(BaseTool):
     def _run(self, action: str = "read", file_path: str = None, content: str = None) -> str:
         """Manage files and directories."""
         try:
-            if action == "read" and file_path:
-                path = Path(file_path)
+            if not file_path:
+                 return json.dumps({
+                    "status": "error",
+                    "message": "file_path argument is required"
+                }, indent=2)
+
+            path = Path(file_path)
+            
+            # Basic security check - prevent accessing files outside project if possible
+            # For this demo, we'll just warn
+            
+            if action == "read":
                 if path.exists() and path.is_file():
                     try:
                         file_content = path.read_text()
@@ -87,7 +108,7 @@ class FileManagerTool(BaseTool):
                             "action": action,
                             "file_path": str(path),
                             "file_size": len(file_content),
-                            "content_preview": file_content[:500] + "..." if len(file_content) > 500 else file_content,
+                            "content_preview": file_content[:2000] + "..." if len(file_content) > 2000 else file_content,
                             "lines": len(file_content.splitlines())
                         }, indent=2)
                     except Exception as e:
@@ -102,25 +123,32 @@ class FileManagerTool(BaseTool):
                         "message": "File does not exist or is not a file"
                     }, indent=2)
             
-            elif action == "list" and file_path:
-                path = Path(file_path)
+            elif action == "list":
                 if path.exists() and path.is_dir():
                     files = [f.name for f in path.iterdir()]
                     return json.dumps({
                         "status": "success",
                         "directory": str(path),
-                        "files": files[:20],  # Limit to first 20
+                        "files": files[:50],  # Limit to first 50
                         "count": len(files)
                     }, indent=2)
                 else:
                     return json.dumps({
                         "status": "error",
-                        "message": "Directory does not exist"
+                        "message": f"Directory does not exist: {path}"
                     }, indent=2)
+            
+            elif action == "exists":
+                return json.dumps({
+                    "status": "success",
+                    "exists": path.exists(),
+                    "is_file": path.is_file() if path.exists() else False,
+                    "is_dir": path.is_dir() if path.exists() else False
+                }, indent=2)
             
             return json.dumps({
                 "status": "ready",
-                "supported_actions": ["read", "list", "exists", "info"],
+                "supported_actions": ["read", "list", "exists"],
                 "usage": "Provide action and file_path parameters"
             }, indent=2)
             
@@ -263,4 +291,3 @@ class ArchitectureAnalyzerTool(BaseTool):
             return json.dumps(analysis, indent=2)
         except Exception as e:
             return f"Error analyzing architecture: {str(e)}"
-

@@ -12,6 +12,8 @@ from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor
 from sklearn.model_selection import cross_val_score
 from sklearn.metrics import classification_report, mean_squared_error, r2_score
 import json
+import os
+from pathlib import Path
 
 
 class DatasetAnalyzerTool(BaseTool):
@@ -23,10 +25,32 @@ class DatasetAnalyzerTool(BaseTool):
     def _run(self, dataset_path: str = None, dataset_summary: str = None) -> str:
         """Analyze a dataset and return comprehensive statistics."""
         try:
-            # This would typically load and analyze actual data
-            # For now, return a template analysis structure
+            # Try to load actual data if path is provided and exists
+            if dataset_path and os.path.exists(dataset_path):
+                try:
+                    df = pd.read_csv(dataset_path)
+                    
+                    # Basic analysis
+                    analysis = {
+                        "dataset_source": dataset_path,
+                        "dataset_shape": str(df.shape),
+                        "columns": list(df.columns),
+                        "missing_values": df.isnull().sum().to_dict(),
+                        "data_types": {col: str(dtype) for col, dtype in df.dtypes.items()},
+                        "numerical_stats": df.describe().to_dict(),
+                        "recommendations": [
+                            "Check missing value patterns",
+                            "Inspect categorical variable cardinality",
+                            "Visualize distributions of numerical columns"
+                        ]
+                    }
+                    return json.dumps(analysis, indent=2, default=str)
+                except Exception as e:
+                     return json.dumps({"error": f"Failed to load CSV: {str(e)}", "path": dataset_path}, indent=2)
+
+            # Template fallback if no file
             analysis = {
-                "dataset_shape": "Unknown (provide actual dataset)",
+                "dataset_shape": "Unknown (provide valid csv path)",
                 "missing_values": "Analysis requires actual dataset",
                 "feature_types": "Analysis requires actual dataset",
                 "class_distribution": "Analysis requires actual dataset",
