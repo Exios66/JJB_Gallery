@@ -22,10 +22,13 @@ class MarketResearcherAgent:
     def create() -> Agent:
         """Create and return the Market Researcher agent."""
         search_tool = SerperDevTool() if config.SERPER_API_KEY else None
+        market_analyzer = MarketAnalyzerTool()
+        competitive_intel = CompetitiveIntelligenceTool()
 
         tools = []
         if search_tool:
             tools.append(search_tool)
+        tools.extend([market_analyzer, competitive_intel])
 
         return Agent(
             role='Senior Market Research Analyst',
@@ -47,6 +50,7 @@ class DataAnalystAgent:
     @staticmethod
     def create() -> Agent:
         """Create and return the Data Analyst agent."""
+        data_processor = DataProcessingTool()
         return Agent(
             role='Business Data Analyst',
             goal='Analyze business data, generate actionable insights, and create data-driven recommendations for business decisions',
@@ -57,7 +61,7 @@ class DataAnalystAgent:
             in creating reports, dashboards, and presentations that make complex data accessible to decision-makers.""",
             verbose=config.VERBOSE,
             allow_delegation=False,
-            tools=[],
+            tools=[data_processor],
         )
 
 
@@ -68,10 +72,13 @@ class StrategyConsultantAgent:
     def create() -> Agent:
         """Create and return the Strategy Consultant agent."""
         search_tool = SerperDevTool() if config.SERPER_API_KEY else None
+        market_analyzer = MarketAnalyzerTool()
+        competitive_intel = CompetitiveIntelligenceTool()
 
         tools = []
         if search_tool:
             tools.append(search_tool)
+        tools.extend([market_analyzer, competitive_intel])
 
         return Agent(
             role='Strategic Business Consultant',
@@ -94,6 +101,8 @@ class FinancialAnalystAgent:
     @staticmethod
     def create() -> Agent:
         """Create and return the Financial Analyst agent."""
+        financial_modeler = FinancialModelingTool()
+        data_processor = DataProcessingTool()
         return Agent(
             role='Financial Analyst',
             goal='Perform financial analysis, modeling, and valuation to support business decision-making and strategic planning',
@@ -105,7 +114,7 @@ class FinancialAnalystAgent:
             for executive audiences.""",
             verbose=config.VERBOSE,
             allow_delegation=False,
-            tools=[],
+            tools=[financial_modeler, data_processor],
         )
 
 
@@ -115,6 +124,7 @@ class BusinessReporterAgent:
     @staticmethod
     def create() -> Agent:
         """Create and return the Business Reporter agent."""
+        report_generator = BusinessReportGeneratorTool()
         return Agent(
             role='Business Report Writer',
             goal='Create comprehensive, well-structured business reports and executive presentations that synthesize analysis and recommendations',
@@ -126,6 +136,6 @@ class BusinessReporterAgent:
             compelling narratives that drive decision-making and action.""",
             verbose=config.VERBOSE,
             allow_delegation=False,
-            tools=[],
+            tools=[report_generator],
         )
 
