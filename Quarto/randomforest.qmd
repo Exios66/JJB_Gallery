@@ -9,6 +9,8 @@ format:
     toc-title: "Contents"
     toc-depth: 2
     code-fold: true
+    embed-resources: true
+    theme: cosmo
   pdf:
     toc: true
 execute:
@@ -60,10 +62,12 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-from sklearn.datasets import load_breast_cancer
+from sklearn.datasets import load_breast_cancer, make_classification
 from sklearn.model_selection import train_test_split, cross_val_score
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import RocCurveDisplay, ConfusionMatrixDisplay, classification_report
+from sklearn.decomposition import PCA
+from sklearn.inspection import DecisionBoundaryDisplay
 
 sns.set_theme(style="whitegrid")
 ```
@@ -122,19 +126,21 @@ print(classification_report(y_test, y_pred, target_names=dataset.target_names))
 ### Receiver Operating Characteristic
 
 ```{python}
-fig, ax = plt.subplots(figsize=(6, 4))
+fig, ax = plt.subplots(figsize=(8, 6))
 RocCurveDisplay.from_estimator(rf, X_test, y_test, ax=ax)
 ax.set_title("Random Forest ROC Curve")
 plt.tight_layout()
+plt.show()
 ```
 
 ### Confusion Matrix
 
 ```{python}
-fig, ax = plt.subplots(figsize=(4, 4))
+fig, ax = plt.subplots(figsize=(6, 6))
 ConfusionMatrixDisplay.from_estimator(rf, X_test, y_test, display_labels=dataset.target_names, ax=ax, cmap="Blues")
 ax.set_title("Confusion Matrix")
 plt.tight_layout()
+plt.show()
 ```
 
 ## Feature Importance Visualization
@@ -143,18 +149,68 @@ plt.tight_layout()
 importances = pd.Series(rf.feature_importances_, index=df.columns[:-1]).sort_values(ascending=False)
 top_features = importances.head(15)
 
-try:
-    sns
-except NameError:
-    import seaborn as sns
-    sns.set_theme(style="whitegrid")
-
-plt.figure(figsize=(8, 5))
+plt.figure(figsize=(10, 8))
 sns.barplot(x=top_features.values, y=top_features.index, palette="viridis")
-plt.title("Top 15 Feature Importances")
-plt.xlabel("Gini Importance")
+plt.title("Top 15 Feature Importances (Gini)")
+plt.xlabel("Importance")
 plt.ylabel("Feature")
 plt.tight_layout()
+plt.show()
+```
+
+## Complex Visualization: Decision Boundaries
+
+To visualize the decision boundaries of the high-dimensional Random Forest model, we project the data onto its first two Principal Components (PCA). This allows us to see how the model separates classes in a 2D latent space.
+
+```{python}
+# PCA Projection
+pca = PCA(n_components=2)
+X_pca = pca.fit_transform(X_train)
+
+# Train a new RF on PCA components for visualization
+rf_pca = RandomForestClassifier(n_estimators=100, random_state=42)
+rf_pca.fit(X_pca, y_train)
+
+# Plot Decision Boundary
+fig, ax = plt.subplots(figsize=(10, 8))
+DecisionBoundaryDisplay.from_estimator(
+    rf_pca,
+    X_pca,
+    response_method="predict",
+    cmap="RdBu",
+    alpha=0.8,
+    ax=ax,
+    xlabel="Principal Component 1",
+    ylabel="Principal Component 2",
+)
+scatter = ax.scatter(X_pca[:, 0], X_pca[:, 1], c=y_train, cmap="RdBu", edgecolors="k", s=30)
+ax.set_title("Random Forest Decision Boundaries (PCA Projected)")
+plt.legend(*scatter.legend_elements(), title="Classes")
+plt.tight_layout()
+plt.show()
+```
+
+## Error Rate vs. Number of Trees
+
+This graph illustrates how the model's Out-of-Bag (OOB) error rate stabilizes as the number of trees in the forest increases, demonstrating the ensemble effect.
+
+```{python}
+n_estimators_range = range(15, 300, 10)
+oob_errors = []
+
+for n in n_estimators_range:
+    rf_oob = RandomForestClassifier(n_estimators=n, warm_start=True, oob_score=True, random_state=42, n_jobs=-1)
+    rf_oob.fit(X_train, y_train)
+    oob_errors.append(1 - rf_oob.oob_score_)
+
+plt.figure(figsize=(10, 6))
+plt.plot(n_estimators_range, oob_errors, marker='o', linestyle='-', color='purple')
+plt.title("OOB Error Rate vs. Number of Trees")
+plt.xlabel("Number of Trees (n_estimators)")
+plt.ylabel("OOB Error Rate")
+plt.grid(True)
+plt.tight_layout()
+plt.show()
 ```
 
 ## Hyperparameter Considerations
@@ -182,4 +238,3 @@ Grid search or Bayesian optimization can systematically explore these settings.[
 [^breiman2001]: Introduced the random forest algorithm with theoretical justification and empirical benchmarks.
 [^sklearn_breast]: Official description of the dataset, feature definitions, and usage considerations.
 [^bergstra2012]: Demonstrated the efficiency gains of random search over grid search for hyperparameter tuning.
-
