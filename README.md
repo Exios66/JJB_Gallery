@@ -104,7 +104,7 @@ This portfolio highlights select projects in engineering, data analysis, machine
 - **Random Forest Essentials** – Quarto doc, 2024. ([Link](Quarto/RandomForest))
 - **Talking to Agents: architecting Multi-Agent Systems** – Internal seminar, 2024.
 - *(More manuscripts and presentations to be added.)*
-- For a list of all talks and publications, see [docs/publications.md](docs/publications.md) _(Coming soon)_
+- For a list of all talks and publications, see [docs/publications.md](docs/publications.md) *(Coming soon)*
 
 ---
 
@@ -133,4 +133,4 @@ This portfolio highlights select projects in engineering, data analysis, machine
 - [SECURITY.md](SECURITY.md)
 - [Official Python Template Repo](https://github.com/Exios66/python-template)
 
-_Repository updated regularly. Check project directories for the latest code, docs, and research._
+*Repository updated regularly. Check project directories for the latest code, docs, and research.*

@@ -14,7 +14,6 @@
 - Dependency Management: Resolved Python environment corruption caused by disk space exhaustion; recreated virtual environment and reinstalled all dependencies
 - Documentation: Fixed Table of Contents overlay issue in index.html by updating Quarto configuration
 
-
 ### Repository Configuration
 
 - Updated .gitignore to ignore macOS resource fork files (._*) and .DS_Store files
