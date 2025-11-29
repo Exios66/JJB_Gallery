@@ -1,8 +1,0 @@
----
-title: "Theme Generator"
-format:
-  html:
-    embed-resources: false
----
-Placeholder
-
