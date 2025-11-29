@@ -3,8 +3,8 @@ Hyperparameter Optimizer Agent for CrewAI ML workflows.
 Specializes in hyperparameter tuning and optimization strategies.
 """
 
-from crewai import Agent
-from crewai_tools import SerperDevTool
+from crewai import Agent  # type: ignore
+from crewai_tools import SerperDevTool  # type: ignore
 from ..config import config
 
 

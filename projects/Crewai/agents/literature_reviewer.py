@@ -3,8 +3,8 @@ Literature Reviewer Agent for CrewAI Research Swarm.
 Specializes in academic research, papers, and scholarly analysis.
 """
 
-from crewai import Agent
-from crewai_tools import SerperDevTool
+from crewai import Agent  # type: ignore
+from crewai_tools import SerperDevTool  # type: ignore
 from ..config import config
 
 

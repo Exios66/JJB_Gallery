@@ -3,7 +3,7 @@ Research Task Definitions for CrewAI Research Swarm.
 Contains tasks for complete ML research analysis workflow.
 """
 
-from crewai import Task
+from crewai import Task  # type: ignore
 from typing import List, Dict, Any, Optional
 from ..config import config
 

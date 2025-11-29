@@ -3,9 +3,9 @@ Custom ML Tools for CrewAI agents.
 Provides specialized tools for machine learning operations.
 """
 
-from crewai_tools import BaseTool
+from crewai_tools import BaseTool  # type: ignore
 from typing import Any, Type
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field  # type: ignore
 import pandas as pd
 import numpy as np
 from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor
