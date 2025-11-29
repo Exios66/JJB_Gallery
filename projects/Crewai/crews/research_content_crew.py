@@ -21,7 +21,13 @@ class ResearchContentCrew:
 
     def _create_agents(self) -> Dict[str, Any]:
         search_tool = SerperDevTool() if config.SERPER_API_KEY else None
-        tools = [search_tool] if search_tool else []
+        base_tools = [search_tool] if search_tool else []
+        
+        # Content and SEO tools
+        seo_analyzer = SEOAnalyzerTool()
+        keyword_researcher = KeywordResearchTool()
+        content_analyzer = ContentAnalyzerTool()
+        competitor_analyzer = CompetitorContentAnalyzerTool()
 
         return {
             "seo_strategist": Agent(
@@ -30,7 +36,7 @@ class ResearchContentCrew:
                 backstory="""You are an expert in Search Engine Optimization. You know how to find keywords that have
                 high traffic but low competition. You understand search intent and how to structure content to rank well.""",
                 verbose=config.VERBOSE,
-                tools=tools,
+                tools=base_tools + [seo_analyzer, keyword_researcher, competitor_analyzer],
                 allow_delegation=False
             ),
             "content_outliner": Agent(
@@ -39,6 +45,7 @@ class ResearchContentCrew:
                 backstory="""You are a master of structure. You take a topic and break it down into logical headers,
                 subheaders, and bullet points. You ensure the narrative flow makes sense and covers all necessary angles.""",
                 verbose=config.VERBOSE,
+                tools=[keyword_researcher, content_analyzer],
                 allow_delegation=False
             ),
             "technical_writer": Agent(
@@ -48,6 +55,7 @@ class ResearchContentCrew:
                 without dumbing them down. Your writing is crisp, clear, and free of fluff. You follow the provided outline
                 rigorously.""",
                 verbose=config.VERBOSE,
+                tools=[content_analyzer, seo_analyzer],
                 allow_delegation=False
             )
         }
