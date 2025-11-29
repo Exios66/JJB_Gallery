@@ -76,7 +76,7 @@ Note: This functionality is included in the `free_ram.sh` script on Linux system
 
 The setup_cloud_sandbox.sh script configures remote Python environments to avoid local disk space usage. This is particularly useful when you have limited disk space but need to work with large Python packages like CrewAI.
 
-### Usage
+### Cloud Sandbox Setup Usage
 
 ```bash
 ./scripts/setup_cloud_sandbox.sh
@@ -113,7 +113,7 @@ The setup_cloud_sandbox.sh script configures remote Python environments to avoid
 
 After setting up a cloud sandbox, use this script to execute Python commands in the remote environment.
 
-### Usage
+### Use Cloud Sandbox Usage
 
 ```bash
 # Execute a Python script remotely
@@ -143,7 +143,7 @@ The setup_git_ssh.sh script configures SSH keys for GitHub and switches your rep
 - ✅ More secure for automated workflows
 - ✅ Required for some advanced GitHub features
 
-### Usage
+### Git SSH Setup Usage
 
 ```bash
 ./scripts/setup_git_ssh.sh
@@ -203,7 +203,7 @@ The launch_codespace.sh script automatically creates and launches a GitHub Codes
 5. ✅ Opens in VS Code (if installed) or web browser
 6. ✅ Uses free tier machine (2 cores, 4GB RAM)
 
-### Features
+### Launch Codespace Features
 
 - Automatic Codespace creation
 - Reuses existing Codespace if available
