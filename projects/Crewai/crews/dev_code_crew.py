@@ -1,6 +1,6 @@
 """
 Dev Code Crew Orchestration.
-Manages software development and coding tasks.
+Manages software architecture, coding, and code review workflows.
 """
 
 from crewai import Crew, Process, Agent, Task  # type: ignore
@@ -19,25 +19,73 @@ class DevCodeCrew:
 
     def _create_agents(self) -> Dict[str, Any]:
         return {
+            "software_architect": Agent(
+                role='Software Architect',
+                goal='Design scalable and robust system architectures',
+                backstory="""You are a veteran architect who thinks in systems. You design software structures that are
+                maintainable, scalable, and secure. You make high-level decisions about patterns, databases, and APIs.""",
+                verbose=config.VERBOSE,
+                allow_delegation=False
+            ),
             "senior_developer": Agent(
-                role='Senior Developer',
-                goal='Write clean, efficient, and well-documented code',
-                backstory="You are a senior software engineer with expertise in Python and system architecture.",
+                role='Senior Python Developer',
+                goal='Implement clean, efficient, and well-documented code',
+                backstory="""You are a coding machine. You write Pythonic code that is easy to read and hard to break.
+                You follow PEP8 standards and believe in the power of type hinting and unit tests.""",
+                verbose=config.VERBOSE,
+                allow_delegation=False
+            ),
+            "code_reviewer": Agent(
+                role='Code QA Engineer',
+                goal='Review code for bugs, security issues, and best practices',
+                backstory="""You are the gatekeeper. Nothing goes into production without your seal of approval. You spot
+                edge cases, race conditions, and security vulnerabilities that others miss.""",
                 verbose=config.VERBOSE,
                 allow_delegation=False
             )
         }
 
     def _create_tasks(self) -> List[Any]:
-        agent = self.agents["senior_developer"]
-        return [
-            Task(
-                description="Develop code solution for: {topic}",
-                expected_output="Production-ready code with documentation.",
-                agent=agent,
-                output_file=config.get_output_path("code_solution.md")
-            )
-        ]
+        software_architect = self.agents["software_architect"]
+        senior_developer = self.agents["senior_developer"]
+        code_reviewer = self.agents["code_reviewer"]
+
+        task_architecture = Task(
+            description="""Design the software architecture for: {topic}
+            1. Define the system components and their interactions.
+            2. Select appropriate design patterns (e.g., MVC, Singleton).
+            3. Outline data models and API endpoints.
+            4. Identify potential bottlenecks.""",
+            expected_output="Technical design document and architecture diagram description.",
+            agent=software_architect,
+            output_file=config.get_output_path("architecture_design.md")
+        )
+
+        task_implementation = Task(
+            description="""Implement the solution based on the architecture for: {topic}
+            1. Write the core logic in Python.
+            2. Include docstrings and type hints.
+            3. Ensure error handling is robust.
+            4. Provide example usage snippets.""",
+            expected_output="Python source code files and implementation notes.",
+            agent=senior_developer,
+            context=[task_architecture],
+            output_file=config.get_output_path("implementation_code.md")
+        )
+
+        task_review = Task(
+            description="""Review the implementation code for: {topic}
+            1. Check for adherence to the design spec.
+            2. Identify logic errors or inefficiencies.
+            3. Suggest refactoring for readability.
+            4. Verify security best practices.""",
+            expected_output="Code review report with change requests and approval status.",
+            agent=code_reviewer,
+            context=[task_architecture, task_implementation],
+            output_file=config.get_output_path("code_review.md")
+        )
+
+        return [task_architecture, task_implementation, task_review]
 
     def _create_crew(self) -> Crew:
         return Crew(
@@ -53,5 +101,4 @@ class DevCodeCrew:
 
     @staticmethod
     def get_status() -> Dict[str, Any]:
-        return {"agents_available": 1}
-
+        return {"agents_available": 3}
