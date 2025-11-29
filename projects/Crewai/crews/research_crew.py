@@ -7,6 +7,7 @@ from crewai import Crew, Process, Agent, Task  # type: ignore
 from crewai_tools import SerperDevTool  # type: ignore
 from typing import Dict, Any, Optional, List
 from config import config
+from tools.research_tools import DataGatheringTool, CitationManagerTool, TrendAnalyzerTool, ResearchSynthesisTool
 
 
 class ResearchCrew:
@@ -20,7 +21,13 @@ class ResearchCrew:
 
     def _create_agents(self) -> Dict[str, Any]:
         search_tool = SerperDevTool() if config.SERPER_API_KEY else None
-        tools = [search_tool] if search_tool else []
+        base_tools = [search_tool] if search_tool else []
+        
+        # Research-specific tools
+        data_gathering_tool = DataGatheringTool()
+        citation_tool = CitationManagerTool()
+        trend_tool = TrendAnalyzerTool()
+        synthesis_tool = ResearchSynthesisTool()
 
         return {
             "lead_researcher": Agent(
@@ -30,7 +37,7 @@ class ResearchCrew:
                 You are not satisfied with surface-level answers; you dig deep into reports, articles, and whitepapers
                 to find the truth. You are expert at vetting sources for credibility.""",
                 verbose=config.VERBOSE,
-                tools=tools,
+                tools=base_tools + [data_gathering_tool, citation_tool],
                 allow_delegation=False
             ),
             "trend_analyst": Agent(
@@ -40,7 +47,7 @@ class ResearchCrew:
                 where the industry is heading. You connect dots that others miss, linking technological shifts
                 to market outcomes.""",
                 verbose=config.VERBOSE,
-                tools=tools,
+                tools=base_tools + [trend_tool, data_gathering_tool],
                 allow_delegation=False
             ),
             "research_writer": Agent(
@@ -50,6 +57,7 @@ class ResearchCrew:
                 and weave them into a compelling, easy-to-read report. You organize information logically and
                 highlight the most impactful findings.""",
                 verbose=config.VERBOSE,
+                tools=[synthesis_tool, citation_tool],
                 allow_delegation=False
             )
         }

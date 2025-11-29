@@ -6,6 +6,7 @@ Manages technical writing, editing, and documentation architecture.
 from crewai import Crew, Process, Agent, Task  # type: ignore
 from typing import Dict, Any, Optional, List
 from config import config
+from tools.documentation_tools import DocumentStructureTool, MarkdownFormatterTool, DocumentationValidatorTool, CodeExampleGeneratorTool
 
 
 class DocumentationCrew:
@@ -18,6 +19,12 @@ class DocumentationCrew:
         self.crew = self._create_crew()
 
     def _create_agents(self) -> Dict[str, Any]:
+        # Documentation tools
+        doc_structure = DocumentStructureTool()
+        markdown_formatter = MarkdownFormatterTool()
+        doc_validator = DocumentationValidatorTool()
+        code_example_gen = CodeExampleGeneratorTool()
+
         return {
             "doc_architect": Agent(
                 role='Documentation Architect',
@@ -25,6 +32,7 @@ class DocumentationCrew:
                 backstory="""You organize information into logical structures. You understand how users navigate documentation
                 and design hierarchies that are intuitive. You define the table of contents and style guides.""",
                 verbose=config.VERBOSE,
+                tools=[doc_structure],
                 allow_delegation=False
             ),
             "technical_writer": Agent(
@@ -33,6 +41,7 @@ class DocumentationCrew:
                 backstory="""You translate engineering-speak into human-speak. You write guides, API references, and manuals
                 that users actually want to read. You focus on clarity, brevity, and accuracy.""",
                 verbose=config.VERBOSE,
+                tools=[code_example_gen, markdown_formatter],
                 allow_delegation=False
             ),
             "doc_editor": Agent(
@@ -41,6 +50,7 @@ class DocumentationCrew:
                 backstory="""You have an eagle eye for typos and inconsistencies. You ensure all documentation adheres to
                 the style guide. You verify that instructions are clear and step-by-step guides actually work.""",
                 verbose=config.VERBOSE,
+                tools=[doc_validator, markdown_formatter],
                 allow_delegation=False
             )
         }

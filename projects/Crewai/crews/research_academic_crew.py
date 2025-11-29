@@ -7,6 +7,8 @@ from crewai import Crew, Process, Agent, Task  # type: ignore
 from crewai_tools import SerperDevTool  # type: ignore
 from typing import Dict, Any, Optional, List
 from config import config
+from tools.academic_tools import PaperAnalyzerTool, CitationNetworkTool, MethodologyEvaluatorTool, LiteratureGapIdentifierTool
+from tools.research_tools import CitationManagerTool
 
 
 class ResearchAcademicCrew:
@@ -20,7 +22,14 @@ class ResearchAcademicCrew:
 
     def _create_agents(self) -> Dict[str, Any]:
         search_tool = SerperDevTool() if config.SERPER_API_KEY else None
-        tools = [search_tool] if search_tool else []
+        base_tools = [search_tool] if search_tool else []
+        
+        # Academic research tools
+        paper_analyzer = PaperAnalyzerTool()
+        citation_network = CitationNetworkTool()
+        methodology_evaluator = MethodologyEvaluatorTool()
+        gap_identifier = LiteratureGapIdentifierTool()
+        citation_manager = CitationManagerTool()
 
         return {
             "literature_reviewer": Agent(
@@ -30,7 +39,7 @@ class ResearchAcademicCrew:
                 publications. You use Google Scholar, arXiv, and other databases effectively. You quickly grasp the
                 main contributions of a paper.""",
                 verbose=config.VERBOSE,
-                tools=tools,
+                tools=base_tools + [paper_analyzer, citation_network, citation_manager],
                 allow_delegation=False
             ),
             "methodology_analyst": Agent(
@@ -40,7 +49,7 @@ class ResearchAcademicCrew:
                 experiments are valid, reproducible, and statistically sound. You identify flaws and limitations that
                 authors might try to hide.""",
                 verbose=config.VERBOSE,
-                tools=tools,
+                tools=[methodology_evaluator, paper_analyzer],
                 allow_delegation=False
             ),
             "academic_synthesizer": Agent(
@@ -50,6 +59,7 @@ class ResearchAcademicCrew:
                 story of scientific progress. You synthesize conflicting findings and identify gaps in the current body
                 of knowledge.""",
                 verbose=config.VERBOSE,
+                tools=[gap_identifier, citation_manager, citation_network],
                 allow_delegation=False
             )
         }

@@ -6,6 +6,7 @@ Manages software architecture, coding, and code review workflows.
 from crewai import Crew, Process, Agent, Task  # type: ignore
 from typing import Dict, Any, Optional, List
 from config import config
+from tools.dev_tools import CodeExecutorTool, FileManagerTool, CodeAnalyzerTool, TestGeneratorTool, ArchitectureAnalyzerTool
 
 
 class DevCodeCrew:
@@ -18,6 +19,13 @@ class DevCodeCrew:
         self.crew = self._create_crew()
 
     def _create_agents(self) -> Dict[str, Any]:
+        # Development tools
+        architecture_analyzer = ArchitectureAnalyzerTool()
+        code_executor = CodeExecutorTool()
+        file_manager = FileManagerTool()
+        code_analyzer = CodeAnalyzerTool()
+        test_generator = TestGeneratorTool()
+
         return {
             "software_architect": Agent(
                 role='Software Architect',
@@ -25,6 +33,7 @@ class DevCodeCrew:
                 backstory="""You are a veteran architect who thinks in systems. You design software structures that are
                 maintainable, scalable, and secure. You make high-level decisions about patterns, databases, and APIs.""",
                 verbose=config.VERBOSE,
+                tools=[architecture_analyzer, file_manager],
                 allow_delegation=False
             ),
             "senior_developer": Agent(
@@ -33,6 +42,7 @@ class DevCodeCrew:
                 backstory="""You are a coding machine. You write Pythonic code that is easy to read and hard to break.
                 You follow PEP8 standards and believe in the power of type hinting and unit tests.""",
                 verbose=config.VERBOSE,
+                tools=[code_executor, file_manager, code_analyzer],
                 allow_delegation=False
             ),
             "code_reviewer": Agent(
@@ -41,6 +51,7 @@ class DevCodeCrew:
                 backstory="""You are the gatekeeper. Nothing goes into production without your seal of approval. You spot
                 edge cases, race conditions, and security vulnerabilities that others miss.""",
                 verbose=config.VERBOSE,
+                tools=[code_analyzer, test_generator, code_executor],
                 allow_delegation=False
             )
         }
