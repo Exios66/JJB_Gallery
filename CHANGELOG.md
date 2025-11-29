@@ -1,5 +1,22 @@
 # CHANGELOG
 
+## [1.0.2] - 11-29-25
+
+### Changed in v1.0.2
+
+- Resolved Git repository corruption issues: Fixed corrupted remote references and missing object errors
+- Improved repository organization: Moved all macOS resource fork files (._* files) to Xtra_Copies directory
+
+### Fixed in v1.0.2
+
+- Repository corruption: Resolved issues with corrupted refs/remotes/origin/gh-pages and missing Git objects
+- File organization: Cleaned up macOS metadata files by consolidating them in Xtra_Copies
+
+### Repository Configuration
+
+- Updated .gitignore to ignore macOS resource fork files (._*) and .DS_Store files
+- Removed all tracked ._* files from Git repository
+
 ## [1.0.1] - 11-21-25
 
 ### Added in v1.0.1
