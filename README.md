@@ -52,7 +52,6 @@ This portfolio highlights select projects in engineering, data analysis, machine
 <img alt="GitHub User's stars" src="https://img.shields.io/github/stars/Exios66?style=social">
 <img alt="GitHub followers" src="https://img.shields.io/github/followers/Exios66?style=social">
 
-
 ---
 
 ## 📂 Repository Map
@@ -95,6 +94,8 @@ This portfolio highlights select projects in engineering, data analysis, machine
   ```
 
 <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/Exios66/JJB_Gallery?style=for-the-badge">
+
+---
 
 ## Project Gallery
 
