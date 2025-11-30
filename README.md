@@ -1,7 +1,4 @@
 <!-- HEADER BANNER -->
-<p align="center">
-  <img src="assets/banner.png" alt="JJB Gallery Banner" width="100%">
-</p>
 
 # GitHub-Based Portfolio & Gallery of Jack J. Burleson
 
