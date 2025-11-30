@@ -78,11 +78,12 @@ This portfolio highlights select projects in engineering, data analysis, machine
   ├── CHANGELOG.md
   ├── SECURITY.md
   └── misc folders:
-      ├── Jupyter/
-      ├── Quarto/
-      ├── Quickstart/
-      └── Xtra_Copies/
-    ```
+    ├── Jupyter/
+    ├── Quarto/
+    ├── Quickstart/
+    └── Xtra_Copies/
+  ```
+
 ## Project Gallery
 
 | Project | Description | Link |
