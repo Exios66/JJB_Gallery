@@ -57,6 +57,8 @@ This portfolio highlights select projects in engineering, data analysis, machine
 
 ## 📂 Repository Map
 
+<img alt="GitHub Tag" src="https://img.shields.io/github/v/tag/Exios66/JJB_Gallery?include_prereleases&sort=date&style=social">
+
   ```bash
   JJB_Gallery (gh-pages branch)
   ├── index.html
