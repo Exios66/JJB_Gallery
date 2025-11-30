@@ -23,6 +23,7 @@ The free_ram.sh script is an **enhanced** tool that frees up unnecessary RAM, di
 ### What it clears
 
 #### Python & Development Tools
+
 - **Python cache files**: `__pycache__` directories, `.pyc`, `.pyo`, and `.py[cod]` files
 - **Jupyter/IPython checkpoints**: `.ipynb_checkpoints` directories
 - **Quarto cache**: Quarto freeze directories and user cache
@@ -33,6 +34,7 @@ The free_ram.sh script is an **enhanced** tool that frees up unnecessary RAM, di
 - **Virtual environment caches**: Cache files in `.venv`, `venv`, and `env` directories
 
 #### Package Manager Caches
+
 - **npm cache**: Node.js package manager cache
 - **yarn cache**: Yarn package manager cache
 - **Homebrew cache** (macOS): Homebrew package cache
@@ -40,6 +42,7 @@ The free_ram.sh script is an **enhanced** tool that frees up unnecessary RAM, di
 - **Go module cache**: Go language module cache
 
 #### System & Application Caches
+
 - **Docker cache**: Docker images, containers, and volumes (unused)
 - **Browser caches**: Chrome, Firefox, Safari caches (macOS)
 - **IDE caches**: VS Code, PyCharm, IntelliJ IDEA caches
@@ -49,6 +52,7 @@ The free_ram.sh script is an **enhanced** tool that frees up unnecessary RAM, di
 - **DNS cache**: System DNS resolver cache
 
 #### System Resources (Optional)
+
 - **System page cache** (Linux): Kernel page cache (requires sudo)
 - **Swap files**: Clear and reset swap (Linux, requires sudo)
 - **Idle processes**: Kill high CPU/low priority processes (optional, dangerous)

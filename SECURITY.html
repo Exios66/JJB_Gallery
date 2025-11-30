@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Jack J. Burleson">
 
-<title>GitHub-Based Portfolio &amp; Gallery of Jack J. Burleson – JJB Gallery</title>
+<title>security – JJB Gallery</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -91,7 +90,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="./index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
@@ -128,18 +127,20 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#about-me" id="toc-about-me" class="nav-link active" data-scroll-target="#about-me">About Me</a></li>
-  <li><a href="#project-gallery" id="toc-project-gallery" class="nav-link" data-scroll-target="#project-gallery">Project Gallery</a></li>
-  <li><a href="#interactive-agent-swarm" id="toc-interactive-agent-swarm" class="nav-link" data-scroll-target="#interactive-agent-swarm">Interactive Agent Swarm</a>
+  <li><a href="#security-policy" id="toc-security-policy" class="nav-link active" data-scroll-target="#security-policy">Security Policy</a>
   <ul class="collapse">
-  <li><a href="#quick-start" id="toc-quick-start" class="nav-link" data-scroll-target="#quick-start">🚀 Quick Start</a></li>
+  <li><a href="#supported-versions" id="toc-supported-versions" class="nav-link" data-scroll-target="#supported-versions">Supported Versions</a></li>
+  <li><a href="#reporting-a-vulnerability" id="toc-reporting-a-vulnerability" class="nav-link" data-scroll-target="#reporting-a-vulnerability">Reporting a Vulnerability</a></li>
+  <li><a href="#security-best-practices" id="toc-security-best-practices" class="nav-link" data-scroll-target="#security-best-practices">Security Best Practices</a>
+  <ul class="collapse">
+  <li><a href="#for-users" id="toc-for-users" class="nav-link" data-scroll-target="#for-users">For Users</a></li>
+  <li><a href="#for-contributors" id="toc-for-contributors" class="nav-link" data-scroll-target="#for-contributors">For Contributors</a></li>
   </ul></li>
-  <li><a href="#recent-additions" id="toc-recent-additions" class="nav-link" data-scroll-target="#recent-additions">Recent Additions</a></li>
-  <li><a href="#skills" id="toc-skills" class="nav-link" data-scroll-target="#skills">Skills</a></li>
-  <li><a href="#publications-presentations" id="toc-publications-presentations" class="nav-link" data-scroll-target="#publications-presentations">Publications &amp; Presentations</a></li>
-  <li><a href="#contact" id="toc-contact" class="nav-link" data-scroll-target="#contact">Contact</a></li>
-  <li><a href="#socials" id="toc-socials" class="nav-link" data-scroll-target="#socials">Socials</a></li>
-  <li><a href="#further-reading" id="toc-further-reading" class="nav-link" data-scroll-target="#further-reading">Further Reading</a></li>
+  <li><a href="#third-party-dependencies" id="toc-third-party-dependencies" class="nav-link" data-scroll-target="#third-party-dependencies">Third-Party Dependencies</a></li>
+  <li><a href="#build-runtime-security" id="toc-build-runtime-security" class="nav-link" data-scroll-target="#build-runtime-security">Build &amp; Runtime Security</a></li>
+  <li><a href="#responsible-disclosure" id="toc-responsible-disclosure" class="nav-link" data-scroll-target="#responsible-disclosure">Responsible Disclosure</a></li>
+  <li><a href="#security-contact" id="toc-security-contact" class="nav-link" data-scroll-target="#security-contact">Security Contact</a></li>
+  </ul></li>
   </ul>
 </nav>
 </nav>
@@ -148,186 +149,131 @@ ul.task-list li input[type="checkbox"] {
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">GitHub-Based Portfolio &amp; Gallery of Jack J. Burleson</h1>
-</div>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
 
-<div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Jack J. Burleson </p>
-          </div>
-  </div>
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<p>Welcome! This repository serves as the official portfolio and gallery for <strong>Jack J. Burleson</strong>, showcasing a curated selection of previous work, open-source projects, research, and presentations.</p>
-<!-- markdownlint-disable MD033 -->
-<p align="left">
-<a href="https://github.com/Exios66/JJB_Gallery/actions"> <img alt="GitHub Workflow Status" src="https://img.shields.io/github/actions/workflow/status/Exios66/JJB_Gallery/ci.yml?branch=main&amp;label=CI&amp;logo=github"> </a> <a href="https://github.com/Exios66/JJB_Gallery/blob/main/LICENSE"> <img alt="License" src="https://img.shields.io/github/license/Exios66/JJB_Gallery?color=blue"> </a> <a href="https://github.com/Exios66/JJB_Gallery/releases"> <img alt="GitHub release" src="https://img.shields.io/github/v/release/Exios66/JJB_Gallery?include_prereleases"> </a> <a href="https://github.com/Exios66/JJB_Gallery/commits/main"> <img alt="Last Commit" src="https://img.shields.io/github/last-commit/Exios66/JJB_Gallery"> </a> <a href="https://github.com/Exios66/JJB_Gallery/issues"> <img alt="GitHub issues" src="https://img.shields.io/github/issues/Exios66/JJB_Gallery"> </a> <a href="https://github.com/Exios66/JJB_Gallery/pulls"> <img alt="GitHub pull requests" src="https://img.shields.io/github/issues-pr/Exios66/JJB_Gallery"> </a> <a href="https://www.python.org"> <img alt="Python Version" src="https://img.shields.io/badge/python-3.8%2B-blue.svg"> </a> <a href="https://github.com/psf/black"> <img alt="Code style: black" src="https://img.shields.io/badge/code%20style-black-000000.svg"> </a> <a href="https://github.com/pre-commit/pre-commit"> <img alt="pre-commit" src="https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit"> </a> <a href="https://results.pre-commit.ci/latest/github/Exios66/JJB_Gallery/main"> <img alt="pre-commit.ci status" src="https://results.pre-commit.ci/badge/github/Exios66/JJB_Gallery/main.svg"> </a>
-</p>
-<!-- markdownlint-enable MD033 -->
+<section id="security-policy" class="level1">
+<h1>Security Policy</h1>
+<p>Welcome to this repository! Security is a <strong>top priority</strong> for all contributors, maintainers, and users. This SECURITY.md document describes security practices, responsible disclosure, and guidance for keeping the repository safe for everyone.</p>
 <hr>
-<section id="about-me" class="level2">
-<h2 class="anchored" data-anchor-id="about-me">About Me</h2>
-<p>Hi! I’m <strong>Jack J. Burleson</strong> – data scientist, research engineer, and open-source enthusiast.<br>
-I am passionate about making data science, machine learning, and advanced analytics accessible and meaningful through clear code and insightful visualizations.<br>
-This portfolio highlights select projects in engineering, data analysis, machine learning, and technical writing.</p>
-<hr>
-</section>
-<section id="project-gallery" class="level2">
-<h2 class="anchored" data-anchor-id="project-gallery">Project Gallery</h2>
+<section id="supported-versions" class="level2">
+<h2 class="anchored" data-anchor-id="supported-versions">Supported Versions</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
-<th>Project</th>
-<th>Description</th>
-<th>Link</th>
+<th>Version</th>
+<th>Supported</th>
+<th>Maintenance</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><strong>Random Forest Essentials</strong></td>
-<td><strong>[New]</strong> Comprehensive analysis with interactive plots, decision boundaries, and ROC curves.</td>
-<td><a href="./Quarto/randomforest.html">📊 <strong>View Interactive Analysis</strong></a></td>
+<td>Latest</td>
+<td>:white_check_mark:</td>
+<td>:white_check_mark:</td>
 </tr>
 <tr class="even">
-<td><strong>CrewAI Multi-Agent Swarm System</strong></td>
-<td>Multi-agent architecture using CrewAI, with specialized swarms for ML, research, business intelligence, and documentation; includes Streamlit &amp; CLI interfaces.</td>
-<td><a href="#interactive-agent-swarm">🚀 <strong>Launch Swarm</strong></a> | <a href="./projects/Crewai/README.html">📄 Docs</a></td>
-</tr>
-<tr class="odd">
-<td><strong>Terminal Agents</strong></td>
-<td>AI coding agents for the terminal; includes “build” and “plan” agents, supporting code exploration and editing with easy installation and cross-platform support.</td>
-<td><a href="./projects/terminal_agents/README.html">terminal_agents/README.md</a></td>
-</tr>
-<tr class="even">
-<td><strong>Jupyter ML &amp; Pandas Notebooks</strong></td>
-<td>Collections of essential notebooks demonstrating the use of Pandas and scikit-learn in data workflows.</td>
-<td><a href="notebooks/">notebooks/</a></td>
-</tr>
-<tr class="odd">
-<td><strong>PyPI-Ready Python Template</strong></td>
-<td>Modern Python project template with pre-commit, Black, and CI configuration, ready for immediate use as a best-practices starter.</td>
-<td><a href="https://github.com/Exios66/python-template">Template Repo</a></td>
-</tr>
-<tr class="even">
-<td>…</td>
-<td>…</td>
-<td>…</td>
+<td>Previous</td>
+<td>:white_check_mark:</td>
+<td>:x:</td>
 </tr>
 </tbody>
 </table>
-<p><em>More projects, research, and documentation are regularly added. See repository folders for latest content.</em></p>
+<p><em>Only the latest version is actively maintained and receives security updates.</em></p>
 <hr>
 </section>
-<section id="interactive-agent-swarm" class="level2">
-<h2 class="anchored" data-anchor-id="interactive-agent-swarm">Interactive Agent Swarm</h2>
-<div class="callout callout-style-simple callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>🤖 Run the Live Interface
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>This portfolio contains a full <strong>CrewAI Multi-Agent System</strong> application.<br>
-To interact with the specialized agent swarms (ML, Research, Business Intelligence), you can run the Streamlit interface locally.</p>
-</div>
-</div>
-<section id="quick-start" class="level3">
-<h3 class="anchored" data-anchor-id="quick-start">🚀 Quick Start</h3>
+<section id="reporting-a-vulnerability" class="level2">
+<h2 class="anchored" data-anchor-id="reporting-a-vulnerability">Reporting a Vulnerability</h2>
+<p><strong>If you discover a security vulnerability, please follow these steps:</strong></p>
 <ol type="1">
-<li><strong>Clone this repository</strong> to your local machine.</li>
-<li><strong>Install dependencies</strong>: <code>bash     pip install -r requirements.txt</code></li>
-<li><strong>Launch the Swarm Interface</strong>: <code>bash     streamlit run projects/Crewai/interface_web.py</code></li>
+<li><p><strong>Privately disclose the issue.</strong><br>
+Email us at <a href="mailto:security@opencode.ai">security@opencode.ai</a> or contact a maintainer directly. Avoid creating public GitHub issues for vulnerabilities.</p></li>
+<li><p><strong>Include details:</strong></p>
+<ul>
+<li>Affected files and versions</li>
+<li>Steps to reproduce</li>
+<li>Any relevant logs or screenshots</li>
+<li>Your suggested mitigation or patch (if available)</li>
+</ul></li>
+<li><p><strong>We will:</strong></p>
+<ul>
+<li>Respond within 2 business days</li>
+<li>Triage and validate the report</li>
+<li>Release a fix as quickly as possible</li>
+<li>Credit you (with permission) after a public disclosure</li>
+</ul></li>
 </ol>
-<p><a href="https://github.com/Exios66/JJB_Gallery/tree/main/projects/Crewai"><strong>📂 Browse Source Code</strong></a> | <a href="./projects/Crewai/README.html"><strong>📄 View Documentation</strong></a></p>
 <hr>
 </section>
-</section>
-<section id="recent-additions" class="level2">
-<h2 class="anchored" data-anchor-id="recent-additions">Recent Additions</h2>
+<section id="security-best-practices" class="level2">
+<h2 class="anchored" data-anchor-id="security-best-practices">Security Best Practices</h2>
+<section id="for-users" class="level3">
+<h3 class="anchored" data-anchor-id="for-users">For Users</h3>
 <ul>
-<li><strong>Random Forest Analysis:</strong> Enhanced with interactive visualizations and decision boundary plots (<a href="./Quarto/randomforest.html">View Analysis</a>).</li>
-<li><strong>CrewAI Swarm System:</strong> Full-featured, multi-swarm agent orchestration, ML/research/business/reporting specializations (<a href="./projects/Crewai/README.html">README</a>)</li>
-<li><strong>Terminal Coding Agents:</strong> Terminal-based agent system, built-in “build” and “plan” agents with live installation quick start (<a href="./projects/terminal_agents/README.html">README</a>)</li>
-<li><strong>Jupyter Notebooks:</strong> ML and pandas essentials, plus scikit-learn examples (<a href="notebooks/">notebooks/</a>)</li>
-<li><strong>.gitignore Improvements:</strong> Now excludes macOS ._*, .DS_Store, and other platform/editor artifacts (<a href=".gitignore">.gitignore</a>)</li>
-<li><strong>Changelog:</strong> Track recent changes in <a href="./CHANGELOG.html">CHANGELOG.md</a></li>
+<li><strong>Keep up-to-date</strong>: Always use the latest release from GitHub or <a href="https://opencode.ai">official sites</a>.</li>
+<li><strong>Verify downloads</strong>: Check for sha256 signatures when available.</li>
+<li><strong>Never share sensitive credentials</strong> in issues, PRs, or chat logs.</li>
+<li><strong>Review third-party dependencies</strong>: This repo uses several. Monitor for CVEs and update dependencies regularly.</li>
+</ul>
+</section>
+<section id="for-contributors" class="level3">
+<h3 class="anchored" data-anchor-id="for-contributors">For Contributors</h3>
+<ul>
+<li><strong>Sign your commits</strong> (<a href="https://docs.github.com/en/authentication/managing-commit-signature-verification/signing-commits">Guide</a>):
+<ul>
+<li><code>git config --global commit.gpgsign true</code></li>
+</ul></li>
+<li><strong>Do not include secrets</strong> (API keys, tokens) in code, configs, or docs.</li>
+<li><strong>Add unit/integration tests</strong> for all security fixes.</li>
+<li><strong>Run static analysis</strong> and linters before submitting code.</li>
+<li><strong>Lockdown GitHub Actions</strong>: Reference only trusted actions, pin to a specific commit SHA.</li>
+<li><strong>Follow the Principle of Least Privilege</strong> in all scripts and integrations.</li>
+<li><strong>Keep dependencies updated</strong>; submit a PR if you spot an outdated or vulnerable one.</li>
 </ul>
 <hr>
 </section>
-<section id="skills" class="level2">
-<h2 class="anchored" data-anchor-id="skills">Skills</h2>
+</section>
+<section id="third-party-dependencies" class="level2">
+<h2 class="anchored" data-anchor-id="third-party-dependencies">Third-Party Dependencies</h2>
+<p>This repository makes use of open-source tools and packages (see <code>requirements.txt</code> and <code>package.json</code> if available).</p>
 <ul>
-<li><strong>Programming:</strong> <code>Python</code> (advanced), <code>R</code>, <code>JavaScript</code>, <code>bash</code>, <code>Make</code></li>
-<li><strong>Data Analysis:</strong> <code>Pandas</code>, <code>NumPy</code>, <code>scikit-learn</code>, <code>seaborn</code>, <code>matplotlib</code></li>
-<li><strong>Visualization:</strong> <code>matplotlib</code>, <code>seaborn</code>, <code>Quarto</code>, <code>Jupyter</code></li>
-<li><strong>Machine Learning &amp; AI:</strong> <code>scikit-learn</code>, <code>CrewAI</code>, agent-based simulation, feature engineering</li>
-<li><strong>Documentation:</strong> <code>Quarto</code>, <code>Markdown</code>, <code>Jupyter Notebooks</code></li>
-<li><strong>CI/CD &amp; Tooling:</strong> <code>pre-commit</code>, <code>Black</code>, <code>GitHub Actions</code>, <code>Poetry</code>, <code>.gitignore</code> hygiene</li>
-<li><strong>Other:</strong> <code>Git</code>, <code>SQL</code>, <code>Docker</code>, technical writing, code review</li>
+<li>Review the dependencies for newly announced vulnerabilities</li>
+<li>Use <code>pip list --outdated</code> and <code>npm audit</code> (where applicable)</li>
+<li>Managed dependencies are periodically updated by maintainers</li>
 </ul>
 <hr>
 </section>
-<section id="publications-presentations" class="level2">
-<h2 class="anchored" data-anchor-id="publications-presentations">Publications &amp; Presentations</h2>
+<section id="build-runtime-security" class="level2">
+<h2 class="anchored" data-anchor-id="build-runtime-security">Build &amp; Runtime Security</h2>
 <ul>
-<li><strong>Random Forest Essentials</strong> – Quarto doc, 2024. (<a href="./Quarto/randomforest.html">Link</a>)</li>
-<li><strong>Talking to Agents: architecting Multi-Agent Systems</strong> – Internal seminar, 2024.</li>
-<li><em>(More manuscripts and presentations to be added.)</em></li>
-<li>For a list of all talks and publications, see <a href="docs/publications.md">docs/publications.md</a> <em>(Coming soon)</em></li>
+<li><strong>Default settings avoid privilege escalation</strong> and limit shell command execution.</li>
+<li><strong>Do not run scripts with elevated privileges (sudo/root)</strong> unless explicitly required.</li>
+<li><strong>Kill unnecessary or idle processes</strong> and remove temporary files after execution (see <code>scripts/free_ram.sh</code> for an example).</li>
+<li><strong>Monitor for unauthorized access</strong> or unexpected network traffic during use.</li>
+<li>Use secure communication methods (e.g., SSH, HTTPS).</li>
 </ul>
 <hr>
 </section>
-<section id="contact" class="level2">
-<h2 class="anchored" data-anchor-id="contact">Contact</h2>
-<ul>
-<li>Email: <a href="mailto:jackburleson.dev@gmail.com">jackburleson.dev@gmail.com</a></li>
-<li>LinkedIn: <a href="https://linkedin.com/in/jack-j-burleson">linkedin.com/in/jack-j-burleson</a></li>
-<li>Website: <a href="https://jackburleson.dev">jackburleson.dev</a></li>
-</ul>
+<section id="responsible-disclosure" class="level2">
+<h2 class="anchored" data-anchor-id="responsible-disclosure">Responsible Disclosure</h2>
+<p>We adhere to <a href="https://www.disclose.io/">responsible disclosure principles</a>.<br>
+All security concerns will be kept confidential until a patch is available and users have reasonable time to upgrade.</p>
 <hr>
 </section>
-<section id="socials" class="level2">
-<h2 class="anchored" data-anchor-id="socials">Socials</h2>
+<section id="security-contact" class="level2">
+<h2 class="anchored" data-anchor-id="security-contact">Security Contact</h2>
 <ul>
-<li><a href="https://github.com/Exios66">GitHub</a></li>
-<li><a href="https://twitter.com/Exios66">Twitter/X</a></li>
-<li><a href="https://linkedin.com/in/jack-j-burleson">LinkedIn</a></li>
-<li><a href="https://huggingface.co/Exios66">HuggingFace</a></li>
+<li>Email: <a href="mailto:security@opencode.ai">security@opencode.ai</a></li>
+<li>Discord: <a href="https://opencode.ai/discord">https://opencode.ai/discord</a></li>
+<li>Or contact a maintainer privately</li>
 </ul>
 <hr>
-</section>
-<section id="further-reading" class="level2">
-<h2 class="anchored" data-anchor-id="further-reading">Further Reading</h2>
-<ul>
-<li><a href="./projects/terminal_agents/README.html">Terminal Agents Project README</a></li>
-<li><a href="./projects/Crewai/README.html">CrewAI Multi-Agent System README</a></li>
-<li><a href="./CHANGELOG.html">CHANGELOG.md</a></li>
-<li><a href="./SECURITY.html">SECURITY.md</a></li>
-<li><a href="https://github.com/Exios66/python-template">Official Python Template Repo</a></li>
-</ul>
-<p><em>Repository updated regularly. Check project directories for the latest code, docs, and research.</em></p>
+<p>Thank you for helping keep the project and its users secure!</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

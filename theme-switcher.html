@@ -1,0 +1,64 @@
+<div style="position: fixed; bottom: 20px; right: 20px; z-index: 9999;">
+  <label for="theme-selector" style="margin-right: 5px; font-weight: bold; background: rgba(255,255,255,0.8); padding: 2px 5px; border-radius: 4px; color: #333;">Theme:</label>
+  <select id="theme-selector" onchange="switchTheme(this.value)" style="padding: 5px; border-radius: 5px; border: 1px solid #ccc;">
+    <option value="light.css">Light (Cosmo)</option>
+    <option value="dark.css">Dark (Darkly)</option>
+    <option value="tokyo-neon.css">Tokyo Neon</option>
+    <option value="cyberpunk.css">Cyberpunk</option>
+    <option value="dark-solar.css">Dark Solar</option>
+    <option value="retrofuturism.css">Retrofuturism</option>
+    <option value="art-deco.css">Art Deco</option>
+  </select>
+</div>
+
+<script>
+  function getAssetsPath() {
+    // Try to find the relative path to root from the navbar logo/brand
+    const navbarBrand = document.querySelector('.navbar-brand');
+    let prefix = "";
+    if (navbarBrand) {
+        const href = navbarBrand.getAttribute('href');
+        // href is typically "index.html" or "../../index.html"
+        // We remove "index.html" to get the relative directory prefix
+        if (href && href.endsWith('index.html')) {
+            prefix = href.substring(0, href.length - 10);
+        } else if (href) {
+            prefix = href;
+        }
+    }
+    return prefix + "assets/css/";
+  }
+
+  function switchTheme(cssName) {
+    const assetsPath = getAssetsPath();
+    const fullPath = assetsPath + cssName;
+    
+    let themeLink = document.getElementById('quarto-bootstrap');
+    if (themeLink) {
+      themeLink.href = fullPath;
+    } else {
+      // Fallback logic
+      let links = document.querySelectorAll('link[rel="stylesheet"]');
+      for (let link of links) {
+        if (link.href.includes('bootstrap') || link.href.includes('light.css') || link.href.includes('dark.css')) {
+          link.href = fullPath;
+          link.id = 'quarto-bootstrap';
+          break;
+        }
+      }
+    }
+    localStorage.setItem('selectedTheme', cssName);
+  }
+
+  document.addEventListener("DOMContentLoaded", function() {
+    let savedTheme = localStorage.getItem('selectedTheme');
+    if (savedTheme) {
+      let selector = document.getElementById('theme-selector');
+      if (selector) {
+        selector.value = savedTheme;
+        switchTheme(savedTheme);
+      }
+    }
+  });
+</script>
+

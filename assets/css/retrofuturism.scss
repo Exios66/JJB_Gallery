@@ -1,0 +1,22 @@
+/*-- scss:defaults --*/
+$body-bg: #2b211e;
+$body-color: #f0e6d2;
+$headings-color: #e09f3e;
+$link-color: #9e2a2b;
+$link-hover-color: #e09f3e;
+$font-family-sans-serif: "Courier New", Courier, monospace;
+
+/*-- scss:rules --*/
+body {
+    border: 10px double #e09f3e;
+    margin: 10px;
+}
+.navbar {
+    background-color: #3d2b1f;
+    border-bottom: 2px solid #e09f3e;
+}
+h1, h2, h3 {
+    font-family: "Courier New", Courier, monospace;
+    text-transform: uppercase;
+}
+
