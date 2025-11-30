@@ -47,6 +47,10 @@ Hi! I'm **Jack J. Burleson** – data scientist, research engineer, and open-sou
 I am passionate about making data science, machine learning, and advanced analytics accessible and meaningful through clear code and insightful visualizations.  
 This portfolio highlights select projects in engineering, data analysis, machine learning, and technical writing.
 
+<img alt="GitHub User's stars" src="https://img.shields.io/github/stars/Exios66?style=social">
+<img alt="GitHub followers" src="https://img.shields.io/github/followers/Exios66?style=social">
+
+
 ---
 
 ## 📂 Repository Map
