@@ -1,5 +1,7 @@
 # GitHub-Based Portfolio & Gallery of Jack J. Burleson
 
+<a href='https://github.com/Exios66' target="_blank"><img alt='GitHub' src='https://img.shields.io/badge/github-100000?style=for-the-badge&logo=GitHub&logoColor=E63786&labelColor=black&color=black'/></a>
+
 Welcome! This repository serves as the official portfolio and gallery for **Jack J. Burleson**, showcasing a curated selection of previous work, open-source projects, research, and presentations.
 
 <!-- BADGES BLOCK -->
@@ -41,9 +43,15 @@ Welcome! This repository serves as the official portfolio and gallery for **Jack
 
 ## About Me
 
+![image](https://github.com/user-attachments/assets/3059746c-851f-4242-b34c-679347d30959)
+
 Hi! I'm **Jack J. Burleson** – data scientist, research engineer, and open-source enthusiast.  
 I am passionate about making data science, machine learning, and advanced analytics accessible and meaningful through clear code and insightful visualizations.  
 This portfolio highlights select projects in engineering, data analysis, machine learning, and technical writing.
+
+<img alt="GitHub User's stars" src="https://img.shields.io/github/stars/Exios66?style=social">
+<img alt="GitHub followers" src="https://img.shields.io/github/followers/Exios66?style=social">
+
 
 ---
 
@@ -78,11 +86,14 @@ This portfolio highlights select projects in engineering, data analysis, machine
   ├── CHANGELOG.md
   ├── SECURITY.md
   └── misc folders:
-      ├── Jupyter/
-      ├── Quarto/
-      ├── Quickstart/
-      └── Xtra_Copies/
-    ```
+    ├── Jupyter/
+    ├── Quarto/
+    ├── Quickstart/
+    └── Xtra_Copies/
+  ```
+
+<img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/Exios66/JJB_Gallery?style=for-the-badge">
+
 ## Project Gallery
 
 | Project | Description | Link |
@@ -90,7 +101,7 @@ This portfolio highlights select projects in engineering, data analysis, machine
 | **CrewAI Multi-Agent Swarm System** | Multi-agent architecture using CrewAI | [CrewAI/README.md](projects/Crewai/README.md) |
 | **Terminal Agents** | AI coding agents for the terminal | [terminal_agents/README.md](projects/terminal_agents/README.md) |
 | **Random Forest Essentials** | Theory + application Quarto docs | [Quarto/RandomForest](Quarto/RandomForest) |
-| **Jupyter ML & Pandas Notebooks** | Machine learning workflow demos | [notebooks/](notebooks/) |
+| **Jupyter ML & Pandas Notebooks** | Machine learning workflow demos | [notebooks/](notebooks/README.md) |
 | **PyPI-Ready Python Template** | Full CI/CD + packaging starter | [Template Repo](https://github.com/Exios66/python-template) |
 
 ---
@@ -99,8 +110,6 @@ This portfolio highlights select projects in engineering, data analysis, machine
 - CrewAI Swarm System overhaul
 - Terminal Coding Agents improvements
 - Random Forest Quarto docs expansion
-- Enhanced `.gitignore` + repo hygiene
-- CHANGELOG introduced + maintained
 
 ---
 
@@ -113,14 +122,14 @@ This portfolio highlights select projects in engineering, data analysis, machine
 
 ---
 
-## Publications & Presentations
+## Presentations
 - *Random Forest Essentials* – 2024  
 - *Talking to Agents* – 2024  
 - *(More added continuously…)*
 
 ---
 
-## Contact
+## Preferred Contact Methods
 📩 jackburleson.dev@gmail.com  
 🌐 https://jackburleson.dev  
 🔗 https://linkedin.com/in/jack-j-burleson
