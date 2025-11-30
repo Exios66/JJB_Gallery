@@ -1,5 +1,3 @@
-<!-- HEADER BANNER -->
-
 # GitHub-Based Portfolio & Gallery of Jack J. Burleson
 
 Welcome! This repository serves as the official portfolio and gallery for **Jack J. Burleson**, showcasing a curated selection of previous work, open-source projects, research, and presentations.
