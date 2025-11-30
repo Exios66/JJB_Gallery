@@ -43,7 +43,7 @@ Welcome! This repository serves as the official portfolio and gallery for **Jack
 
 ## About Me
 
-
+![image](https://github.com/user-attachments/assets/3059746c-851f-4242-b34c-679347d30959)
 
 Hi! I'm **Jack J. Burleson** – data scientist, research engineer, and open-source enthusiast.  
 I am passionate about making data science, machine learning, and advanced analytics accessible and meaningful through clear code and insightful visualizations.  
