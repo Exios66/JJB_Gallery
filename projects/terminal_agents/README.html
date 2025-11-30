@@ -20,8 +20,12 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+ 
 /* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -188,7 +192,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><a href="https://opencode.ai/discord"><img src="https://img.shields.io/discord/1391832426048651334?style=flat-square&amp;label=discord.png" class="img-fluid" alt="Discord"></a> <a href="https://www.npmjs.com/package/opencode-ai"><img src="https://img.shields.io/npm/v/opencode-ai?style=flat-square.png" class="img-fluid" alt="npm"></a> <a href="https://github.com/sst/opencode/actions/workflows/publish.yml"><img src="https://img.shields.io/github/actions/workflow/status/sst/opencode/publish.yml?style=flat-square&amp;branch=dev" class="img-fluid" alt="Build status"></a></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="https://opencode.ai"><img src="packages/web/src/assets/lander/screenshot.png" class="img-fluid figure-img"></a></p>
+<p>
+  <a href="https://opencode.ai">
+    <img src="packages/web/src/assets/lander/screenshot.png" class="img-fluid figure-img" alt="Screenshot of OpenCode Terminal UI">
+  </a>
+</p>
 <figcaption>OpenCode Terminal UI</figcaption>
 </figure>
 </div>

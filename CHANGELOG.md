@@ -1,5 +1,31 @@
 # CHANGELOG
 
+## [0.0.3] - 11-30-25
+
+### Added in v0.0.3
+
+- Added a new Quarto document (`randomforest.qmd`) detailing the mathematical foundations and practical application of the random forest algorithm—including model equations, bootstrapping explanations, visualizations, and end-to-end Python code for reproducible training, evaluation, and interpretation.
+- Implemented an environment setup section in `randomforest.qmd` with robust dependency checking and installation routine.
+- Expanded Quarto/Notebooks project structure to facilitate clear separation between math/theory and hands-on practical guides for machine learning algorithms.
+- Added a comprehensive workflow guide: `docs/GIT_PROTOCOL_GUIDE.md`—includes best practices for using both SSH and HTTPS Git protocols, complete with command snippets, security recommendations, and branch management strategies.
+- Added alternate Markdown version of the Git protocol guide as `docs/GIT_PROTOCOL_GUIDE 2.md` for compatibility.
+
+### Improved in v0.0.3
+
+- Updated breast cancer dataset example and documentation for clarity; enhanced narrative with explanatory footnotes and statistical justifications in the new Quarto documents.
+- Improved project documentation by providing explicit instructions for Python environment setup and notebook/practical reproducibility.
+- Applied new documentation standards to changelogs and guides for increased transparency and project maintainability.
+
+### Fixed in v0.0.3
+
+- Addressed confusions in environment configuration: clarified recommended dependency installation workflow to mitigate virtual environment corruption.
+- Fixed prior documentation referencing errors regarding the location of project notebooks and Quarto docs in various READMEs.
+
+### Repository Configuration
+
+- Ensured all new documentation files are automatically referenced in the appropriate indexes and navigation menus.
+- Updated `.gitignore` for consistency with recent changes and future growth of documentation subdirectories.
+
 ## [0.0.2] - 11-29-25
 
 ### Changed in v0.0.2
