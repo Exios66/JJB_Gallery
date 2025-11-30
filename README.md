@@ -47,6 +47,42 @@ This portfolio highlights select projects in engineering, data analysis, machine
 
 ---
 
+## 📂 Repository Map
+
+  ```bash
+  JJB_Gallery (gh-pages branch)
+  ├── index.html
+  ├── theme-switcher.html
+  ├── search.json
+  ├── CHANGELOG.html
+  ├── SECURITY.html
+  ├── site_libs/
+  │   └── (Quarto & JS/CSS site assets)
+  ├── index_files/
+  │   └── (Quarto-generated HTML dependencies)
+  ├── randomforest_files/
+  │   └── (Notebook render assets)
+  ├── assets/
+  │   └── (images, CSS, and other media)
+  ├── projects/
+  │   └── (gallery project files)
+  ├── docs/
+  │   └── (documentation site sources)
+  ├── scripts/
+  │   └── (helper or build scripts)
+  ├── _quarto.yml
+  ├── index.qmd
+  ├── requirements.txt
+  ├── LICENSE
+  ├── README.md
+  ├── CHANGELOG.md
+  ├── SECURITY.md
+  └── misc folders:
+      ├── Jupyter/
+      ├── Quarto/
+      ├── Quickstart/
+      └── Xtra_Copies/
+    ```
 ## Project Gallery
 
 | Project | Description | Link |
