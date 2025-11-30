@@ -101,7 +101,7 @@ This portfolio highlights select projects in engineering, data analysis, machine
 | **CrewAI Multi-Agent Swarm System** | Multi-agent architecture using CrewAI | [CrewAI/README.md](projects/Crewai/README.md) |
 | **Terminal Agents** | AI coding agents for the terminal | [terminal_agents/README.md](projects/terminal_agents/README.md) |
 | **Random Forest Essentials** | Theory + application Quarto docs | [Quarto/RandomForest](Quarto/RandomForest) |
-| **Jupyter ML & Pandas Notebooks** | Machine learning workflow demos | [notebooks/](notebooks/) |
+| **Jupyter ML & Pandas Notebooks** | Machine learning workflow demos | [notebooks/](notebooks/README.md) |
 | **PyPI-Ready Python Template** | Full CI/CD + packaging starter | [Template Repo](https://github.com/Exios66/python-template) |
 
 ---
@@ -110,8 +110,6 @@ This portfolio highlights select projects in engineering, data analysis, machine
 - CrewAI Swarm System overhaul
 - Terminal Coding Agents improvements
 - Random Forest Quarto docs expansion
-- Enhanced `.gitignore` + repo hygiene
-- CHANGELOG introduced + maintained
 
 ---
 
@@ -124,14 +122,14 @@ This portfolio highlights select projects in engineering, data analysis, machine
 
 ---
 
-## Publications & Presentations
+## Presentations
 - *Random Forest Essentials* – 2024  
 - *Talking to Agents* – 2024  
 - *(More added continuously…)*
 
 ---
 
-## Contact
+## Preferred Contact Methods
 📩 jackburleson.dev@gmail.com  
 🌐 https://jackburleson.dev  
 🔗 https://linkedin.com/in/jack-j-burleson
