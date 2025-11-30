@@ -36,7 +36,7 @@ Welcome! This repository serves as the official portfolio and gallery for **Jack
   </a>
 </p>
 <!-- markdownlint-enable MD033 -->
-
+[![Pages Build Deployment](https://github.com/Exios66/JJB_Gallery/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/Exios66/JJB_Gallery/actions/workflows/pages/pages-build-deployment)
 ---
 ## Table of Contents
 
