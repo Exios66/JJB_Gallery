@@ -1,5 +1,7 @@
 # GitHub-Based Portfolio & Gallery of Jack J. Burleson
 
+<a href='https://github.com/Exios66' target="_blank"><img alt='GitHub' src='https://img.shields.io/badge/github-100000?style=for-the-badge&logo=GitHub&logoColor=E63786&labelColor=black&color=black'/></a>
+
 Welcome! This repository serves as the official portfolio and gallery for **Jack J. Burleson**, showcasing a curated selection of previous work, open-source projects, research, and presentations.
 
 <!-- BADGES BLOCK -->
