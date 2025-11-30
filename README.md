@@ -90,6 +90,8 @@ This portfolio highlights select projects in engineering, data analysis, machine
     └── Xtra_Copies/
   ```
 
+<img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/Exios66/JJB_Gallery?style=for-the-badge">
+
 ## Project Gallery
 
 | Project | Description | Link |
