@@ -1,0 +1,46 @@
+# Micro-sized requirements with lighter alternatives
+# Optimized for reduced storage while maintaining all critical functionality
+
+# Core ML & Data Science (essential)
+numpy
+pandas
+matplotlib
+scikit-learn
+scipy
+
+# Visualization
+seaborn
+
+# Jupyter essentials (minimal - notebook instead of full jupyter metapackage)
+notebook
+ipykernel
+ipython
+nbconvert
+nbformat
+
+# Quarto - Note: quarto is installed separately, not via pip
+# quarto-cli removed (not a pip package, install via system package manager)
+
+# ML Libraries
+xgboost
+lightgbm
+catboost
+shap
+
+# Fast data processing (lighter alternative to pandas for large datasets)
+polars
+
+# CrewAI core dependencies
+crewai
+crewai-tools
+pydantic
+
+# Web interface
+streamlit
+
+# Development tools
+pytest
+black
+isort
+tabulate
+
