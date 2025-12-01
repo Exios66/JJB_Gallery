@@ -2,9 +2,8 @@
 
 <a href='https://github.com/Exios66' target="_blank"><img alt='GitHub' src='https://img.shields.io/badge/github-100000?style=for-the-badge&logo=GitHub&logoColor=E63786&labelColor=black&color=black'/></a>
 
----
+Welcome! This GitHub repository serves as an evolving digital portfolio and gallery for **Jack J. Burleson**, showcasing a curated selection of previous work, open-source projects, previous research focuses, and presentations.
 
-**Welcome!** This GitHub repository serves as an evolving digital portfolio and gallery for **Jack J. Burleson**, showcasing a curated selection of previous work, open-source projects, previous research focuses, and presentations.
 ---
 
 <!-- BADGES BLOCK -->
