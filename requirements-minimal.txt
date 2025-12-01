@@ -33,8 +33,9 @@ ipython>=8.12.0
 nbconvert>=7.0.0
 nbformat>=5.9.0
 
-# Quarto (Python integration)
-quarto-cli>=1.4.0
+# Quarto (CLI tool - install separately, not via pip)
+# Install via: brew install quarto (macOS) or https://quarto.org/docs/get-started/
+# Python package 'quarto' available but optional for programmatic access
 
 # Testing
 pytest>=7.4.0
