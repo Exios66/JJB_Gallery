@@ -1,96 +1,322 @@
-# OpenCode
+# Terminal Agents
 
-[![OpenCode logo](packages/console/app/src/asset/logo-ornate-light.svg#gh-light-mode-only)](https://opencode.ai)
-[![OpenCode logo](packages/console/app/src/asset/logo-ornate-dark.svg#gh-dark-mode-only)](https://opencode.ai)
+A command-line AI agent interface for code assistance, similar to OpenCode. This tool provides AI-powered code analysis, generation, explanation, and debugging directly from your terminal.
 
-The AI coding agent built for the terminal.
+## 🚀 Features
 
-[![Discord](https://img.shields.io/discord/1391832426048651334?style=flat-square&label=discord)](https://opencode.ai/discord)
-[![npm](https://img.shields.io/npm/v/opencode-ai?style=flat-square)](https://www.npmjs.com/package/opencode-ai)
-[![Build status](https://img.shields.io/github/actions/workflow/status/sst/opencode/publish.yml?style=flat-square&branch=dev)](https://github.com/sst/opencode/actions/workflows/publish.yml)
+- **Code Analysis**: Analyze code files for issues and improvements
+- **Code Explanation**: Get detailed explanations of code functionality
+- **Code Generation**: Generate code from natural language descriptions
+- **Code Fixing**: Fix bugs and improve code quality
+- **Interactive Chat**: Real-time chat interface with AI agent
+- **Rich Terminal UI**: Beautiful terminal interface with colors and formatting
+- **Multiple Commands**: Various commands for different use cases
 
-[![OpenCode Terminal UI](packages/web/src/assets/lander/screenshot.png)](https://opencode.ai)
+## 📋 Prerequisites
 
----
+- Python 3.8+
+- OpenAI API key
 
-## Installation
+## 🛠️ Installation
+
+1. **Navigate to the project:**
+   ```bash
+   cd projects/terminal_agents
+   ```
+
+2. **Install dependencies:**
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+3. **Set up API key:**
+   ```bash
+   export OPENAI_API_KEY=your_api_key_here
+   ```
+
+   Or create a `.env` file:
+   ```env
+   OPENAI_API_KEY=your_api_key_here
+   ```
+
+## 🚀 Usage
+
+### Interactive Mode
+
+Start an interactive chat session:
 
 ```bash
-# YOLO
-curl -fsSL https://opencode.ai/install | bash
-
-# Package managers
-npm i -g opencode-ai@latest        # or bun/pnpm/yarn
-scoop bucket add extras; scoop install extras/opencode  # Windows
-choco install opencode             # Windows
-brew install opencode              # macOS and Linux
-paru -S opencode-bin               # Arch Linux
-mise use --pin -g ubi:sst/opencode # Any OS
-nix run nixpkgs#opencode           # or github:sst/opencode for latest dev branch
+python agent.py interactive
 ```
 
-> [!TIP]
-> Remove versions older than 0.1.x before installing.
-
-### Installation Directory
-
-The install script respects the following priority order for the installation path:
-
-1. `$OPENCODE_INSTALL_DIR` - Custom installation directory
-2. `$XDG_BIN_DIR` - XDG Base Directory Specification compliant path
-3. `$HOME/bin` - Standard user binary directory (if exists or can be created)
-4. `$HOME/.opencode/bin` - Default fallback
+Or make it executable:
 
 ```bash
-# Examples
-OPENCODE_INSTALL_DIR=/usr/local/bin curl -fsSL https://opencode.ai/install | bash
-XDG_BIN_DIR=$HOME/.local/bin curl -fsSL https://opencode.ai/install | bash
+chmod +x agent.py
+./agent.py interactive
 ```
 
-## Agents
+### Command-Line Commands
 
-OpenCode includes two built-in agents you can switch between,
-you can switch between these using the `Tab` key.
+#### Chat
 
-- **build** - Default, full access agent for development work
-- **plan** - Read-only agent for analysis and code exploration
-  - Denies file edits by default
-  - Asks permission before running bash commands
-  - Ideal for exploring unfamiliar codebases or planning changes
+Send a message to the agent:
 
-Also, included is a **general** subagent for complex searches and multi-step tasks.
-This is used internally and can be invoked using `@general` in messages.
+```bash
+python agent.py chat "Explain Python decorators"
+```
 
-Learn more about [agents](https://opencode.ai/docs/agents).
+#### Analyze Code
 
-## Documentation
+Analyze a code file:
 
-For more info on how to configure OpenCode [**head over to our docs**](https://opencode.ai/docs).
+```bash
+python agent.py analyze app.py
+```
 
-## Contributing
+#### Explain Code
 
-If you're interested in contributing to OpenCode, please read our [contributing docs](./CONTRIBUTING.md) before submitting a pull request.
+Explain a piece of code:
 
-## Building on OpenCode
+```bash
+python agent.py explain "def fibonacci(n): return n if n < 2 else fibonacci(n-1) + fibonacci(n-2)"
+```
 
-If you are working on a project that's related to OpenCode and is using "opencode" as a part of its name; for example, "opencode-dashboard" or "opencode-mobile", please add a note to your README to clarify that it is not built by the OpenCode team and is not affiliated with us in anyway.
+#### Generate Code
 
-## FAQ
+Generate code from a description:
 
-### How is this different than Claude Code?
+```bash
+python agent.py generate "A function to calculate factorial"
+```
 
-It's very similar to Claude Code in terms of capability. Here are the key differences:
+#### Fix Code
 
-- 100% open source
-- Not coupled to any provider. Although we recommend the models we provide through [OpenCode Zen](https://opencode.ai/zen); OpenCode can be used with Claude, OpenAI, Google or even local models. As models evolve the gaps between them will close and pricing will drop so being provider-agnostic is important.
-- Out of the box LSP support
-- A focus on TUI. OpenCode is built by neovim users and the creators of [terminal.shop](https://terminal.shop); we are going to push the limits of what's possible in the terminal.
-- A client/server architecture. This for example can allow OpenCode to run on your computer, while you can drive it remotely from a mobile app. Meaning that the TUI frontend is just one of the possible clients.
+Fix code issues:
 
-### What's the other repo?
+```bash
+python agent.py fix "def broken_function(x): return x / 0"
+```
 
-The other confusingly named repo has no relation to this one. You can [read the story behind it here](https://x.com/thdxr/status/1933561254481666466).
+### Help
 
----
+View all available commands:
 
-**Join our community** [Discord](https://discord.gg/opencode) | [X.com](https://x.com/opencode)
+```bash
+python agent.py help
+```
+
+## ⚙️ Configuration
+
+### Environment Variables
+
+- `OPENAI_API_KEY`: Your OpenAI API key (required)
+
+### Command-Line Options
+
+- `--model <model>`: LLM model to use (default: gpt-3.5-turbo)
+- `--api-key <key>`: OpenAI API key (overrides environment variable)
+
+### Example with Options
+
+```bash
+python agent.py --model gpt-4 chat "Explain machine learning"
+```
+
+## 🎯 Use Cases
+
+### Code Review
+
+```bash
+python agent.py analyze src/main.py
+```
+
+### Learning New Code
+
+```bash
+python agent.py explain "$(cat complex_algorithm.py)"
+```
+
+### Quick Code Generation
+
+```bash
+python agent.py generate "A REST API endpoint for user authentication"
+```
+
+### Debugging
+
+```bash
+python agent.py fix "$(cat buggy_code.py)"
+```
+
+### General Questions
+
+```bash
+python agent.py chat "What is the difference between async and await in Python?"
+```
+
+## 📦 Project Structure
+
+```
+terminal_agents/
+├── agent.py            # Main agent application
+├── requirements.txt    # Python dependencies
+└── README.md          # This file
+```
+
+## 🔧 Customization
+
+### Changing the Model
+
+Edit the default model in `agent.py`:
+
+```python
+def __init__(self, api_key: Optional[str] = None, model: str = "gpt-4"):
+    # Change default model here
+```
+
+### Adding New Commands
+
+Add new command handlers in the `main()` function:
+
+```python
+elif command == "your_command":
+    # Your command logic here
+    response = agent.your_method(input_text)
+    # Display response
+```
+
+### Custom Prompts
+
+Modify prompt templates in the agent methods:
+
+```python
+def your_method(self, input_data: str) -> str:
+    prompt = f"""Your custom prompt template here:
+{input_data}
+"""
+    return self.chat(prompt)
+```
+
+## 🎨 Terminal UI
+
+The agent uses the `rich` library for beautiful terminal output:
+
+- **Colors**: Syntax highlighting and colored output
+- **Markdown**: Renders markdown in terminal
+- **Panels**: Beautiful bordered panels for help text
+- **Progress**: Progress indicators for long operations
+
+If `rich` is not available, the agent falls back to plain text output.
+
+## 🐛 Troubleshooting
+
+### API Key Not Found
+
+```bash
+export OPENAI_API_KEY=your_key_here
+```
+
+Or use the `--api-key` option:
+
+```bash
+python agent.py --api-key your_key_here chat "Hello"
+```
+
+### Import Errors
+
+Install missing dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+### Model Not Available
+
+- Check your OpenAI API key has access to the model
+- Verify the model name is correct
+- Try a different model (e.g., `gpt-3.5-turbo`)
+
+## 🚀 Advanced Usage
+
+### Shell Integration
+
+Add to your `.bashrc` or `.zshrc`:
+
+```bash
+alias ai="python /path/to/agent.py"
+```
+
+Then use:
+
+```bash
+ai chat "Hello"
+ai analyze file.py
+```
+
+### Scripting
+
+Use in scripts:
+
+```bash
+#!/bin/bash
+RESPONSE=$(python agent.py generate "A function to sort a list")
+echo "$RESPONSE"
+```
+
+### Piping
+
+Pipe code to the agent:
+
+```bash
+cat code.py | python agent.py explain
+```
+
+## 📚 Examples
+
+### Code Review Workflow
+
+```bash
+# Analyze all Python files in a directory
+for file in *.py; do
+    echo "Analyzing $file..."
+    python agent.py analyze "$file"
+done
+```
+
+### Learning Session
+
+```bash
+# Start interactive mode for learning
+python agent.py interactive
+# Then ask questions about code concepts
+```
+
+### Quick Fixes
+
+```bash
+# Fix a specific function
+python agent.py fix "$(sed -n '10,20p' buggy_file.py)"
+```
+
+## 🔗 Related Projects
+
+- [CrewAI](../Crewai/README.md) - Multi-agent system
+- [ChatUI](../ChatUi/README.md) - Web chat interface
+- [RAG Model](../RAG_Model/README.md) - Document Q&A
+
+## 📄 License
+
+This project is part of the JJB Gallery portfolio. See the main repository LICENSE file.
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## 📧 Support
+
+For issues or questions, please open an issue in the main repository.
+
+## 🙏 Acknowledgments
+
+Inspired by [OpenCode](https://opencode.ai) and similar terminal-based AI coding assistants.

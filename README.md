@@ -159,6 +159,17 @@ This portfolio highlights select projects in engineering, data analysis, machine
 
 - [CrewAI System](projects/CrewAI/README.md)
 - [Terminal Agents](projects/terminal_agents/README.md)
+- [Documentation Index](docs/README.md) - Comprehensive documentation
 - [CHANGELOG.md](CHANGELOG.md)
+
+## 📚 Documentation
+
+Comprehensive documentation is available in the [`docs/`](docs/) directory:
+
+- **[Setup & Configuration](docs/setup/)** - Setup guides and configuration
+- **[Development](docs/development/)** - Development guides
+- **[Security](docs/security/)** - Security policies
+- **[Scripts](docs/scripts/)** - Script documentation
+- **[Projects](docs/projects/)** - Project-specific documentation
 
 ---
