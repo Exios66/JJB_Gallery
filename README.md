@@ -2,7 +2,9 @@
 
 <a href='https://github.com/Exios66' target="_blank"><img alt='GitHub' src='https://img.shields.io/badge/github-100000?style=for-the-badge&logo=GitHub&logoColor=E63786&labelColor=black&color=black'/></a>
 
-Welcome! This repository serves as the official portfolio and gallery for **Jack J. Burleson**, showcasing a curated selection of previous work, open-source projects, research, and presentations.
+Welcome! This GitHub repository serves as an evolving digital portfolio and gallery for **Jack J. Burleson**, showcasing a curated selection of previous work, open-source projects, previous research focuses, and presentations.
+
+---
 
 <!-- BADGES BLOCK -->
 <p align="center">
@@ -48,9 +50,11 @@ Welcome! This repository serves as the official portfolio and gallery for **Jack
 
 ![image](https://github.com/user-attachments/assets/3059746c-851f-4242-b34c-679347d30959)
 
-Hi! I'm **Jack J. Burleson** – data scientist, research engineer, and open-source enthusiast.  
-I am passionate about making data science, machine learning, and advanced analytics accessible and meaningful through clear code and insightful visualizations.  
-This portfolio highlights select projects in engineering, data analysis, machine learning, and technical writing.
+Hi! I'm **Jack J. Burleson** – I am a data scientist, artificial intelligence-research engineer, a computational neuroscience researcher, and an open-source enthusiast.  
+
+I am passionate about fully expanding the notion of making data science, machine learning, and advanced statisticL analytics democratically accessible and meaningful through clear code examples, integrations, and insightful visualizations.  
+
+This living portfolio highlights select projects in engineering, data analysis, machine learning, and technical writing.
 
 <img alt="GitHub User's stars" src="https://img.shields.io/github/stars/Exios66?style=social">
 <img alt="GitHub followers" src="https://img.shields.io/github/followers/Exios66?style=social">
@@ -141,8 +145,9 @@ This portfolio highlights select projects in engineering, data analysis, machine
 
 ## Preferred Contact Methods
 
-📩 <jackburleson.dev@gmail.com>  
-🌐 <https://jackburleson.dev>  
+📩 <jackjburleson@proton.me>  (Business)
+📩 <jjburleson@wisc.edu>  (Academic)
+🌐 <https://github.com/Exios66>  
 🔗 <https://linkedin.com/in/jack-j-burleson>
 
 ---
