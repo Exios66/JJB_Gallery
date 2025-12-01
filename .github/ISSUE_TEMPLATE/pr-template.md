@@ -17,6 +17,7 @@ assignees: Exios66
 <!-- Link issue numbers like #XX -->
 
 ## 📌 Checklist
+
 - [ ] Tests added or updated
 - [ ] Documentation updated
 - [ ] Follows coding and commit conventions

@@ -1,0 +1,40 @@
+# CrewAI Multi-Agent Swarm System Requirements
+
+# Core CrewAI
+crewai>=0.28.0
+crewai-tools>=0.1.0
+
+# LLM Providers (install as needed)
+# For Ollama (free, local)
+# No Python package needed - just install Ollama app from https://ollama.ai
+
+# For OpenAI
+langchain-openai>=0.1.0
+
+# For Anthropic
+langchain-anthropic>=0.1.0
+
+# For Google
+langchain-google-genai>=0.0.6
+
+# For Azure OpenAI
+langchain-openai>=0.1.0  # Same as OpenAI
+
+# LangChain Core
+langchain>=0.1.0
+langchain-community>=0.0.20
+
+# Web Interface
+streamlit>=1.28.0
+
+# Data Processing
+pandas>=2.0.0
+numpy>=1.24.0
+
+# Utilities
+pydantic>=2.0.0
+python-dotenv>=1.0.0
+
+# Optional: For web search
+# serper>=1.0.0  # Uncomment if using Serper API
+

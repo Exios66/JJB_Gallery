@@ -1,0 +1,24 @@
+/*-- scss:defaults --*/
+$body-bg: #021a21;
+$body-color: #d3d3d3;
+$headings-color: #fcee0a;
+$link-color: #ff2a6d;
+$link-hover-color: #05d9e8;
+
+/*-- scss:rules --*/
+body {
+  background-image: repeating-linear-gradient(0deg, transparent 0, transparent 1px, #021a21 1px, #021a21 3px);
+}
+.navbar {
+  background-color: #010b12;
+  border-bottom: 1px solid #05d9e8;
+}
+h1, h2 {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+.callout {
+    background-color: rgba(5, 217, 232, 0.1);
+    border-left-color: #ff2a6d;
+}
+

@@ -1,0 +1,39 @@
+project:
+  type: website
+  output-dir: .
+  render:
+    - index.qmd
+    - CHANGELOG.md
+    - SECURITY.md
+    - projects/CrewAI/README.md
+    - projects/terminal_agents/README.md
+    - Quarto/randomforest.qmd
+
+website:
+  title: "JJB Gallery"
+  navbar:
+    left:
+      - href: index.html
+        text: Home
+      - href: projects/CrewAI/README.md
+        text: CrewAI
+      - href: projects/terminal_agents/README.md
+        text: Terminal Agents
+      - href: Quarto/randomforest.qmd
+        text: Random Forests
+    right:
+      - icon: github
+        href: https://github.com/Exios66/JJB_Gallery
+  page-footer:
+    center: "Repository updated regularly. Check project directories for the latest code, docs, and research."
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+    toc-location: left
+    toc-expand: 2
+    include-after-body: theme-switcher.html
+    embed-resources: false
+    max-width: 1200px
+

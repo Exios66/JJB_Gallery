@@ -70,6 +70,6 @@ python run_tests.py --all
 - If using Ollama (local), make sure it is running (`ollama serve`) and configured.
 
 **"ModuleNotFoundError"**
-- Ensure you are running the command from the `projects/Crewai` directory.
+- Ensure you are running the command from the `projects/CrewAI` directory.
 - Check that you are using the correct Python environment.
 

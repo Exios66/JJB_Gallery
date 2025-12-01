@@ -1,53 +1,46 @@
 # GitHub-Based Portfolio & Gallery of Jack J. Burleson
 
-Welcome! This repository serves as the official portfolio and gallery for **Jack J. Burleson**, showcasing a curated selection of previous work, open-source projects, research, and presentations.
+<a href='https://github.com/Exios66' target="_blank"><img alt='GitHub' src='https://img.shields.io/badge/github-100000?style=for-the-badge&logo=GitHub&logoColor=E63786&labelColor=black&color=black'/></a>
 
-<!-- markdownlint-disable MD033 -->
-<p align="left">
-  <a href="https://github.com/Exios66/JJB_Gallery/actions">
-    <img alt="GitHub Workflow Status" src="https://img.shields.io/github/actions/workflow/status/Exios66/JJB_Gallery/ci.yml?branch=main&label=CI&logo=github">
-  </a>
-  <a href="https://github.com/Exios66/JJB_Gallery/blob/main/LICENSE">
-    <img alt="License" src="https://img.shields.io/github/license/Exios66/JJB_Gallery?color=blue">
-  </a>
-  <a href="https://github.com/Exios66/JJB_Gallery/releases">
-    <img alt="GitHub release" src="https://img.shields.io/github/v/release/Exios66/JJB_Gallery?include_prereleases">
-  </a>
-  <a href="https://github.com/Exios66/JJB_Gallery/commits/main">
-    <img alt="Last Commit" src="https://img.shields.io/github/last-commit/Exios66/JJB_Gallery">
-  </a>
-  <a href="https://github.com/Exios66/JJB_Gallery/issues">
-    <img alt="GitHub issues" src="https://img.shields.io/github/issues/Exios66/JJB_Gallery">
-  </a>
-  <a href="https://github.com/Exios66/JJB_Gallery/pulls">
-    <img alt="GitHub pull requests" src="https://img.shields.io/github/issues-pr/Exios66/JJB_Gallery">
-  </a>
-  <a href="https://www.python.org">
-    <img alt="Python Version" src="https://img.shields.io/badge/python-3.8%2B-blue.svg">
-  </a>
-  <a href="https://github.com/psf/black">
-    <img alt="Code style: black" src="https://img.shields.io/badge/code%20style-black-000000.svg">
-  </a>
-  <a href="https://github.com/pre-commit/pre-commit">
-    <img alt="pre-commit" src="https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit">
-  </a>
-  <a href="https://results.pre-commit.ci/latest/github/Exios66/JJB_Gallery/main">
-    <img alt="pre-commit.ci status" src="https://results.pre-commit.ci/badge/github/Exios66/JJB_Gallery/main.svg">
-  </a>
-</p>
-<!-- markdownlint-enable MD033 -->
+Welcome! This GitHub repository serves as an evolving digital portfolio and gallery for **Jack J. Burleson**, showcasing a curated selection of previous work, open-source projects, previous research focuses, and presentations.
 
 ---
+
+<!-- BADGES BLOCK -->
+<p align="center">
+  <a href="https://github.com/Exios66/JJB_Gallery/actions/workflows/pages/pages-build-deployment">
+    <img alt="Pages Build Deployment" src="https://github.com/Exios66/JJB_Gallery/actions/workflows/pages/pages-build-deployment/badge.svg">
+  </a>
+  <a href="https://github.com/Exios66/JJB_Gallery/blob/main/LICENSE">
+    <img alt="License: MIT" src="https://img.shields.io/github/license/Exios66/JJB_Gallery?style=flat-square">
+  </a>
+  <a href="https://github.com/Exios66/JJB_Gallery/releases">
+    <img alt="Latest Release" src="https://img.shields.io/github/v/release/Exios66/JJB_Gallery?style=flat-square&logo=github&label=Version">
+  </a>
+  <a href="https://github.com/Exios66/JJB_Gallery/stargazers">
+    <img alt="Stars" src="https://img.shields.io/github/stars/Exios66/JJB_Gallery?style=flat-square">
+  </a>
+  <a href="https://github.com/Exios66/JJB_Gallery/issues">
+    <img alt="Issues" src="https://img.shields.io/github/issues/Exios66/JJB_Gallery?style=flat-square">
+  </a>
+  <a href="https://github.com/Exios66/JJB_Gallery/commits/main">
+    <img alt="Last Commit" src="https://img.shields.io/github/last-commit/Exios66/JJB_Gallery?style=flat-square">
+  </a>
+</p>
+
+---
+
 ## Table of Contents
 
 - [GitHub-Based Portfolio \& Gallery of Jack J. Burleson](#github-based-portfolio--gallery-of-jack-j-burleson)
   - [Table of Contents](#table-of-contents)
   - [About Me](#about-me)
+  - [📂 Repository Map](#-repository-map)
   - [Project Gallery](#project-gallery)
   - [Recent Additions](#recent-additions)
   - [Skills](#skills)
-  - [Publications \& Presentations](#publications--presentations)
-  - [Contact](#contact)
+  - [Presentations](#presentations)
+  - [Preferred Contact Methods](#preferred-contact-methods)
   - [Socials](#socials)
   - [Further Reading](#further-reading)
 
@@ -55,9 +48,60 @@ Welcome! This repository serves as the official portfolio and gallery for **Jack
 
 ## About Me
 
-Hi! I'm **Jack J. Burleson** – data scientist, research engineer, and open-source enthusiast.  
-I am passionate about making data science, machine learning, and advanced analytics accessible and meaningful through clear code and insightful visualizations.  
-This portfolio highlights select projects in engineering, data analysis, machine learning, and technical writing.
+![image](https://github.com/user-attachments/assets/3059746c-851f-4242-b34c-679347d30959)
+
+Hi! I'm **Jack J. Burleson** – I am a data scientist, artificial intelligence-research engineer, a computational neuroscience researcher, and an open-source enthusiast.  
+
+I am passionate about fully expanding the notion of making data science, machine learning, and advanced statisticL analytics democratically accessible and meaningful through clear code examples, integrations, and insightful visualizations.  
+
+This living portfolio highlights select projects in engineering, data analysis, machine learning, and technical writing.
+
+<img alt="GitHub User's stars" src="https://img.shields.io/github/stars/Exios66?style=social">
+<img alt="GitHub followers" src="https://img.shields.io/github/followers/Exios66?style=social">
+
+---
+
+## 📂 Repository Map
+
+<img alt="GitHub Tag" src="https://img.shields.io/github/v/tag/Exios66/JJB_Gallery?include_prereleases&sort=date&style=social">
+<img alt="GitHub Release" src="https://img.shields.io/github/v/release/Exios66/JJB_Gallery?include_prereleases&sort=date&display_name=release&style=social">
+
+  ```bash
+  JJB_Gallery (gh-pages branch)
+  ├── index.html
+  ├── theme-switcher.html
+  ├── search.json
+  ├── CHANGELOG.html
+  ├── SECURITY.html
+  ├── _build/
+  │   └── quarto/
+  │       ├── site_libs/        # Quarto & JS/CSS site assets
+  │       ├── index_files/       # Quarto-generated HTML dependencies
+  │       └── randomforest_files/ # Notebook render assets
+  ├── assets/
+  │   └── css/                   # Theme stylesheets
+  ├── projects/
+  │   ├── CrewAI/                # Multi-agent system (renamed from Crewai)
+  │   ├── terminal_agents/
+  │   └── ...                    # Other project directories
+  ├── notebooks/
+  │   └── SciKit/                # Jupyter notebooks (moved from Jupyter/)
+  ├── Quarto/
+  │   └── randomforest.qmd       # Quarto documents
+  ├── docs/
+  │   └── (documentation sources)
+  ├── scripts/
+  │   └── (helper or build scripts)
+  ├── _quarto.yml
+  ├── index.qmd
+  ├── requirements.txt
+  ├── LICENSE
+  ├── README.md
+  ├── CHANGELOG.md
+  └── SECURITY.md
+  ```
+
+<img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/Exios66/JJB_Gallery?style=for-the-badge">
 
 ---
 
@@ -65,72 +109,72 @@ This portfolio highlights select projects in engineering, data analysis, machine
 
 | Project | Description | Link |
 |---------|-------------|------|
-| **CrewAI Multi-Agent Swarm System** | Multi-agent architecture using CrewAI, with specialized swarms for ML, research, business intelligence, and documentation; includes Streamlit & CLI interfaces. | [CrewAI/README.md](projects/Crewai/README.md) |
-| **Terminal Agents** | AI coding agents for the terminal; includes “build” and “plan” agents, supporting code exploration and editing with easy installation and cross-platform support. | [terminal_agents/README.md](projects/terminal_agents/README.md) |
-| **Random Forest Essentials** | Quarto document and analytical notebooks on Random Forest theory and practical application, including automated rendering scripts. | [Quarto/RandomForest](Quarto/RandomForest) |
-| **Jupyter ML & Pandas Notebooks** | Collections of essential notebooks demonstrating the use of Pandas and scikit-learn in data workflows. | [notebooks/](notebooks/) |
-| **PyPI-Ready Python Template** | Modern Python project template with pre-commit, Black, and CI configuration, ready for immediate use as a best-practices starter. | [Template Repo](https://github.com/Exios66/python-template) |
-| ... | ... | ... |
-
-*More projects, research, and documentation are regularly added. See repository folders for latest content.*
+| **CrewAI Multi-Agent Swarm System** | Multi-agent architecture using CrewAI | [CrewAI/README.md](projects/CrewAI/README.md) |
+| **Terminal Agents** | AI coding agents for the terminal | [terminal_agents/README.md](projects/terminal_agents/README.md) |
+| **Random Forest Essentials** | Theory + application Quarto docs | [Quarto/RandomForest](Quarto/RandomForest) |
+| **Jupyter ML & Pandas Notebooks** | Machine learning workflow demos | [notebooks/](notebooks/README.md) |
+| **PyPI-Ready Python Template** | Full CI/CD + packaging starter | [Template Repo](https://github.com/Exios66/python-template) |
 
 ---
 
 ## Recent Additions
 
-- **CrewAI Swarm System:** Full-featured, multi-swarm agent orchestration, ML/research/business/reporting specializations ([README](projects/Crewai/README.md))
-- **Terminal Coding Agents:** Terminal-based agent system, built-in “build” and “plan” agents with live installation quick start ([README](projects/terminal_agents/README.md))
-- **Quarto Random Forest Docs:** In-depth theory & application docs on Random Forests, includes scripts to render to PDF/HTML ([Docs](Quarto/RandomForest))
-- **Jupyter Notebooks:** ML and pandas essentials, plus scikit-learn examples ([notebooks/](notebooks/))
-- **.gitignore Improvements:** Now excludes macOS ._*, .DS_Store, and other platform/editor artifacts ([.gitignore](.gitignore))
-- **Changelog:** Track recent changes in [CHANGELOG.md](CHANGELOG.md)
+- CrewAI Swarm System overhaul
+- Terminal Coding Agents improvements
+- Random Forest Quarto docs expansion
 
 ---
 
 ## Skills
 
-- **Programming:** `Python` (advanced), `R`, `JavaScript`, `bash`, `Make`
-- **Data Analysis:** `Pandas`, `NumPy`, `scikit-learn`, `seaborn`, `matplotlib`
-- **Visualization:** `matplotlib`, `seaborn`, `Quarto`, `Jupyter`
-- **Machine Learning & AI:** `scikit-learn`, `CrewAI`, agent-based simulation, feature engineering
-- **Documentation:** `Quarto`, `Markdown`, `Jupyter Notebooks`
-- **CI/CD & Tooling:** `pre-commit`, `Black`, `GitHub Actions`, `Poetry`, `.gitignore` hygiene
-- **Other:** `Git`, `SQL`, `Docker`, technical writing, code review
+- **Programming:** Python, R, JavaScript
+- **ML & Data:** Pandas, NumPy, scikit-learn
+- **Visualization:** Matplotlib, Quarto
+- **EngOps:** GitHub Actions, Docker, pre-commit
+- **Documentation:** Jupyter, Markdown, Quarto
 
 ---
 
-## Publications & Presentations
+## Presentations
 
-- **Random Forest Essentials** – Quarto doc, 2024. ([Link](Quarto/RandomForest))
-- **Talking to Agents: architecting Multi-Agent Systems** – Internal seminar, 2024.
-- *(More manuscripts and presentations to be added.)*
-- For a list of all talks and publications, see [docs/publications.md](docs/publications.md) _(Coming soon)_
+- *Random Forest Essentials* – 2024  
+- *Talking to Agents* – 2024  
+- *(More added continuously…)*
 
 ---
 
-## Contact
+## Preferred Contact Methods
 
-- Email: [jackburleson.dev@gmail.com](mailto:jackburleson.dev@gmail.com)
-- LinkedIn: [linkedin.com/in/jack-j-burleson](https://linkedin.com/in/jack-j-burleson)
-- Website: [jackburleson.dev](https://jackburleson.dev)
+📩 <jackjburleson@proton.me>  (Business)
+📩 <jjburleson@wisc.edu>  (Academic)
+🌐 <https://github.com/Exios66>  
+🔗 <https://linkedin.com/in/jack-j-burleson>
 
 ---
 
 ## Socials
 
 - [GitHub](https://github.com/Exios66)
-- [Twitter/X](https://twitter.com/Exios66)
-- [LinkedIn](https://linkedin.com/in/jack-j-burleson)
 - [HuggingFace](https://huggingface.co/Exios66)
+- [Twitter/X](https://twitter.com/Exios66)
 
 ---
 
 ## Further Reading
 
-- [Terminal Agents Project README](projects/terminal_agents/README.md)
-- [CrewAI Multi-Agent System README](projects/Crewai/README.md)
+- [CrewAI System](projects/CrewAI/README.md)
+- [Terminal Agents](projects/terminal_agents/README.md)
+- [Documentation Index](docs/README.md) - Comprehensive documentation
 - [CHANGELOG.md](CHANGELOG.md)
-- [SECURITY.md](SECURITY.md)
-- [Official Python Template Repo](https://github.com/Exios66/python-template)
 
-_Repository updated regularly. Check project directories for the latest code, docs, and research._
+## 📚 Documentation
+
+Comprehensive documentation is available in the [`docs/`](docs/) directory:
+
+- **[Setup & Configuration](docs/setup/)** - Setup guides and configuration
+- **[Development](docs/development/)** - Development guides
+- **[Security](docs/security/)** - Security policies
+- **[Scripts](docs/scripts/)** - Script documentation
+- **[Projects](docs/projects/)** - Project-specific documentation
+
+---

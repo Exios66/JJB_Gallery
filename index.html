@@ -4,12 +4,11 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.8.26">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="author" content="Data Science Lab">
-<meta name="dcterms.date" content="2025-11-21">
+<meta name="author" content="Jack J. Burleson">
 
-<title>Random Forests in Practice</title>
+<title>GitHub-Based Portfolio &amp; Gallery of Jack J. Burleson – JJB Gallery</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,120 +21,138 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="randomforest_files/libs/clipboard/clipboard.min.js"></script>
-<script src="randomforest_files/libs/quarto-html/quarto.js" type="module"></script>
-<script src="randomforest_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="randomforest_files/libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="randomforest_files/libs/quarto-html/popper.min.js"></script>
-<script src="randomforest_files/libs/quarto-html/tippy.umd.min.js"></script>
-<script src="randomforest_files/libs/quarto-html/anchor.min.js"></script>
-<link href="randomforest_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="randomforest_files/libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="randomforest_files/libs/bootstrap/bootstrap.min.js"></script>
-<link href="randomforest_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="randomforest_files/libs/bootstrap/bootstrap-d6a003b94517c951b2d65075d42fb01b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
-
-<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-5b4ad623e5705c0698d39aec6f10cf02.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
+}</script>
+
 
 </head>
 
-<body class="quarto-light">
+<body class="floating nav-fixed quarto-light">
 
-<div id="quarto-content" class="page-columns page-rows-contents page-layout-article toc-left">
-<div id="quarto-sidebar-toc-left" class="sidebar toc-left">
-  <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Contents</h2>
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">JJB Gallery</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="./index.html" aria-current="page"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./projects/Crewai/README.html"> 
+<span class="menu-text">CrewAI</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./projects/terminal_agents/README.html"> 
+<span class="menu-text">Terminal Agents</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./Quarto/randomforest.html"> 
+<span class="menu-text">Random Forests</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/Exios66/JJB_Gallery"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="2">
+    <h2 id="toc-title">On this page</h2>
    
+  <ul>
+  <li><a href="#about-me" id="toc-about-me" class="nav-link active" data-scroll-target="#about-me">About Me</a></li>
+  <li><a href="#project-gallery" id="toc-project-gallery" class="nav-link" data-scroll-target="#project-gallery">Project Gallery</a></li>
+  <li><a href="#interactive-agent-swarm" id="toc-interactive-agent-swarm" class="nav-link" data-scroll-target="#interactive-agent-swarm">Interactive Agent Swarm</a>
   <ul class="collapse">
-  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
-  <li><a href="#mathematical-model" id="toc-mathematical-model" class="nav-link" data-scroll-target="#mathematical-model">Mathematical Model</a></li>
-  <li><a href="#environment-setup" id="toc-environment-setup" class="nav-link" data-scroll-target="#environment-setup">Environment Setup</a></li>
-  <li><a href="#data-loading-and-preparation" id="toc-data-loading-and-preparation" class="nav-link" data-scroll-target="#data-loading-and-preparation">Data Loading and Preparation</a></li>
-  <li><a href="#model-training" id="toc-model-training" class="nav-link" data-scroll-target="#model-training">Model Training</a></li>
-  <li><a href="#diagnostics" id="toc-diagnostics" class="nav-link" data-scroll-target="#diagnostics">Diagnostics</a></li>
-  <li><a href="#feature-importance-visualization" id="toc-feature-importance-visualization" class="nav-link" data-scroll-target="#feature-importance-visualization">Feature Importance Visualization</a></li>
-  <li><a href="#hyperparameter-considerations" id="toc-hyperparameter-considerations" class="nav-link" data-scroll-target="#hyperparameter-considerations">Hyperparameter Considerations</a></li>
-  <li><a href="#practical-tips" id="toc-practical-tips" class="nav-link" data-scroll-target="#practical-tips">Practical Tips</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  <li><a href="#quick-start" id="toc-quick-start" class="nav-link" data-scroll-target="#quick-start">🚀 Quick Start</a></li>
+  </ul></li>
+  <li><a href="#recent-additions" id="toc-recent-additions" class="nav-link" data-scroll-target="#recent-additions">Recent Additions</a></li>
+  <li><a href="#skills" id="toc-skills" class="nav-link" data-scroll-target="#skills">Skills</a></li>
+  <li><a href="#publications-presentations" id="toc-publications-presentations" class="nav-link" data-scroll-target="#publications-presentations">Publications &amp; Presentations</a></li>
+  <li><a href="#contact" id="toc-contact" class="nav-link" data-scroll-target="#contact">Contact</a></li>
+  <li><a href="#socials" id="toc-socials" class="nav-link" data-scroll-target="#socials">Socials</a></li>
+  <li><a href="#further-reading" id="toc-further-reading" class="nav-link" data-scroll-target="#further-reading">Further Reading</a></li>
   </ul>
-<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="randomforest.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
-</div>
-<div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-</div>
+</nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    </div>
+<!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Random Forests in Practice</h1>
+<h1 class="title">GitHub-Based Portfolio &amp; Gallery of Jack J. Burleson</h1>
 </div>
 
 
@@ -145,16 +162,10 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-             <p>Data Science Lab </p>
+             <p>Jack J. Burleson </p>
           </div>
   </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">November 21, 2025</p>
-    </div>
-  </div>
   
     
   </div>
@@ -164,1040 +175,226 @@ window.Quarto = {
 </header>
 
 
-<section id="overview" class="level2">
-<h2 class="anchored" data-anchor-id="overview">Overview</h2>
-<p>Random forests are ensemble models that aggregate many decision trees to reduce variance and improve generalization.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> This document walks through training and interpreting a random forest classifier in Python, with a mix of narrative, math, and visuals.</p>
+<p>Welcome! This repository serves as the official portfolio and gallery for <strong>Jack J. Burleson</strong>, showcasing a curated selection of previous work, open-source projects, research, and presentations.</p>
+<!-- markdownlint-disable MD033 -->
+<p align="left">
+<a href="https://github.com/Exios66/JJB_Gallery/actions"> <img alt="GitHub Workflow Status" src="https://img.shields.io/github/actions/workflow/status/Exios66/JJB_Gallery/ci.yml?branch=main&amp;label=CI&amp;logo=github"> </a> <a href="https://github.com/Exios66/JJB_Gallery/blob/main/LICENSE"> <img alt="License" src="https://img.shields.io/github/license/Exios66/JJB_Gallery?color=blue"> </a> <a href="https://github.com/Exios66/JJB_Gallery/releases"> <img alt="GitHub release" src="https://img.shields.io/github/v/release/Exios66/JJB_Gallery?include_prereleases"> </a> <a href="https://github.com/Exios66/JJB_Gallery/commits/main"> <img alt="Last Commit" src="https://img.shields.io/github/last-commit/Exios66/JJB_Gallery"> </a> <a href="https://github.com/Exios66/JJB_Gallery/issues"> <img alt="GitHub issues" src="https://img.shields.io/github/issues/Exios66/JJB_Gallery"> </a> <a href="https://github.com/Exios66/JJB_Gallery/pulls"> <img alt="GitHub pull requests" src="https://img.shields.io/github/issues-pr/Exios66/JJB_Gallery"> </a> <a href="https://www.python.org"> <img alt="Python Version" src="https://img.shields.io/badge/python-3.8%2B-blue.svg"> </a> <a href="https://github.com/psf/black"> <img alt="Code style: black" src="https://img.shields.io/badge/code%20style-black-000000.svg"> </a> <a href="https://github.com/pre-commit/pre-commit"> <img alt="pre-commit" src="https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit"> </a> <a href="https://results.pre-commit.ci/latest/github/Exios66/JJB_Gallery/main"> <img alt="pre-commit.ci status" src="https://results.pre-commit.ci/badge/github/Exios66/JJB_Gallery/main.svg"> </a>
+</p>
+<!-- markdownlint-enable MD033 -->
+<hr>
+<section id="about-me" class="level2">
+<h2 class="anchored" data-anchor-id="about-me">About Me</h2>
+<p>Hi! I’m <strong>Jack J. Burleson</strong> – data scientist, research engineer, and open-source enthusiast.<br>
+I am passionate about making data science, machine learning, and advanced analytics accessible and meaningful through clear code and insightful visualizations.<br>
+This portfolio highlights select projects in engineering, data analysis, machine learning, and technical writing.</p>
+<hr>
 </section>
-<section id="mathematical-model" class="level2">
-<h2 class="anchored" data-anchor-id="mathematical-model">Mathematical Model</h2>
-<p>Each tree <span class="math inline">\(T_b\)</span> is trained on a bootstrap sample <span class="math inline">\(\mathcal{D}_b\)</span> and a random subset of features. The forest prediction for a classification task with <span class="math inline">\(B\)</span> trees is the majority vote:</p>
-<p><span class="math display">\[
-\hat{y} = \mathrm{mode}\left(\{T_b(\mathbf{x})\}_{b=1}^{B}\right)
-\]</span></p>
-<p>For regression, the trees are averaged:</p>
-<p><span class="math display">\[
-\hat{y} = \frac{1}{B}\sum_{b=1}^{B} T_b(\mathbf{x})
-\]</span></p>
-<p>The randomization across bootstrapped data and feature subsampling drives decorrelation between trees, delivering lower variance than single-tree models.</p>
-</section>
-<section id="environment-setup" class="level2">
-<h2 class="anchored" data-anchor-id="environment-setup">Environment Setup</h2>
-<div id="b3b47b52" class="cell" data-execution_count="1">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> importlib</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> subprocess</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> ensure(package):</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>        importlib.import_module(package)</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span> <span class="pp">ImportError</span>:</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>        subprocess.check_call([sys.executable, <span class="st">"-m"</span>, <span class="st">"pip"</span>, <span class="st">"install"</span>, package])</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> pkg <span class="kw">in</span> (<span class="st">"numpy"</span>, <span class="st">"pandas"</span>, <span class="st">"seaborn"</span>, <span class="st">"matplotlib"</span>, <span class="st">"scikit-learn"</span>):</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    ensure(pkg)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>Requirement already satisfied: scikit-learn in /Users/luciusjmorningstar/Desktop/GIT-REPOSITORY/JJB_Gallery/.venv/lib/python3.13/site-packages (1.7.2)
-Requirement already satisfied: numpy&gt;=1.22.0 in /Users/luciusjmorningstar/Desktop/GIT-REPOSITORY/JJB_Gallery/.venv/lib/python3.13/site-packages (from scikit-learn) (2.3.5)
-Requirement already satisfied: scipy&gt;=1.8.0 in /Users/luciusjmorningstar/Desktop/GIT-REPOSITORY/JJB_Gallery/.venv/lib/python3.13/site-packages (from scikit-learn) (1.16.3)
-Requirement already satisfied: joblib&gt;=1.2.0 in /Users/luciusjmorningstar/Desktop/GIT-REPOSITORY/JJB_Gallery/.venv/lib/python3.13/site-packages (from scikit-learn) (1.5.2)
-Requirement already satisfied: threadpoolctl&gt;=3.1.0 in /Users/luciusjmorningstar/Desktop/GIT-REPOSITORY/JJB_Gallery/.venv/lib/python3.13/site-packages (from scikit-learn) (3.6.0)</code></pre>
-</div>
-</div>
-<div id="0a282eaa" class="cell" data-execution_count="2">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.datasets <span class="im">import</span> load_breast_cancer</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split, cross_val_score</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.ensemble <span class="im">import</span> RandomForestClassifier</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> RocCurveDisplay, ConfusionMatrixDisplay, classification_report</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>sns.set_theme(style<span class="op">=</span><span class="st">"whitegrid"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-</div>
-</section>
-<section id="data-loading-and-preparation" class="level2">
-<h2 class="anchored" data-anchor-id="data-loading-and-preparation">Data Loading and Preparation</h2>
-<p>We will use the Breast Cancer Wisconsin dataset bundled with scikit-learn, which contains 30 features computed from digitized fine needle aspirate images.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
-<div id="b1b84247" class="cell" data-execution_count="3">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>dataset <span class="op">=</span> load_breast_cancer(as_frame<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> dataset.frame</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>df.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-<div class="cell-output cell-output-display" data-execution_count="13">
-<div>
-
-
-<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<section id="project-gallery" class="level2">
+<h2 class="anchored" data-anchor-id="project-gallery">Project Gallery</h2>
+<table class="caption-top table">
 <thead>
 <tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">mean radius</th>
-<th data-quarto-table-cell-role="th">mean texture</th>
-<th data-quarto-table-cell-role="th">mean perimeter</th>
-<th data-quarto-table-cell-role="th">mean area</th>
-<th data-quarto-table-cell-role="th">mean smoothness</th>
-<th data-quarto-table-cell-role="th">mean compactness</th>
-<th data-quarto-table-cell-role="th">mean concavity</th>
-<th data-quarto-table-cell-role="th">mean concave points</th>
-<th data-quarto-table-cell-role="th">mean symmetry</th>
-<th data-quarto-table-cell-role="th">mean fractal dimension</th>
-<th data-quarto-table-cell-role="th">...</th>
-<th data-quarto-table-cell-role="th">worst texture</th>
-<th data-quarto-table-cell-role="th">worst perimeter</th>
-<th data-quarto-table-cell-role="th">worst area</th>
-<th data-quarto-table-cell-role="th">worst smoothness</th>
-<th data-quarto-table-cell-role="th">worst compactness</th>
-<th data-quarto-table-cell-role="th">worst concavity</th>
-<th data-quarto-table-cell-role="th">worst concave points</th>
-<th data-quarto-table-cell-role="th">worst symmetry</th>
-<th data-quarto-table-cell-role="th">worst fractal dimension</th>
-<th data-quarto-table-cell-role="th">target</th>
+<th>Project</th>
+<th>Description</th>
+<th>Link</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<th data-quarto-table-cell-role="th">0</th>
-<td>17.99</td>
-<td>10.38</td>
-<td>122.80</td>
-<td>1001.0</td>
-<td>0.11840</td>
-<td>0.27760</td>
-<td>0.3001</td>
-<td>0.14710</td>
-<td>0.2419</td>
-<td>0.07871</td>
-<td>...</td>
-<td>17.33</td>
-<td>184.60</td>
-<td>2019.0</td>
-<td>0.1622</td>
-<td>0.6656</td>
-<td>0.7119</td>
-<td>0.2654</td>
-<td>0.4601</td>
-<td>0.11890</td>
-<td>0</td>
+<td><strong>Random Forest Essentials</strong></td>
+<td><strong>[New]</strong> Comprehensive analysis with interactive plots, decision boundaries, and ROC curves.</td>
+<td><a href="./Quarto/randomforest.html">📊 <strong>View Interactive Analysis</strong></a></td>
 </tr>
 <tr class="even">
-<th data-quarto-table-cell-role="th">1</th>
-<td>20.57</td>
-<td>17.77</td>
-<td>132.90</td>
-<td>1326.0</td>
-<td>0.08474</td>
-<td>0.07864</td>
-<td>0.0869</td>
-<td>0.07017</td>
-<td>0.1812</td>
-<td>0.05667</td>
-<td>...</td>
-<td>23.41</td>
-<td>158.80</td>
-<td>1956.0</td>
-<td>0.1238</td>
-<td>0.1866</td>
-<td>0.2416</td>
-<td>0.1860</td>
-<td>0.2750</td>
-<td>0.08902</td>
-<td>0</td>
+<td><strong>CrewAI Multi-Agent Swarm System</strong></td>
+<td>Multi-agent architecture using CrewAI, with specialized swarms for ML, research, business intelligence, and documentation; includes Streamlit &amp; CLI interfaces.</td>
+<td><a href="#interactive-agent-swarm">🚀 <strong>Launch Swarm</strong></a> | <a href="./projects/Crewai/README.html">📄 Docs</a></td>
 </tr>
 <tr class="odd">
-<th data-quarto-table-cell-role="th">2</th>
-<td>19.69</td>
-<td>21.25</td>
-<td>130.00</td>
-<td>1203.0</td>
-<td>0.10960</td>
-<td>0.15990</td>
-<td>0.1974</td>
-<td>0.12790</td>
-<td>0.2069</td>
-<td>0.05999</td>
-<td>...</td>
-<td>25.53</td>
-<td>152.50</td>
-<td>1709.0</td>
-<td>0.1444</td>
-<td>0.4245</td>
-<td>0.4504</td>
-<td>0.2430</td>
-<td>0.3613</td>
-<td>0.08758</td>
-<td>0</td>
+<td><strong>Terminal Agents</strong></td>
+<td>AI coding agents for the terminal; includes “build” and “plan” agents, supporting code exploration and editing with easy installation and cross-platform support.</td>
+<td><a href="./projects/terminal_agents/README.html">terminal_agents/README.md</a></td>
 </tr>
 <tr class="even">
-<th data-quarto-table-cell-role="th">3</th>
-<td>11.42</td>
-<td>20.38</td>
-<td>77.58</td>
-<td>386.1</td>
-<td>0.14250</td>
-<td>0.28390</td>
-<td>0.2414</td>
-<td>0.10520</td>
-<td>0.2597</td>
-<td>0.09744</td>
-<td>...</td>
-<td>26.50</td>
-<td>98.87</td>
-<td>567.7</td>
-<td>0.2098</td>
-<td>0.8663</td>
-<td>0.6869</td>
-<td>0.2575</td>
-<td>0.6638</td>
-<td>0.17300</td>
-<td>0</td>
+<td><strong>Jupyter ML &amp; Pandas Notebooks</strong></td>
+<td>Collections of essential notebooks demonstrating the use of Pandas and scikit-learn in data workflows.</td>
+<td><a href="notebooks/">notebooks/</a></td>
 </tr>
 <tr class="odd">
-<th data-quarto-table-cell-role="th">4</th>
-<td>20.29</td>
-<td>14.34</td>
-<td>135.10</td>
-<td>1297.0</td>
-<td>0.10030</td>
-<td>0.13280</td>
-<td>0.1980</td>
-<td>0.10430</td>
-<td>0.1809</td>
-<td>0.05883</td>
-<td>...</td>
-<td>16.67</td>
-<td>152.20</td>
-<td>1575.0</td>
-<td>0.1374</td>
-<td>0.2050</td>
-<td>0.4000</td>
-<td>0.1625</td>
-<td>0.2364</td>
-<td>0.07678</td>
-<td>0</td>
+<td><strong>PyPI-Ready Python Template</strong></td>
+<td>Modern Python project template with pre-commit, Black, and CI configuration, ready for immediate use as a best-practices starter.</td>
+<td><a href="https://github.com/Exios66/python-template">Template Repo</a></td>
+</tr>
+<tr class="even">
+<td>…</td>
+<td>…</td>
+<td>…</td>
 </tr>
 </tbody>
 </table>
-
-<p>5 rows × 31 columns</p>
-</div>
-</div>
-</div>
-<p>Split the data into training and testing sets (stratified to maintain label balance).</p>
-<div id="7e1e6413" class="cell" data-execution_count="4">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    df.drop(columns<span class="op">=</span><span class="st">"target"</span>),</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    df[<span class="st">"target"</span>],</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    test_size<span class="op">=</span><span class="fl">0.25</span>,</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    random_state<span class="op">=</span><span class="dv">42</span>,</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    stratify<span class="op">=</span>df[<span class="st">"target"</span>]</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>X_train.shape, X_test.shape</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-<div class="cell-output cell-output-display" data-execution_count="14">
-<pre><code>((426, 30), (143, 30))</code></pre>
-</div>
-</div>
+<p><em>More projects, research, and documentation are regularly added. See repository folders for latest content.</em></p>
+<hr>
 </section>
-<section id="model-training" class="level2">
-<h2 class="anchored" data-anchor-id="model-training">Model Training</h2>
-<div id="cf63eabf" class="cell" data-execution_count="5">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>rf <span class="op">=</span> RandomForestClassifier(</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    n_estimators<span class="op">=</span><span class="dv">400</span>,</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    max_features<span class="op">=</span><span class="st">"sqrt"</span>,</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    min_samples_leaf<span class="op">=</span><span class="dv">2</span>,</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    random_state<span class="op">=</span><span class="dv">42</span>,</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    n_jobs<span class="op">=-</span><span class="dv">1</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>rf.fit(X_train, y_train)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-<div class="cell-output cell-output-display" data-execution_count="15">
-<style>#sk-container-id-2 {
-  /* Definition of color scheme common for light and dark mode */
-  --sklearn-color-text: #000;
-  --sklearn-color-text-muted: #666;
-  --sklearn-color-line: gray;
-  /* Definition of color scheme for unfitted estimators */
-  --sklearn-color-unfitted-level-0: #fff5e6;
-  --sklearn-color-unfitted-level-1: #f6e4d2;
-  --sklearn-color-unfitted-level-2: #ffe0b3;
-  --sklearn-color-unfitted-level-3: chocolate;
-  /* Definition of color scheme for fitted estimators */
-  --sklearn-color-fitted-level-0: #f0f8ff;
-  --sklearn-color-fitted-level-1: #d4ebff;
-  --sklearn-color-fitted-level-2: #b3dbfd;
-  --sklearn-color-fitted-level-3: cornflowerblue;
-
-  /* Specific color for light theme */
-  --sklearn-color-text-on-default-background: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, black)));
-  --sklearn-color-background: var(--sg-background-color, var(--theme-background, var(--jp-layout-color0, white)));
-  --sklearn-color-border-box: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, black)));
-  --sklearn-color-icon: #696969;
-
-  @media (prefers-color-scheme: dark) {
-    /* Redefinition of color scheme for dark theme */
-    --sklearn-color-text-on-default-background: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, white)));
-    --sklearn-color-background: var(--sg-background-color, var(--theme-background, var(--jp-layout-color0, #111)));
-    --sklearn-color-border-box: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, white)));
-    --sklearn-color-icon: #878787;
-  }
-}
-
-#sk-container-id-2 {
-  color: var(--sklearn-color-text);
-}
-
-#sk-container-id-2 pre {
-  padding: 0;
-}
-
-#sk-container-id-2 input.sk-hidden--visually {
-  border: 0;
-  clip: rect(1px 1px 1px 1px);
-  clip: rect(1px, 1px, 1px, 1px);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px;
-}
-
-#sk-container-id-2 div.sk-dashed-wrapped {
-  border: 1px dashed var(--sklearn-color-line);
-  margin: 0 0.4em 0.5em 0.4em;
-  box-sizing: border-box;
-  padding-bottom: 0.4em;
-  background-color: var(--sklearn-color-background);
-}
-
-#sk-container-id-2 div.sk-container {
-  /* jupyter's `normalize.less` sets `[hidden] { display: none; }`
-     but bootstrap.min.css set `[hidden] { display: none !important; }`
-     so we also need the `!important` here to be able to override the
-     default hidden behavior on the sphinx rendered scikit-learn.org.
-     See: https://github.com/scikit-learn/scikit-learn/issues/21755 */
-  display: inline-block !important;
-  position: relative;
-}
-
-#sk-container-id-2 div.sk-text-repr-fallback {
-  display: none;
-}
-
-div.sk-parallel-item,
-div.sk-serial,
-div.sk-item {
-  /* draw centered vertical line to link estimators */
-  background-image: linear-gradient(var(--sklearn-color-text-on-default-background), var(--sklearn-color-text-on-default-background));
-  background-size: 2px 100%;
-  background-repeat: no-repeat;
-  background-position: center center;
-}
-
-/* Parallel-specific style estimator block */
-
-#sk-container-id-2 div.sk-parallel-item::after {
-  content: "";
-  width: 100%;
-  border-bottom: 2px solid var(--sklearn-color-text-on-default-background);
-  flex-grow: 1;
-}
-
-#sk-container-id-2 div.sk-parallel {
-  display: flex;
-  align-items: stretch;
-  justify-content: center;
-  background-color: var(--sklearn-color-background);
-  position: relative;
-}
-
-#sk-container-id-2 div.sk-parallel-item {
-  display: flex;
-  flex-direction: column;
-}
-
-#sk-container-id-2 div.sk-parallel-item:first-child::after {
-  align-self: flex-end;
-  width: 50%;
-}
-
-#sk-container-id-2 div.sk-parallel-item:last-child::after {
-  align-self: flex-start;
-  width: 50%;
-}
-
-#sk-container-id-2 div.sk-parallel-item:only-child::after {
-  width: 0;
-}
-
-/* Serial-specific style estimator block */
-
-#sk-container-id-2 div.sk-serial {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: var(--sklearn-color-background);
-  padding-right: 1em;
-  padding-left: 1em;
-}
-
-
-/* Toggleable style: style used for estimator/Pipeline/ColumnTransformer box that is
-clickable and can be expanded/collapsed.
-- Pipeline and ColumnTransformer use this feature and define the default style
-- Estimators will overwrite some part of the style using the `sk-estimator` class
-*/
-
-/* Pipeline and ColumnTransformer style (default) */
-
-#sk-container-id-2 div.sk-toggleable {
-  /* Default theme specific background. It is overwritten whether we have a
-  specific estimator or a Pipeline/ColumnTransformer */
-  background-color: var(--sklearn-color-background);
-}
-
-/* Toggleable label */
-#sk-container-id-2 label.sk-toggleable__label {
-  cursor: pointer;
-  display: flex;
-  width: 100%;
-  margin-bottom: 0;
-  padding: 0.5em;
-  box-sizing: border-box;
-  text-align: center;
-  align-items: start;
-  justify-content: space-between;
-  gap: 0.5em;
-}
-
-#sk-container-id-2 label.sk-toggleable__label .caption {
-  font-size: 0.6rem;
-  font-weight: lighter;
-  color: var(--sklearn-color-text-muted);
-}
-
-#sk-container-id-2 label.sk-toggleable__label-arrow:before {
-  /* Arrow on the left of the label */
-  content: "▸";
-  float: left;
-  margin-right: 0.25em;
-  color: var(--sklearn-color-icon);
-}
-
-#sk-container-id-2 label.sk-toggleable__label-arrow:hover:before {
-  color: var(--sklearn-color-text);
-}
-
-/* Toggleable content - dropdown */
-
-#sk-container-id-2 div.sk-toggleable__content {
-  display: none;
-  text-align: left;
-  /* unfitted */
-  background-color: var(--sklearn-color-unfitted-level-0);
-}
-
-#sk-container-id-2 div.sk-toggleable__content.fitted {
-  /* fitted */
-  background-color: var(--sklearn-color-fitted-level-0);
-}
-
-#sk-container-id-2 div.sk-toggleable__content pre {
-  margin: 0.2em;
-  border-radius: 0.25em;
-  color: var(--sklearn-color-text);
-  /* unfitted */
-  background-color: var(--sklearn-color-unfitted-level-0);
-}
-
-#sk-container-id-2 div.sk-toggleable__content.fitted pre {
-  /* unfitted */
-  background-color: var(--sklearn-color-fitted-level-0);
-}
-
-#sk-container-id-2 input.sk-toggleable__control:checked~div.sk-toggleable__content {
-  /* Expand drop-down */
-  display: block;
-  width: 100%;
-  overflow: visible;
-}
-
-#sk-container-id-2 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {
-  content: "▾";
-}
-
-/* Pipeline/ColumnTransformer-specific style */
-
-#sk-container-id-2 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {
-  color: var(--sklearn-color-text);
-  background-color: var(--sklearn-color-unfitted-level-2);
-}
-
-#sk-container-id-2 div.sk-label.fitted input.sk-toggleable__control:checked~label.sk-toggleable__label {
-  background-color: var(--sklearn-color-fitted-level-2);
-}
-
-/* Estimator-specific style */
-
-/* Colorize estimator box */
-#sk-container-id-2 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {
-  /* unfitted */
-  background-color: var(--sklearn-color-unfitted-level-2);
-}
-
-#sk-container-id-2 div.sk-estimator.fitted input.sk-toggleable__control:checked~label.sk-toggleable__label {
-  /* fitted */
-  background-color: var(--sklearn-color-fitted-level-2);
-}
-
-#sk-container-id-2 div.sk-label label.sk-toggleable__label,
-#sk-container-id-2 div.sk-label label {
-  /* The background is the default theme color */
-  color: var(--sklearn-color-text-on-default-background);
-}
-
-/* On hover, darken the color of the background */
-#sk-container-id-2 div.sk-label:hover label.sk-toggleable__label {
-  color: var(--sklearn-color-text);
-  background-color: var(--sklearn-color-unfitted-level-2);
-}
-
-/* Label box, darken color on hover, fitted */
-#sk-container-id-2 div.sk-label.fitted:hover label.sk-toggleable__label.fitted {
-  color: var(--sklearn-color-text);
-  background-color: var(--sklearn-color-fitted-level-2);
-}
-
-/* Estimator label */
-
-#sk-container-id-2 div.sk-label label {
-  font-family: monospace;
-  font-weight: bold;
-  display: inline-block;
-  line-height: 1.2em;
-}
-
-#sk-container-id-2 div.sk-label-container {
-  text-align: center;
-}
-
-/* Estimator-specific */
-#sk-container-id-2 div.sk-estimator {
-  font-family: monospace;
-  border: 1px dotted var(--sklearn-color-border-box);
-  border-radius: 0.25em;
-  box-sizing: border-box;
-  margin-bottom: 0.5em;
-  /* unfitted */
-  background-color: var(--sklearn-color-unfitted-level-0);
-}
-
-#sk-container-id-2 div.sk-estimator.fitted {
-  /* fitted */
-  background-color: var(--sklearn-color-fitted-level-0);
-}
-
-/* on hover */
-#sk-container-id-2 div.sk-estimator:hover {
-  /* unfitted */
-  background-color: var(--sklearn-color-unfitted-level-2);
-}
-
-#sk-container-id-2 div.sk-estimator.fitted:hover {
-  /* fitted */
-  background-color: var(--sklearn-color-fitted-level-2);
-}
-
-/* Specification for estimator info (e.g. "i" and "?") */
-
-/* Common style for "i" and "?" */
-
-.sk-estimator-doc-link,
-a:link.sk-estimator-doc-link,
-a:visited.sk-estimator-doc-link {
-  float: right;
-  font-size: smaller;
-  line-height: 1em;
-  font-family: monospace;
-  background-color: var(--sklearn-color-background);
-  border-radius: 1em;
-  height: 1em;
-  width: 1em;
-  text-decoration: none !important;
-  margin-left: 0.5em;
-  text-align: center;
-  /* unfitted */
-  border: var(--sklearn-color-unfitted-level-1) 1pt solid;
-  color: var(--sklearn-color-unfitted-level-1);
-}
-
-.sk-estimator-doc-link.fitted,
-a:link.sk-estimator-doc-link.fitted,
-a:visited.sk-estimator-doc-link.fitted {
-  /* fitted */
-  border: var(--sklearn-color-fitted-level-1) 1pt solid;
-  color: var(--sklearn-color-fitted-level-1);
-}
-
-/* On hover */
-div.sk-estimator:hover .sk-estimator-doc-link:hover,
-.sk-estimator-doc-link:hover,
-div.sk-label-container:hover .sk-estimator-doc-link:hover,
-.sk-estimator-doc-link:hover {
-  /* unfitted */
-  background-color: var(--sklearn-color-unfitted-level-3);
-  color: var(--sklearn-color-background);
-  text-decoration: none;
-}
-
-div.sk-estimator.fitted:hover .sk-estimator-doc-link.fitted:hover,
-.sk-estimator-doc-link.fitted:hover,
-div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
-.sk-estimator-doc-link.fitted:hover {
-  /* fitted */
-  background-color: var(--sklearn-color-fitted-level-3);
-  color: var(--sklearn-color-background);
-  text-decoration: none;
-}
-
-/* Span, style for the box shown on hovering the info icon */
-.sk-estimator-doc-link span {
-  display: none;
-  z-index: 9999;
-  position: relative;
-  font-weight: normal;
-  right: .2ex;
-  padding: .5ex;
-  margin: .5ex;
-  width: min-content;
-  min-width: 20ex;
-  max-width: 50ex;
-  color: var(--sklearn-color-text);
-  box-shadow: 2pt 2pt 4pt #999;
-  /* unfitted */
-  background: var(--sklearn-color-unfitted-level-0);
-  border: .5pt solid var(--sklearn-color-unfitted-level-3);
-}
-
-.sk-estimator-doc-link.fitted span {
-  /* fitted */
-  background: var(--sklearn-color-fitted-level-0);
-  border: var(--sklearn-color-fitted-level-3);
-}
-
-.sk-estimator-doc-link:hover span {
-  display: block;
-}
-
-/* "?"-specific style due to the `<a>` HTML tag */
-
-#sk-container-id-2 a.estimator_doc_link {
-  float: right;
-  font-size: 1rem;
-  line-height: 1em;
-  font-family: monospace;
-  background-color: var(--sklearn-color-background);
-  border-radius: 1rem;
-  height: 1rem;
-  width: 1rem;
-  text-decoration: none;
-  /* unfitted */
-  color: var(--sklearn-color-unfitted-level-1);
-  border: var(--sklearn-color-unfitted-level-1) 1pt solid;
-}
-
-#sk-container-id-2 a.estimator_doc_link.fitted {
-  /* fitted */
-  border: var(--sklearn-color-fitted-level-1) 1pt solid;
-  color: var(--sklearn-color-fitted-level-1);
-}
-
-/* On hover */
-#sk-container-id-2 a.estimator_doc_link:hover {
-  /* unfitted */
-  background-color: var(--sklearn-color-unfitted-level-3);
-  color: var(--sklearn-color-background);
-  text-decoration: none;
-}
-
-#sk-container-id-2 a.estimator_doc_link.fitted:hover {
-  /* fitted */
-  background-color: var(--sklearn-color-fitted-level-3);
-}
-
-.estimator-table summary {
-    padding: .5rem;
-    font-family: monospace;
-    cursor: pointer;
-}
-
-.estimator-table details[open] {
-    padding-left: 0.1rem;
-    padding-right: 0.1rem;
-    padding-bottom: 0.3rem;
-}
-
-.estimator-table .parameters-table {
-    margin-left: auto !important;
-    margin-right: auto !important;
-}
-
-.estimator-table .parameters-table tr:nth-child(odd) {
-    background-color: #fff;
-}
-
-.estimator-table .parameters-table tr:nth-child(even) {
-    background-color: #f6f6f6;
-}
-
-.estimator-table .parameters-table tr:hover {
-    background-color: #e0e0e0;
-}
-
-.estimator-table table td {
-    border: 1px solid rgba(106, 105, 104, 0.232);
-}
-
-.user-set td {
-    color:rgb(255, 94, 0);
-    text-align: left;
-}
-
-.user-set td.value pre {
-    color:rgb(255, 94, 0) !important;
-    background-color: transparent !important;
-}
-
-.default td {
-    color: black;
-    text-align: left;
-}
-
-.user-set td i,
-.default td i {
-    color: black;
-}
-
-.copy-paste-icon {
-    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NDggNTEyIj48IS0tIUZvbnQgQXdlc29tZSBGcmVlIDYuNy4yIGJ5IEBmb250YXdlc29tZSAtIGh0dHBzOi8vZm9udGF3ZXNvbWUuY29tIExpY2Vuc2UgLSBodHRwczovL2ZvbnRhd2Vzb21lLmNvbS9saWNlbnNlL2ZyZWUgQ29weXJpZ2h0IDIwMjUgRm9udGljb25zLCBJbmMuLS0+PHBhdGggZD0iTTIwOCAwTDMzMi4xIDBjMTIuNyAwIDI0LjkgNS4xIDMzLjkgMTQuMWw2Ny45IDY3LjljOSA5IDE0LjEgMjEuMiAxNC4xIDMzLjlMNDQ4IDMzNmMwIDI2LjUtMjEuNSA0OC00OCA0OGwtMTkyIDBjLTI2LjUgMC00OC0yMS41LTQ4LTQ4bDAtMjg4YzAtMjYuNSAyMS41LTQ4IDQ4LTQ4ek00OCAxMjhsODAgMCAwIDY0LTY0IDAgMCAyNTYgMTkyIDAgMC0zMiA2NCAwIDAgNDhjMCAyNi41LTIxLjUgNDgtNDggNDhMNDggNTEyYy0yNi41IDAtNDgtMjEuNS00OC00OEwwIDE3NmMwLTI2LjUgMjEuNS00OCA0OC00OHoiLz48L3N2Zz4=);
-    background-repeat: no-repeat;
-    background-size: 14px 14px;
-    background-position: 0;
-    display: inline-block;
-    width: 14px;
-    height: 14px;
-    cursor: pointer;
-}
-</style><div id="sk-container-id-2" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>RandomForestClassifier(min_samples_leaf=2, n_estimators=400, n_jobs=-1,
-                       random_state=42)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-2" type="checkbox" checked=""><label for="sk-estimator-id-2" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>RandomForestClassifier</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.7/modules/generated/sklearn.ensemble.RandomForestClassifier.html">?<span>Documentation for RandomForestClassifier</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></div></label><div class="sk-toggleable__content fitted" data-param-prefix="">
-        <div class="estimator-table">
-            <details>
-                <summary>Parameters</summary>
-                
-<table class="parameters-table caption-top table table-sm table-striped small">
-<tbody>
-<tr class="user-set odd">
-<td><em></em></td>
-<td class="param">n_estimators&nbsp;</td>
-<td class="value">400</td>
-</tr>
-<tr class="default even">
-<td><em></em></td>
-<td class="param">criterion&nbsp;</td>
-<td class="value">'gini'</td>
-</tr>
-<tr class="default odd">
-<td><em></em></td>
-<td class="param">max_depth&nbsp;</td>
-<td class="value">None</td>
-</tr>
-<tr class="default even">
-<td><em></em></td>
-<td class="param">min_samples_split&nbsp;</td>
-<td class="value">2</td>
-</tr>
-<tr class="user-set odd">
-<td><em></em></td>
-<td class="param">min_samples_leaf&nbsp;</td>
-<td class="value">2</td>
-</tr>
-<tr class="default even">
-<td><em></em></td>
-<td class="param">min_weight_fraction_leaf&nbsp;</td>
-<td class="value">0.0</td>
-</tr>
-<tr class="default odd">
-<td><em></em></td>
-<td class="param">max_features&nbsp;</td>
-<td class="value">'sqrt'</td>
-</tr>
-<tr class="default even">
-<td><em></em></td>
-<td class="param">max_leaf_nodes&nbsp;</td>
-<td class="value">None</td>
-</tr>
-<tr class="default odd">
-<td><em></em></td>
-<td class="param">min_impurity_decrease&nbsp;</td>
-<td class="value">0.0</td>
-</tr>
-<tr class="default even">
-<td><em></em></td>
-<td class="param">bootstrap&nbsp;</td>
-<td class="value">True</td>
-</tr>
-<tr class="default odd">
-<td><em></em></td>
-<td class="param">oob_score&nbsp;</td>
-<td class="value">False</td>
-</tr>
-<tr class="user-set even">
-<td><em></em></td>
-<td class="param">n_jobs&nbsp;</td>
-<td class="value">-1</td>
-</tr>
-<tr class="user-set odd">
-<td><em></em></td>
-<td class="param">random_state&nbsp;</td>
-<td class="value">42</td>
-</tr>
-<tr class="default even">
-<td><em></em></td>
-<td class="param">verbose&nbsp;</td>
-<td class="value">0</td>
-</tr>
-<tr class="default odd">
-<td><em></em></td>
-<td class="param">warm_start&nbsp;</td>
-<td class="value">False</td>
-</tr>
-<tr class="default even">
-<td><em></em></td>
-<td class="param">class_weight&nbsp;</td>
-<td class="value">None</td>
-</tr>
-<tr class="default odd">
-<td><em></em></td>
-<td class="param">ccp_alpha&nbsp;</td>
-<td class="value">0.0</td>
-</tr>
-<tr class="default even">
-<td><em></em></td>
-<td class="param">max_samples&nbsp;</td>
-<td class="value">None</td>
-</tr>
-<tr class="default odd">
-<td><em></em></td>
-<td class="param">monotonic_cst&nbsp;</td>
-<td class="value">None</td>
-</tr>
-</tbody>
-</table>
-
-            </details>
-        </div>
-    </div></div></div></div></div><script>function copyToClipboard(text, element) {
-    // Get the parameter prefix from the closest toggleable content
-    const toggleableContent = element.closest('.sk-toggleable__content');
-    const paramPrefix = toggleableContent ? toggleableContent.dataset.paramPrefix : '';
-    const fullParamName = paramPrefix ? `${paramPrefix}${text}` : text;
-
-    const originalStyle = element.style;
-    const computedStyle = window.getComputedStyle(element);
-    const originalWidth = computedStyle.width;
-    const originalHTML = element.innerHTML.replace('Copied!', '');
-
-    navigator.clipboard.writeText(fullParamName)
-        .then(() => {
-            element.style.width = originalWidth;
-            element.style.color = 'green';
-            element.innerHTML = "Copied!";
-
-            setTimeout(() => {
-                element.innerHTML = originalHTML;
-                element.style = originalStyle;
-            }, 2000);
-        })
-        .catch(err => {
-            console.error('Failed to copy:', err);
-            element.style.color = 'red';
-            element.innerHTML = "Failed!";
-            setTimeout(() => {
-                element.innerHTML = originalHTML;
-                element.style = originalStyle;
-            }, 2000);
-        });
-    return false;
-}
-
-document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
-    const toggleableContent = element.closest('.sk-toggleable__content');
-    const paramPrefix = toggleableContent ? toggleableContent.dataset.paramPrefix : '';
-    const paramName = element.parentElement.nextElementSibling.textContent.trim();
-    const fullParamName = paramPrefix ? `${paramPrefix}${paramName}` : paramName;
-
-    element.setAttribute('title', fullParamName);
-});
-</script>
+<section id="interactive-agent-swarm" class="level2">
+<h2 class="anchored" data-anchor-id="interactive-agent-swarm">Interactive Agent Swarm</h2>
+<div class="callout callout-style-simple callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>🤖 Run the Live Interface
 </div>
 </div>
-<p>Evaluate cross-validated training performance to estimate generalization ability.</p>
-<div id="37717dc1" class="cell" data-execution_count="6">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>cv_scores <span class="op">=</span> cross_val_score(rf, X_train, y_train, cv<span class="op">=</span><span class="dv">5</span>)</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>cv_scores.mean(), cv_scores.std()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-<div class="cell-output cell-output-display" data-execution_count="16">
-<pre><code>(np.float64(0.9600547195622434), np.float64(0.020556647327639923))</code></pre>
+<div class="callout-body-container callout-body">
+<p>This portfolio contains a full <strong>CrewAI Multi-Agent System</strong> application.<br>
+To interact with the specialized agent swarms (ML, Research, Business Intelligence), you can run the Streamlit interface locally.</p>
 </div>
 </div>
-</section>
-<section id="diagnostics" class="level2">
-<h2 class="anchored" data-anchor-id="diagnostics">Diagnostics</h2>
-<div id="7228e5a1" class="cell" data-execution_count="7">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>y_pred <span class="op">=</span> rf.predict(X_test)</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(classification_report(y_test, y_pred, target_names<span class="op">=</span>dataset.target_names))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>              precision    recall  f1-score   support
-
-   malignant       0.96      0.92      0.94        53
-      benign       0.96      0.98      0.97        90
-
-    accuracy                           0.96       143
-   macro avg       0.96      0.95      0.95       143
-weighted avg       0.96      0.96      0.96       143
-</code></pre>
-</div>
-</div>
-<section id="receiver-operating-characteristic" class="level3">
-<h3 class="anchored" data-anchor-id="receiver-operating-characteristic">Receiver Operating Characteristic</h3>
-<div id="5079522e" class="cell" data-execution_count="8">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">4</span>))</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>RocCurveDisplay.from_estimator(rf, X_test, y_test, ax<span class="op">=</span>ax)</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">"Random Forest ROC Curve"</span>)</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="randomforest_files/figure-html/cell-9-output-1.png" width="362" height="368" class="figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="confusion-matrix" class="level3">
-<h3 class="anchored" data-anchor-id="confusion-matrix">Confusion Matrix</h3>
-<div id="f83b1bd0" class="cell" data-execution_count="9">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">4</span>, <span class="dv">4</span>))</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>ConfusionMatrixDisplay.from_estimator(rf, X_test, y_test, display_labels<span class="op">=</span>dataset.target_names, ax<span class="op">=</span>ax, cmap<span class="op">=</span><span class="st">"Blues"</span>)</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">"Confusion Matrix"</span>)</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="randomforest_files/figure-html/cell-10-output-1.png" width="376" height="350" class="figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-</section>
-<section id="feature-importance-visualization" class="level2">
-<h2 class="anchored" data-anchor-id="feature-importance-visualization">Feature Importance Visualization</h2>
-<div id="125acbab" class="cell" data-execution_count="10">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>importances <span class="op">=</span> pd.Series(rf.feature_importances_, index<span class="op">=</span>df.columns[:<span class="op">-</span><span class="dv">1</span>]).sort_values(ascending<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>top_features <span class="op">=</span> importances.head(<span class="dv">15</span>)</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    sns</span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">NameError</span>:</span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>    <span class="im">import</span> seaborn <span class="im">as</span> sns</span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>    sns.set_theme(style<span class="op">=</span><span class="st">"whitegrid"</span>)</span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">5</span>))</span>
-<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>sns.barplot(x<span class="op">=</span>top_features.values, y<span class="op">=</span>top_features.index, palette<span class="op">=</span><span class="st">"viridis"</span>)</span>
-<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Top 15 Feature Importances"</span>)</span>
-<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Gini Importance"</span>)</span>
-<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Feature"</span>)</span>
-<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="randomforest_files/figure-html/cell-11-output-1.png" width="752" height="463" class="figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="hyperparameter-considerations" class="level2">
-<h2 class="anchored" data-anchor-id="hyperparameter-considerations">Hyperparameter Considerations</h2>
-<ul>
-<li><code>n_estimators</code>: Increasing trees generally improves stability until diminishing returns set in.</li>
-<li><code>max_depth</code> or <code>min_samples_leaf</code>: Control tree complexity, mitigating overfitting.</li>
-<li><code>max_features</code>: Governs the degree of feature randomness; <code>sqrt</code> is typical for classification.</li>
-<li><code>class_weight</code>: Useful for imbalanced datasets to penalize misclassification of minority classes.</li>
-</ul>
-<p>Grid search or Bayesian optimization can systematically explore these settings.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
-</section>
-<section id="practical-tips" class="level2">
-<h2 class="anchored" data-anchor-id="practical-tips">Practical Tips</h2>
-<ul>
-<li><strong>Feature scaling</strong>: Not required because trees are invariant to monotonic transformations.</li>
-<li><strong>Missing values</strong>: scikit-learn’s implementation does not handle NaNs; impute beforehand.</li>
-<li><strong>Interpretability</strong>: Use SHAP values or permutation importance for richer explanations.</li>
-<li><strong>Out-of-bag (OOB) estimates</strong>: Enable <code>oob_score=True</code> to get a built-in validation metric without a separate hold-out set.</li>
-</ul>
-</section>
-<section id="references" class="level2">
-<h2 class="anchored" data-anchor-id="references">References</h2>
-<ul>
-<li>Breiman, L. (2001). Random forests. <em>Machine Learning</em>, 45(1), 5–32. <a href="https://doi.org/10.1023/A:1010933404324">https://doi.org/10.1023/A:1010933404324</a><a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></li>
-<li>scikit-learn Breast Cancer Dataset docs. <a href="https://scikit-learn.org/stable/datasets/toy_dataset.html">https://scikit-learn.org/stable/datasets/toy_dataset.html</a><a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a></li>
-<li>Bergstra, J., &amp; Bengio, Y. (2012). Random search for hyper-parameter optimization. <em>Journal of Machine Learning Research</em>, 13, 281–305. <a href="https://jmlr.org/papers/v13/bergstra12a.html">https://jmlr.org/papers/v13/bergstra12a.html</a><a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a></li>
-</ul>
-</section>
-
-
-<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
-
-<ol>
-<li id="fn1"><p>Introduced the random forest algorithm with theoretical justification and empirical benchmarks.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>Official description of the dataset, feature definitions, and usage considerations.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn3"><p>Demonstrated the efficiency gains of random search over grid search for hyperparameter tuning.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn4"><p>^breiman2001<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn5"><p>^sklearn_breast<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn6"><p>^bergstra2012<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<section id="quick-start" class="level3">
+<h3 class="anchored" data-anchor-id="quick-start">🚀 Quick Start</h3>
+<ol type="1">
+<li><strong>Clone this repository</strong> to your local machine.</li>
+<li><strong>Install dependencies</strong>: <code>bash     pip install -r requirements.txt</code></li>
+<li><strong>Launch the Swarm Interface</strong>: <code>bash     streamlit run projects/Crewai/interface_web.py</code></li>
 </ol>
-</section></div></main>
-<!-- /main column -->
+<p><a href="https://github.com/Exios66/JJB_Gallery/tree/main/projects/Crewai"><strong>📂 Browse Source Code</strong></a> | <a href="./projects/Crewai/README.html"><strong>📄 View Documentation</strong></a></p>
+<hr>
+</section>
+</section>
+<section id="recent-additions" class="level2">
+<h2 class="anchored" data-anchor-id="recent-additions">Recent Additions</h2>
+<ul>
+<li><strong>Random Forest Analysis:</strong> Enhanced with interactive visualizations and decision boundary plots (<a href="./Quarto/randomforest.html">View Analysis</a>).</li>
+<li><strong>CrewAI Swarm System:</strong> Full-featured, multi-swarm agent orchestration, ML/research/business/reporting specializations (<a href="./projects/Crewai/README.html">README</a>)</li>
+<li><strong>Terminal Coding Agents:</strong> Terminal-based agent system, built-in “build” and “plan” agents with live installation quick start (<a href="./projects/terminal_agents/README.html">README</a>)</li>
+<li><strong>Jupyter Notebooks:</strong> ML and pandas essentials, plus scikit-learn examples (<a href="notebooks/">notebooks/</a>)</li>
+<li><strong>.gitignore Improvements:</strong> Now excludes macOS ._*, .DS_Store, and other platform/editor artifacts (<a href=".gitignore">.gitignore</a>)</li>
+<li><strong>Changelog:</strong> Track recent changes in <a href="./CHANGELOG.html">CHANGELOG.md</a></li>
+</ul>
+<hr>
+</section>
+<section id="skills" class="level2">
+<h2 class="anchored" data-anchor-id="skills">Skills</h2>
+<ul>
+<li><strong>Programming:</strong> <code>Python</code> (advanced), <code>R</code>, <code>JavaScript</code>, <code>bash</code>, <code>Make</code></li>
+<li><strong>Data Analysis:</strong> <code>Pandas</code>, <code>NumPy</code>, <code>scikit-learn</code>, <code>seaborn</code>, <code>matplotlib</code></li>
+<li><strong>Visualization:</strong> <code>matplotlib</code>, <code>seaborn</code>, <code>Quarto</code>, <code>Jupyter</code></li>
+<li><strong>Machine Learning &amp; AI:</strong> <code>scikit-learn</code>, <code>CrewAI</code>, agent-based simulation, feature engineering</li>
+<li><strong>Documentation:</strong> <code>Quarto</code>, <code>Markdown</code>, <code>Jupyter Notebooks</code></li>
+<li><strong>CI/CD &amp; Tooling:</strong> <code>pre-commit</code>, <code>Black</code>, <code>GitHub Actions</code>, <code>Poetry</code>, <code>.gitignore</code> hygiene</li>
+<li><strong>Other:</strong> <code>Git</code>, <code>SQL</code>, <code>Docker</code>, technical writing, code review</li>
+</ul>
+<hr>
+</section>
+<section id="publications-presentations" class="level2">
+<h2 class="anchored" data-anchor-id="publications-presentations">Publications &amp; Presentations</h2>
+<ul>
+<li><strong>Random Forest Essentials</strong> – Quarto doc, 2024. (<a href="./Quarto/randomforest.html">Link</a>)</li>
+<li><strong>Talking to Agents: architecting Multi-Agent Systems</strong> – Internal seminar, 2024.</li>
+<li><em>(More manuscripts and presentations to be added.)</em></li>
+<li>For a list of all talks and publications, see <a href="docs/publications.md">docs/publications.md</a> <em>(Coming soon)</em></li>
+</ul>
+<hr>
+</section>
+<section id="contact" class="level2">
+<h2 class="anchored" data-anchor-id="contact">Contact</h2>
+<ul>
+<li>Email: <a href="mailto:jackburleson.dev@gmail.com">jackburleson.dev@gmail.com</a></li>
+<li>LinkedIn: <a href="https://linkedin.com/in/jack-j-burleson">linkedin.com/in/jack-j-burleson</a></li>
+<li>Website: <a href="https://jackburleson.dev">jackburleson.dev</a></li>
+</ul>
+<hr>
+</section>
+<section id="socials" class="level2">
+<h2 class="anchored" data-anchor-id="socials">Socials</h2>
+<ul>
+<li><a href="https://github.com/Exios66">GitHub</a></li>
+<li><a href="https://twitter.com/Exios66">Twitter/X</a></li>
+<li><a href="https://linkedin.com/in/jack-j-burleson">LinkedIn</a></li>
+<li><a href="https://huggingface.co/Exios66">HuggingFace</a></li>
+</ul>
+<hr>
+</section>
+<section id="further-reading" class="level2">
+<h2 class="anchored" data-anchor-id="further-reading">Further Reading</h2>
+<ul>
+<li><a href="./projects/terminal_agents/README.html">Terminal Agents Project README</a></li>
+<li><a href="./projects/Crewai/README.html">CrewAI Multi-Agent System README</a></li>
+<li><a href="./CHANGELOG.html">CHANGELOG.md</a></li>
+<li><a href="./SECURITY.html">SECURITY.md</a></li>
+<li><a href="https://github.com/Exios66/python-template">Official Python Template Repo</a></li>
+</ul>
+<p><em>Repository updated regularly. Check project directories for the latest code, docs, and research.</em></p>
+
+
+</section>
+
+</main> <!-- /main -->
+<div style="position: fixed; bottom: 20px; right: 20px; z-index: 9999;">
+  <label for="theme-selector" style="margin-right: 5px; font-weight: bold; background: rgba(255,255,255,0.8); padding: 2px 5px; border-radius: 4px; color: #333;">Theme:</label>
+  <select id="theme-selector" onchange="switchTheme(this.value)" style="padding: 5px; border-radius: 5px; border: 1px solid #ccc;">
+    <option value="light.css">Light (Cosmo)</option>
+    <option value="dark.css">Dark (Darkly)</option>
+    <option value="tokyo-neon.css">Tokyo Neon</option>
+    <option value="cyberpunk.css">Cyberpunk</option>
+    <option value="dark-solar.css">Dark Solar</option>
+    <option value="retrofuturism.css">Retrofuturism</option>
+    <option value="art-deco.css">Art Deco</option>
+  </select>
+</div>
+
+<script>
+  function getAssetsPath() {
+    // Try to find the relative path to root from the navbar logo/brand
+    const navbarBrand = document.querySelector('.navbar-brand');
+    let prefix = "";
+    if (navbarBrand) {
+        const href = navbarBrand.getAttribute('href');
+        // href is typically "index.html" or "../../index.html"
+        // We remove "index.html" to get the relative directory prefix
+        if (href && href.endsWith('index.html')) {
+            prefix = href.substring(0, href.length - 10);
+        } else if (href) {
+            prefix = href;
+        }
+    }
+    return prefix + "assets/css/";
+  }
+
+  function switchTheme(cssName) {
+    const assetsPath = getAssetsPath();
+    const fullPath = assetsPath + cssName;
+    
+    let themeLink = document.getElementById('quarto-bootstrap');
+    if (themeLink) {
+      themeLink.href = fullPath;
+    } else {
+      // Fallback logic
+      let links = document.querySelectorAll('link[rel="stylesheet"]');
+      for (let link of links) {
+        if (link.href.includes('bootstrap') || link.href.includes('light.css') || link.href.includes('dark.css')) {
+          link.href = fullPath;
+          link.id = 'quarto-bootstrap';
+          break;
+        }
+      }
+    }
+    localStorage.setItem('selectedTheme', cssName);
+  }
+
+  document.addEventListener("DOMContentLoaded", function() {
+    let savedTheme = localStorage.getItem('selectedTheme');
+    if (savedTheme) {
+      let selector = document.getElementById('theme-selector');
+      if (selector) {
+        selector.value = savedTheme;
+        switchTheme(savedTheme);
+      }
+    }
+  });
+</script>
+
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -1599,6 +796,19 @@ weighted avg       0.96      0.96      0.96       143
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>Repository updated regularly. Check project directories for the latest code, docs, and research.</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
 
 
 

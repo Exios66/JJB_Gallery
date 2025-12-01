@@ -1,0 +1,26 @@
+/*-- scss:defaults --*/
+$body-bg: #1c1c1c;
+$body-color: #e0cda7;
+$headings-color: #d4af37;
+$link-color: #c5a059;
+$link-hover-color: #fff;
+
+/*-- scss:rules --*/
+body {
+    background-color: #1c1c1c;
+}
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+    border-bottom: 1px solid #d4af37;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+.navbar {
+    background-color: #000;
+    border-bottom: 3px double #d4af37;
+}
+.callout {
+    border: 1px solid #d4af37;
+    background-color: #111;
+}
+

@@ -1,0 +1,31 @@
+# Test artifacts
+.pytest_cache/
+.coverage
+htmlcov/
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+.Python
+
+# Test data
+test_data/
+*.tmp
+*.log
+
+# Coverage reports
+.coverage.*
+coverage.xml
+.coverage
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Environment
+.env.test
+venv/
+env/
+
