@@ -1,182 +1,154 @@
+#!/usr/bin/env python3
 """
-iOS-Inspired Chatbot Application
-A modern, iOS-style chat interface built with Streamlit.
+iOS-Inspired Chatbot
+A Flask-based chatbot with iOS-style UI and backend API.
 """
 
-import streamlit as st
-import json
+from flask import Flask, render_template, request, jsonify, session
+from flask_cors import CORS
 import os
+import uuid
 from datetime import datetime
-from typing import List, Dict, Optional
-import openai
-from openai import OpenAI
+from typing import Dict, List, Optional
 
-# Page configuration
-st.set_page_config(
-    page_title="iOS Chatbot",
-    page_icon="💬",
-    layout="centered",
-    initial_sidebar_state="collapsed"
-)
+app = Flask(__name__)
+app.secret_key = os.getenv('SECRET_KEY', 'dev-secret-key-change-in-production')
+CORS(app)
 
-# Custom CSS for iOS-style design
-st.markdown("""
-<style>
-    /* iOS-inspired styling */
-    .stApp {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-    }
-    
-    .chat-container {
-        background: rgba(255, 255, 255, 0.95);
-        border-radius: 20px;
-        padding: 20px;
-        margin: 20px 0;
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-        backdrop-filter: blur(10px);
-        max-height: 600px;
-        overflow-y: auto;
-    }
-    
-    .message {
-        margin: 15px 0;
-        padding: 12px 16px;
-        border-radius: 18px;
-        max-width: 75%;
-        word-wrap: break-word;
-        animation: fadeIn 0.3s ease-in;
-    }
-    
-    @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(10px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
-    
-    .user-message {
-        background: #007AFF;
-        color: white;
-        margin-left: auto;
-        text-align: right;
-    }
-    
-    .bot-message {
-        background: #E5E5EA;
-        color: black;
-        margin-right: auto;
-    }
-    
-    .timestamp {
-        font-size: 0.7em;
-        color: #8E8E93;
-        margin-top: 5px;
-    }
-    
-    .input-container {
-        position: sticky;
-        bottom: 0;
-        background: white;
-        padding: 15px;
-        border-radius: 25px;
-        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
-    }
-</style>
-""", unsafe_allow_html=True)
+# In-memory storage (replace with database in production)
+conversations: Dict[str, List[Dict]] = {}
 
-# Initialize session state
-if "messages" not in st.session_state:
-    st.session_state.messages = []
-if "api_key" not in st.session_state:
-    st.session_state.api_key = os.getenv("OPENAI_API_KEY", "")
-if "model" not in st.session_state:
-    st.session_state.model = "gpt-3.5-turbo"
 
-def get_openai_client() -> Optional[OpenAI]:
-    """Get OpenAI client if API key is configured."""
-    if not st.session_state.api_key:
-        return None
-    return OpenAI(api_key=st.session_state.api_key)
-
-def chat_completion(messages: List[Dict[str, str]]) -> str:
-    """Send messages to OpenAI API and get response."""
-    client = get_openai_client()
-    if not client:
-        return "⚠️ Please configure your OpenAI API key in the settings."
+class ChatBot:
+    """Simple chatbot backend."""
     
+    def __init__(self):
+        self.name = "iOS Chatbot"
+    
+    def respond(self, message: str, conversation_id: str) -> str:
+        """
+        Generate a response to user message.
+        Replace this with actual LLM integration.
+        """
+        # Simple rule-based responses (replace with LLM)
+        message_lower = message.lower()
+        
+        if 'hello' in message_lower or 'hi' in message_lower:
+            return "Hello! How can I help you today?"
+        elif 'help' in message_lower:
+            return "I'm here to help! You can ask me questions or just chat. What would you like to know?"
+        elif 'bye' in message_lower or 'goodbye' in message_lower:
+            return "Goodbye! Have a great day!"
+        elif '?' in message:
+            return "That's an interesting question! I'm still learning, but I'd love to help you explore that topic."
+        else:
+            return f"You said: '{message}'. I'm a simple chatbot - connect me to an LLM for more intelligent responses!"
+
+
+chatbot = ChatBot()
+
+
+@app.route('/')
+def index():
+    """Render the main chat interface."""
+    return render_template('index.html')
+
+
+@app.route('/api/chat', methods=['POST'])
+def chat():
+    """Handle chat messages."""
+    data = request.json
+    message = data.get('message', '').strip()
+    conversation_id = data.get('conversation_id')
+    
+    if not message:
+        return jsonify({'error': 'Message is required'}), 400
+    
+    # Generate conversation ID if not provided
+    if not conversation_id:
+        conversation_id = str(uuid.uuid4())
+    
+    # Initialize conversation if new
+    if conversation_id not in conversations:
+        conversations[conversation_id] = []
+    
+    # Add user message
+    user_message = {
+        'role': 'user',
+        'content': message,
+        'timestamp': datetime.now().isoformat()
+    }
+    conversations[conversation_id].append(user_message)
+    
+    # Get bot response
     try:
-        response = client.chat.completions.create(
-            model=st.session_state.model,
-            messages=messages,
-            temperature=0.7,
-            max_tokens=500
-        )
-        return response.choices[0].message.content
+        response = chatbot.respond(message, conversation_id)
     except Exception as e:
-        return f"❌ Error: {str(e)}"
+        response = f"Sorry, I encountered an error: {str(e)}"
+    
+    # Add bot response
+    bot_message = {
+        'role': 'assistant',
+        'content': response,
+        'timestamp': datetime.now().isoformat()
+    }
+    conversations[conversation_id].append(bot_message)
+    
+    return jsonify({
+        'conversation_id': conversation_id,
+        'response': bot_message,
+        'message': user_message
+    })
 
-def format_message(content: str, role: str) -> str:
-    """Format message with HTML styling."""
-    css_class = "user-message" if role == "user" else "bot-message"
-    timestamp = datetime.now().strftime("%H:%M")
-    return f"""
-    <div class="message {css_class}">
-        <div>{content}</div>
-        <div class="timestamp">{timestamp}</div>
-    </div>
-    """
 
-def main():
-    st.title("💬 iOS Chatbot")
-    st.caption("A modern, iOS-inspired chat interface")
+@app.route('/api/conversations/<conversation_id>', methods=['GET'])
+def get_conversation(conversation_id: str):
+    """Get conversation history."""
+    if conversation_id not in conversations:
+        return jsonify({'messages': []})
     
-    # Sidebar for settings
-    with st.sidebar:
-        st.header("⚙️ Settings")
-        api_key = st.text_input(
-            "OpenAI API Key",
-            value=st.session_state.api_key,
-            type="password",
-            help="Enter your OpenAI API key"
-        )
-        st.session_state.api_key = api_key
-        
-        model = st.selectbox(
-            "Model",
-            ["gpt-3.5-turbo", "gpt-4", "gpt-4-turbo-preview"],
-            index=0 if st.session_state.model == "gpt-3.5-turbo" else 1
-        )
-        st.session_state.model = model
-        
-        if st.button("🗑️ Clear Chat"):
-            st.session_state.messages = []
-            st.rerun()
-    
-    # Chat container
-    chat_html = '<div class="chat-container">'
-    
-    # Display messages
-    for message in st.session_state.messages:
-        role = message["role"]
-        content = message["content"]
-        chat_html += format_message(content, role)
-    
-    chat_html += '</div>'
-    st.markdown(chat_html, unsafe_allow_html=True)
-    
-    # Input area
-    user_input = st.chat_input("Type your message...")
-    
-    if user_input:
-        # Add user message
-        st.session_state.messages.append({"role": "user", "content": user_input})
-        
-        # Get bot response
-        with st.spinner("Thinking..."):
-            bot_response = chat_completion(st.session_state.messages)
-            st.session_state.messages.append({"role": "assistant", "content": bot_response})
-        
-        st.rerun()
+    return jsonify({
+        'conversation_id': conversation_id,
+        'messages': conversations[conversation_id]
+    })
 
-if __name__ == "__main__":
-    main()
+
+@app.route('/api/conversations', methods=['GET'])
+def list_conversations():
+    """List all conversations."""
+    return jsonify({
+        'conversations': [
+            {
+                'id': conv_id,
+                'message_count': len(messages),
+                'last_message': messages[-1]['timestamp'] if messages else None
+            }
+            for conv_id, messages in conversations.items()
+        ]
+    })
+
+
+@app.route('/api/conversations/<conversation_id>', methods=['DELETE'])
+def delete_conversation(conversation_id: str):
+    """Delete a conversation."""
+    if conversation_id in conversations:
+        del conversations[conversation_id]
+        return jsonify({'success': True})
+    return jsonify({'error': 'Conversation not found'}), 404
+
+
+@app.route('/api/health', methods=['GET'])
+def health():
+    """Health check endpoint."""
+    return jsonify({
+        'status': 'healthy',
+        'service': 'ios-chatbot',
+        'conversations': len(conversations)
+    })
+
+
+if __name__ == '__main__':
+    port = int(os.getenv('PORT', 5000))
+    debug = os.getenv('FLASK_ENV') == 'development'
+    app.run(host='0.0.0.0', port=port, debug=debug)
 

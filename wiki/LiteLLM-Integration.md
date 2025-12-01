@@ -12,18 +12,19 @@ LiteLLM is a library that provides a unified interface for calling various LLM A
 
 ## Features
 
-- **Unified API**: Call any LLM provider using OpenAI-compatible format
-- **Multiple Providers**: Support for OpenAI, Anthropic, Google, Ollama, and more
-- **Proxy Server**: HTTP proxy for centralized LLM access
-- **Streaming Support**: Real-time streaming responses
-- **Async Support**: Asynchronous API calls
-- **Easy Configuration**: YAML-based configuration
+- ✅ **Unified API**: Call any LLM provider using OpenAI-compatible format
+- ✅ **Multiple Providers**: Support for 100+ LLM providers
+- ✅ **Proxy Server**: HTTP proxy for centralized LLM access
+- ✅ **Streaming Support**: Real-time streaming responses
+- ✅ **Async Support**: Asynchronous API calls
+- ✅ **Easy Configuration**: YAML-based configuration
 
 ## Installation
 
 ### Basic Installation
 
 ```bash
+cd projects/litellm
 pip install -r requirements.txt
 ```
 
@@ -31,19 +32,6 @@ pip install -r requirements.txt
 
 ```bash
 pip install 'litellm[proxy]'
-```
-
-### Individual Provider Support
-
-```bash
-# OpenAI
-pip install openai
-
-# Anthropic
-pip install anthropic
-
-# Google
-pip install google-generativeai
 ```
 
 ## Quick Start
@@ -65,9 +53,8 @@ print(response.choices[0].message.content)
 
 ```bash
 python proxy_server.py
+# Server runs on http://localhost:8000
 ```
-
-The server will start on `http://localhost:8000`.
 
 ### 3. Use Proxy Server
 
@@ -75,7 +62,7 @@ The server will start on `http://localhost:8000`.
 import openai
 
 client = openai.OpenAI(
-    api_key="anything",  # Proxy doesn't require real key
+    api_key="anything",
     base_url="http://localhost:8000/v1"
 )
 
@@ -178,27 +165,9 @@ OpenAI-compatible chat completions endpoint.
 ```json
 {
   "model": "gpt-3.5-turbo",
-  "messages": [
-    {"role": "user", "content": "Hello!"}
-  ],
+  "messages": [{"role": "user", "content": "Hello!"}],
   "temperature": 0.7,
   "stream": false
-}
-```
-
-**Response:**
-```json
-{
-  "id": "chatcmpl-...",
-  "object": "chat.completion",
-  "created": 1677610602,
-  "model": "gpt-3.5-turbo",
-  "choices": [{
-    "message": {
-      "role": "assistant",
-      "content": "Hello! How can I help you?"
-    }
-  }]
 }
 ```
 
@@ -237,22 +206,6 @@ curl http://localhost:8000/v1/chat/completions \
     "model": "gpt-3.5-turbo",
     "messages": [{"role": "user", "content": "Hello!"}]
   }'
-```
-
-#### JavaScript
-
-```javascript
-const response = await fetch('http://localhost:8000/v1/chat/completions', {
-  method: 'POST',
-  headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify({
-    model: 'gpt-3.5-turbo',
-    messages: [{ role: 'user', content: 'Hello!' }]
-  })
-});
-
-const data = await response.json();
-console.log(data.choices[0].message.content);
 ```
 
 ## Configuration
@@ -297,24 +250,8 @@ LiteLLM supports 100+ LLM providers. Common ones include:
 - **Hugging Face**: Transformers models
 - **Cohere**: Command models
 - **Together AI**: Various open models
-- **And many more...**
 
 See [LiteLLM Documentation](https://docs.litellm.ai/docs/providers) for full list.
-
-## Examples
-
-Run the examples script:
-
-```bash
-python examples.py
-```
-
-This will demonstrate:
-- Basic usage with different providers
-- Streaming responses
-- Async operations
-- Custom prompts
-- Multiple provider fallback
 
 ## Advanced Features
 
@@ -343,14 +280,6 @@ response = completion(
     model=["gpt-4", "gpt-3.5-turbo", "claude-3-sonnet"],  # Try in order
     messages=[{"role": "user", "content": "Hello!"}]
 )
-```
-
-### Logging
-
-```python
-import litellm
-
-litellm.success_callback = ["lunary", "langfuse"]  # Log to observability tools
 ```
 
 ## Troubleshooting
@@ -391,10 +320,9 @@ ollama serve
 - [Supported Providers](https://docs.litellm.ai/docs/providers)
 - [Proxy Documentation](https://docs.litellm.ai/docs/simple_proxy)
 
-## License
+## Related Documentation
 
-See main repository LICENSE file.
+- [Installation Guide](Installation-Guide)
+- [Configuration Guide](Configuration-Guide)
+- [API Reference](API-Reference)
 
-## Contributing
-
-Contributions welcome! Please see the main repository contributing guidelines.

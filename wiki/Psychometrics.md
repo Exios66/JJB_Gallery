@@ -1,19 +1,19 @@
-# Psychometric Assessment Applications
+# Psychometrics
 
 A comprehensive psychometric assessment toolkit implementing the NASA Task Load Index (TLX) and related workload measurement tools.
 
 ## Overview
 
-This project provides tools for conducting psychometric assessments, particularly focused on workload measurement using the NASA Task Load Index (TLX). The TLX is a widely-used tool for assessing the subjective workload experienced by users when performing tasks.
+The Psychometrics project provides tools for conducting psychometric assessments, particularly focused on workload measurement using the NASA Task Load Index (TLX). The TLX is a widely-used tool for assessing the subjective workload experienced by users when performing tasks.
 
 ## Features
 
-- **NASA TLX Implementation**: Complete implementation of the NASA Task Load Index
-- **Raw TLX Scores**: Unweighted average of six workload dimensions
-- **Weighted TLX Scores**: Weighted scores based on pairwise comparisons
-- **Interactive CLI**: Command-line interface for data collection
-- **Data Export**: JSON export for analysis
-- **Statistical Analysis**: Aggregate statistics across multiple assessments
+- ✅ **NASA TLX Implementation**: Complete implementation of the NASA Task Load Index
+- ✅ **Raw TLX Scores**: Unweighted average of six workload dimensions
+- ✅ **Weighted TLX Scores**: Weighted scores based on pairwise comparisons
+- ✅ **Interactive CLI**: Command-line interface for data collection
+- ✅ **Data Export**: JSON export for analysis
+- ✅ **Statistical Analysis**: Aggregate statistics across multiple assessments
 
 ## NASA Task Load Index (TLX)
 
@@ -27,7 +27,6 @@ The NASA TLX measures workload across six dimensions:
 6. **Frustration**: How insecure, discouraged, or annoyed were you?
 
 Each dimension is rated on a scale of 1-20, where:
-
 - 1 = Very Low
 - 20 = Very High
 
@@ -35,26 +34,22 @@ Each dimension is rated on a scale of 1-20, where:
 
 ## Installation
 
-### Basic Installation
-
 ```bash
+cd projects/Psychometrics
 pip install -r requirements.txt
 ```
 
-Note: The core functionality uses only Python standard library. Optional dependencies are for advanced analysis.
+**Note**: Core functionality uses only Python standard library. Optional dependencies (numpy, pandas) are for advanced analysis.
 
-## Usage
+## Quick Start
 
 ### Command-Line Interface
-
-Run the interactive assessment tool:
 
 ```bash
 python main.py
 ```
 
 The tool will guide you through:
-
 1. Entering task and participant information
 2. Rating each of the six dimensions (1-20)
 3. Optional pairwise comparisons for weighted scores
@@ -94,33 +89,13 @@ print(f"Raw TLX Score: {result.raw_tlx_score:.2f}")
 tlx.add_pairwise_comparison(
     result,
     mental_vs_physical=3,  # Mental much more important
-    mental_vs_temporal=1,  # Mental slightly more important
+    mental_vs_temporal=1,   # Mental slightly more important
     # ... other comparisons
 )
 
 # Calculate weighted TLX score
 tlx.calculate_scores(result)
 print(f"Weighted TLX Score: {result.weighted_tlx_score:.2f}")
-print(f"Weights: {result.weights}")
-
-# Save result
-tlx.save_result(result)
-
-# Get statistics
-stats = tlx.get_statistics("User Interface Evaluation")
-print(f"Mean Raw TLX: {stats['raw_tlx']['mean']:.2f}")
-```
-
-### Export Results
-
-```python
-# Export to JSON
-json_output = result.to_json()
-with open("assessment.json", "w") as f:
-    f.write(json_output)
-
-# Or export as dictionary
-result_dict = result.to_dict()
 ```
 
 ## Scoring Methods
@@ -133,7 +108,7 @@ The raw TLX score is the unweighted average of all six dimension ratings:
 Raw TLX = (Mental + Physical + Temporal + Performance + Effort + Frustration) / 6
 ```
 
-Range: 1-20
+**Range**: 1-20
 
 ### Weighted TLX Score
 
@@ -148,7 +123,7 @@ The weighted TLX score uses pairwise comparisons to determine the relative impor
 Weighted TLX = Σ(Weight_i × Rating_i)
 ```
 
-Range: 1-20
+**Range**: 1-20
 
 ## Pairwise Comparisons
 
@@ -181,16 +156,8 @@ When collecting weighted TLX scores, participants compare each pair of dimension
     },
     "raw_tlx_score": 9.5,
     "weighted_tlx_score": 10.2,
-    "dimension_scores": {
-        "mental_demand": 2.5,
-        "physical_demand": 0.3,
-        ...
-    },
-    "weights": {
-        "mental_demand": 0.25,
-        "physical_demand": 0.10,
-        ...
-    }
+    "dimension_scores": {...},
+    "weights": {...}
 }
 ```
 
@@ -241,7 +208,6 @@ stats = tlx.get_statistics(task_name="User Interface Evaluation")
 ### Dimension Analysis
 
 High scores in specific dimensions indicate:
-
 - **Mental Demand**: Complex cognitive tasks
 - **Physical Demand**: Physically strenuous tasks
 - **Temporal Demand**: Time pressure or rushed pace
@@ -257,15 +223,51 @@ High scores in specific dimensions indicate:
 4. **Multiple Assessments**: Collect multiple data points for reliability
 5. **Context Documentation**: Record task details and conditions
 
+## File Structure
+
+```
+Psychometrics/
+├── nasa_tlx.py        # Core TLX implementation
+├── main.py            # Interactive CLI
+├── requirements.txt   # Dependencies
+└── README.md          # Detailed documentation
+```
+
+## API Reference
+
+### NASATLX Class
+
+#### `create_assessment(task_name, participant_id=None) -> TLXResult`
+
+Create a new TLX assessment.
+
+#### `add_rating(result, mental_demand, physical_demand, temporal_demand, performance, effort, frustration) -> TLXResult`
+
+Add rating to assessment.
+
+#### `add_pairwise_comparison(result, ...) -> TLXResult`
+
+Add pairwise comparison to assessment.
+
+#### `calculate_scores(result) -> TLXResult`
+
+Calculate both raw and weighted TLX scores.
+
+#### `save_result(result)`
+
+Save assessment result.
+
+#### `get_statistics(task_name=None) -> Dict`
+
+Get statistics for all results or specific task.
+
 ## References
 
 - Hart, S. G., & Staveland, L. E. (1988). Development of NASA-TLX (Task Load Index): Results of empirical and theoretical research. *Advances in psychology*, 52, 139-183.
 - [NASA TLX Official Documentation](https://humansystems.arc.nasa.gov/groups/tlx/)
 
-## License
+## Related Documentation
 
-See main repository LICENSE file.
+- [Installation Guide](Installation-Guide)
+- [Configuration Guide](Configuration-Guide)
 
-## Contributing
-
-Contributions welcome! Please see the main repository contributing guidelines.

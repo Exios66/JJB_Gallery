@@ -1,247 +1,273 @@
 # RAG Model Application
 
-A complete Retrieval-Augmented Generation (RAG) implementation with vector store and document retrieval. This application allows you to ask questions about your documents and get accurate, context-aware answers using advanced language models.
+A complete Retrieval-Augmented Generation (RAG) system implementation with vector database, embeddings, and intelligent document retrieval.
 
-## 🚀 Features
+## Overview
 
-- **Document Processing**: Support for PDF, TXT, and Markdown files
-- **Vector Store**: FAISS and Chroma vector store options
-- **Multiple Embeddings**: OpenAI and HuggingFace embedding models
-- **Question Answering**: Ask questions about your documents
-- **Source Citation**: View source documents for each answer
-- **Chat History**: Track conversation history
-- **Interactive UI**: Beautiful Streamlit interface
+This project implements a full RAG pipeline that:
+- Ingests and processes documents
+- Creates embeddings using transformer models
+- Stores embeddings in a vector database (FAISS)
+- Retrieves relevant documents for queries
+- Generates answers using retrieved context
 
-## 📋 Prerequisites
+## Features
+
+- **Document Processing**: Supports TXT, MD, and JSON files
+- **Vector Database**: Uses FAISS for efficient similarity search
+- **Embeddings**: Sentence transformers for high-quality embeddings
+- **Retrieval**: Semantic search with configurable top-k retrieval
+- **Generation**: Integration with Ollama for local LLM inference
+- **Interactive CLI**: Command-line interface for querying
+
+## Installation
+
+### Prerequisites
 
 - Python 3.8+
-- OpenAI API key (for OpenAI embeddings and LLM)
-- (Optional) HuggingFace models for free embeddings
+- Ollama (for LLM generation) - [Install Ollama](https://ollama.ai)
 
-## 🛠️ Installation
+### Setup
 
-1. **Navigate to the project:**
-   ```bash
-   cd projects/RAG_Model
-   ```
-
-2. **Install dependencies:**
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-   **Note**: For FAISS, you may need:
-   ```bash
-   pip install faiss-cpu  # CPU version
-   # OR
-   pip install faiss-gpu  # GPU version (requires CUDA)
-   ```
-
-## ⚙️ Configuration
-
-### Environment Variables
-
-Create a `.env` file (optional):
-
-```env
-OPENAI_API_KEY=your_openai_api_key_here
-```
-
-Or set the API key directly in the Streamlit app's sidebar.
-
-## 🚀 Usage
-
-### Start the Application
+1. Install dependencies:
 
 ```bash
-streamlit run app.py
+pip install -r requirements.txt
 ```
 
-The app will open in your browser at `http://localhost:8501`
+2. (Optional) Install and start Ollama for LLM generation:
 
-### Using RAG
+```bash
+# Install Ollama from https://ollama.ai
+# Then pull a model:
+ollama pull llama3.1:8b
+```
 
-1. **Configure Settings**:
-   - Enter your OpenAI API key in the sidebar
-   - Choose embedding model (OpenAI or HuggingFace)
-   - Select vector store type (FAISS or Chroma)
-   - Choose LLM model (GPT-3.5-turbo, GPT-4, etc.)
+## Usage
 
-2. **Upload Documents**:
-   - Click "Upload documents" in the sidebar
-   - Select PDF, TXT, or MD files
-   - Click "Process Documents"
+### Basic Usage
 
-3. **Ask Questions**:
-   - Type your question in the input field
-   - Click "Ask" or press Enter
-   - View the answer with source citations
+Run the interactive query interface:
 
-## 🔍 How RAG Works
+```bash
+python main.py
+```
 
-1. **Document Loading**: Documents are loaded and split into chunks
-2. **Embedding**: Each chunk is converted to a vector embedding
-3. **Vector Store**: Embeddings are stored in a vector database
-4. **Retrieval**: When you ask a question, relevant chunks are retrieved
-5. **Generation**: The LLM generates an answer using retrieved context
+The system will:
+1. Create sample documents if none exist
+2. Build or load the vector store
+3. Start an interactive query session
 
-## 📚 Supported File Types
-
-- **PDF**: `.pdf` files
-- **Text**: `.txt` files
-- **Markdown**: `.md` files
-
-## 🎯 Embedding Models
-
-### OpenAI Embeddings
-
-- **Pros**: High quality, fast
-- **Cons**: Requires API key, costs money
-- **Best for**: Production applications
-
-### HuggingFace Embeddings
-
-- **Pros**: Free, runs locally
-- **Cons**: Slower, requires more memory
-- **Best for**: Development, privacy-sensitive applications
-
-**Recommended Models**:
-- `sentence-transformers/all-MiniLM-L6-v2` (default)
-- `sentence-transformers/all-mpnet-base-v2` (better quality)
-
-## 🗄️ Vector Stores
-
-### FAISS
-
-- **Pros**: Fast, efficient, Facebook-developed
-- **Cons**: Less feature-rich
-- **Best for**: Large-scale applications
-
-### Chroma
-
-- **Pros**: Feature-rich, easy to use
-- **Cons**: Slightly slower
-- **Best for**: Development, smaller applications
-
-## 🔧 Advanced Configuration
-
-### Chunk Size and Overlap
-
-Modify in `app.py`:
+### Programmatic Usage
 
 ```python
-text_splitter = RecursiveCharacterTextSplitter(
-    chunk_size=1000,      # Size of each chunk
-    chunk_overlap=200,    # Overlap between chunks
-    length_function=len
+from rag_system import RAGSystem
+
+# Initialize RAG system
+rag = RAGSystem(
+    embedding_model="sentence-transformers/all-MiniLM-L6-v2",
+    vector_store_path="vector_store",
+    llm_model="llama3.1:8b"
 )
+
+# Load or create vector store
+documents = rag.load_documents(["doc1.txt", "doc2.txt"])
+rag.create_vector_store(documents, save=True)
+
+# Query the system
+result = rag.query("What is RAG?", k=5)
+print(result['answer'])
 ```
 
-### Retrieval Parameters
+### Adding Your Own Documents
 
-Adjust the number of retrieved documents:
+1. Place documents in the `documents/` directory (or any directory)
+2. Update the code to load your documents:
 
 ```python
-retriever=vectorstore.as_retriever(search_kwargs={"k": 3})  # Retrieve top 3 chunks
+file_paths = [
+    "documents/my_doc1.txt",
+    "documents/my_doc2.md",
+    "documents/data.json"
+]
+documents = rag.load_documents(file_paths)
+rag.create_vector_store(documents, save=True)
 ```
 
-### Custom Prompts
+## Configuration
 
-Modify the prompt template in `create_qa_chain()`:
+Set environment variables to customize behavior:
+
+```bash
+export RAG_EMBEDDING_MODEL="sentence-transformers/all-MiniLM-L6-v2"
+export RAG_LLM_MODEL="llama3.1:8b"
+export RAG_CHUNK_SIZE=1000
+export RAG_CHUNK_OVERLAP=200
+export RAG_DEFAULT_K=5
+export RAG_VECTOR_STORE_PATH="vector_store"
+```
+
+Or use the config module:
 
 ```python
-prompt_template = """Your custom prompt here...
-Context: {context}
-Question: {question}
-Answer:"""
+from config import config
+
+print(config.EMBEDDING_MODEL)
+print(config.CHUNK_SIZE)
 ```
 
-## 📊 Performance Tips
+## Architecture
 
-1. **Chunk Size**: Larger chunks = more context, but slower processing
-2. **Retrieval Count**: More chunks = better answers, but slower generation
-3. **Embedding Model**: OpenAI is faster but costs money
-4. **Vector Store**: FAISS is faster for large document sets
+```
+┌─────────────┐
+│  Documents  │
+└──────┬──────┘
+       │
+       ▼
+┌─────────────┐
+│ Text Split  │
+└──────┬──────┘
+       │
+       ▼
+┌─────────────┐
+│ Embeddings  │
+└──────┬──────┘
+       │
+       ▼
+┌─────────────┐
+│Vector Store │
+│   (FAISS)   │
+└──────┬──────┘
+       │
+       ▼
+┌─────────────┐
+│  Retrieval   │
+└──────┬──────┘
+       │
+       ▼
+┌─────────────┐
+│ Generation  │
+│   (LLM)     │
+└─────────────┘
+```
 
-## 🐛 Troubleshooting
+## Components
+
+### `rag_system.py`
+Core RAG implementation with:
+- Document loading and processing
+- Embedding generation
+- Vector store management
+- Retrieval and generation
+
+### `main.py`
+Command-line interface and demo application
+
+### `config.py`
+Configuration management
+
+## Supported File Formats
+
+- **TXT**: Plain text files
+- **MD**: Markdown files
+- **JSON**: JSON data files
+
+## Vector Database
+
+The system uses FAISS (Facebook AI Similarity Search) for efficient vector storage and retrieval. FAISS supports:
+- Fast similarity search
+- Scalable to millions of vectors
+- CPU and GPU support
+- Various indexing methods
+
+## Embedding Models
+
+Default: `sentence-transformers/all-MiniLM-L6-v2`
+
+You can use any sentence transformer model:
+- `all-MiniLM-L6-v2` (default, fast, 384 dims)
+- `all-mpnet-base-v2` (better quality, 768 dims)
+- `all-MiniLM-L12-v2` (larger, 384 dims)
+
+## LLM Integration
+
+The system integrates with Ollama for local LLM inference. Supported models:
+- `llama3.1:8b` (default)
+- `mistral:7b`
+- `codellama:13b`
+- Any Ollama-compatible model
+
+## Performance Tips
+
+1. **Chunk Size**: Adjust based on your documents (500-2000 tokens)
+2. **Overlap**: Use 10-20% overlap for better context
+3. **Top-K**: Start with k=5, adjust based on results
+4. **Embedding Model**: Larger models = better quality but slower
+5. **Vector Store**: Use GPU FAISS for large datasets
+
+## Troubleshooting
 
 ### Import Errors
-
-If you get import errors:
-
 ```bash
-pip install --upgrade langchain openai faiss-cpu chromadb sentence-transformers
+pip install langchain faiss-cpu sentence-transformers
+```
+
+### Ollama Connection Issues
+```bash
+# Check if Ollama is running
+curl http://localhost:11434/api/tags
+
+# Start Ollama if needed
+ollama serve
 ```
 
 ### Memory Issues
-
-- Use smaller chunk sizes
-- Use FAISS instead of Chroma
-- Process fewer documents at once
-
-### API Key Issues
-
-- Verify your OpenAI API key is correct
-- Check you have sufficient credits
-- Ensure the key has proper permissions
-
-### Slow Processing
-
-- Use OpenAI embeddings (faster)
 - Reduce chunk size
-- Use FAISS vector store
+- Use smaller embedding model
 - Process documents in batches
 
-## 🚀 Deployment
+## Examples
 
-### Streamlit Cloud
+### Example 1: Simple Query
 
-1. Push code to GitHub
-2. Connect to [Streamlit Cloud](https://streamlit.io/cloud)
-3. Add `OPENAI_API_KEY` as a secret
-4. Deploy!
-
-### Docker
-
-```dockerfile
-FROM python:3.9-slim
-WORKDIR /app
-COPY requirements.txt .
-RUN pip install -r requirements.txt
-COPY . .
-CMD ["streamlit", "run", "app.py", "--server.port=8501", "--server.address=0.0.0.0"]
+```python
+rag = RAGSystem()
+rag.load_vector_store()
+result = rag.query("What is machine learning?")
+print(result['answer'])
 ```
 
-## 📦 Project Structure
+### Example 2: Custom Configuration
 
+```python
+rag = RAGSystem(
+    embedding_model="sentence-transformers/all-mpnet-base-v2",
+    chunk_size=1500,
+    chunk_overlap=300
+)
 ```
-RAG_Model/
-├── app.py              # Main Streamlit application
-├── requirements.txt    # Python dependencies
-└── README.md          # This file
+
+### Example 3: Batch Processing
+
+```python
+# Process multiple document sets
+for doc_set in document_sets:
+    documents = rag.load_documents(doc_set)
+    rag.create_vector_store(documents, save=False)
+    # Process queries
 ```
 
-## 🔗 Related Projects
+## License
 
-- [CrewAI](../Crewai/README.md) - Multi-agent system
-- [ChatUI](../ChatUi/README.md) - Chat interface
-- [LiteLLM](../litellm/README.md) - LLM proxy server
+See main repository LICENSE file.
 
-## 📚 Resources
+## References
 
-- [LangChain Documentation](https://python.langchain.com/)
-- [FAISS Documentation](https://github.com/facebookresearch/faiss)
-- [Chroma Documentation](https://www.trychroma.com/)
 - [RAG Paper](https://arxiv.org/abs/2005.11401)
+- [FAISS Documentation](https://github.com/facebookresearch/faiss)
+- [Sentence Transformers](https://www.sbert.net/)
+- [Ollama](https://ollama.ai)
 
-## 📄 License
+## Contributing
 
-This project is part of the JJB Gallery portfolio. See the main repository LICENSE file.
-
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-## 📧 Support
-
-For issues or questions, please open an issue in the main repository.
+Contributions welcome! Please see the main repository contributing guidelines.

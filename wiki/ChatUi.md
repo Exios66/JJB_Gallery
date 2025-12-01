@@ -1,95 +1,63 @@
-# Chat UI
+# ChatUi
 
 A modern, open-source chat interface for interacting with LLM models. Built with SvelteKit, this application provides a clean and intuitive interface for chat-based AI interactions.
 
 ## Overview
 
-Chat UI is a SvelteKit application that provides a web-based interface for chatting with various LLM models. It supports multiple backends including OpenAI, Ollama, Hugging Face, and custom API endpoints.
+ChatUi is a SvelteKit application that provides a web-based interface for chatting with various LLM models. It supports multiple backends including OpenAI, Ollama, Hugging Face, and custom API endpoints.
 
 ## Features
 
-- **Modern UI**: Clean, responsive chat interface
-- **Multiple Model Support**: Connect to various LLM providers
-- **Real-time Streaming**: Support for streaming responses
-- **Message History**: Persistent chat history (with MongoDB)
-- **Customizable**: Easy to customize and extend
-- **TypeScript Support**: Type-safe development
+- ✅ **Modern UI**: Clean, responsive chat interface
+- ✅ **Multiple Model Support**: Connect to various LLM providers
+- ✅ **Real-time Streaming**: Support for streaming responses
+- ✅ **Message History**: Persistent chat history (with MongoDB)
+- ✅ **Customizable**: Easy to customize and extend
+- ✅ **TypeScript Support**: Type-safe development
 
 ## Installation
 
-### Prerequisites
-
-- Node.js 18+ and npm 9+
-- MongoDB (for chat history, optional)
-
-### Setup
-
-1. Install dependencies:
-
 ```bash
+cd projects/ChatUi
 npm install
 ```
 
-2. Copy environment variables:
+## Quick Start
+
+### Development
 
 ```bash
-cp .env.example .env.local
+npm run dev
+# Opens at http://localhost:5173
 ```
 
-3. Configure your environment variables in `.env.local`:
+### Production Build
+
+```bash
+npm run build
+npm run preview
+```
+
+## Configuration
+
+### Environment Variables
+
+Create `.env.local`:
 
 ```env
 VITE_API_BASE_URL=http://localhost:3000
 MONGODB_URL=mongodb://localhost:27017/chatui
 HF_TOKEN=your_huggingface_token
 OPENAI_API_KEY=your_openai_key
-```
-
-4. Start the development server:
-
-```bash
-npm run dev
-```
-
-The application will be available at `http://localhost:5173`.
-
-## Usage
-
-### Development
-
-```bash
-# Start dev server
-npm run dev
-
-# Build for production
-npm run build
-
-# Preview production build
-npm run preview
-
-# Run tests
-npm test
-
-# Lint code
-npm run lint
-
-# Format code
-npm run format
+OLLAMA_BASE_URL=http://localhost:11434
 ```
 
 ### Connecting to LLM Backends
 
 #### OpenAI
 
-Set your OpenAI API key in `.env.local`:
-
-```env
-OPENAI_API_KEY=sk-...
-```
-
-Update the API route in `src/routes/api/chat/+server.js` to use OpenAI:
-
 ```javascript
+// src/routes/api/chat/+server.js
 import OpenAI from 'openai';
 
 const openai = new OpenAI({
@@ -113,14 +81,6 @@ export async function POST({ request }) {
 
 #### Ollama
 
-Set Ollama base URL:
-
-```env
-OLLAMA_BASE_URL=http://localhost:11434
-```
-
-Update the API route to use Ollama:
-
 ```javascript
 export async function POST({ request }) {
   const { message, model = 'llama3.1:8b' } = await request.json();
@@ -143,14 +103,6 @@ export async function POST({ request }) {
 }
 ```
 
-#### Hugging Face
-
-Set your Hugging Face token:
-
-```env
-HF_TOKEN=hf_...
-```
-
 ## Project Structure
 
 ```
@@ -168,8 +120,7 @@ ChatUi/
 ├── static/               # Static assets
 ├── package.json
 ├── svelte.config.js
-├── vite.config.js
-└── README.md
+└── vite.config.js
 ```
 
 ## Components
@@ -229,20 +180,14 @@ Modify styles in component `<style>` blocks or create a global stylesheet in `sr
 
 ## Deployment
 
-### Build for Production
-
-```bash
-npm run build
-```
-
-### Deploy to Vercel
+### Vercel
 
 ```bash
 npm install -g vercel
 vercel
 ```
 
-### Deploy to Netlify
+### Netlify
 
 ```bash
 npm install -g netlify-cli
@@ -262,16 +207,6 @@ EXPOSE 3000
 CMD ["node", "build"]
 ```
 
-## Environment Variables
-
-| Variable | Description | Default |
-|----------|-------------|---------|
-| `VITE_API_BASE_URL` | Base URL for API | `http://localhost:3000` |
-| `MONGODB_URL` | MongoDB connection string | - |
-| `HF_TOKEN` | Hugging Face API token | - |
-| `OPENAI_API_KEY` | OpenAI API key | - |
-| `OLLAMA_BASE_URL` | Ollama server URL | `http://localhost:11434` |
-
 ## Troubleshooting
 
 ### Port Already in Use
@@ -280,7 +215,7 @@ Change the port in `vite.config.js`:
 
 ```javascript
 server: {
-  port: 5174  // Use different port
+  port: 5174
 }
 ```
 
@@ -289,27 +224,16 @@ server: {
 Ensure MongoDB is running:
 
 ```bash
-# Using Docker
 docker run -d -p 27017:27017 --name mongo mongo:latest
-
-# Or check if already running
-docker ps | grep mongo
 ```
 
 ### API Errors
 
 Check browser console and server logs for detailed error messages. Ensure your API keys are correctly set in `.env.local`.
 
-## Contributing
+## Related Documentation
 
-Contributions welcome! Please see the main repository contributing guidelines.
+- [Installation Guide](Installation-Guide)
+- [Configuration Guide](Configuration-Guide)
+- [API Reference](API-Reference)
 
-## License
-
-See main repository LICENSE file.
-
-## References
-
-- [SvelteKit Documentation](https://kit.svelte.dev/)
-- [Svelte Documentation](https://svelte.dev/)
-- [Chat UI by Hugging Face](https://github.com/huggingface/chat-ui)

@@ -1,5 +1,8 @@
-streamlit>=1.28.0
-pandas>=2.0.0
+# Psychometrics Assessment Dependencies
+# Core dependencies are minimal - using only standard library
+# Optional: for advanced analysis
 numpy>=1.24.0
-plotly>=5.17.0
+pandas>=2.0.0
+matplotlib>=3.7.0
+scipy>=1.10.0
 

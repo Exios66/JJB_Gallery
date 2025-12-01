@@ -1,4 +1,4 @@
-# iOS-Inspired Chatbot
+# iOS Chatbot
 
 A beautiful, iOS-style chatbot interface built with Flask and vanilla JavaScript. Features a modern, gradient-based design inspired by iOS Messages.
 
@@ -8,61 +8,51 @@ This project provides a clean, iOS-inspired chat interface with a Flask backend.
 
 ## Features
 
-- **iOS-Style UI**: Beautiful gradient design inspired by iOS Messages
-- **Responsive Design**: Works on desktop and mobile devices
-- **Real-time Chat**: Instant message sending and receiving
-- **Conversation Management**: Track multiple conversations
-- **RESTful API**: Clean API for integration
-- **Easy LLM Integration**: Simple interface for connecting LLM backends
+- ✅ **iOS-Style UI**: Beautiful gradient design inspired by iOS Messages
+- ✅ **Responsive Design**: Works on desktop and mobile devices
+- ✅ **Real-time Chat**: Instant message sending and receiving
+- ✅ **Conversation Management**: Track multiple conversations
+- ✅ **RESTful API**: Clean API for integration
+- ✅ **Easy LLM Integration**: Simple interface for connecting LLM backends
 
 ## Installation
 
-### Prerequisites
-
-- Python 3.8+
-- pip
-
-### Setup
-
-1. Install dependencies:
-
 ```bash
+cd projects/ios_chatbot
 pip install -r requirements.txt
 ```
 
-2. (Optional) Set environment variables:
+**Dependencies:**
+- Flask
+- flask-cors
+- python-dotenv
 
-```bash
-export FLASK_ENV=development
-export PORT=5000
-export SECRET_KEY=your-secret-key-here
-```
-
-3. Run the application:
-
-```bash
-python app.py
-```
-
-The application will be available at `http://localhost:5000`.
-
-## Usage
+## Quick Start
 
 ### Basic Usage
 
-1. Start the server:
+```bash
+python app.py
+# Open http://localhost:5000
+```
+
+### With Environment Variables
 
 ```bash
+# Create .env file
+cat > .env << EOF
+FLASK_ENV=development
+PORT=5000
+SECRET_KEY=your-secret-key
+OPENAI_API_KEY=sk-...
+EOF
+
 python app.py
 ```
 
-2. Open your browser to `http://localhost:5000`
+## API Endpoints
 
-3. Start chatting!
-
-### API Endpoints
-
-#### POST `/api/chat`
+### POST `/api/chat`
 
 Send a chat message and get a response.
 
@@ -91,38 +81,19 @@ Send a chat message and get a response.
 }
 ```
 
-#### GET `/api/conversations/<conversation_id>`
+### GET `/api/conversations/<conversation_id>`
 
 Get conversation history.
 
-**Response:**
-```json
-{
-  "conversation_id": "uuid-here",
-  "messages": [
-    {
-      "role": "user",
-      "content": "Hello",
-      "timestamp": "2024-01-15T10:30:00"
-    },
-    {
-      "role": "assistant",
-      "content": "Hi there!",
-      "timestamp": "2024-01-15T10:30:01"
-    }
-  ]
-}
-```
-
-#### GET `/api/conversations`
+### GET `/api/conversations`
 
 List all conversations.
 
-#### DELETE `/api/conversations/<conversation_id>`
+### DELETE `/api/conversations/<conversation_id>`
 
 Delete a conversation.
 
-#### GET `/api/health`
+### GET `/api/health`
 
 Health check endpoint.
 
@@ -141,16 +112,12 @@ class ChatBot:
     def respond(self, message: str, conversation_id: str) -> str:
         response = openai.ChatCompletion.create(
             model="gpt-3.5-turbo",
-            messages=[
-                {"role": "user", "content": message}
-            ]
+            messages=[{"role": "user", "content": message}]
         )
         return response.choices[0].message.content
 ```
 
 ### Ollama
-
-Update `app.py`:
 
 ```python
 import requests
@@ -171,8 +138,6 @@ class ChatBot:
 ```
 
 ### Anthropic Claude
-
-Update `app.py`:
 
 ```python
 import anthropic
@@ -218,7 +183,7 @@ ios_chatbot/
 │   ├── style.css         # iOS-inspired styles
 │   └── app.js            # Frontend JavaScript
 ├── requirements.txt      # Python dependencies
-└── README.md             # This file
+└── README.md             # Documentation
 ```
 
 ## Deployment
@@ -256,21 +221,10 @@ CMD ["gunicorn", "-w", "4", "-b", "0.0.0.0:5000", "app:app"]
 |----------|-------------|---------|
 | `FLASK_ENV` | Flask environment | `development` |
 | `PORT` | Server port | `5000` |
-| `SECRET_KEY` | Flask secret key | `dev-secret-key` |
-| `OPENAI_API_KEY` | OpenAI API key (optional) | - |
-| `OLLAMA_URL` | Ollama server URL (optional) | - |
-| `ANTHROPIC_API_KEY` | Anthropic API key (optional) | - |
-
-## Features to Add
-
-- [ ] Database persistence (SQLite/PostgreSQL)
-- [ ] User authentication
-- [ ] Message search
-- [ ] File uploads
-- [ ] Voice messages
-- [ ] Typing indicators
-- [ ] Read receipts
-- [ ] Message reactions
+| `SECRET_KEY` | Flask secret key | - |
+| `OPENAI_API_KEY` | OpenAI API key | - |
+| `ANTHROPIC_API_KEY` | Anthropic API key | - |
+| `OLLAMA_URL` | Ollama server URL | `http://localhost:11434` |
 
 ## Troubleshooting
 
@@ -291,15 +245,9 @@ CORS is enabled by default. If you need to restrict origins, update `app.py`:
 CORS(app, resources={r"/api/*": {"origins": "https://yourdomain.com"}})
 ```
 
-## License
+## Related Documentation
 
-See main repository LICENSE file.
+- [Installation Guide](Installation-Guide)
+- [Configuration Guide](Configuration-Guide)
+- [API Reference](API-Reference)
 
-## Contributing
-
-Contributions welcome! Please see the main repository contributing guidelines.
-
-## References
-
-- [Flask Documentation](https://flask.palletsprojects.com/)
-- [iOS Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/)
