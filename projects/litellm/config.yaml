@@ -1,0 +1,47 @@
+# LiteLLM Configuration
+# This file configures the LiteLLM proxy server
+
+model_list:
+  # OpenAI Models
+  - model_name: gpt-3.5-turbo
+    litellm_params:
+      model: openai/gpt-3.5-turbo
+      api_key: os.environ/OPENAI_API_KEY
+  
+  - model_name: gpt-4
+    litellm_params:
+      model: openai/gpt-4
+      api_key: os.environ/OPENAI_API_KEY
+  
+  # Anthropic Models
+  - model_name: claude-3-sonnet
+    litellm_params:
+      model: anthropic/claude-3-sonnet-20240229
+      api_key: os.environ/ANTHROPIC_API_KEY
+  
+  - model_name: claude-3-opus
+    litellm_params:
+      model: anthropic/claude-3-opus-20240229
+      api_key: os.environ/ANTHROPIC_API_KEY
+  
+  # Ollama Models (Local)
+  - model_name: llama3.1
+    litellm_params:
+      model: ollama/llama3.1:8b
+      api_base: http://localhost:11434
+
+# General Settings
+general_settings:
+  master_key: os.environ/LITELLM_MASTER_KEY  # Optional: for key management
+  database_url: os.environ/DATABASE_URL  # Optional: for storing usage data
+
+# Rate Limiting (Optional)
+rate_limiting:
+  enabled: false
+  # max_requests_per_minute: 60
+
+# Logging (Optional)
+logging:
+  level: INFO
+  # log_file: litellm.log
+

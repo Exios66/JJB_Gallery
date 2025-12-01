@@ -24,6 +24,8 @@
 - Expanded Quarto/Notebooks project structure to facilitate clear separation between math/theory and hands-on practical guides for machine learning algorithms.
 - Added a comprehensive workflow guide: `docs/GIT_PROTOCOL_GUIDE.md`—includes best practices for using both SSH and HTTPS Git protocols, complete with command snippets, security recommendations, and branch management strategies.
 - Added alternate Markdown version of the Git protocol guide as `docs/GIT_PROTOCOL_GUIDE 2.md` for compatibility.
+- **NEW: Created `requirements-micro.txt`** - A lightweight, optimized requirements file with reduced storage footprint while maintaining all critical dependencies. Removed optional packages (jupyterlab, jupyter-contrib-nbextensions, ipywidgets) and duplicates (quarto-cli, pip, importlib-metadata). Uses `notebook` instead of full `jupyter` metapackage for minimal Jupyter setup.
+- **NEW: Added NPM support** - Created `package.json` and `package-lock.json` with semantic-release for automated CI/CD release management. Includes 503 NPM packages for development tooling and GitHub Actions workflow integration.
 
 ### Improved in v0.0.3
 

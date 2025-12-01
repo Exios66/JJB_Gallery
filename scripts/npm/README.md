@@ -5,7 +5,9 @@ This directory contains NPM-related scripts and utilities for the JJB Gallery re
 ## Files
 
 ### `integrations.js`
+
 API client utilities for external services:
+
 - GitHub API
 - Hugging Face API
 - OpenAI API
@@ -14,6 +16,7 @@ API client utilities for external services:
 - MongoDB Helper
 
 **Usage:**
+
 ```javascript
 import { GitHubClient, OpenAIClient } from './scripts/npm/integrations.js';
 
@@ -22,6 +25,7 @@ const repo = await github.getRepository('Exios66', 'JJB_Gallery');
 ```
 
 ### `examples.js`
+
 Example usage of all API clients. Run to see how each client works:
 
 ```bash
@@ -29,7 +33,9 @@ node scripts/npm/examples.js
 ```
 
 ### `cleanup-disk-space.sh`
+
 Disk space cleanup script. Cleans:
+
 - NPM cache
 - node_modules directories
 - Build artifacts
@@ -38,6 +44,7 @@ Disk space cleanup script. Cleans:
 - Pip cache
 
 **Usage:**
+
 ```bash
 ./scripts/npm/cleanup-disk-space.sh
 ```
@@ -45,16 +52,19 @@ Disk space cleanup script. Cleans:
 ## Quick Start
 
 ### 1. Test API Connections
+
 ```bash
 node scripts/npm/integrations.js
 ```
 
 ### 2. Run Examples
+
 ```bash
 node scripts/npm/examples.js
 ```
 
 ### 3. Clean Disk Space (if needed)
+
 ```bash
 ./scripts/npm/cleanup-disk-space.sh
 ```
@@ -75,19 +85,23 @@ MONGODB_URL=mongodb://localhost:27017
 ## Integration with Projects
 
 ### CrewAI Project
+
 - **Type**: Python
 - **NPM Integration**: Uses API clients via Node.js scripts
 - **Example**: Can call API clients from Python subprocess
 
 ### ChatUi Project
+
 - **Type**: SvelteKit (Node.js)
 - **NPM Integration**: Direct import in SvelteKit code
 - **Example**: 
+
   ```javascript
   import { testAllConnections } from '../../scripts/npm/integrations.js';
   ```
 
 ### Terminal Agents
+
 - **Type**: NPM package (opencode-ai)
 - **NPM Integration**: Separate package, not in workspace
 - **Installation**: `npm i -g opencode-ai@latest`
@@ -95,20 +109,24 @@ MONGODB_URL=mongodb://localhost:27017
 ## Troubleshooting
 
 ### Disk Space Issues
+
 If you encounter `ENOSPC: no space left on device`:
 
 1. Run cleanup script:
+
    ```bash
    ./scripts/npm/cleanup-disk-space.sh
    ```
 
 2. Clean npm cache manually:
+
    ```bash
    npm cache clean --force
    rm -rf ~/.npm/_cacache/tmp
    ```
 
 3. Free up system space:
+
    ```bash
    # Check disk usage
    df -h
@@ -118,20 +136,24 @@ If you encounter `ENOSPC: no space left on device`:
    ```
 
 ### Module Import Issues
+
 If you get import errors:
 
 1. Ensure you're using ES modules:
+
    ```json
    { "type": "module" }
    ```
 
 2. Use full file extensions:
+
    ```javascript
    import { ... } from './integrations.js'; // ✅
    import { ... } from './integrations';    // ❌
    ```
 
 3. Check Node.js version:
+
    ```bash
    node --version  # Should be >= 18
    ```
@@ -139,6 +161,7 @@ If you get import errors:
 ## API Client Examples
 
 ### GitHub Client
+
 ```javascript
 import { GitHubClient } from './scripts/npm/integrations.js';
 
@@ -160,6 +183,7 @@ const issue = await github.createIssue(
 ```
 
 ### OpenAI Client
+
 ```javascript
 import { OpenAIClient } from './scripts/npm/integrations.js';
 
@@ -173,6 +197,7 @@ console.log(response.choices[0].message.content);
 ```
 
 ### Serper Web Search
+
 ```javascript
 import { SerperClient } from './scripts/npm/integrations.js';
 

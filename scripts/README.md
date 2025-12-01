@@ -89,6 +89,7 @@ git push origin gh-pages
 ### Troubleshooting
 
 **Quarto not found:**
+
 ```bash
 # macOS
 brew install quarto
@@ -98,10 +99,12 @@ brew install quarto
 ```
 
 **Python environment issues:**
+
 - Ensure virtual environment is set up: `python3 -m venv .venv`
 - Install dependencies: `pip install -r requirements.txt`
 
 **Build artifacts in wrong location:**
+
 - The script automatically moves old artifacts to `_build/quarto/`
 - Check `.gitignore` to ensure `_build/` is ignored
 

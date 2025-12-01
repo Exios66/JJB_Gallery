@@ -45,6 +45,11 @@ coverage/
 Thumbs.db
 Desktop.ini
 
+# macOS Resource Fork Files (._*)
+# These are automatically created by macOS and cause clutter
+._*
+**/._*
+
 # Husky
 .husky/_/
 
