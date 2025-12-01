@@ -55,9 +55,8 @@ The free_ram.sh script is an **enhanced** tool that frees up unnecessary RAM, di
 
 - **System page cache** (Linux): Kernel page cache (requires sudo)
 - **Swap files**: Clear and reset swap (Linux, requires sudo)
-- **Idle processes**: Kill high CPU/low priority processes (optional, dangerous)
 
-### Usage
+### Free RAM Usage
 
 ```bash
 # Standard cleanup (safe, recommended)
@@ -111,15 +110,9 @@ KILL_IDLE_PROCESSES=yes ./scripts/free_ram.sh
 
 ## 7. Rerender for GitHub Pages (rerender_gh_pages.sh)
 
-The rerender_gh_pages.sh script is designed to properly purge old artifacts and re-render the Quarto document for deployment to GitHub Pages. It ensures that the `index.html` in the root directory is correctly generated and that all resource files are in place.
+### Rerender Usage
 
-### Usage
-
-```bash
-./scripts/rerender_gh_pages.sh
-```
-
-### What it does
+### What Rerender Does
 
 1. ✅ Cleans up old `index.html` and Quarto cache/freeze directories.
 2. ✅ Activates the virtual environment (if available) to ensure correct dependencies.
@@ -228,11 +221,7 @@ The setup_git_ssh.sh script configures SSH keys for GitHub and switches your rep
 
 ### Git SSH Setup Usage
 
-```bash
-./scripts/setup_git_ssh.sh
-```
-
-### What it does
+### What SSH Setup Does
 
 1. ✅ Checks for existing SSH keys
 2. ✅ Generates new SSH key if needed (Ed25519)

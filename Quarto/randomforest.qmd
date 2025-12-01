@@ -126,6 +126,7 @@ print(classification_report(y_test, y_pred, target_names=dataset.target_names))
 ### Receiver Operating Characteristic
 
 ```{python}
+#| fig-alt: "Receiver Operating Characteristic curve showing the true positive rate vs false positive rate for the Random Forest classifier."
 fig, ax = plt.subplots(figsize=(8, 6))
 RocCurveDisplay.from_estimator(rf, X_test, y_test, ax=ax)
 ax.set_title("Random Forest ROC Curve")
@@ -136,6 +137,7 @@ plt.show()
 ### Confusion Matrix
 
 ```{python}
+#| fig-alt: "Confusion Matrix heatmap showing true labels vs predicted labels for the Random Forest model."
 fig, ax = plt.subplots(figsize=(6, 6))
 ConfusionMatrixDisplay.from_estimator(rf, X_test, y_test, display_labels=dataset.target_names, ax=ax, cmap="Blues")
 ax.set_title("Confusion Matrix")
@@ -146,6 +148,7 @@ plt.show()
 ## Feature Importance Visualization
 
 ```{python}
+#| fig-alt: "Bar chart displaying the top 15 most important features according to the Random Forest model."
 importances = pd.Series(rf.feature_importances_, index=df.columns[:-1]).sort_values(ascending=False)
 top_features = importances.head(15)
 
@@ -163,6 +166,7 @@ plt.show()
 To visualize the decision boundaries of the high-dimensional Random Forest model, we project the data onto its first two Principal Components (PCA). This allows us to see how the model separates classes in a 2D latent space.
 
 ```{python}
+#| fig-alt: "Scatter plot with decision boundaries visualized in 2D PCA space, showing how the model separates classes."
 # PCA Projection
 pca = PCA(n_components=2)
 X_pca = pca.fit_transform(X_train)
@@ -195,6 +199,7 @@ plt.show()
 This graph illustrates how the model's Out-of-Bag (OOB) error rate stabilizes as the number of trees in the forest increases, demonstrating the ensemble effect.
 
 ```{python}
+#| fig-alt: "Line plot showing the Out-of-Bag error rate decreasing and stabilizing as the number of trees in the forest increases."
 n_estimators_range = range(15, 300, 10)
 oob_errors = []
 

@@ -29,15 +29,18 @@ Welcome! This repository serves as the official portfolio and gallery for **Jack
 ---
 
 ## Table of Contents
-- [GitHub-Based Portfolio & Gallery of Jack J. Burleson](#github-based-portfolio--gallery-of-jack-j-burleson)
-- [About Me](#about-me)
-- [Project Gallery](#project-gallery)
-- [Recent Additions](#recent-additions)
-- [Skills](#skills)
-- [Publications & Presentations](#publications--presentations)
-- [Contact](#contact)
-- [Socials](#socials)
-- [Further Reading](#further-reading)
+
+- [GitHub-Based Portfolio \& Gallery of Jack J. Burleson](#github-based-portfolio--gallery-of-jack-j-burleson)
+  - [Table of Contents](#table-of-contents)
+  - [About Me](#about-me)
+  - [📂 Repository Map](#-repository-map)
+  - [Project Gallery](#project-gallery)
+  - [Recent Additions](#recent-additions)
+  - [Skills](#skills)
+  - [Presentations](#presentations)
+  - [Preferred Contact Methods](#preferred-contact-methods)
+  - [Socials](#socials)
+  - [Further Reading](#further-reading)
 
 ---
 
@@ -52,10 +55,12 @@ This portfolio highlights select projects in engineering, data analysis, machine
 <img alt="GitHub User's stars" src="https://img.shields.io/github/stars/Exios66?style=social">
 <img alt="GitHub followers" src="https://img.shields.io/github/followers/Exios66?style=social">
 
-
 ---
 
 ## 📂 Repository Map
+
+<img alt="GitHub Tag" src="https://img.shields.io/github/v/tag/Exios66/JJB_Gallery?include_prereleases&sort=date&style=social">
+<img alt="GitHub Release" src="https://img.shields.io/github/v/release/Exios66/JJB_Gallery?include_prereleases&sort=date&display_name=release&style=social">
 
   ```bash
   JJB_Gallery (gh-pages branch)
@@ -94,6 +99,8 @@ This portfolio highlights select projects in engineering, data analysis, machine
 
 <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/Exios66/JJB_Gallery?style=for-the-badge">
 
+---
+
 ## Project Gallery
 
 | Project | Description | Link |
@@ -107,6 +114,7 @@ This portfolio highlights select projects in engineering, data analysis, machine
 ---
 
 ## Recent Additions
+
 - CrewAI Swarm System overhaul
 - Terminal Coding Agents improvements
 - Random Forest Quarto docs expansion
@@ -114,6 +122,7 @@ This portfolio highlights select projects in engineering, data analysis, machine
 ---
 
 ## Skills
+
 - **Programming:** Python, R, JavaScript
 - **ML & Data:** Pandas, NumPy, scikit-learn
 - **Visualization:** Matplotlib, Quarto
@@ -123,6 +132,7 @@ This portfolio highlights select projects in engineering, data analysis, machine
 ---
 
 ## Presentations
+
 - *Random Forest Essentials* – 2024  
 - *Talking to Agents* – 2024  
 - *(More added continuously…)*
@@ -130,13 +140,15 @@ This portfolio highlights select projects in engineering, data analysis, machine
 ---
 
 ## Preferred Contact Methods
-📩 jackburleson.dev@gmail.com  
-🌐 https://jackburleson.dev  
-🔗 https://linkedin.com/in/jack-j-burleson
+
+📩 <jackburleson.dev@gmail.com>  
+🌐 <https://jackburleson.dev>  
+🔗 <https://linkedin.com/in/jack-j-burleson>
 
 ---
 
 ## Socials
+
 - [GitHub](https://github.com/Exios66)
 - [HuggingFace](https://huggingface.co/Exios66)
 - [Twitter/X](https://twitter.com/Exios66)
@@ -144,6 +156,7 @@ This portfolio highlights select projects in engineering, data analysis, machine
 ---
 
 ## Further Reading
+
 - [CrewAI System](projects/Crewai/README.md)
 - [Terminal Agents](projects/terminal_agents/README.md)
 - [CHANGELOG.md](CHANGELOG.md)
