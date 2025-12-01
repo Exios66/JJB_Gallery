@@ -17,6 +17,8 @@
     "dev": "npm run dev --workspace=projects/ChatUi",
     "clean": "rm -rf node_modules .husky/_ .cache dist build",
     "clean:disk": "bash scripts/npm/cleanup-disk-space.sh",
+    "clean:resource-forks": "bash scripts/cleanup-macos-resource-forks.sh",
+    "prevent:resource-forks": "bash scripts/prevent-resource-forks.sh",
     "setup:external": "bash scripts/setup-external-storage.sh",
     "verify:storage": "bash scripts/verify-external-storage.sh",
     "test:apis": "node scripts/npm/integrations.js",
