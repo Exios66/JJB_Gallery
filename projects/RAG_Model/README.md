@@ -5,6 +5,7 @@ A complete Retrieval-Augmented Generation (RAG) system implementation with vecto
 ## Overview
 
 This project implements a full RAG pipeline that:
+
 - Ingests and processes documents
 - Creates embeddings using transformer models
 - Stores embeddings in a vector database (FAISS)
@@ -54,6 +55,7 @@ python main.py
 ```
 
 The system will:
+
 1. Create sample documents if none exist
 2. Build or load the vector store
 3. Start an interactive query session
@@ -154,16 +156,20 @@ print(config.CHUNK_SIZE)
 ## Components
 
 ### `rag_system.py`
+
 Core RAG implementation with:
+
 - Document loading and processing
 - Embedding generation
 - Vector store management
 - Retrieval and generation
 
 ### `main.py`
+
 Command-line interface and demo application
 
 ### `config.py`
+
 Configuration management
 
 ## Supported File Formats
@@ -175,6 +181,7 @@ Configuration management
 ## Vector Database
 
 The system uses FAISS (Facebook AI Similarity Search) for efficient vector storage and retrieval. FAISS supports:
+
 - Fast similarity search
 - Scalable to millions of vectors
 - CPU and GPU support
@@ -185,6 +192,7 @@ The system uses FAISS (Facebook AI Similarity Search) for efficient vector stora
 Default: `sentence-transformers/all-MiniLM-L6-v2`
 
 You can use any sentence transformer model:
+
 - `all-MiniLM-L6-v2` (default, fast, 384 dims)
 - `all-mpnet-base-v2` (better quality, 768 dims)
 - `all-MiniLM-L12-v2` (larger, 384 dims)
@@ -192,6 +200,7 @@ You can use any sentence transformer model:
 ## LLM Integration
 
 The system integrates with Ollama for local LLM inference. Supported models:
+
 - `llama3.1:8b` (default)
 - `mistral:7b`
 - `codellama:13b`
@@ -208,11 +217,13 @@ The system integrates with Ollama for local LLM inference. Supported models:
 ## Troubleshooting
 
 ### Import Errors
+
 ```bash
 pip install langchain faiss-cpu sentence-transformers
 ```
 
 ### Ollama Connection Issues
+
 ```bash
 # Check if Ollama is running
 curl http://localhost:11434/api/tags
@@ -222,6 +233,7 @@ ollama serve
 ```
 
 ### Memory Issues
+
 - Reduce chunk size
 - Use smaller embedding model
 - Process documents in batches
