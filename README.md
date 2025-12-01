@@ -2,7 +2,10 @@
 
 <a href='https://github.com/Exios66' target="_blank"><img alt='GitHub' src='https://img.shields.io/badge/github-100000?style=for-the-badge&logo=GitHub&logoColor=E63786&labelColor=black&color=black'/></a>
 
-Welcome! This GitHub repository serves as an evolving digital portfolio and gallery for **Jack J. Burleson**, showcasing a curated selection of previous work, open-source projects, previous research focuses, and presentations.
+---
+
+**Welcome!** This GitHub repository serves as an evolving digital portfolio and gallery for **Jack J. Burleson**, showcasing a curated selection of previous work, open-source projects, previous research focuses, and presentations.
+---
 
 <!-- BADGES BLOCK -->
 <p align="center">
@@ -143,9 +146,9 @@ This living portfolio highlights select projects in engineering, data analysis, 
 
 ## Preferred Contact Methods
 
-📩 <jackjburleson@proton.me>  
-📩 <jjburleson@wisc.edu>  
-🌐 <https://github/Exios66.com>  
+📩 <jackjburleson@proton.me>  (Business)
+📩 <jjburleson@wisc.edu>  (Academic)
+🌐 <https://github.com/Exios66>  
 🔗 <https://linkedin.com/in/jack-j-burleson>
 
 ---
