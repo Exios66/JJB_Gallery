@@ -1,0 +1,17 @@
+{
+  "name": "jjb-gallery",
+  "version": "1.0.0",
+  "description": "Portfolio and gallery repository with Quarto documents and CrewAI projects",
+  "private": true,
+  "scripts": {
+    "build": "echo 'Build step - customize as needed'",
+    "release": "npx semantic-release"
+  },
+  "devDependencies": {
+    "semantic-release": "^23.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
+
