@@ -214,7 +214,7 @@ Consider setting up on GitHub:
 ```bash
 # Use sparse checkout for large repos
 git sparse-checkout init --cone
-git sparse-checkout set 'projects/Crewai'
+git sparse-checkout set 'projects/CrewAI'
 
 # Clean up old branches locally
 git branch -d old-branch

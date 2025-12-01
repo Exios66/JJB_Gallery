@@ -1,0 +1,53 @@
+# Minimal Requirements - Lightweight alternatives for core dependencies
+# This file provides all critical functionality with reduced storage footprint
+#
+# Optimizations made:
+# - Removed unused ML libraries: xgboost, lightgbm, catboost, polars, shap
+# - Replaced jupyterlab with notebook (lighter, ~50% smaller)
+# - Removed development-only extras: jupyter-contrib-nbextensions, ipywidgets, tabulate
+# - Removed built-in/system packages: pip, importlib-metadata
+# - Kept all packages actually used in codebase (verified via code analysis)
+#
+# Installation Notes:
+# - Use pre-built wheels to avoid compilation: pip install --only-binary :all: -r requirements-minimal.txt
+# - For Python 3.13: numpy 2.x wheels are available (backward compatible with 1.x API)
+# - If you encounter "No space left on device" errors, free up disk space or use: pip install --only-binary :all: -r requirements-minimal.txt
+# - Recommended: Use Python 3.11 or 3.12 for maximum compatibility, but 3.13 works with numpy 2.x
+#
+# Note: scipy is automatically installed as a dependency of scikit-learn
+
+# Core Data Science Stack (minimal)
+# Note: numpy 2.x required for Python 3.13 (backward compatible with 1.x API)
+numpy>=1.24.0
+pandas>=2.0.0,<3.0.0
+scikit-learn>=1.3.0
+
+# Visualization (matplotlib is lighter base, seaborn for Quarto docs)
+matplotlib>=3.7.0
+seaborn>=0.12.0
+
+# Jupyter Environment (notebook is lighter than jupyterlab)
+notebook>=7.0.0
+ipykernel>=6.25.0
+ipython>=8.12.0
+nbconvert>=7.0.0
+nbformat>=5.9.0
+
+# Quarto (Python integration)
+quarto-cli>=1.4.0
+
+# Testing
+pytest>=7.4.0
+
+# Code Quality (development tools)
+black>=23.7.0
+isort>=5.12.0
+
+# CrewAI Framework (core dependencies)
+crewai>=0.28.0
+crewai-tools>=0.1.0
+pydantic>=2.0.0
+
+# Web Interface
+streamlit>=1.28.0
+

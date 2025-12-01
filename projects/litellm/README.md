@@ -40,7 +40,7 @@ LiteLLM manages:
 [**Jump to OpenAI Proxy Docs**](https://github.com/BerriAI/litellm?tab=readme-ov-file#openai-proxy---docs) <br>
 [**Jump to Supported LLM Providers**](https://github.com/BerriAI/litellm?tab=readme-ov-file#supported-providers-docs)
 
-🚨 **Stable Release:** Use docker images with the `-stable` tag. These have undergone 12 hour load tests, before being published. 
+🚨 **Stable Release:** Use docker images with the `-stable` tag. These have undergone 12 hour load tests, before being published.
 
 Support for more providers. Missing a provider or LLM Platform, raise a [feature request](https://github.com/BerriAI/litellm/issues/new?assignees=&labels=enhancement&projects=&template=feature_request.yml&title=%5BFeature%5D%3A+).
 
@@ -148,7 +148,6 @@ The proxy provides:
 
 ## 📖 Proxy Endpoints - [Swagger Docs](https://litellm-api.up.railway.app/)
 
-
 ## Quick Start Proxy - CLI
 
 ```shell
@@ -197,7 +196,6 @@ source .env
 # Start
 docker-compose up
 ```
-
 
 UI on `/ui` on your proxy server
 ![ui_3](https://github.com/BerriAI/litellm/assets/29436595/47c97d5e-b9be-4839-b28c-43d7f4f10033)
@@ -266,22 +264,23 @@ curl 'http://0.0.0.0:4000/key/generate' \
 To contribute: Clone the repo locally -> Make a change -> Submit a PR with the change.
 
 Here's how to modify the repo locally:
+
 Step 1: Clone the repo
 
-```
-git clone https://github.com/BerriAI/litellm.git
+```bash
+git clone https://github.com/BerriAI/litellm.git # pwd: Documents/litellm/litellm
 ```
 
 Step 2: Navigate into the project, and install dependencies:
 
-```
-cd litellm
+```bash
+cd litellm # pwd: Documents/litellm/litellm
 poetry install -E extra_proxy -E proxy
 ```
 
 Step 3: Test your change:
 
-```
+```bash
 cd litellm/tests # pwd: Documents/litellm/litellm/tests
 poetry run flake8
 poetry run pytest .
@@ -293,11 +292,13 @@ Step 4: Submit a PR with your changes! 🚀
 - submit a PR from there
 
 # Enterprise
+
 For companies that need better security, user management and professional support
 
 [Talk to founders](https://calendly.com/d/4mp-gd3-k5k/litellm-1-1-onboarding-chat)
 
-This covers: 
+This covers:
+
 - ✅ **Features under the [LiteLLM Commercial License](https://docs.litellm.ai/docs/proxy/enterprise):**
 - ✅ **Feature Prioritization**
 - ✅ **Custom Integrations**
@@ -310,7 +311,7 @@ This covers:
 - [Schedule Demo 👋](https://calendly.com/d/4mp-gd3-k5k/berriai-1-1-onboarding-litellm-hosted-version)
 - [Community Discord 💭](https://discord.gg/wuPM9dRgDw)
 - Our numbers 📞 +1 (770) 8783-106 / ‭+1 (412) 618-6238‬
-- Our emails ✉️ ishaan@berri.ai / krrish@berri.ai
+- Our emails ✉️ <ishaan@berri.ai> / <krrish@berri.ai>
 
 # Why did we build this
 

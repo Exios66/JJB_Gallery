@@ -69,18 +69,23 @@ This portfolio highlights select projects in engineering, data analysis, machine
   ├── search.json
   ├── CHANGELOG.html
   ├── SECURITY.html
-  ├── site_libs/
-  │   └── (Quarto & JS/CSS site assets)
-  ├── index_files/
-  │   └── (Quarto-generated HTML dependencies)
-  ├── randomforest_files/
-  │   └── (Notebook render assets)
+  ├── _build/
+  │   └── quarto/
+  │       ├── site_libs/        # Quarto & JS/CSS site assets
+  │       ├── index_files/       # Quarto-generated HTML dependencies
+  │       └── randomforest_files/ # Notebook render assets
   ├── assets/
-  │   └── (images, CSS, and other media)
+  │   └── css/                   # Theme stylesheets
   ├── projects/
-  │   └── (gallery project files)
+  │   ├── CrewAI/                # Multi-agent system (renamed from Crewai)
+  │   ├── terminal_agents/
+  │   └── ...                    # Other project directories
+  ├── notebooks/
+  │   └── SciKit/                # Jupyter notebooks (moved from Jupyter/)
+  ├── Quarto/
+  │   └── randomforest.qmd       # Quarto documents
   ├── docs/
-  │   └── (documentation site sources)
+  │   └── (documentation sources)
   ├── scripts/
   │   └── (helper or build scripts)
   ├── _quarto.yml
@@ -89,12 +94,7 @@ This portfolio highlights select projects in engineering, data analysis, machine
   ├── LICENSE
   ├── README.md
   ├── CHANGELOG.md
-  ├── SECURITY.md
-  └── misc folders:
-    ├── Jupyter/
-    ├── Quarto/
-    ├── Quickstart/
-    └── Xtra_Copies/
+  └── SECURITY.md
   ```
 
 <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/Exios66/JJB_Gallery?style=for-the-badge">
@@ -105,7 +105,7 @@ This portfolio highlights select projects in engineering, data analysis, machine
 
 | Project | Description | Link |
 |---------|-------------|------|
-| **CrewAI Multi-Agent Swarm System** | Multi-agent architecture using CrewAI | [CrewAI/README.md](projects/Crewai/README.md) |
+| **CrewAI Multi-Agent Swarm System** | Multi-agent architecture using CrewAI | [CrewAI/README.md](projects/CrewAI/README.md) |
 | **Terminal Agents** | AI coding agents for the terminal | [terminal_agents/README.md](projects/terminal_agents/README.md) |
 | **Random Forest Essentials** | Theory + application Quarto docs | [Quarto/RandomForest](Quarto/RandomForest) |
 | **Jupyter ML & Pandas Notebooks** | Machine learning workflow demos | [notebooks/](notebooks/README.md) |
@@ -157,7 +157,7 @@ This portfolio highlights select projects in engineering, data analysis, machine
 
 ## Further Reading
 
-- [CrewAI System](projects/Crewai/README.md)
+- [CrewAI System](projects/CrewAI/README.md)
 - [Terminal Agents](projects/terminal_agents/README.md)
 - [CHANGELOG.md](CHANGELOG.md)
 

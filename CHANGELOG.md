@@ -2,6 +2,21 @@
 
 ## [0.0.3] - 11-30-25
 
+### Changed in v0.0.3
+
+- Overhauled mathematical and explanatory sections for the random forest algorithm in `randomforest.qmd`; enhanced with formal model equations, clearer bootstrap sampling explanations, and updated diagrams.
+- Revised the Quarto/Notebooks project structure to separate theoretical content from hands-on tutorials—enabling streamlined navigation between core concepts and practical walkthroughs.
+- Unified environment dependencies across all Quarto documents and notebooks, adding robust setup scripts for reproducibility.
+- Improved documentation linking—ensured that all new guides and references are indexed in navigation menus and README files for both accessibility and completeness.
+
+### Fixed in v0.0.3
+
+- Corrected previous path and reference inconsistencies in changelogs, Git protocol documentation, and associated navigation menus.
+- Addressed outdated commands and formatting errors in Git workflow documentation; provided updated and tested CLIs and authentication instructions.
+- Prevented possible documentation drift by automating file references and ensuring all new materials are reflected in existing indices.
+- Resolved minor visual inconsistencies in mathematical notation and figure rendering in Quarto documents.
+- Updated `.gitignore` and project settings to prevent accidental inclusion of generated or system files in the repository.
+
 ### Added in v0.0.3
 
 - Added a new Quarto document (`randomforest.qmd`) detailing the mathematical foundations and practical application of the random forest algorithm—including model equations, bootstrapping explanations, visualizations, and end-to-end Python code for reproducible training, evaluation, and interpretation.

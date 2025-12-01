@@ -5,6 +5,7 @@
     npx husky install
     '''
   ---
+
 ## commitlintrc.json
 
     '''json
@@ -12,7 +13,7 @@
     "extends": ["@commitlint/config-conventional"]
     }
 
-  ### Enable the Husky Hook
+### Enable the Husky Hook
 
     '''bash
 

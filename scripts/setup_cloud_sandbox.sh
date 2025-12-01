@@ -101,7 +101,7 @@ EOF
 
 Once the codespace is running:
 ```bash
-cd projects/Crewai
+cd projects/CrewAI
 python main.py
 ```
 

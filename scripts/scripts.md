@@ -1,5 +1,110 @@
 # SCRIPTS
 
+## 0. render_gh_pages.sh (Main GitHub Pages Renderer)
+
+The `render_gh_pages.sh` script is the **primary script** for rendering all GitHub Pages content. It renders all Quarto pages defined in `_quarto.yml` for the complete website.
+
+### What It Renders
+
+This script renders all pages configured in `_quarto.yml`:
+
+- ✅ `index.html` (Home page)
+- ✅ `CHANGELOG.html`
+- ✅ `SECURITY.html`
+- ✅ `projects/CrewAI/README.html`
+- ✅ `projects/terminal_agents/README.html`
+- ✅ `Quarto/randomforest.html`
+
+### Usage
+
+```bash
+# Standard rendering (cleans build artifacts first)
+./scripts/render_gh_pages.sh
+
+# Render without cleaning (faster, but may have stale artifacts)
+./scripts/render_gh_pages.sh --no-clean
+
+# Render and start preview server
+./scripts/render_gh_pages.sh --preview
+
+# Combine options
+./scripts/render_gh_pages.sh --no-clean --preview
+```
+
+### Features
+
+- **Comprehensive rendering**: Renders all website pages in one command
+- **Automatic cleanup**: Removes old build artifacts before rendering
+- **Python environment detection**: Automatically activates `.venv` or `venv` if available
+- **Build organization**: Outputs organized in `_build/quarto/` directory
+- **Verification**: Checks that all expected output files were created
+- **Preview server**: Optional local preview with `--preview` flag
+- **Colored output**: Easy-to-read status messages
+- **Error handling**: Fails fast with clear error messages
+
+### What It Does
+
+1. ✅ Checks for Quarto installation
+2. ✅ Activates Python virtual environment (if available)
+3. ✅ Cleans old build artifacts (unless `--no-clean` is used)
+4. ✅ Renders all pages defined in `_quarto.yml`
+5. ✅ Verifies all expected output files exist
+6. ✅ Optionally starts preview server (with `--preview`)
+
+### When to Use
+
+- **Before deploying to GitHub Pages**: Run this to ensure all pages are up-to-date
+- **After editing any Quarto/Markdown files**: Re-render to see changes
+- **Local development**: Use with `--preview` to test changes locally
+- **CI/CD pipelines**: Use in GitHub Actions for automated deployments
+
+### Build Output
+
+- **HTML files**: Rendered in repository root (e.g., `index.html`, `CHANGELOG.html`)
+- **Build artifacts**: Organized in `_build/quarto/` (gitignored)
+- **Support files**: CSS, JS, and other assets in `_build/quarto/site_libs/`
+
+### Prerequisites
+
+- Quarto CLI installed: https://quarto.org/docs/get-started/
+- Python environment (optional, but recommended)
+- All dependencies from `requirements.txt` installed
+
+### Example Workflow
+
+```bash
+# 1. Make changes to Quarto/Markdown files
+# 2. Render all pages
+./scripts/render_gh_pages.sh
+
+# 3. Review changes locally (optional)
+./scripts/render_gh_pages.sh --preview
+
+# 4. Commit and push to gh-pages branch
+git add .
+git commit -m "Update website content"
+git push origin gh-pages
+```
+
+### Troubleshooting
+
+**Quarto not found:**
+```bash
+# macOS
+brew install quarto
+
+# Linux/Windows
+# See: https://quarto.org/docs/get-started/installation/
+```
+
+**Python environment issues:**
+- Ensure virtual environment is set up: `python3 -m venv .venv`
+- Install dependencies: `pip install -r requirements.txt`
+
+**Build artifacts in wrong location:**
+- The script automatically moves old artifacts to `_build/quarto/`
+- Check `.gitignore` to ensure `_build/` is ignored
+
 ## 1. render_randomforest.sh
 
 Run the render_randomforest.sh script to render the randomforest.qmd file to a html and pdf file. This script will also start a preview server on the default port 4343.
@@ -193,7 +298,7 @@ After setting up a cloud sandbox, use this script to execute Python commands in 
 
 ```bash
 # Execute a Python script remotely
-./scripts/use_cloud_sandbox.sh python projects/Crewai/main.py
+./scripts/use_cloud_sandbox.sh python projects/CrewAI/main.py
 
 # Start interactive session (SSH/Docker)
 ./scripts/use_cloud_sandbox.sh

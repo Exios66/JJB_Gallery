@@ -1,6 +1,6 @@
-<div style="position: fixed; bottom: 20px; right: 20px; z-index: 9999;">
-  <label for="theme-selector" style="margin-right: 5px; font-weight: bold; background: rgba(255,255,255,0.8); padding: 2px 5px; border-radius: 4px; color: #333;">Theme:</label>
-  <select id="theme-selector" onchange="switchTheme(this.value)" style="padding: 5px; border-radius: 5px; border: 1px solid #ccc;">
+<div id="theme-switcher-box" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999; transition: background 0.25s;">
+  <label for="theme-selector" style="margin-right: 5px; font-weight: bold; background: rgba(255,255,255,0.85); padding: 2px 5px; border-radius: 4px; color: #333; transition: background 0.25s, color 0.25s;">Theme:</label>
+  <select id="theme-selector" style="padding: 5px; border-radius: 5px; border: 1px solid #ccc;">
     <option value="light.css">Light (Cosmo)</option>
     <option value="dark.css">Dark (Darkly)</option>
     <option value="tokyo-neon.css">Tokyo Neon</option>
@@ -12,53 +12,174 @@
 </div>
 
 <script>
+/**
+ * Theme switcher with smooth transitions for UI color scheme updates.
+ * Ensures seamless experience by animating body and ui background while switching.
+ */
+
+(function() {
+  const THEME_ID = 'theme-css-dynamic';
+
+  // Map theme file to body class for additional fine-grained transitions if needed
+  const themeBodyClass = {
+    "light.css": "theme-light",
+    "dark.css": "theme-dark",
+    "tokyo-neon.css": "theme-tokyo-neon",
+    "cyberpunk.css": "theme-cyberpunk",
+    "dark-solar.css": "theme-dark-solar",
+    "retrofuturism.css": "theme-retrofuturism",
+    "art-deco.css": "theme-art-deco"
+  };
+
+  // Optionally define accent/background colors for the switcher itself
+  const switcherBg = {
+    "light.css": "rgba(255,255,255,0.9)",
+    "dark.css": "rgba(26,26,32,0.97)",
+    "tokyo-neon.css": "linear-gradient(90deg, #151624 60%, #651FFF 100%)",
+    "cyberpunk.css": "linear-gradient(90deg, #2d1032 30%, #ff0099 100%)",
+    "dark-solar.css": "rgba(20,20,24,0.97)",
+    "retrofuturism.css": "linear-gradient(90deg, #180d32 60%, #ffe408 100%)",
+    "art-deco.css": "linear-gradient(90deg, #fff7ef 60%, #22262f 100%)"
+  };
+  const switcherLabelColor = {
+    "light.css": "#333",
+    "dark.css": "#eee",
+    "tokyo-neon.css": "#39fff6",
+    "cyberpunk.css": "#ff0099",
+    "dark-solar.css": "#ffd700",
+    "retrofuturism.css": "#ad03de",
+    "art-deco.css": "#866c5e"
+  };
+
   function getAssetsPath() {
     // Try to find the relative path to root from the navbar logo/brand
     const navbarBrand = document.querySelector('.navbar-brand');
     let prefix = "";
     if (navbarBrand) {
-        const href = navbarBrand.getAttribute('href');
-        // href is typically "index.html" or "../../index.html"
-        // We remove "index.html" to get the relative directory prefix
-        if (href && href.endsWith('index.html')) {
-            prefix = href.substring(0, href.length - 10);
-        } else if (href) {
-            prefix = href;
-        }
+      const href = navbarBrand.getAttribute('href');
+      if (href && href.endsWith('index.html')) {
+        prefix = href.substring(0, href.length - 10);
+      } else if (href) {
+        prefix = href;
+      }
     }
     return prefix + "assets/css/";
   }
 
-  function switchTheme(cssName) {
+  function setThemeCss(cssName) {
+    // smoothly fade the interface
+    const body = document.body;
+    body.style.transition = 'background-color 0.35s, color 0.25s';
+
+    // Remove old theme class
+    Object.values(themeBodyClass).forEach(cls => body.classList.remove(cls));
+
+    // Add the correct class
+    if (themeBodyClass[cssName]) {
+      body.classList.add(themeBodyClass[cssName]);
+    }
+
+    // Update theme CSS link
     const assetsPath = getAssetsPath();
     const fullPath = assetsPath + cssName;
-    
-    let themeLink = document.getElementById('quarto-bootstrap');
-    if (themeLink) {
+    let themeLink = document.getElementById(THEME_ID);
+
+    if (!themeLink) {
+      // Remove any old dynamic theme links
+      document.querySelectorAll('link[data-theme-dynamic]').forEach(l => l.remove());
+      // Insert a new stylesheet link at end of <head>
+      themeLink = document.createElement('link');
+      themeLink.rel = 'stylesheet';
       themeLink.href = fullPath;
+      themeLink.id = THEME_ID;
+      themeLink.setAttribute('data-theme-dynamic', '1');
+      document.head.appendChild(themeLink);
     } else {
-      // Fallback logic
-      let links = document.querySelectorAll('link[rel="stylesheet"]');
-      for (let link of links) {
-        if (link.href.includes('bootstrap') || link.href.includes('light.css') || link.href.includes('dark.css')) {
-          link.href = fullPath;
-          link.id = 'quarto-bootstrap';
-          break;
-        }
-      }
+      if (themeLink.href !== fullPath) themeLink.href = fullPath;
     }
+  }
+
+  function animateSwitcher(cssName) {
+    // Optional: animate the theme switcher background for visual continuity
+    const box = document.getElementById('theme-switcher-box');
+    const lbl = box.querySelector('label');
+    if(!box || !lbl) return;
+
+    if (box.style.transition.indexOf('background') === -1)
+      box.style.transition = 'background 0.25s';
+
+    // Animate background
+    const bg = switcherBg[cssName] || "rgba(255,255,255,0.9)";
+    const color = switcherLabelColor[cssName] || "#333";
+    box.style.background = bg;
+    lbl.style.background = bg;
+    lbl.style.color = color;
+  }
+
+  function switchTheme(cssName) {
+    // Add smooth fade for the UI
+    document.body.style.opacity = 0.6;
+    setTimeout(() => {
+      setThemeCss(cssName);
+      animateSwitcher(cssName);
+      setTimeout(() => {
+        document.body.style.opacity = 1;
+      }, 120);
+    }, 80);
     localStorage.setItem('selectedTheme', cssName);
   }
 
+  // Init and event binding
   document.addEventListener("DOMContentLoaded", function() {
+    let selector = document.getElementById('theme-selector');
     let savedTheme = localStorage.getItem('selectedTheme');
-    if (savedTheme) {
-      let selector = document.getElementById('theme-selector');
-      if (selector) {
+    if (selector) {
+      if (savedTheme && themeBodyClass[savedTheme]) {
         selector.value = savedTheme;
-        switchTheme(savedTheme);
       }
+      animateSwitcher(selector.value); // set switcher UI initial bg
+      setThemeCss(selector.value); // always ensure theme matches selector
+      setTimeout(() => { document.body.style.opacity = 1; }, 80);
+      selector.addEventListener("change", function() {
+        switchTheme(this.value);
+      });
     }
   });
+
+  // Seamless initial load
+  document.body.style.transition = 'opacity 0.35s, background-color 0.35s';
+  document.body.style.opacity = 1;
+})();
 </script>
 
+<style>
+body.theme-dark, body.theme-dark-solar {
+  color-scheme: dark;
+  transition: background-color 0.4s, color 0.3s;
+}
+body.theme-light {
+  color-scheme: light;
+  transition: background-color 0.4s, color 0.3s;
+}
+/* For custom theme additional tweaks, e.g.: */
+body.theme-tokyo-neon {
+  background: radial-gradient(ellipse at center, #18192b 65%, #251b42 100%);
+  color: #39fff6;
+  transition: background 0.4s, color 0.3s;
+}
+body.theme-cyberpunk {
+  background: linear-gradient(135deg, #2d1032 60%, #ff0099 100%);
+  color: #ffe408;
+  transition: background 0.4s, color 0.3s;
+}
+body.theme-retrofuturism {
+  background: #22003c;
+  color: #ffe408;
+  transition: background 0.4s, color 0.3s;
+}
+body.theme-art-deco {
+  background: #fff7ef;
+  color: #22262f;
+  transition: background 0.4s, color 0.3s;
+}
+</style>

@@ -5,7 +5,7 @@ project:
     - index.qmd
     - CHANGELOG.md
     - SECURITY.md
-    - projects/Crewai/README.md
+    - projects/CrewAI/README.md
     - projects/terminal_agents/README.md
     - Quarto/randomforest.qmd
 
@@ -15,7 +15,7 @@ website:
     left:
       - href: index.html
         text: Home
-      - href: projects/Crewai/README.md
+      - href: projects/CrewAI/README.md
         text: CrewAI
       - href: projects/terminal_agents/README.md
         text: Terminal Agents

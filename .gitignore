@@ -215,3 +215,6 @@ __marimo__/
 
 /.quarto/
 **/*.quarto_ipynb
+
+# Build and generated files
+_build/
