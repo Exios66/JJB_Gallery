@@ -68,7 +68,7 @@ case $choice in
       ]
     }
   },
-  "postCreateCommand": "pip install --upgrade pip && pip install -r requirements.txt",
+  "postCreateCommand": "pip install --upgrade pip && pip install -r requirements/requirements.txt",
   "remoteUser": "vscode",
   "mounts": [
     "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached"
@@ -196,7 +196,7 @@ FROM python:3.11-slim
 WORKDIR /workspace
 
 # Copy requirements first for better caching
-COPY requirements.txt .
+COPY requirements/requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy project files
@@ -237,7 +237,7 @@ EOF
 1. Go to https://replit.com
 2. Create a new Python Repl
 3. Upload your project files
-4. Run: `pip install -r requirements.txt`
+4. Run: `pip install -r requirements/requirements.txt`
 5. All packages stored in cloud
 
 ## CodeSandbox Setup
@@ -245,7 +245,7 @@ EOF
 1. Go to https://codesandbox.io
 2. Create new Python sandbox
 3. Upload project files
-4. Run: `pip install -r requirements.txt`
+4. Run: `pip install -r requirements/requirements.txt`
 5. Packages installed in cloud environment
 
 ## Benefits

@@ -76,14 +76,19 @@ Project-specific documentation:
 
 ## 🔄 Migration Notes
 
-### Files Moved from Root
+### Files Moved from Root (2024-12-02 Reorganization)
 - `NPM_SETUP.md` → `docs/setup/NPM_SETUP.md`
-- `QUICK_START.md` → `docs/setup/QUICK_START.md`
+- `QUICK_START.md` → `docs/QUICK_START.md`
 - `EXTERNAL_STORAGE_SETUP.md` → `docs/setup/EXTERNAL_STORAGE_SETUP.md`
 - `EXTERNAL_STORAGE_COMPLETE.md` → `docs/setup/EXTERNAL_STORAGE_COMPLETE.md`
 - `STORAGE_CONFIGURATION.md` → `docs/setup/STORAGE_CONFIGURATION.md`
 - `pip.conf.README.md` → `docs/setup/pip.conf.README.md`
-- `SECURITY.md` → `docs/security/SECURITY.md`
+- `requirements.txt` → `requirements/requirements.txt`
+- `requirements-minimal.txt` → `requirements/requirements-minimal.txt`
+- `requirements-micro.txt` → `requirements/requirements-micro.txt`
+- `pip.conf` → `config/pip.conf`
+- `changelogger.prompt.yml` → `docs/changelogger.prompt.yml`
+- `SECURITY.md` → Kept at root (standard location)
 
 ### Files Moved from `docs/`
 - `docs/GIT_PROTOCOL_GUIDE.md` → `docs/development/GIT_PROTOCOL_GUIDE.md`
@@ -102,6 +107,14 @@ Project-specific documentation:
 These files remain at the repository root:
 - `README.md` - Main repository README
 - `CHANGELOG.md` - Changelog (standard location)
+- `SECURITY.md` - Security policy (standard location)
+- `LICENSE` - License file (standard location)
+- `package.json` - NPM configuration (standard location)
+- `_quarto.yml` - Quarto website configuration
+- `index.qmd` - Quarto website source
+- `index.html` - Generated website homepage
+- `search.json` - Website search index
+- `theme-switcher.html` - Website theme switcher
 - Project READMEs in `projects/*/README.md` - Project-specific READMEs
 
 ## 🔗 Link Updates

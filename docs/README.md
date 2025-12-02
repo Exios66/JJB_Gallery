@@ -9,9 +9,9 @@ cd docs # pwd: Documents/docs
 ```bash
 ├── README.md                    # Main documentation index
 ├── ORGANIZATION.md              # Organization guide
+├── QUICK_START.md               # Quick start guide
 │
-├── setup/                       # Setup & Configuration (7 files)
-│   ├── QUICK_START.md
+├── setup/                       # Setup & Configuration (6 files)
 │   ├── NPM_SETUP.md
 │   ├── STORAGE_CONFIGURATION.md
 │   ├── EXTERNAL_STORAGE_SETUP.md
@@ -43,7 +43,7 @@ cd docs # pwd: Documents/docs
 
 Guides for setting up and configuring the repository and its dependencies.
 
-- [Quick Start Guide](./setup/QUICK_START.md) - Get started quickly
+- [Quick Start Guide](./QUICK_START.md) - Get started quickly
 - [NPM Setup & Integration](./setup/NPM_SETUP.md) - NPM package configuration
 - [Storage Configuration](./setup/STORAGE_CONFIGURATION.md) - External storage setup
 - [External Storage Setup](./setup/EXTERNAL_STORAGE_SETUP.md) - Detailed storage setup
@@ -85,7 +85,7 @@ Project-specific documentation.
 
 ### Getting Started
 
-1. Read the [Quick Start Guide](./setup/QUICK_START.md)
+1. Read the [Quick Start Guide](./QUICK_START.md)
 2. Configure [Storage](./setup/STORAGE_CONFIGURATION.md)
 3. Set up [NPM](./setup/NPM_SETUP.md)
 

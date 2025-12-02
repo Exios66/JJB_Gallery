@@ -57,7 +57,7 @@ if command -v pip &> /dev/null; then
     fi
     
     # Check pip.conf
-    if [ -f "pip.conf" ] && grep -q "$EXTERNAL_BASE" pip.conf 2>/dev/null; then
+    if [ -f "config/pip.conf" ] && grep -q "$EXTERNAL_BASE" config/pip.conf 2>/dev/null; then
         echo -e "   ${GREEN}✓ pip.conf configured${NC}"
     else
         echo -e "   ${YELLOW}⚠ pip.conf not found or not configured${NC}"

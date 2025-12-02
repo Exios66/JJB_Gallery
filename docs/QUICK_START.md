@@ -11,6 +11,7 @@ npm run setup:external
 ```
 
 This will:
+
 - Configure npm to use external drive for cache
 - Configure pip to use external drive for cache
 - Set up Python virtual environments on external drive
@@ -31,7 +32,7 @@ npm run verify:storage
 
 ```bash
 # Python dependencies
-pip install -r requirements-minimal.txt
+pip install -r requirements/requirements-minimal.txt
 
 # NPM dependencies
 npm install
@@ -94,7 +95,7 @@ If you get `ENOSPC: no space left on device`:
 
 ## 📚 Documentation
 
-- [NPM Setup](NPM_SETUP.md) - Complete NPM configuration guide
-- [External Storage Setup](EXTERNAL_STORAGE_SETUP.md) - External drive configuration
-- [API Integrations](scripts/npm/README.md) - API client usage
+- [NPM Setup](setup/NPM_SETUP.md) - Complete NPM configuration guide
+- [External Storage Setup](setup/EXTERNAL_STORAGE_SETUP.md) - External drive configuration
+- [API Integrations](../scripts/npm/README.md) - API client usage
 

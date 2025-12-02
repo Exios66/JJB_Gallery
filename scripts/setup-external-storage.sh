@@ -60,11 +60,11 @@ if command -v pip &> /dev/null; then
     pip config set global.cache-dir "$EXTERNAL_BASE/.pip-cache" 2>/dev/null || true
     
     # Also install pip.conf to user directory
-    if [ -f "$REPO_ROOT/pip.conf" ]; then
+    if [ -f "$REPO_ROOT/config/pip.conf" ]; then
         PIP_CONFIG_DIR="$HOME/.pip"
         mkdir -p "$PIP_CONFIG_DIR"
         if [ ! -f "$PIP_CONFIG_DIR/pip.conf" ]; then
-            cp "$REPO_ROOT/pip.conf" "$PIP_CONFIG_DIR/pip.conf"
+            cp "$REPO_ROOT/config/pip.conf" "$PIP_CONFIG_DIR/pip.conf"
             echo "   Installed pip.conf to $PIP_CONFIG_DIR"
         else
             echo "   pip.conf already exists in $PIP_CONFIG_DIR"
@@ -156,6 +156,6 @@ echo -e "${BLUE}📋 Next steps:${NC}"
 echo "   1. Source your shell config: source $SHELL_CONFIG"
 echo "   2. Or restart your terminal"
 echo "   3. Run: npm install"
-echo "   4. Run: pip install -r requirements-minimal.txt"
+    echo "   4. Run: pip install -r requirements/requirements-minimal.txt"
 echo ""
 

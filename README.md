@@ -94,7 +94,18 @@ This living portfolio highlights select projects in engineering, data analysis, 
   │   └── (helper or build scripts)
   ├── _quarto.yml
   ├── index.qmd
-  ├── requirements.txt
+  ├── requirements/
+  │   ├── requirements.txt
+  │   ├── requirements-minimal.txt
+  │   └── requirements-micro.txt
+  ├── config/
+  │   └── pip.conf
+  ├── docs/
+  │   ├── QUICK_START.md
+  │   └── setup/
+  │       ├── NPM_SETUP.md
+  │       ├── EXTERNAL_STORAGE_SETUP.md
+  │       └── ...
   ├── LICENSE
   ├── README.md
   ├── CHANGELOG.md

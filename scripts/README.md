@@ -68,7 +68,7 @@ This script renders all pages configured in `_quarto.yml`:
 
 - Quarto CLI installed: https://quarto.org/docs/get-started/
 - Python environment (optional, but recommended)
-- All dependencies from `requirements.txt` installed
+- All dependencies from `requirements/requirements.txt` installed
 
 ### Example Workflow
 
@@ -101,7 +101,7 @@ brew install quarto
 **Python environment issues:**
 
 - Ensure virtual environment is set up: `python3 -m venv .venv`
-- Install dependencies: `pip install -r requirements.txt`
+- Install dependencies: `pip install -r requirements/requirements.txt`
 
 **Build artifacts in wrong location:**
 
@@ -389,7 +389,7 @@ The launch_codespace.sh script automatically creates and launches a GitHub Codes
 - Reuses existing Codespace if available
 - Opens in preferred editor (VS Code or browser)
 - Uses free tier resources (60 hours/month)
-- All packages auto-installed from requirements.txt
+- All packages auto-installed from requirements/requirements.txt
 
 ### Installation
 
