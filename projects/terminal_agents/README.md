@@ -1,60 +1,127 @@
-# Terminal Agents
+# Terminal Agents - Production-Ready AI Coding Assistant
 
-A command-line AI agent interface for code assistance, similar to OpenCode. This tool provides AI-powered code analysis, generation, explanation, and debugging directly from your terminal.
+A comprehensive terminal-based AI agent for code assistance, similar to OpenCode. Provides AI-powered code analysis, generation, explanation, and debugging directly from your terminal.
 
 ## 🚀 Features
 
-- **Code Analysis**: Analyze code files for issues and improvements
+- **Multi-Provider LLM Support**: OpenAI, Anthropic Claude, Ollama (free/local), Google, Azure
+- **Code Analysis**: Analyze code files for issues, security vulnerabilities, and improvements
 - **Code Explanation**: Get detailed explanations of code functionality
 - **Code Generation**: Generate code from natural language descriptions
 - **Code Fixing**: Fix bugs and improve code quality
-- **Interactive Chat**: Real-time chat interface with AI agent
-- **Rich Terminal UI**: Beautiful terminal interface with colors and formatting
-- **Multiple Commands**: Various commands for different use cases
+- **Code Refactoring**: Refactor code for better maintainability
+- **Interactive Chat**: Real-time chat interface with conversation history
+- **Rich Terminal UI**: Beautiful terminal interface with colors, markdown, and syntax highlighting
+- **File Operations**: Read, analyze, and work with code files
+- **Configuration Management**: YAML config files and environment variables
 
 ## 📋 Prerequisites
 
 - Python 3.8+
-- OpenAI API key
+- At least one LLM provider configured:
+  - **Ollama** (Recommended - Free, local): [Install Ollama](https://ollama.ai)
+  - **OpenAI API Key**: [Get API Key](https://platform.openai.com/api-keys)
+  - **Anthropic API Key**: [Get API Key](https://console.anthropic.com)
+  - **Google API Key**: [Get API Key](https://makersuite.google.com/app/apikey)
+  - **Azure OpenAI**: Configure Azure endpoint
 
 ## 🛠️ Installation
+
+### Quick Setup
+
+```bash
+cd projects/terminal_agents
+./setup.sh
+```
+
+### Manual Setup
 
 1. **Navigate to the project:**
    ```bash
    cd projects/terminal_agents
    ```
 
-2. **Install dependencies:**
+2. **Create virtual environment:**
+   ```bash
+   python3 -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   ```
+
+3. **Install dependencies:**
    ```bash
    pip install -r requirements.txt
    ```
 
-3. **Set up API key:**
+4. **Make agent executable:**
    ```bash
-   export OPENAI_API_KEY=your_api_key_here
+   chmod +x agent.py
    ```
 
-   Or create a `.env` file:
-   ```env
-   OPENAI_API_KEY=your_api_key_here
-   ```
+## ⚙️ Configuration
+
+### Option 1: Environment Variables (Recommended)
+
+```bash
+# For OpenAI
+export OPENAI_API_KEY=your_api_key_here
+
+# For Anthropic
+export ANTHROPIC_API_KEY=your_api_key_here
+
+# For Ollama (default, no key needed if running locally)
+export OLLAMA_BASE_URL=http://localhost:11434
+export OLLAMA_MODEL=llama3.1:8b
+```
+
+### Option 2: Config File
+
+Create `~/.terminal_agents/config.yaml`:
+
+```yaml
+# Provider selection (auto-detect if not set)
+provider: ollama  # Options: ollama, openai, anthropic, google, azure
+
+# Ollama (Free, Local)
+ollama_base_url: http://localhost:11434
+ollama_model: llama3.1:8b
+
+# OpenAI
+openai_api_key: your_key_here
+openai_model: gpt-4o-mini
+
+# Anthropic
+anthropic_api_key: your_key_here
+anthropic_model: claude-3-5-sonnet-20241022
+```
+
+### Option 3: Command Line Arguments
+
+```bash
+python agent.py --api-key your_key --provider openai --model gpt-4 chat "Hello"
+```
 
 ## 🚀 Usage
 
-### Interactive Mode
+### Interactive Mode (Recommended)
 
 Start an interactive chat session:
 
 ```bash
 python agent.py interactive
-```
-
-Or make it executable:
-
-```bash
-chmod +x agent.py
+# or
 ./agent.py interactive
 ```
+
+**Interactive Commands:**
+- `@analyze <file>` - Analyze code file
+- `@explain <file>` - Explain code file
+- `@generate <description>` - Generate code
+- `@fix <file>` - Fix code issues
+- `@refactor <file>` - Refactor code
+- `clear` - Clear conversation history
+- `save <file>` - Save conversation
+- `help` - Show help
+- `exit` - Exit interactive mode
 
 ### Command-Line Commands
 
@@ -80,6 +147,8 @@ Explain a piece of code:
 
 ```bash
 python agent.py explain "def fibonacci(n): return n if n < 2 else fibonacci(n-1) + fibonacci(n-2)"
+# or
+python agent.py explain app.py
 ```
 
 #### Generate Code
@@ -96,6 +165,16 @@ Fix code issues:
 
 ```bash
 python agent.py fix "def broken_function(x): return x / 0"
+# or
+python agent.py fix buggy_code.py
+```
+
+#### Refactor Code
+
+Refactor code for improvement:
+
+```bash
+python agent.py refactor app.py
 ```
 
 ### Help
@@ -104,23 +183,6 @@ View all available commands:
 
 ```bash
 python agent.py help
-```
-
-## ⚙️ Configuration
-
-### Environment Variables
-
-- `OPENAI_API_KEY`: Your OpenAI API key (required)
-
-### Command-Line Options
-
-- `--model <model>`: LLM model to use (default: gpt-3.5-turbo)
-- `--api-key <key>`: OpenAI API key (overrides environment variable)
-
-### Example with Options
-
-```bash
-python agent.py --model gpt-4 chat "Explain machine learning"
 ```
 
 ## 🎯 Use Cases
@@ -159,31 +221,37 @@ python agent.py chat "What is the difference between async and await in Python?"
 
 ```
 terminal_agents/
-├── agent.py            # Main agent application
-├── requirements.txt    # Python dependencies
-└── README.md          # This file
+├── agent.py              # Main agent application
+├── config.py            # Configuration management
+├── llm_providers.py     # LLM provider implementations
+├── requirements.txt      # Python dependencies
+├── setup.sh             # Setup script
+├── DESIGN.md            # Design documentation
+└── README.md            # This file
 ```
 
 ## 🔧 Customization
 
-### Changing the Model
+### Changing the Default Model
 
-Edit the default model in `agent.py`:
+Edit the default model in `config.py` or set environment variables:
 
-```python
-def __init__(self, api_key: Optional[str] = None, model: str = "gpt-4"):
-    # Change default model here
+```bash
+export OLLAMA_MODEL=mistral:7b
+export OPENAI_MODEL_NAME=gpt-4
 ```
 
 ### Adding New Commands
 
-Add new command handlers in the `main()` function:
+Add new command handlers in the `main()` function in `agent.py`:
 
 ```python
 elif command == "your_command":
-    # Your command logic here
+    if not input_text:
+        agent._error("Please provide input.")
+        return
     response = agent.your_method(input_text)
-    # Display response
+    agent._print(response)
 ```
 
 ### Custom Prompts
@@ -206,117 +274,102 @@ The agent uses the `rich` library for beautiful terminal output:
 - **Markdown**: Renders markdown in terminal
 - **Panels**: Beautiful bordered panels for help text
 - **Progress**: Progress indicators for long operations
+- **Syntax Highlighting**: Code blocks with syntax highlighting
 
 If `rich` is not available, the agent falls back to plain text output.
 
+## 🔐 Security & Safety
+
+- File write operations require explicit confirmation
+- API keys are never logged or displayed
+- Error messages are sanitized
+- Safe file path handling
+
 ## 🐛 Troubleshooting
 
-### API Key Not Found
+### "No LLM provider available"
 
+**Solution**: Configure at least one provider:
+- Install Ollama: `curl -fsSL https://ollama.ai/install.sh | sh`
+- Or set API keys: `export OPENAI_API_KEY=your_key`
+
+### "Module not found" errors
+
+**Solution**: Install dependencies:
 ```bash
-export OPENAI_API_KEY=your_key_here
+pip install -r requirements.txt
 ```
 
-Or use the `--api-key` option:
+### Ollama connection errors
+
+**Solution**: Ensure Ollama is running:
+```bash
+ollama serve
+# In another terminal:
+ollama pull llama3.1:8b
+```
+
+### Rich library not working
+
+**Solution**: The agent will fall back to plain text. To fix:
+```bash
+pip install rich pygments
+```
+
+## 📚 Examples
+
+### Example 1: Analyze Python File
+
+```bash
+python agent.py analyze my_script.py
+```
+
+### Example 2: Generate Code
+
+```bash
+python agent.py generate "A function to sort a list of dictionaries by a key"
+```
+
+### Example 3: Interactive Session
+
+```bash
+python agent.py interactive
+> @analyze app.py
+> @generate "A REST API with FastAPI"
+> @fix buggy_function.py
+> exit
+```
+
+### Example 4: With API Key
 
 ```bash
 python agent.py --api-key your_key_here chat "Hello"
 ```
 
-### Import Errors
-
-Install missing dependencies:
-
-```bash
-pip install -r requirements.txt
-```
-
-### Model Not Available
-
-- Check your OpenAI API key has access to the model
-- Verify the model name is correct
-- Try a different model (e.g., `gpt-3.5-turbo`)
-
-## 🚀 Advanced Usage
-
-### Shell Integration
-
-Add to your `.bashrc` or `.zshrc`:
-
-```bash
-alias ai="python /path/to/agent.py"
-```
-
-Then use:
-
-```bash
-ai chat "Hello"
-ai analyze file.py
-```
-
-### Scripting
-
-Use in scripts:
-
-```bash
-#!/bin/bash
-RESPONSE=$(python agent.py generate "A function to sort a list")
-echo "$RESPONSE"
-```
-
-### Piping
-
-Pipe code to the agent:
+### Example 5: Pipe Code
 
 ```bash
 cat code.py | python agent.py explain
 ```
 
-## 📚 Examples
-
-### Code Review Workflow
-
-```bash
-# Analyze all Python files in a directory
-for file in *.py; do
-    echo "Analyzing $file..."
-    python agent.py analyze "$file"
-done
-```
-
-### Learning Session
-
-```bash
-# Start interactive mode for learning
-python agent.py interactive
-# Then ask questions about code concepts
-```
-
-### Quick Fixes
-
-```bash
-# Fix a specific function
-python agent.py fix "$(sed -n '10,20p' buggy_file.py)"
-```
-
 ## 🔗 Related Projects
 
 - [CrewAI](../Crewai/README.md) - Multi-agent system
-- [ChatUI](../ChatUi/README.md) - Web chat interface
-- [RAG Model](../RAG_Model/README.md) - Document Q&A
+- [ChatUi](../ChatUi/README.md) - Web-based chat interface
+- [OpenCode](https://opencode.ai) - Inspiration for this project
 
-## 📄 License
+## 📝 License
 
-This project is part of the JJB Gallery portfolio. See the main repository LICENSE file.
+See main repository LICENSE file.
 
 ## 🤝 Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-## 📧 Support
-
-For issues or questions, please open an issue in the main repository.
+Contributions welcome! Please read the main repository contributing guidelines.
 
 ## 🙏 Acknowledgments
 
 Inspired by [OpenCode](https://opencode.ai) and similar terminal-based AI coding assistants.
+
+---
+
+**Made with ❤️ for developers who love the terminal**

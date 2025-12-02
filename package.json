@@ -1,17 +1,72 @@
 {
   "name": "jjb-gallery",
   "version": "1.0.0",
-  "description": "Portfolio and gallery repository with Quarto documents and CrewAI projects",
+  "description": "GitHub-Based Portfolio & Gallery - Multi-project repository with CrewAI, ChatUI, and various ML/AI integrations",
   "private": true,
+  "workspaces": [
+    "projects/ChatUi"
+  ],
   "scripts": {
-    "build": "echo 'Build step - customize as needed'",
-    "release": "npx semantic-release"
+    "prepare": "husky install",
+    "lint:commits": "commitlint --from HEAD~1",
+    "lint:commits:all": "commitlint --from origin/main",
+    "format": "prettier --write \"**/*.{js,json,md,yml,yaml}\"",
+    "format:check": "prettier --check \"**/*.{js,json,md,yml,yaml}\"",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npm run build --workspace=projects/ChatUi",
+    "dev": "npm run dev --workspace=projects/ChatUi",
+    "clean": "rm -rf node_modules .husky/_ .cache dist build",
+    "clean:disk": "bash scripts/npm/cleanup-disk-space.sh",
+    "clean:resource-forks": "bash scripts/cleanup-macos-resource-forks.sh",
+    "prevent:resource-forks": "bash scripts/prevent-resource-forks.sh",
+    "setup:external": "bash scripts/setup-external-storage.sh",
+    "verify:storage": "bash scripts/verify-external-storage.sh",
+    "test:apis": "node scripts/npm/integrations.js",
+    "examples": "node scripts/npm/examples.js",
+    "postinstall": "husky install"
   },
+  "keywords": [
+    "portfolio",
+    "gallery",
+    "crewai",
+    "chat-ui",
+    "machine-learning",
+    "data-science",
+    "quarto",
+    "jupyter"
+  ],
+  "author": "Jack J. Burleson <jackburleson.dev@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Exios66/JJB_Gallery.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Exios66/JJB_Gallery/issues"
+  },
+  "homepage": "https://github.com/Exios66/JJB_Gallery#readme",
   "devDependencies": {
-    "semantic-release": "^23.0.0"
+    "@commitlint/cli": "^18.6.0",
+    "@commitlint/config-conventional": "^18.6.0",
+    "@octokit/rest": "^20.1.1",
+    "@types/node": "^20.11.5",
+    "husky": "^9.0.11",
+    "prettier": "^3.2.4",
+    "lint-staged": "^15.2.0"
+  },
+  "dependencies": {
+    "axios": "^1.6.5",
+    "dotenv": "^16.4.1",
+    "node-fetch": "^3.3.2"
   },
   "engines": {
-    "node": ">=18.0.0"
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "lint-staged": {
+    "*.{js,json,md,yml,yaml}": [
+      "prettier --write"
+    ]
   }
 }
 

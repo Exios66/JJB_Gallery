@@ -1,10 +1,6 @@
-# iOS Chatbot Dependencies
-Flask>=3.0.0
-flask-cors>=4.0.0
-python-dotenv>=1.0.0
+# iOS Chatbot Project Requirements
+# Placeholder - Add dependencies as needed
 
-# Optional: For LLM integration
-# openai>=1.0.0
-# anthropic>=0.3.0
-# ollama>=0.1.0
+# Note: iOS projects typically use Swift/Objective-C
+# If this project includes Python backend components, add them here
 

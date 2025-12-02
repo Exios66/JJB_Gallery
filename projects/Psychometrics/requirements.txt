@@ -1,8 +1,9 @@
-# Psychometrics Assessment Dependencies
-# Core dependencies are minimal - using only standard library
-# Optional: for advanced analysis
-numpy>=1.24.0
-pandas>=2.0.0
-matplotlib>=3.7.0
-scipy>=1.10.0
+# Psychometrics Project Requirements
+# Placeholder - Add dependencies as needed
+# See: https://github.com/Exios66/NASA-Task
+
+# Common dependencies (uncomment as needed)
+# numpy>=1.24.0
+# pandas>=2.0.0,<3.0.0
+# scikit-learn>=1.3.0
 

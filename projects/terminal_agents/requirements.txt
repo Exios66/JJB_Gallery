@@ -1,4 +1,24 @@
-openai>=1.0.0
-rich>=13.0.0
-python-dotenv>=1.0.0
+# Terminal Agents - Production Requirements
 
+# Core LLM Providers (install at least one)
+openai>=1.0.0              # OpenAI API support
+anthropic>=0.18.0          # Anthropic Claude support
+langchain-community>=0.0.20  # Ollama support (free, local)
+
+# Terminal UI
+rich>=13.0.0               # Beautiful terminal output
+pygments>=2.16.0            # Syntax highlighting
+
+# Configuration
+pyyaml>=6.0                 # YAML config file support
+python-dotenv>=1.0.0        # Environment variable management
+pydantic>=2.0.0             # Configuration validation
+
+# Optional but recommended
+click>=8.1.0                # CLI framework (alternative to argparse)
+typer>=0.9.0                # Modern CLI framework (optional)
+
+# Optional: Advanced features
+# gitpython>=3.1.0          # Git integration (uncomment if needed)
+# watchdog>=3.0.0           # File watching (uncomment if needed)
+# prompt-toolkit>=3.0.0     # Advanced input handling (uncomment if needed)

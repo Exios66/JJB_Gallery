@@ -1,11 +1,11 @@
-# LiteLLM Dependencies
-litellm>=1.40.0
-fastapi>=0.104.0
-uvicorn[standard]>=0.24.0
-pydantic>=2.0.0
-python-dotenv>=1.0.0
+# LiteLLM Project Requirements
+# LiteLLM - Unified LLM API interface
+# See: https://github.com/BerriAI/litellm
 
-# Optional: For specific providers
-# openai>=1.0.0
-# anthropic>=0.3.0
+litellm>=1.0.0
+openai>=1.0.0
+pydantic>=2.0.0
+
+# Optional: For proxy features
+# litellm[proxy]>=1.0.0
 

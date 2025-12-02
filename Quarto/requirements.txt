@@ -1,0 +1,13 @@
+# Quarto Random Forest Analysis Requirements
+# Core data science stack for randomforest.qmd
+numpy>=1.24.0
+pandas>=2.0.0,<3.0.0
+scikit-learn>=1.3.0
+
+# Visualization
+matplotlib>=3.7.0
+seaborn>=0.12.0
+
+# Note: Quarto CLI should be installed separately
+# Install via: brew install quarto (macOS) or https://quarto.org/docs/get-started/
+
