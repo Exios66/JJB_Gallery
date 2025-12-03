@@ -27,6 +27,7 @@ Welcome to the comprehensive wiki for the **JJB Gallery** repository - a portfol
 ### Documentation
 - [Architecture Overview](Architecture-Overview)
 - [API Reference](API-Reference)
+- [LLM Setup Guide](LLM-Setup)
 - [Configuration Guide](Configuration-Guide)
 - [Troubleshooting](Troubleshooting)
 

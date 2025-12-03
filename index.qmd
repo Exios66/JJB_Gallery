@@ -1,197 +1,265 @@
 ---
 title: "GitHub-Based Portfolio & Gallery of Jack J. Burleson"
 author: "Jack J. Burleson"
+editor: 
+  markdown: 
+    wrap: 72
 ---
 
-Welcome! This repository serves as the official portfolio and gallery for **Jack J. Burleson**, showcasing a curated selection of previous work, open-source projects, research, and presentations.
+Welcome! This repository serves as the official portfolio and gallery
+for **Jack J. Burleson**, showcasing a curated selection of previous
+work, open-source projects, research, and presentations.
 
-**🎉 Recent Major Update (December 2024):** The repository has been comprehensively reorganized for better maintainability and clarity. All documentation, requirements, and configuration files have been moved to organized subdirectories. See the [Repository Organization](#repository-organization) section for details.
+**🎉 Recent Major Update (December 2024):** The repository has been
+comprehensively reorganized for better maintainability and clarity. All
+documentation, requirements, and configuration files have been moved to
+organized subdirectories. See the [Repository
+Organization](#repository-organization) section for details.
 
 <!-- markdownlint-disable MD033 -->
+
 <p align="left">
-  <a href="https://github.com/Exios66/JJB_Gallery/actions">
-    <img alt="GitHub Workflow Status" src="https://img.shields.io/github/actions/workflow/status/Exios66/JJB_Gallery/ci.yml?branch=main&label=CI&logo=github">
-  </a>
-  <a href="https://github.com/Exios66/JJB_Gallery/blob/main/LICENSE">
-    <img alt="License" src="https://img.shields.io/github/license/Exios66/JJB_Gallery?color=blue">
-  </a>
-  <a href="https://github.com/Exios66/JJB_Gallery/releases">
-    <img alt="GitHub release" src="https://img.shields.io/github/v/release/Exios66/JJB_Gallery?include_prereleases">
-  </a>
-  <a href="https://github.com/Exios66/JJB_Gallery/commits/main">
-    <img alt="Last Commit" src="https://img.shields.io/github/last-commit/Exios66/JJB_Gallery">
-  </a>
-  <a href="https://github.com/Exios66/JJB_Gallery/issues">
-    <img alt="GitHub issues" src="https://img.shields.io/github/issues/Exios66/JJB_Gallery">
-  </a>
-  <a href="https://github.com/Exios66/JJB_Gallery/pulls">
-    <img alt="GitHub pull requests" src="https://img.shields.io/github/issues-pr/Exios66/JJB_Gallery">
-  </a>
-  <a href="https://www.python.org">
-    <img alt="Python Version" src="https://img.shields.io/badge/python-3.8%2B-blue.svg">
-  </a>
-  <a href="https://github.com/psf/black">
-    <img alt="Code style: black" src="https://img.shields.io/badge/code%20style-black-000000.svg">
-  </a>
-  <a href="https://github.com/pre-commit/pre-commit">
-    <img alt="pre-commit" src="https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit">
-  </a>
-  <a href="https://results.pre-commit.ci/latest/github/Exios66/JJB_Gallery/main">
-    <img alt="pre-commit.ci status" src="https://results.pre-commit.ci/badge/github/Exios66/JJB_Gallery/main.svg">
-  </a>
+
+<a href="https://github.com/Exios66/JJB_Gallery/actions">
+<img src="https://img.shields.io/github/actions/workflow/status/Exios66/JJB_Gallery/ci.yml?branch=main&amp;label=CI&amp;logo=github" alt="GitHub Workflow Status"/>
+</a> <a href="https://github.com/Exios66/JJB_Gallery/blob/main/LICENSE">
+<img src="https://img.shields.io/github/license/Exios66/JJB_Gallery?color=blue" alt="License"/>
+</a> <a href="https://github.com/Exios66/JJB_Gallery/releases">
+<img src="https://img.shields.io/github/v/release/Exios66/JJB_Gallery?include_prereleases" alt="GitHub release"/>
+</a> <a href="https://github.com/Exios66/JJB_Gallery/commits/main">
+<img src="https://img.shields.io/github/last-commit/Exios66/JJB_Gallery" alt="Last Commit"/>
+</a> <a href="https://github.com/Exios66/JJB_Gallery/issues">
+<img src="https://img.shields.io/github/issues/Exios66/JJB_Gallery" alt="GitHub issues"/>
+</a> <a href="https://github.com/Exios66/JJB_Gallery/pulls">
+<img src="https://img.shields.io/github/issues-pr/Exios66/JJB_Gallery" alt="GitHub pull requests"/>
+</a> <a href="https://www.python.org">
+<img src="https://img.shields.io/badge/python-3.8%2B-blue.svg" alt="Python Version"/>
+</a> <a href="https://github.com/psf/black">
+<img src="https://img.shields.io/badge/code%20style-black-000000.svg" alt="Code style: black"/>
+</a> <a href="https://github.com/pre-commit/pre-commit">
+<img src="https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit" alt="pre-commit"/>
+</a>
+<a href="https://results.pre-commit.ci/latest/github/Exios66/JJB_Gallery/main">
+<img src="https://results.pre-commit.ci/badge/github/Exios66/JJB_Gallery/main.svg" alt="pre-commit.ci status"/>
+</a>
+
 </p>
+
 <!-- markdownlint-enable MD033 -->
 
----
+------------------------------------------------------------------------
 
 ## About Me
 
-Hi! I'm **Jack J. Burleson** – data scientist, research engineer, and open-source enthusiast.  
-I am passionate about making data science, machine learning, and advanced analytics accessible and meaningful through clear code and insightful visualizations.  
-This portfolio highlights select projects in engineering, data analysis, machine learning, AI/LLM integration, and technical writing.
+Hi! I'm **Jack J. Burleson** – data scientist, research engineer, and
+open-source enthusiast.\
+I am passionate about making data science, machine learning, and
+advanced analytics accessible and meaningful through clear code and
+insightful visualizations.\
+This portfolio highlights select projects in engineering, data analysis,
+machine learning, AI/LLM integration, and technical writing.
 
 ### Repository Highlights
 
-- **🎯 8+ Active Projects:** From multi-agent systems to psychometric assessments
-- **📚 Comprehensive Documentation:** Organized documentation structure with setup guides, development workflows, and project-specific docs
-- **🔧 Production-Ready:** Full testing frameworks, CI/CD integration, and deployment configurations
-- **🌐 Modern Stack:** Python, JavaScript/TypeScript, SvelteKit, Flask, and modern LLM integrations
-- **📦 Flexible Installation:** Multiple requirement files for different use cases (full, minimal, micro)
-- **💾 External Storage Support:** Automated configuration for managing large dependencies on external drives
+-   **🎯 8+ Active Projects:** From multi-agent systems to psychometric
+    assessments
+-   **📚 Comprehensive Documentation:** Organized documentation
+    structure with setup guides, development workflows, and
+    project-specific docs
+-   **🔧 Production-Ready:** Full testing frameworks, CI/CD integration,
+    and deployment configurations
+-   **🌐 Modern Stack:** Python, JavaScript/TypeScript, SvelteKit,
+    Flask, and modern LLM integrations
+-   **📦 Flexible Installation:** Multiple requirement files for
+    different use cases (full, minimal, micro)
+-   **💾 External Storage Support:** Automated configuration for
+    managing large dependencies on external drives
 
----
+------------------------------------------------------------------------
 
 ## Project Gallery
 
 | Project | Description | Link |
-|---------|-------------|------|
-| **Random Forest Essentials** | **[New]** Comprehensive analysis with interactive plots, decision boundaries, and ROC curves. | [📊 **View Interactive Analysis**](Quarto/randomforest.qmd) |
+|----------------------|-----------------------------------|------------------|
+| **Random Forest Essentials** | **\[New\]** Comprehensive analysis with interactive plots, decision boundaries, and ROC curves. | [📊 **View Interactive Analysis**](Quarto/randomforest.qmd) |
 | **CrewAI Multi-Agent Swarm System** | Multi-agent architecture using CrewAI, with specialized swarms for ML, research, business intelligence, and documentation; includes Streamlit & CLI interfaces. | [🚀 **Launch Swarm**](#interactive-agent-swarm) \| [📄 Docs](projects/CrewAI/README.md) |
-| **Psychometrics (NASA TLX)** | **[New]** Comprehensive psychometric assessment toolkit implementing the NASA Task Load Index (TLX) for workload measurement with statistical analysis. | [📊 **View Project**](projects/Psychometrics/README.md) |
-| **RAG Model Application** | **[New]** Complete Retrieval-Augmented Generation system with vector database, embeddings, and intelligent document retrieval using FAISS and Ollama. | [🔍 **View Project**](projects/RAG_Model/README.md) |
-| **Chat UI (SvelteKit)** | **[New]** Modern, open-source chat interface for LLM interactions with support for multiple backends (OpenAI, Ollama, Hugging Face) and real-time streaming. | [💬 **View Project**](projects/ChatUi/README.md) |
+| **Psychometrics (NASA TLX)** | **\[New\]** Comprehensive psychometric assessment toolkit implementing the NASA Task Load Index (TLX) for workload measurement with statistical analysis. | [📊 **View Project**](projects/Psychometrics/README.md) |
+| **RAG Model Application** | **\[New\]** Complete Retrieval-Augmented Generation system with vector database, embeddings, and intelligent document retrieval using FAISS and Ollama. | [🔍 **View Project**](projects/RAG_Model/README.md) |
+| **Chat UI (SvelteKit)** | **\[New\]** Modern, open-source chat interface for LLM interactions with support for multiple backends (OpenAI, Ollama, Hugging Face) and real-time streaming. | [💬 **View Project**](projects/ChatUi/README.md) |
 | **iOS Chatbot** | Flask-based chatbot application with web interface, designed for iOS-style interactions and mobile-friendly UI. | [📱 **View Project**](projects/ios_chatbot/README.md) |
 | **LiteLLM Proxy Server** | Unified API proxy for multiple LLM providers, enabling easy switching between OpenAI, Anthropic, and other providers with a single interface. | [🔌 **View Project**](projects/litellm/README.md) |
 | **Terminal Agents** | AI coding agents for the terminal; includes "build" and "plan" agents, supporting code exploration and editing with easy installation and cross-platform support. | [💻 **View Project**](projects/terminal_agents/README.md) |
 | **Jupyter ML & Pandas Notebooks** | Collections of essential notebooks demonstrating the use of Pandas and scikit-learn in data workflows. | [📓 **View Notebooks**](notebooks/) |
 | **PyPI-Ready Python Template** | Modern Python project template with pre-commit, Black, and CI configuration, ready for immediate use as a best-practices starter. | [📦 **Template Repo**](https://github.com/Exios66/python-template) |
 
-*More projects, research, and documentation are regularly added. See repository folders for latest content.*
+*More projects, research, and documentation are regularly added. See
+repository folders for latest content.*
 
----
+------------------------------------------------------------------------
 
 ## Interactive Agent Swarm {#interactive-agent-swarm}
 
-::: {.callout-tip appearance="simple"}
+::: {.callout-tip appearance="minimal"}
 ## 🤖 Run the Live Interface
-This portfolio contains a full **CrewAI Multi-Agent System** application.  
-To interact with the specialized agent swarms (ML, Research, Business Intelligence), you can run the Streamlit interface locally.
+
+This portfolio contains a full **CrewAI Multi-Agent System**
+application.\
+To interact with the specialized agent swarms (ML, Research, Business
+Intelligence), you can run the Streamlit interface locally.
 :::
 
 ### 🚀 Quick Start
 
 1.  **Clone this repository** to your local machine.
+
 2.  **Configure external storage** (recommended for large dependencies):
-    ```bash
-    npm run setup:external
-    ```
-    See [Quick Start Guide](docs/QUICK_START.md) for details.
+    `bash     npm run setup:external` See [Quick Start
+    Guide](docs/QUICK_START.md) for details.
+
 3.  **Install dependencies**:
-    ```bash
+
+    ``` bash
     # Python dependencies (choose based on needs)
     pip install -r requirements/requirements.txt          # Full installation
     pip install -r requirements/requirements-minimal.txt   # Minimal installation
     pip install -r requirements/requirements-micro.txt     # Micro installation
-    
+
     # NPM dependencies (for ChatUi and tooling)
     npm install
     ```
+
 4.  **Launch the Swarm Interface**:
-    ```bash
-    streamlit run projects/CrewAI/interface_web.py
-    ```
+    `bash     streamlit run projects/CrewAI/interface_web.py`
 
-[**📂 Browse Source Code**](https://github.com/Exios66/JJB_Gallery/tree/main/projects/CrewAI) | [**📄 View Documentation**](projects/CrewAI/README.md)
+[**📂 Browse Source
+Code**](https://github.com/Exios66/JJB_Gallery/tree/main/projects/CrewAI)
+\| [**📄 View Documentation**](projects/CrewAI/README.md)
 
----
+------------------------------------------------------------------------
 
 ## Recent Additions
 
 ### December 2024 - Repository Reorganization
-- **📁 Organized Structure:** All documentation moved to `docs/`, requirements to `requirements/`, and configs to `config/` for better maintainability
-- **📚 Enhanced Documentation:** Comprehensive setup guides, development documentation, and project-specific docs organized in `docs/` subdirectories
-- **⚙️ Configuration Management:** Centralized configuration files in `config/` directory
-- **📦 Multiple Requirements Files:** Added `requirements-minimal.txt` and `requirements-micro.txt` for flexible installation options
-- **🔧 NPM Integration:** Full NPM support with package.json, external storage configuration, and development tooling
+
+-   **📁 Organized Structure:** All documentation moved to `docs/`,
+    requirements to `requirements/`, and configs to `config/` for better
+    maintainability
+-   **📚 Enhanced Documentation:** Comprehensive setup guides,
+    development documentation, and project-specific docs organized in
+    `docs/` subdirectories
+-   **⚙️ Configuration Management:** Centralized configuration files in
+    `config/` directory
+-   **📦 Multiple Requirements Files:** Added `requirements-minimal.txt`
+    and `requirements-micro.txt` for flexible installation options
+-   **🔧 NPM Integration:** Full NPM support with package.json, external
+    storage configuration, and development tooling
 
 ### New Projects & Features
-- **Psychometrics (NASA TLX):** Complete implementation of NASA Task Load Index for workload assessment with statistical analysis ([View Project](projects/Psychometrics/README.md))
-- **RAG Model Application:** Full RAG pipeline with vector database, embeddings, and document retrieval ([View Project](projects/RAG_Model/README.md))
-- **Chat UI (SvelteKit):** Modern chat interface for LLM interactions with multiple backend support ([View Project](projects/ChatUi/README.md))
-- **iOS Chatbot:** Flask-based chatbot with mobile-friendly interface ([View Project](projects/ios_chatbot/README.md))
-- **LiteLLM Proxy:** Unified API proxy for multiple LLM providers ([View Project](projects/litellm/README.md))
+
+-   **Psychometrics (NASA TLX):** Complete implementation of NASA Task
+    Load Index for workload assessment with statistical analysis ([View
+    Project](projects/Psychometrics/README.md))
+-   **RAG Model Application:** Full RAG pipeline with vector database,
+    embeddings, and document retrieval ([View
+    Project](projects/RAG_Model/README.md))
+-   **Chat UI (SvelteKit):** Modern chat interface for LLM interactions
+    with multiple backend support ([View
+    Project](projects/ChatUi/README.md))
+-   **iOS Chatbot:** Flask-based chatbot with mobile-friendly interface
+    ([View Project](projects/ios_chatbot/README.md))
+-   **LiteLLM Proxy:** Unified API proxy for multiple LLM providers
+    ([View Project](projects/litellm/README.md))
 
 ### Enhanced Existing Projects
-- **Random Forest Analysis:** Enhanced with interactive visualizations and decision boundary plots ([View Analysis](Quarto/randomforest.qmd))
-- **CrewAI Swarm System:** Full-featured, multi-swarm agent orchestration, ML/research/business/reporting specializations ([README](projects/CrewAI/README.md))
-- **Terminal Coding Agents:** Terminal-based agent system, built-in "build" and "plan" agents with live installation quick start ([README](projects/terminal_agents/README.md))
-- **Jupyter Notebooks:** ML and pandas essentials, plus scikit-learn examples ([notebooks/](notebooks/))
+
+-   **Random Forest Analysis:** Enhanced with interactive visualizations
+    and decision boundary plots ([View
+    Analysis](Quarto/randomforest.qmd))
+-   **CrewAI Swarm System:** Full-featured, multi-swarm agent
+    orchestration, ML/research/business/reporting specializations
+    ([README](projects/CrewAI/README.md))
+-   **Terminal Coding Agents:** Terminal-based agent system, built-in
+    "build" and "plan" agents with live installation quick start
+    ([README](projects/terminal_agents/README.md))
+-   **Jupyter Notebooks:** ML and pandas essentials, plus scikit-learn
+    examples ([notebooks/](notebooks/))
 
 ### Infrastructure & Tooling
-- **External Storage Support:** Automated configuration for using external USB drives for caches and dependencies
-- **Development Documentation:** Comprehensive guides for Git protocol, remote Python paths, and development workflows
-- **Testing Framework:** Complete test suite for all projects with pytest configuration
-- **.gitignore Improvements:** Now excludes macOS ._*, .DS_Store, and other platform/editor artifacts
 
-**📋 Track all changes:** See [CHANGELOG.md](CHANGELOG.md) for detailed version history
+-   **External Storage Support:** Automated configuration for using
+    external USB drives for caches and dependencies
+-   **Development Documentation:** Comprehensive guides for Git
+    protocol, remote Python paths, and development workflows
+-   **Testing Framework:** Complete test suite for all projects with
+    pytest configuration
+-   **.gitignore Improvements:** Now excludes macOS .\_\*, .DS_Store,
+    and other platform/editor artifacts
 
----
+**📋 Track all changes:** See [CHANGELOG.md](CHANGELOG.md) for detailed
+version history
+
+------------------------------------------------------------------------
 
 ## Skills
 
-- **Programming:** `Python` (advanced), `R`, `JavaScript`, `TypeScript`, `SvelteKit`, `bash`, `Make`
-- **Data Analysis:** `Pandas`, `NumPy`, `scikit-learn`, `seaborn`, `matplotlib`
-- **Visualization:** `matplotlib`, `seaborn`, `Quarto`, `Jupyter`, interactive dashboards
-- **Machine Learning & AI:** `scikit-learn`, `CrewAI`, `RAG systems`, `vector databases`, `embeddings`, agent-based simulation, feature engineering
-- **LLM Integration:** `OpenAI API`, `Ollama`, `LiteLLM`, `Hugging Face`, `Anthropic`, custom LLM backends
-- **Web Development:** `Flask`, `SvelteKit`, `Streamlit`, `REST APIs`, `WebSockets`
-- **Documentation:** `Quarto`, `Markdown`, `Jupyter Notebooks`, technical writing
-- **CI/CD & Tooling:** `pre-commit`, `Black`, `GitHub Actions`, `Poetry`, `npm`, `.gitignore` hygiene
-- **DevOps:** `Docker`, `Git`, `SQL`, external storage management, dependency optimization
-- **Other:** `Git`, `SQL`, `Docker`, technical writing, code review, psychometric assessment
+-   **Programming:** `Python` (advanced), `R`, `JavaScript`,
+    `TypeScript`, `SvelteKit`, `bash`, `Make`
+-   **Data Analysis:** `Pandas`, `NumPy`, `scikit-learn`, `seaborn`,
+    `matplotlib`
+-   **Visualization:** `matplotlib`, `seaborn`, `Quarto`, `Jupyter`,
+    interactive dashboards
+-   **Machine Learning & AI:** `scikit-learn`, `CrewAI`, `RAG systems`,
+    `vector databases`, `embeddings`, agent-based simulation, feature
+    engineering
+-   **LLM Integration:** `OpenAI API`, `Ollama`, `LiteLLM`,
+    `Hugging Face`, `Anthropic`, custom LLM backends
+-   **Web Development:** `Flask`, `SvelteKit`, `Streamlit`, `REST APIs`,
+    `WebSockets`
+-   **Documentation:** `Quarto`, `Markdown`, `Jupyter Notebooks`,
+    technical writing
+-   **CI/CD & Tooling:** `pre-commit`, `Black`, `GitHub Actions`,
+    `Poetry`, `npm`, `.gitignore` hygiene
+-   **DevOps:** `Docker`, `Git`, `SQL`, external storage management,
+    dependency optimization
+-   **Other:** `Git`, `SQL`, `Docker`, technical writing, code review,
+    psychometric assessment
 
----
+------------------------------------------------------------------------
 
 ## Publications & Presentations
 
-- **Random Forest Essentials** – Quarto doc, 2024. ([Link](Quarto/randomforest.qmd))
-- **Talking to Agents: architecting Multi-Agent Systems** – Internal seminar, 2024.
-- *(More manuscripts and presentations to be added.)*
+-   **Random Forest Essentials** – Quarto doc, 2024.
+    ([Link](Quarto/randomforest.qmd))
+-   **Talking to Agents: architecting Multi-Agent Systems** – Internal
+    seminar, 2024.
+-   *(More manuscripts and presentations to be added.)*
 
----
+------------------------------------------------------------------------
 
 ## Contact
 
-- Email: [jackburleson.dev@gmail.com](mailto:jackburleson.dev@gmail.com)
-- LinkedIn: [linkedin.com/in/jack-j-burleson](https://linkedin.com/in/jack-j-burleson)
-- Website: [jackburleson.dev](https://jackburleson.dev)
+-   Email:
+    [jackburleson.dev\@gmail.com](mailto:jackburleson.dev@gmail.com)
+-   LinkedIn:
+    [linkedin.com/in/jack-j-burleson](https://linkedin.com/in/jack-j-burleson)
+-   Website: [jackburleson.dev](https://jackburleson.dev)
 
----
+------------------------------------------------------------------------
 
 ## Socials
 
-- [GitHub](https://github.com/Exios66)
-- [Twitter/X](https://twitter.com/Exios66)
-- [LinkedIn](https://linkedin.com/in/jack-j-burleson)
-- [HuggingFace](https://huggingface.co/Exios66)
+-   [GitHub](https://github.com/Exios66)
+-   [Twitter/X](https://twitter.com/Exios66)
+-   [LinkedIn](https://linkedin.com/in/jack-j-burleson)
+-   [HuggingFace](https://huggingface.co/Exios66)
 
----
+------------------------------------------------------------------------
 
 ## Repository Organization {#repository-organization}
 
 The repository has been organized into clear, maintainable directories:
 
-```
+``` bash
 JJB_Gallery/
 ├── requirements/          # Python dependency files
 │   ├── requirements.txt          # Full installation
@@ -220,28 +288,39 @@ JJB_Gallery/
 └── Quarto/              # Quarto documents
 ```
 
-**📚 Documentation:** See [docs/README.md](docs/README.md) for complete documentation index.
+**📚 Documentation:** See [docs/README.md](docs/README.md) for complete
+documentation index.
 
 ## Further Reading
 
 ### Project Documentation
-- [Terminal Agents Project](projects/terminal_agents/README.md) - AI coding agents for terminal
-- [CrewAI Multi-Agent System](projects/CrewAI/README.md) - Multi-agent orchestration
-- [Psychometrics (NASA TLX)](projects/Psychometrics/README.md) - Workload assessment toolkit
-- [RAG Model Application](projects/RAG_Model/README.md) - Retrieval-augmented generation
-- [Chat UI](projects/ChatUi/README.md) - Modern chat interface
-- [iOS Chatbot](projects/ios_chatbot/README.md) - Flask-based chatbot
-- [LiteLLM Proxy](projects/litellm/README.md) - Unified LLM API proxy
+
+-   [Terminal Agents Project](projects/terminal_agents/README.md) - AI
+    coding agents for terminal
+-   [CrewAI Multi-Agent System](projects/CrewAI/README.md) - Multi-agent
+    orchestration
+-   [Psychometrics (NASA TLX)](projects/Psychometrics/README.md) -
+    Workload assessment toolkit
+-   [RAG Model Application](projects/RAG_Model/README.md) -
+    Retrieval-augmented generation
+-   [Chat UI](projects/ChatUi/README.md) - Modern chat interface
+-   [iOS Chatbot](projects/ios_chatbot/README.md) - Flask-based chatbot
+-   [LiteLLM Proxy](projects/litellm/README.md) - Unified LLM API proxy
 
 ### Repository Documentation
-- [Quick Start Guide](docs/QUICK_START.md) - Get started quickly
-- [Documentation Index](docs/README.md) - Complete documentation
-- [Repository Organization](docs/ORGANIZATION.md) - File organization guide
-- [CHANGELOG.md](CHANGELOG.md) - Version history and changes
-- [SECURITY.md](SECURITY.md) - Security policy
+
+-   [Quick Start Guide](docs/QUICK_START.md) - Get started quickly
+-   [Documentation Index](docs/README.md) - Complete documentation
+-   [Repository Organization](docs/ORGANIZATION.md) - File organization
+    guide
+-   [CHANGELOG.md](CHANGELOG.md) - Version history and changes
+-   [SECURITY.md](SECURITY.md) - Security policy
 
 ### External Resources
-- [Official Python Template Repo](https://github.com/Exios66/python-template) - Best practices starter
 
-_Repository updated regularly. Check project directories for the latest code, docs, and research._
+-   [Official Python Template
+    Repo](https://github.com/Exios66/python-template) - Best practices
+    starter
 
+*Repository updated regularly. Check project directories for the latest
+code, docs, and research.*

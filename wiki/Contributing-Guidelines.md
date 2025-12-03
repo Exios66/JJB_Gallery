@@ -46,6 +46,7 @@ Thank you for your interest in contributing to the JJB Gallery repository!
 - Use meaningful variable names
 
 **Example**:
+
 ```python
 def process_document(file_path: str) -> Dict[str, Any]:
     """
@@ -69,6 +70,7 @@ def process_document(file_path: str) -> Dict[str, Any]:
 - Use async/await for async operations
 
 **Example**:
+
 ```typescript
 /**
  * Process a chat message and return response.
@@ -90,6 +92,7 @@ async function processMessage(message: string): Promise<string> {
 - Use descriptive test names
 
 **Python Example**:
+
 ```python
 def test_rag_retrieval():
     """Test RAG document retrieval."""
@@ -122,6 +125,7 @@ npm test
 ### README Updates
 
 When adding features:
+
 - Update project README
 - Add usage examples
 - Update installation if needed
@@ -139,6 +143,7 @@ When adding features:
 ### PR Description
 
 Include:
+
 - **What**: What changes were made
 - **Why**: Motivation for changes
 - **How**: How to test the changes
@@ -181,7 +186,7 @@ Include:
 
 - **GitHub Issues**: For bugs and features
 - **Discussions**: For questions and ideas
-- **Email**: jackburleson.dev@gmail.com
+- **Email**: <jackburleson.dev@gmail.com>
 
 ## Code of Conduct
 
@@ -197,6 +202,7 @@ By contributing, you agree that your contributions will be licensed under the MI
 ## Recognition
 
 Contributors will be:
+
 - Listed in CONTRIBUTORS.md
 - Credited in release notes
 - Appreciated in the community!
@@ -208,4 +214,3 @@ Thank you for contributing! 🎉
 - [Development Setup](Development-Setup)
 - [Testing Guide](Testing-Guide)
 - [Architecture Overview](Architecture-Overview)
-

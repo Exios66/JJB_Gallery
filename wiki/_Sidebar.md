@@ -19,6 +19,7 @@
 
 * [Architecture Overview](Architecture-Overview)
 * [API Reference](API-Reference)
+* [LLM Setup Guide](LLM-Setup)
 * [Development Setup](Development-Setup)
 * [Testing Guide](Testing-Guide)
 * [Contributing Guidelines](Contributing-Guidelines)

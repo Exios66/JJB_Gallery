@@ -85,6 +85,7 @@ class NASATLX:
 Send a chat message.
 
 **Request:**
+
 ```json
 {
   "message": "Hello, how are you?",
@@ -94,6 +95,7 @@ Send a chat message.
 ```
 
 **Response:**
+
 ```json
 {
   "role": "assistant",
@@ -112,6 +114,7 @@ Send a chat message.
 Send a chat message.
 
 **Request:**
+
 ```json
 {
   "message": "Hello, how are you?",
@@ -120,6 +123,7 @@ Send a chat message.
 ```
 
 **Response:**
+
 ```json
 {
   "conversation_id": "uuid-here",
@@ -141,6 +145,7 @@ Send a chat message.
 Get conversation history.
 
 **Response:**
+
 ```json
 {
   "conversation_id": "uuid-here",
@@ -164,6 +169,7 @@ Get conversation history.
 List all conversations.
 
 **Response:**
+
 ```json
 {
   "conversations": [
@@ -181,6 +187,7 @@ List all conversations.
 Delete a conversation.
 
 **Response:**
+
 ```json
 {
   "success": true
@@ -192,6 +199,7 @@ Delete a conversation.
 Health check.
 
 **Response:**
+
 ```json
 {
   "status": "healthy",
@@ -209,6 +217,7 @@ Health check.
 OpenAI-compatible chat completions.
 
 **Request:**
+
 ```json
 {
   "model": "gpt-3.5-turbo",
@@ -222,6 +231,7 @@ OpenAI-compatible chat completions.
 ```
 
 **Response:**
+
 ```json
 {
   "id": "chatcmpl-...",
@@ -251,6 +261,7 @@ OpenAI-compatible chat completions.
 Legacy completions endpoint.
 
 **Request:**
+
 ```json
 {
   "model": "gpt-3.5-turbo",
@@ -265,6 +276,7 @@ Legacy completions endpoint.
 List available models.
 
 **Response:**
+
 ```json
 {
   "data": [
@@ -284,6 +296,7 @@ List available models.
 Health check.
 
 **Response:**
+
 ```json
 {
   "status": "healthy",
@@ -296,6 +309,7 @@ Health check.
 Root endpoint.
 
 **Response:**
+
 ```json
 {
   "service": "LiteLLM Proxy Server",
@@ -342,6 +356,7 @@ result = crew.kickoff()
 **Endpoint**: `http://localhost:8501` (Streamlit)
 
 **Features**:
+
 - Select swarm type
 - Enter task description
 - View progress
@@ -425,4 +440,3 @@ export LITELLM_MASTER_KEY=sk-1234
 - [Project Overview](Project-Overview)
 - [Configuration Guide](Configuration-Guide)
 - [Architecture Overview](Architecture-Overview)
-
