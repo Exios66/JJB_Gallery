@@ -7,6 +7,12 @@ project:
     - SECURITY.md
     - projects/CrewAI/README.md
     - projects/terminal_agents/README.md
+    - projects/RAG_Model/README.md
+    - projects/Psychometrics/README.md
+    - projects/ChatUi/README.md
+    - projects/ios_chatbot/README.md
+    - projects/litellm/README.md
+    - projects/ruckus/README.md
     - Quarto/randomforest.qmd
 
 website:
@@ -19,9 +25,23 @@ website:
         text: CrewAI
       - href: projects/terminal_agents/README.md
         text: Terminal Agents
+      - href: projects/RAG_Model/README.md
+        text: RAG Model
+      - href: projects/Psychometrics/README.md
+        text: Psychometrics
+      - href: projects/ChatUi/README.md
+        text: ChatUi
+      - href: projects/ios_chatbot/README.md
+        text: iOS Chatbot
+      - href: projects/litellm/README.md
+        text: LiteLLM
+      - href: projects/ruckus/README.md
+        text: Ruckus
       - href: Quarto/randomforest.qmd
         text: Random Forests
     right:
+      - href: https://github.com/Exios66/JJB_Gallery/wiki
+        text: Wiki
       - icon: github
         href: https://github.com/Exios66/JJB_Gallery
   page-footer:
@@ -36,4 +56,8 @@ format:
     include-after-body: theme-switcher.html
     embed-resources: false
     max-width: 1200px
+
+execute:
+  timeout: 300
+  freeze: auto  # Use frozen results if available, execute if not
 

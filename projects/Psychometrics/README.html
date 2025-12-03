@@ -131,7 +131,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../../projects/CrewAI/README.html" aria-current="page"> 
+    <a class="nav-link" href="../../projects/CrewAI/README.html"> 
 <span class="menu-text">CrewAI</span></a>
   </li>  
   <li class="nav-item">
@@ -143,7 +143,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">RAG Model</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../projects/Psychometrics/README.html"> 
+    <a class="nav-link active" href="../../projects/Psychometrics/README.html" aria-current="page"> 
 <span class="menu-text">Psychometrics</span></a>
   </li>  
   <li class="nav-item">
@@ -192,51 +192,44 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#crewai-multi-agent-swarm-system" id="toc-crewai-multi-agent-swarm-system" class="nav-link active" data-scroll-target="#crewai-multi-agent-swarm-system">CrewAI Multi-Agent Swarm System</a>
+  <li><a href="#psychometric-assessment-applications" id="toc-psychometric-assessment-applications" class="nav-link active" data-scroll-target="#psychometric-assessment-applications">Psychometric Assessment Applications</a>
   <ul class="collapse">
-  <li><a href="#overview" id="toc-overview" class="nav-link" data-scroll-target="#overview">🤖 Overview</a></li>
-  <li><a href="#chat-interfaces" id="toc-chat-interfaces" class="nav-link" data-scroll-target="#chat-interfaces">🖥️ Chat Interfaces</a>
+  <li><a href="#overview" id="toc-overview" class="nav-link" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#features" id="toc-features" class="nav-link" data-scroll-target="#features">Features</a></li>
+  <li><a href="#nasa-task-load-index-tlx" id="toc-nasa-task-load-index-tlx" class="nav-link" data-scroll-target="#nasa-task-load-index-tlx">NASA Task Load Index (TLX)</a></li>
+  <li><a href="#installation" id="toc-installation" class="nav-link" data-scroll-target="#installation">Installation</a>
   <ul class="collapse">
-  <li><a href="#streamlit-web-app-recommended" id="toc-streamlit-web-app-recommended" class="nav-link" data-scroll-target="#streamlit-web-app-recommended">Streamlit Web App (Recommended)</a></li>
-  <li><a href="#terminal-cli" id="toc-terminal-cli" class="nav-link" data-scroll-target="#terminal-cli">Terminal CLI</a></li>
+  <li><a href="#basic-installation" id="toc-basic-installation" class="nav-link" data-scroll-target="#basic-installation">Basic Installation</a></li>
   </ul></li>
-  <li><a href="#available-agent-swarms" id="toc-available-agent-swarms" class="nav-link" data-scroll-target="#available-agent-swarms">🚀 Available Agent Swarms</a>
+  <li><a href="#usage" id="toc-usage" class="nav-link" data-scroll-target="#usage">Usage</a>
   <ul class="collapse">
-  <li><a href="#ml-analysis-swarm" id="toc-ml-analysis-swarm" class="nav-link" data-scroll-target="#ml-analysis-swarm">1. 🤖 ML Analysis Swarm</a></li>
-  <li><a href="#research-swarm" id="toc-research-swarm" class="nav-link" data-scroll-target="#research-swarm">2. 🔬 Research Swarm</a></li>
-  <li><a href="#academic-research-swarm" id="toc-academic-research-swarm" class="nav-link" data-scroll-target="#academic-research-swarm">3. 🎓 Academic Research Swarm</a></li>
-  <li><a href="#content-research-swarm" id="toc-content-research-swarm" class="nav-link" data-scroll-target="#content-research-swarm">4. 📝 Content Research Swarm</a></li>
-  <li><a href="#business-intelligence-swarm" id="toc-business-intelligence-swarm" class="nav-link" data-scroll-target="#business-intelligence-swarm">5. 💼 Business Intelligence Swarm</a></li>
-  <li><a href="#development-code-swarm" id="toc-development-code-swarm" class="nav-link" data-scroll-target="#development-code-swarm">6. 💻 Development &amp; Code Swarm</a></li>
-  <li><a href="#documentation-swarm" id="toc-documentation-swarm" class="nav-link" data-scroll-target="#documentation-swarm">7. 📚 Documentation Swarm</a></li>
+  <li><a href="#command-line-interface" id="toc-command-line-interface" class="nav-link" data-scroll-target="#command-line-interface">Command-Line Interface</a></li>
+  <li><a href="#programmatic-usage" id="toc-programmatic-usage" class="nav-link" data-scroll-target="#programmatic-usage">Programmatic Usage</a></li>
+  <li><a href="#export-results" id="toc-export-results" class="nav-link" data-scroll-target="#export-results">Export Results</a></li>
   </ul></li>
-  <li><a href="#installation" id="toc-installation" class="nav-link" data-scroll-target="#installation">🛠️ Installation</a>
+  <li><a href="#scoring-methods" id="toc-scoring-methods" class="nav-link" data-scroll-target="#scoring-methods">Scoring Methods</a>
   <ul class="collapse">
-  <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link" data-scroll-target="#prerequisites">Prerequisites</a></li>
-  <li><a href="#quick-setup" id="toc-quick-setup" class="nav-link" data-scroll-target="#quick-setup">Quick Setup</a></li>
+  <li><a href="#raw-tlx-score" id="toc-raw-tlx-score" class="nav-link" data-scroll-target="#raw-tlx-score">Raw TLX Score</a></li>
+  <li><a href="#weighted-tlx-score" id="toc-weighted-tlx-score" class="nav-link" data-scroll-target="#weighted-tlx-score">Weighted TLX Score</a></li>
   </ul></li>
-  <li><a href="#usage" id="toc-usage" class="nav-link" data-scroll-target="#usage">🚀 Usage</a>
+  <li><a href="#pairwise-comparisons" id="toc-pairwise-comparisons" class="nav-link" data-scroll-target="#pairwise-comparisons">Pairwise Comparisons</a></li>
+  <li><a href="#data-structure" id="toc-data-structure" class="nav-link" data-scroll-target="#data-structure">Data Structure</a>
   <ul class="collapse">
-  <li><a href="#command-line-interface" id="toc-command-line-interface" class="nav-link" data-scroll-target="#command-line-interface">Command Line Interface</a></li>
-  <li><a href="#streamlit-web-interface" id="toc-streamlit-web-interface" class="nav-link" data-scroll-target="#streamlit-web-interface">Streamlit Web Interface</a></li>
-  <li><a href="#cli-interface" id="toc-cli-interface" class="nav-link" data-scroll-target="#cli-interface">CLI Interface</a></li>
+  <li><a href="#tlxresult" id="toc-tlxresult" class="nav-link" data-scroll-target="#tlxresult">TLXResult</a></li>
   </ul></li>
-  <li><a href="#configuration" id="toc-configuration" class="nav-link" data-scroll-target="#configuration">⚙️ Configuration</a>
+  <li><a href="#statistical-analysis" id="toc-statistical-analysis" class="nav-link" data-scroll-target="#statistical-analysis">Statistical Analysis</a></li>
+  <li><a href="#use-cases" id="toc-use-cases" class="nav-link" data-scroll-target="#use-cases">Use Cases</a></li>
+  <li><a href="#interpretation-guidelines" id="toc-interpretation-guidelines" class="nav-link" data-scroll-target="#interpretation-guidelines">Interpretation Guidelines</a>
   <ul class="collapse">
-  <li><a href="#environment-variables" id="toc-environment-variables" class="nav-link" data-scroll-target="#environment-variables">Environment Variables</a></li>
+  <li><a href="#raw-tlx-scores" id="toc-raw-tlx-scores" class="nav-link" data-scroll-target="#raw-tlx-scores">Raw TLX Scores</a></li>
+  <li><a href="#dimension-analysis" id="toc-dimension-analysis" class="nav-link" data-scroll-target="#dimension-analysis">Dimension Analysis</a></li>
   </ul></li>
-  <li><a href="#output" id="toc-output" class="nav-link" data-scroll-target="#output">📊 Output</a></li>
-  <li><a href="#advanced-configuration" id="toc-advanced-configuration" class="nav-link" data-scroll-target="#advanced-configuration">🔧 Advanced Configuration</a>
-  <ul class="collapse">
-  <li><a href="#process-types" id="toc-process-types" class="nav-link" data-scroll-target="#process-types">Process Types</a></li>
-  <li><a href="#custom-agents" id="toc-custom-agents" class="nav-link" data-scroll-target="#custom-agents">Custom Agents</a></li>
-  <li><a href="#custom-tools" id="toc-custom-tools" class="nav-link" data-scroll-target="#custom-tools">Custom Tools</a></li>
-  </ul></li>
-  <li><a href="#testing" id="toc-testing" class="nav-link" data-scroll-target="#testing">🧪 Testing</a></li>
-  <li><a href="#documentation" id="toc-documentation" class="nav-link" data-scroll-target="#documentation">📚 Documentation</a></li>
-  <li><a href="#contributing" id="toc-contributing" class="nav-link" data-scroll-target="#contributing">🤝 Contributing</a></li>
-  <li><a href="#license" id="toc-license" class="nav-link" data-scroll-target="#license">📄 License</a></li>
-  <li><a href="#related-projects" id="toc-related-projects" class="nav-link" data-scroll-target="#related-projects">🔗 Related Projects</a></li>
+  <li><a href="#best-practices" id="toc-best-practices" class="nav-link" data-scroll-target="#best-practices">Best Practices</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  <li><a href="#license" id="toc-license" class="nav-link" data-scroll-target="#license">License</a></li>
+  <li><a href="#related-projects" id="toc-related-projects" class="nav-link" data-scroll-target="#related-projects">Related Projects</a></li>
+  <li><a href="#additional-resources" id="toc-additional-resources" class="nav-link" data-scroll-target="#additional-resources">Additional Resources</a></li>
+  <li><a href="#contributing" id="toc-contributing" class="nav-link" data-scroll-target="#contributing">Contributing</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -251,254 +244,291 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="crewai-multi-agent-swarm-system" class="level1">
-<h1>CrewAI Multi-Agent Swarm System</h1>
-<p>A comprehensive multi-agent framework using CrewAI, featuring multiple specialized agent swarms for different domains including machine learning, research, development, business intelligence, and documentation.</p>
+<section id="psychometric-assessment-applications" class="level1">
+<h1>Psychometric Assessment Applications</h1>
+<p>A comprehensive psychometric assessment toolkit implementing the NASA Task Load Index (TLX) and related workload measurement tools.</p>
 <section id="overview" class="level2">
-<h2 class="anchored" data-anchor-id="overview">🤖 Overview</h2>
-<p>This project implements a versatile multi-agent system where different specialized agent swarms collaborate on complex workflows. Each swarm contains domain-specific agents designed for particular tasks and industries.</p>
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<p>This project provides tools for conducting psychometric assessments, particularly focused on workload measurement using the NASA Task Load Index (TLX). The TLX is a widely-used tool for assessing the subjective workload experienced by users when performing tasks.</p>
 </section>
-<section id="chat-interfaces" class="level2">
-<h2 class="anchored" data-anchor-id="chat-interfaces">🖥️ Chat Interfaces</h2>
-<section id="streamlit-web-app-recommended" class="level3">
-<h3 class="anchored" data-anchor-id="streamlit-web-app-recommended">Streamlit Web App (Recommended)</h3>
-<p>Interact with the swarms using a modern chat interface.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">streamlit</span> run interface_web.py</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="terminal-cli" class="level3">
-<h3 class="anchored" data-anchor-id="terminal-cli">Terminal CLI</h3>
-<p>Interact via the command line.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> interface_cli.py</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-</section>
-<section id="available-agent-swarms" class="level2">
-<h2 class="anchored" data-anchor-id="available-agent-swarms">🚀 Available Agent Swarms</h2>
-<section id="ml-analysis-swarm" class="level3">
-<h3 class="anchored" data-anchor-id="ml-analysis-swarm">1. 🤖 ML Analysis Swarm</h3>
-<p><strong>Specialization</strong>: Random Forest and machine learning evaluation <strong>Agents</strong>: 5 specialized ML agents</p>
+<section id="features" class="level2">
+<h2 class="anchored" data-anchor-id="features">Features</h2>
 <ul>
-<li><strong>Data Analyst</strong>: Dataset exploration and preprocessing recommendations</li>
-<li><strong>Model Evaluator</strong>: Performance assessment and comparison analysis</li>
-<li><strong>Feature Engineer</strong>: Feature importance analysis and engineering suggestions</li>
-<li><strong>Hyperparameter Optimizer</strong>: Parameter tuning and optimization strategies</li>
-<li><strong>Report Writer</strong>: Comprehensive report generation for stakeholders</li>
+<li><strong>NASA TLX Implementation</strong>: Complete implementation of the NASA Task Load Index</li>
+<li><strong>Raw TLX Scores</strong>: Unweighted average of six workload dimensions</li>
+<li><strong>Weighted TLX Scores</strong>: Weighted scores based on pairwise comparisons</li>
+<li><strong>Interactive CLI</strong>: Command-line interface for data collection</li>
+<li><strong>Data Export</strong>: JSON export for analysis</li>
+<li><strong>Statistical Analysis</strong>: Aggregate statistics across multiple assessments</li>
 </ul>
 </section>
-<section id="research-swarm" class="level3">
-<h3 class="anchored" data-anchor-id="research-swarm">2. 🔬 Research Swarm</h3>
-<p><strong>Specialization</strong>: ML research, trends, and innovation <strong>Agents</strong>: 4 research-focused agents</p>
+<section id="nasa-task-load-index-tlx" class="level2">
+<h2 class="anchored" data-anchor-id="nasa-task-load-index-tlx">NASA Task Load Index (TLX)</h2>
+<p>The NASA TLX measures workload across six dimensions:</p>
+<ol type="1">
+<li><strong>Mental Demand</strong>: How mentally demanding was the task?</li>
+<li><strong>Physical Demand</strong>: How physically demanding was the task?</li>
+<li><strong>Temporal Demand</strong>: How hurried or rushed was the pace?</li>
+<li><strong>Performance</strong>: How successful were you in accomplishing the task?</li>
+<li><strong>Effort</strong>: How hard did you have to work?</li>
+<li><strong>Frustration</strong>: How insecure, discouraged, or annoyed were you?</li>
+</ol>
+<p>Each dimension is rated on a scale of 1-20, where:</p>
 <ul>
-<li><strong>Literature Reviewer</strong>: Academic paper analysis and scholarly research</li>
-<li><strong>Trend Analyzer</strong>: Industry trends and market developments</li>
-<li><strong>Innovation Scout</strong>: Novel applications and breakthrough technologies</li>
-<li><strong>Research Summarizer</strong>: Synthesis of research findings</li>
+<li>1 = Very Low</li>
+<li>20 = Very High</li>
 </ul>
-</section>
-<section id="academic-research-swarm" class="level3">
-<h3 class="anchored" data-anchor-id="academic-research-swarm">3. 🎓 Academic Research Swarm</h3>
-<p><strong>Specialization</strong>: Scholarly research and academic analysis <strong>Agents</strong>: 5 academic research agents</p>
-<ul>
-<li><strong>Literature Reviewer</strong>: Comprehensive academic literature review</li>
-<li><strong>Research Designer</strong>: Experimental design and methodology</li>
-<li><strong>Academic Data Analyst</strong>: Statistical analysis for research</li>
-<li><strong>Methodology Expert</strong>: Research methodology and best practices</li>
-<li><strong>Publication Writer</strong>: Academic writing and paper preparation</li>
-</ul>
-</section>
-<section id="content-research-swarm" class="level3">
-<h3 class="anchored" data-anchor-id="content-research-swarm">4. 📝 Content Research Swarm</h3>
-<p><strong>Specialization</strong>: Content creation and research <strong>Agents</strong>: Content-focused agents</p>
-<ul>
-<li><strong>Content Researcher</strong>: Research for content creation</li>
-<li><strong>Content Strategist</strong>: Content planning and strategy</li>
-<li><strong>Content Writer</strong>: Content generation and writing</li>
-</ul>
-</section>
-<section id="business-intelligence-swarm" class="level3">
-<h3 class="anchored" data-anchor-id="business-intelligence-swarm">5. 💼 Business Intelligence Swarm</h3>
-<p><strong>Specialization</strong>: Business analysis and intelligence <strong>Agents</strong>: Business-focused agents</p>
-<ul>
-<li><strong>Market Analyst</strong>: Market research and analysis</li>
-<li><strong>Business Strategist</strong>: Strategic business planning</li>
-<li><strong>Data Analyst</strong>: Business data analysis</li>
-</ul>
-</section>
-<section id="development-code-swarm" class="level3">
-<h3 class="anchored" data-anchor-id="development-code-swarm">6. 💻 Development &amp; Code Swarm</h3>
-<p><strong>Specialization</strong>: Software development and coding <strong>Agents</strong>: Development-focused agents</p>
-<ul>
-<li><strong>Code Reviewer</strong>: Code review and quality assessment</li>
-<li><strong>Developer</strong>: Code generation and implementation</li>
-<li><strong>Architect</strong>: System design and architecture</li>
-</ul>
-</section>
-<section id="documentation-swarm" class="level3">
-<h3 class="anchored" data-anchor-id="documentation-swarm">7. 📚 Documentation Swarm</h3>
-<p><strong>Specialization</strong>: Technical documentation <strong>Agents</strong>: Documentation-focused agents</p>
-<ul>
-<li><strong>Technical Writer</strong>: Technical documentation creation</li>
-<li><strong>Documentation Planner</strong>: Documentation structure and planning</li>
-<li><strong>Content Editor</strong>: Documentation editing and refinement</li>
-</ul>
-</section>
+<p>(Note: Performance is inverted - 1 = Perfect, 20 = Failure)</p>
 </section>
 <section id="installation" class="level2">
-<h2 class="anchored" data-anchor-id="installation">🛠️ Installation</h2>
-<section id="prerequisites" class="level3">
-<h3 class="anchored" data-anchor-id="prerequisites">Prerequisites</h3>
-<ul>
-<li>Python 3.8+</li>
-<li>LLM Provider (Ollama, OpenAI, Anthropic, Google, or Azure)</li>
-</ul>
-</section>
-<section id="quick-setup" class="level3">
-<h3 class="anchored" data-anchor-id="quick-setup">Quick Setup</h3>
-<ol type="1">
-<li><p><strong>Install dependencies:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> projects/Crewai</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">-r</span> requirements.txt</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
-<li><p><strong>Set up LLM provider</strong> (choose one):</p>
-<p><strong>Option 1: Ollama (Free, Recommended)</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install Ollama from https://ollama.ai</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">ollama</span> pull llama3.1:8b</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">OLLAMA_BASE_URL</span><span class="op">=</span>http://localhost:11434</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>Option 2: OpenAI</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">OPENAI_API_KEY</span><span class="op">=</span>your_api_key_here</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install langchain-openai</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>Option 3: Anthropic</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">ANTHROPIC_API_KEY</span><span class="op">=</span>your_api_key_here</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install langchain-anthropic</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>Option 4: Google</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">GOOGLE_API_KEY</span><span class="op">=</span>your_api_key_here</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install langchain-google-genai</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
-<li><p><strong>Optional: Web Search</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">SERPER_API_KEY</span><span class="op">=</span>your_serper_key  <span class="co"># Get free key at https://serper.dev</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
-</ol>
+<h2 class="anchored" data-anchor-id="installation">Installation</h2>
+<section id="basic-installation" class="level3">
+<h3 class="anchored" data-anchor-id="basic-installation">Basic Installation</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">-r</span> requirements.txt</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Note: The core functionality uses only Python standard library. Optional dependencies are for advanced analysis.</p>
 </section>
 </section>
 <section id="usage" class="level2">
-<h2 class="anchored" data-anchor-id="usage">🚀 Usage</h2>
+<h2 class="anchored" data-anchor-id="usage">Usage</h2>
 <section id="command-line-interface" class="level3">
-<h3 class="anchored" data-anchor-id="command-line-interface">Command Line Interface</h3>
-<p><strong>Run ML Analysis:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> main.py <span class="at">--run</span> ml</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>Run Research Swarm:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> main.py <span class="at">--run</span> research</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>Run Academic Research:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> main.py <span class="at">--run</span> research_academic</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>Run Business Intelligence:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> main.py <span class="at">--run</span> business_intelligence</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>Run Development &amp; Code:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> main.py <span class="at">--run</span> dev_code</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>Run Documentation:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> main.py <span class="at">--run</span> documentation</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>Check Status:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> main.py <span class="at">--status</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>List Available Crews:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> main.py <span class="at">--list-crews</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>Setup Environment:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> main.py <span class="at">--setup</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<h3 class="anchored" data-anchor-id="command-line-interface">Command-Line Interface</h3>
+<p>Run the interactive assessment tool:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> main.py</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The tool will guide you through:</p>
+<ol type="1">
+<li>Entering task and participant information</li>
+<li>Rating each of the six dimensions (1-20)</li>
+<li>Optional pairwise comparisons for weighted scores</li>
+<li>Viewing results</li>
+<li>Saving and exporting data</li>
+</ol>
 </section>
-<section id="streamlit-web-interface" class="level3">
-<h3 class="anchored" data-anchor-id="streamlit-web-interface">Streamlit Web Interface</h3>
-<p>Start the web interface:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="ex">streamlit</span> run interface_web.py</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Then open <code>http://localhost:8501</code> in your browser.</p>
+<section id="programmatic-usage" class="level3">
+<h3 class="anchored" data-anchor-id="programmatic-usage">Programmatic Usage</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> nasa_tlx <span class="im">import</span> NASATLX</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize system</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>tlx <span class="op">=</span> NASATLX()</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Create assessment</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> tlx.create_assessment(</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    task_name<span class="op">=</span><span class="st">"User Interface Evaluation"</span>,</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    participant_id<span class="op">=</span><span class="st">"P001"</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Add ratings</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>tlx.add_rating(</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    result,</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    mental_demand<span class="op">=</span><span class="dv">15</span>,</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    physical_demand<span class="op">=</span><span class="dv">3</span>,</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    temporal_demand<span class="op">=</span><span class="dv">12</span>,</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    performance<span class="op">=</span><span class="dv">5</span>,  <span class="co"># Inverted: lower is better</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>    effort<span class="op">=</span><span class="dv">14</span>,</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>    frustration<span class="op">=</span><span class="dv">8</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate raw TLX score</span></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>tlx.calculate_scores(result)</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Raw TLX Score: </span><span class="sc">{</span>result<span class="sc">.</span>raw_tlx_score<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Add pairwise comparisons for weighted score</span></span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>tlx.add_pairwise_comparison(</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>    result,</span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>    mental_vs_physical<span class="op">=</span><span class="dv">3</span>,  <span class="co"># Mental much more important</span></span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>    mental_vs_temporal<span class="op">=</span><span class="dv">1</span>,  <span class="co"># Mental slightly more important</span></span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>    <span class="co"># ... other comparisons</span></span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate weighted TLX score</span></span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>tlx.calculate_scores(result)</span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Weighted TLX Score: </span><span class="sc">{</span>result<span class="sc">.</span>weighted_tlx_score<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Weights: </span><span class="sc">{</span>result<span class="sc">.</span>weights<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a><span class="co"># Save result</span></span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>tlx.save_result(result)</span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a><span class="co"># Get statistics</span></span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a>stats <span class="op">=</span> tlx.get_statistics(<span class="st">"User Interface Evaluation"</span>)</span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Mean Raw TLX: </span><span class="sc">{</span>stats[<span class="st">'raw_tlx'</span>][<span class="st">'mean'</span>]<span class="sc">:.2f}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="cli-interface" class="level3">
-<h3 class="anchored" data-anchor-id="cli-interface">CLI Interface</h3>
-<p>Start the CLI interface:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> interface_cli.py</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="export-results" class="level3">
+<h3 class="anchored" data-anchor-id="export-results">Export Results</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Export to JSON</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>json_output <span class="op">=</span> result.to_json()</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">"assessment.json"</span>, <span class="st">"w"</span>) <span class="im">as</span> f:</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    f.write(json_output)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Or export as dictionary</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>result_dict <span class="op">=</span> result.to_dict()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
-<section id="configuration" class="level2">
-<h2 class="anchored" data-anchor-id="configuration">⚙️ Configuration</h2>
-<section id="environment-variables" class="level3">
-<h3 class="anchored" data-anchor-id="environment-variables">Environment Variables</h3>
-<p>Create a <code>.env</code> file or set environment variables:</p>
-<pre class="env"><code># LLM Provider (choose one)
-LLM_PROVIDER=ollama  # or openai, anthropic, google, azure
-
-# Ollama Configuration
-OLLAMA_BASE_URL=http://localhost:11434
-OLLAMA_MODEL=llama3.1:8b
-
-# OpenAI Configuration
-OPENAI_API_KEY=your_openai_key
-OPENAI_MODEL_NAME=gpt-4o-mini
-
-# Anthropic Configuration
-ANTHROPIC_API_KEY=your_anthropic_key
-ANTHROPIC_MODEL=claude-3-5-sonnet-20241022
-
-# Google Configuration
-GOOGLE_API_KEY=your_google_key
-GOOGLE_MODEL=gemini-pro
-
-# Azure OpenAI Configuration
-AZURE_OPENAI_API_KEY=your_azure_key
-AZURE_OPENAI_ENDPOINT=https://your-resource.openai.azure.com
-AZURE_OPENAI_DEPLOYMENT_NAME=your_deployment_name
-
-# Optional: Web Search
-SERPER_API_KEY=your_serper_key
-
-# System Configuration
-VERBOSE=true
-PROCESS_TYPE=sequential  # or hierarchical</code></pre>
+<section id="scoring-methods" class="level2">
+<h2 class="anchored" data-anchor-id="scoring-methods">Scoring Methods</h2>
+<section id="raw-tlx-score" class="level3">
+<h3 class="anchored" data-anchor-id="raw-tlx-score">Raw TLX Score</h3>
+<p>The raw TLX score is the unweighted average of all six dimension ratings:</p>
+<pre class="text"><code>Raw TLX = (Mental + Physical + Temporal + Performance + Effort + Frustration) / 6</code></pre>
+<p>Range: 1-20</p>
+</section>
+<section id="weighted-tlx-score" class="level3">
+<h3 class="anchored" data-anchor-id="weighted-tlx-score">Weighted TLX Score</h3>
+<p>The weighted TLX score uses pairwise comparisons to determine the relative importance of each dimension:</p>
+<ol type="1">
+<li>Compare each pair of dimensions (15 total comparisons)</li>
+<li>Count “wins” for each dimension</li>
+<li>Normalize to weights (0-1, sum to 1)</li>
+<li>Calculate weighted average:</li>
+</ol>
+<pre class="text"><code>
+Weighted TLX = Σ(Weight_i × Rating_i)</code></pre>
+<p>Range: 1-20</p>
 </section>
 </section>
-<section id="output" class="level2">
-<h2 class="anchored" data-anchor-id="output">📊 Output</h2>
-<p>Results are saved to the <code>outputs/</code> directory with: - Markdown reports - Analysis summaries - Generated documentation</p>
-</section>
-<section id="advanced-configuration" class="level2">
-<h2 class="anchored" data-anchor-id="advanced-configuration">🔧 Advanced Configuration</h2>
-<section id="process-types" class="level3">
-<h3 class="anchored" data-anchor-id="process-types">Process Types</h3>
+<section id="pairwise-comparisons" class="level2">
+<h2 class="anchored" data-anchor-id="pairwise-comparisons">Pairwise Comparisons</h2>
+<p>When collecting weighted TLX scores, participants compare each pair of dimensions:</p>
 <ul>
-<li><strong>Sequential</strong>: Agents work one after another</li>
-<li><strong>Hierarchical</strong>: Agents work in a hierarchical structure</li>
+<li><strong>+3</strong>: First dimension much more important</li>
+<li><strong>+2</strong>: First dimension moderately more important</li>
+<li><strong>+1</strong>: First dimension slightly more important</li>
+<li><strong>0</strong>: Equal importance (or skip)</li>
+<li><strong>-1</strong>: Second dimension slightly more important</li>
+<li><strong>-2</strong>: Second dimension moderately more important</li>
+<li><strong>-3</strong>: Second dimension much more important</li>
 </ul>
 </section>
-<section id="custom-agents" class="level3">
-<h3 class="anchored" data-anchor-id="custom-agents">Custom Agents</h3>
-<p>You can create custom agents by extending the base agent classes in <code>agents/</code>.</p>
+<section id="data-structure" class="level2">
+<h2 class="anchored" data-anchor-id="data-structure">Data Structure</h2>
+<section id="tlxresult" class="level3">
+<h3 class="anchored" data-anchor-id="tlxresult">TLXResult</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>{</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"task_name"</span>: <span class="st">"Task Name"</span>,</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"participant_id"</span>: <span class="st">"P001"</span>,</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"timestamp"</span>: <span class="st">"2024-01-15T10:30:00"</span>,</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"rating"</span>: {</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>        <span class="st">"mental_demand"</span>: <span class="dv">15</span>,</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>        <span class="st">"physical_demand"</span>: <span class="dv">3</span>,</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>        <span class="st">"temporal_demand"</span>: <span class="dv">12</span>,</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>        <span class="st">"performance"</span>: <span class="dv">5</span>,</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>        <span class="st">"effort"</span>: <span class="dv">14</span>,</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>        <span class="st">"frustration"</span>: <span class="dv">8</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>    },</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">"raw_tlx_score"</span>: <span class="fl">9.5</span>,</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">"weighted_tlx_score"</span>: <span class="fl">10.2</span>,</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">"dimension_scores"</span>: {</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>        <span class="st">"mental_demand"</span>: <span class="fl">2.5</span>,</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>        <span class="st">"physical_demand"</span>: <span class="fl">0.3</span>,</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>        ...</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>    },</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>    <span class="st">"weights"</span>: {</span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>        <span class="st">"mental_demand"</span>: <span class="fl">0.25</span>,</span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>        <span class="st">"physical_demand"</span>: <span class="fl">0.10</span>,</span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>        ...</span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="custom-tools" class="level3">
-<h3 class="anchored" data-anchor-id="custom-tools">Custom Tools</h3>
-<p>Add custom tools in the <code>tools/</code> directory.</p>
 </section>
+<section id="statistical-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="statistical-analysis">Statistical Analysis</h2>
+<p>Get aggregate statistics across multiple assessments:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>stats <span class="op">=</span> tlx.get_statistics(task_name<span class="op">=</span><span class="st">"User Interface Evaluation"</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Returns:</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>{</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"count"</span>: <span class="dv">10</span>,</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"raw_tlx"</span>: {</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>        <span class="st">"mean"</span>: <span class="fl">9.5</span>,</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>        <span class="st">"median"</span>: <span class="fl">9.2</span>,</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>        <span class="st">"stdev"</span>: <span class="fl">1.8</span>,</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>        <span class="st">"min"</span>: <span class="fl">7.0</span>,</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>        <span class="st">"max"</span>: <span class="fl">12.5</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>    },</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">"weighted_tlx"</span>: {</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>        <span class="st">"mean"</span>: <span class="fl">10.2</span>,</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>        <span class="st">"median"</span>: <span class="fl">10.0</span>,</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>        <span class="st">"stdev"</span>: <span class="fl">2.1</span>,</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>        <span class="st">"min"</span>: <span class="fl">7.5</span>,</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>        <span class="st">"max"</span>: <span class="fl">13.0</span></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="testing" class="level2">
-<h2 class="anchored" data-anchor-id="testing">🧪 Testing</h2>
-<p>Run tests:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> run_tests.py</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="documentation" class="level2">
-<h2 class="anchored" data-anchor-id="documentation">📚 Documentation</h2>
+<section id="use-cases" class="level2">
+<h2 class="anchored" data-anchor-id="use-cases">Use Cases</h2>
 <ul>
-<li><a href="LLM_SETUP.md">LLM Setup Guide</a></li>
-<li><a href="TOOLS_SUMMARY.md">Tools Summary</a></li>
-<li><a href="TEST_INSTRUCTIONS.md">Test Instructions</a></li>
+<li><strong>User Experience Research</strong>: Measure workload in UI/UX studies</li>
+<li><strong>Human Factors Engineering</strong>: Assess task difficulty and cognitive load</li>
+<li><strong>Product Testing</strong>: Compare workload across different product versions</li>
+<li><strong>Training Evaluation</strong>: Measure learning curve and task complexity</li>
+<li><strong>Ergonomic Assessment</strong>: Evaluate physical and mental demands</li>
+</ul>
+</section>
+<section id="interpretation-guidelines" class="level2">
+<h2 class="anchored" data-anchor-id="interpretation-guidelines">Interpretation Guidelines</h2>
+<section id="raw-tlx-scores" class="level3">
+<h3 class="anchored" data-anchor-id="raw-tlx-scores">Raw TLX Scores</h3>
+<ul>
+<li><strong>1-5</strong>: Very Low workload</li>
+<li><strong>6-10</strong>: Low to Moderate workload</li>
+<li><strong>11-15</strong>: Moderate to High workload</li>
+<li><strong>16-20</strong>: Very High workload</li>
+</ul>
+</section>
+<section id="dimension-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="dimension-analysis">Dimension Analysis</h3>
+<p>High scores in specific dimensions indicate:</p>
+<ul>
+<li><strong>Mental Demand</strong>: Complex cognitive tasks</li>
+<li><strong>Physical Demand</strong>: Physically strenuous tasks</li>
+<li><strong>Temporal Demand</strong>: Time pressure or rushed pace</li>
+<li><strong>Performance</strong>: Low success rate (inverted scale)</li>
+<li><strong>Effort</strong>: High exertion required</li>
+<li><strong>Frustration</strong>: Negative emotional response</li>
+</ul>
+</section>
+</section>
+<section id="best-practices" class="level2">
+<h2 class="anchored" data-anchor-id="best-practices">Best Practices</h2>
+<ol type="1">
+<li><strong>Consistent Administration</strong>: Use same instructions and scale for all participants</li>
+<li><strong>Post-Task Rating</strong>: Collect ratings immediately after task completion</li>
+<li><strong>Clear Instructions</strong>: Explain each dimension clearly</li>
+<li><strong>Multiple Assessments</strong>: Collect multiple data points for reliability</li>
+<li><strong>Context Documentation</strong>: Record task details and conditions</li>
+</ol>
+</section>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">References</h2>
+<ul>
+<li>Hart, S. G., &amp; Staveland, L. E. (1988). Development of NASA-TLX (Task Load Index): Results of empirical and theoretical research. <em>Advances in psychology</em>, 52, 139-183.</li>
+<li><a href="https://humansystems.arc.nasa.gov/groups/tlx/">NASA TLX Official Documentation</a></li>
+</ul>
+</section>
+<section id="license" class="level2">
+<h2 class="anchored" data-anchor-id="license">License</h2>
+<p>See main repository LICENSE file.</p>
+</section>
+<section id="related-projects" class="level2">
+<h2 class="anchored" data-anchor-id="related-projects">Related Projects</h2>
+<p>This project is part of the <a href="https://github.com/Exios66/JJB_Gallery">JJB Gallery</a> portfolio. Related projects include:</p>
+<ul>
+<li><a href="../../projects/RAG_Model/README.html">RAG Model</a> - Retrieval-Augmented Generation</li>
+<li><a href="../../projects/CrewAI/README.html">CrewAI</a> - Multi-Agent System</li>
+<li><a href="../../projects/ChatUi/README.html">ChatUi</a> - Modern Chat Interface</li>
+</ul>
+</section>
+<section id="additional-resources" class="level2">
+<h2 class="anchored" data-anchor-id="additional-resources">Additional Resources</h2>
+<ul>
+<li>📚 <a href="https://github.com/Exios66/JJB_Gallery/wiki">Project Wiki</a> - Comprehensive documentation</li>
+<li>📖 <a href="https://github.com/Exios66/JJB_Gallery/wiki/Psychometrics">Psychometrics Wiki Page</a> - Detailed project documentation</li>
+<li>🔧 <a href="https://github.com/Exios66/JJB_Gallery/wiki/Installation-Guide">Installation Guide</a> - Setup instructions</li>
+<li>🐛 <a href="https://github.com/Exios66/JJB_Gallery/wiki/Troubleshooting">Troubleshooting</a> - Common issues and solutions</li>
 </ul>
 </section>
 <section id="contributing" class="level2">
-<h2 class="anchored" data-anchor-id="contributing">🤝 Contributing</h2>
-<p>Contributions are welcome! Please feel free to submit a Pull Request.</p>
-</section>
-<section id="license" class="level2">
-<h2 class="anchored" data-anchor-id="license">📄 License</h2>
-<p>This project is part of the JJB Gallery portfolio. See the main repository LICENSE file.</p>
-</section>
-<section id="related-projects" class="level2">
-<h2 class="anchored" data-anchor-id="related-projects">🔗 Related Projects</h2>
-<ul>
-<li><a href="../../projects/ChatUi/README.html">ChatUI</a> - Chat interface</li>
-<li><a href="../../projects/RAG_Model/README.html">RAG Model</a> - Document Q&amp;A</li>
-<li><a href="../../projects/litellm/README.html">LiteLLM</a> - LLM proxy server</li>
-<li><a href="../../projects/terminal_agents/README.html">Terminal Agents</a> - Terminal AI agent</li>
-</ul>
+<h2 class="anchored" data-anchor-id="contributing">Contributing</h2>
+<p>Contributions welcome! Please see the main repository <a href="https://github.com/Exios66/JJB_Gallery/wiki/Contributing-Guidelines">Contributing Guidelines</a>.</p>
+<p>For issues, questions, or suggestions, please use the <a href="https://github.com/Exios66/JJB_Gallery/issues">GitHub Issues</a> page.</p>
 
 
 </section>

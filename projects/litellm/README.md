@@ -395,6 +395,25 @@ ollama serve
 
 See main repository LICENSE file.
 
+## Related Projects
+
+This project is part of the [JJB Gallery](https://github.com/Exios66/JJB_Gallery) portfolio. Related projects include:
+
+- [Ruckus](../ruckus/README.md) - LLM Fine-tuning Framework
+- [RAG Model](../RAG_Model/README.md) - Retrieval-Augmented Generation
+- [ChatUi](../ChatUi/README.md) - Modern Chat Interface
+- [iOS Chatbot](../ios_chatbot/README.md) - Flask-based Chatbot
+- [CrewAI](../CrewAI/README.md) - Multi-Agent System
+
+## Additional Resources
+
+- 📚 [Project Wiki](https://github.com/Exios66/JJB_Gallery/wiki) - Comprehensive documentation
+- 📖 [LiteLLM Integration Wiki Page](https://github.com/Exios66/JJB_Gallery/wiki/LiteLLM-Integration) - Detailed project documentation
+- 🔧 [LLM Setup Guide](https://github.com/Exios66/JJB_Gallery/wiki/LLM-Setup) - LLM configuration guide
+- 🐛 [Troubleshooting](https://github.com/Exios66/JJB_Gallery/wiki/Troubleshooting) - Common issues and solutions
+
 ## Contributing
 
-Contributions welcome! Please see the main repository contributing guidelines.
+Contributions welcome! Please see the main repository [Contributing Guidelines](https://github.com/Exios66/JJB_Gallery/wiki/Contributing-Guidelines).
+
+For issues, questions, or suggestions, please use the [GitHub Issues](https://github.com/Exios66/JJB_Gallery/issues) page.

@@ -280,6 +280,24 @@ See main repository LICENSE file.
 - [Sentence Transformers](https://www.sbert.net/)
 - [Ollama](https://ollama.ai)
 
+## Related Projects
+
+This project is part of the [JJB Gallery](https://github.com/Exios66/JJB_Gallery) portfolio. Related projects include:
+
+- [Ruckus](../ruckus/README.md) - LLM Fine-tuning Framework
+- [CrewAI](../CrewAI/README.md) - Multi-Agent System
+- [Terminal Agents](../terminal_agents/README.md) - AI Coding Assistant
+- [LiteLLM](../litellm/README.md) - Unified LLM API
+
+## Additional Resources
+
+- 📚 [Project Wiki](https://github.com/Exios66/JJB_Gallery/wiki) - Comprehensive documentation
+- 📖 [RAG Model Wiki Page](https://github.com/Exios66/JJB_Gallery/wiki/RAG-Model) - Detailed project documentation
+- 🔧 [Configuration Guide](https://github.com/Exios66/JJB_Gallery/wiki/Configuration-Guide) - Setup and configuration
+- 🐛 [Troubleshooting](https://github.com/Exios66/JJB_Gallery/wiki/Troubleshooting) - Common issues and solutions
+
 ## Contributing
 
-Contributions welcome! Please see the main repository contributing guidelines.
+Contributions welcome! Please see the main repository [Contributing Guidelines](https://github.com/Exios66/JJB_Gallery/wiki/Contributing-Guidelines).
+
+For issues, questions, or suggestions, please use the [GitHub Issues](https://github.com/Exios66/JJB_Gallery/issues) page.

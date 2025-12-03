@@ -25,6 +25,7 @@ ipywidgets
 nbconvert
 nbformat
 jupyter-contrib-nbextensions
+jupyter-cache
 shap
 crewai
 crewai-tools

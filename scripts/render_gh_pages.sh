@@ -143,6 +143,7 @@ clean_build_artifacts() {
         done
         
         # Remove old artifact directories (if they exist in root)
+        # These are legacy artifacts from previous builds and should be in _build/quarto/
         local old_dirs=(
             "$REPO_ROOT/site_libs"
             "$REPO_ROOT/index_files"
@@ -152,7 +153,7 @@ clean_build_artifacts() {
         for dir in "${old_dirs[@]}"; do
             if [[ -d "$dir" ]]; then
                 rm -rf "$dir"
-                log_warning "Removed old directory: $dir (should be in _build/quarto/)"
+                log_info "Cleaned up legacy artifact: $(basename "$dir") (artifacts should be in _build/quarto/)"
             fi
         done
         

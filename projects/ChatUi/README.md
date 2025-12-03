@@ -300,9 +300,27 @@ docker ps | grep mongo
 
 Check browser console and server logs for detailed error messages. Ensure your API keys are correctly set in `.env.local`.
 
+## Related Projects
+
+This project is part of the [JJB Gallery](https://github.com/Exios66/JJB_Gallery) portfolio. Related projects include:
+
+- [iOS Chatbot](../ios_chatbot/README.md) - Flask-based Chatbot
+- [LiteLLM](../litellm/README.md) - Unified LLM API
+- [RAG Model](../RAG_Model/README.md) - Retrieval-Augmented Generation
+- [CrewAI](../CrewAI/README.md) - Multi-Agent System
+
+## Additional Resources
+
+- 📚 [Project Wiki](https://github.com/Exios66/JJB_Gallery/wiki) - Comprehensive documentation
+- 📖 [ChatUi Wiki Page](https://github.com/Exios66/JJB_Gallery/wiki/ChatUi) - Detailed project documentation
+- 🔧 [Development Setup](https://github.com/Exios66/JJB_Gallery/wiki/Development-Setup) - Development environment setup
+- 🐛 [Troubleshooting](https://github.com/Exios66/JJB_Gallery/wiki/Troubleshooting) - Common issues and solutions
+
 ## Contributing
 
-Contributions welcome! Please see the main repository contributing guidelines.
+Contributions welcome! Please see the main repository [Contributing Guidelines](https://github.com/Exios66/JJB_Gallery/wiki/Contributing-Guidelines).
+
+For issues, questions, or suggestions, please use the [GitHub Issues](https://github.com/Exios66/JJB_Gallery/issues) page.
 
 ## License
 

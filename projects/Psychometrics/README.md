@@ -267,6 +267,23 @@ High scores in specific dimensions indicate:
 
 See main repository LICENSE file.
 
+## Related Projects
+
+This project is part of the [JJB Gallery](https://github.com/Exios66/JJB_Gallery) portfolio. Related projects include:
+
+- [RAG Model](../RAG_Model/README.md) - Retrieval-Augmented Generation
+- [CrewAI](../CrewAI/README.md) - Multi-Agent System
+- [ChatUi](../ChatUi/README.md) - Modern Chat Interface
+
+## Additional Resources
+
+- 📚 [Project Wiki](https://github.com/Exios66/JJB_Gallery/wiki) - Comprehensive documentation
+- 📖 [Psychometrics Wiki Page](https://github.com/Exios66/JJB_Gallery/wiki/Psychometrics) - Detailed project documentation
+- 🔧 [Installation Guide](https://github.com/Exios66/JJB_Gallery/wiki/Installation-Guide) - Setup instructions
+- 🐛 [Troubleshooting](https://github.com/Exios66/JJB_Gallery/wiki/Troubleshooting) - Common issues and solutions
+
 ## Contributing
 
-Contributions welcome! Please see the main repository contributing guidelines.
+Contributions welcome! Please see the main repository [Contributing Guidelines](https://github.com/Exios66/JJB_Gallery/wiki/Contributing-Guidelines).
+
+For issues, questions, or suggestions, please use the [GitHub Issues](https://github.com/Exios66/JJB_Gallery/issues) page.

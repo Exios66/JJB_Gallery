@@ -131,7 +131,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../../projects/CrewAI/README.html" aria-current="page"> 
+    <a class="nav-link" href="../../projects/CrewAI/README.html"> 
 <span class="menu-text">CrewAI</span></a>
   </li>  
   <li class="nav-item">
@@ -139,7 +139,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">Terminal Agents</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../projects/RAG_Model/README.html"> 
+    <a class="nav-link active" href="../../projects/RAG_Model/README.html" aria-current="page"> 
 <span class="menu-text">RAG Model</span></a>
   </li>  
   <li class="nav-item">
@@ -192,51 +192,51 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#crewai-multi-agent-swarm-system" id="toc-crewai-multi-agent-swarm-system" class="nav-link active" data-scroll-target="#crewai-multi-agent-swarm-system">CrewAI Multi-Agent Swarm System</a>
+  <li><a href="#rag-model-application" id="toc-rag-model-application" class="nav-link active" data-scroll-target="#rag-model-application">RAG Model Application</a>
   <ul class="collapse">
-  <li><a href="#overview" id="toc-overview" class="nav-link" data-scroll-target="#overview">🤖 Overview</a></li>
-  <li><a href="#chat-interfaces" id="toc-chat-interfaces" class="nav-link" data-scroll-target="#chat-interfaces">🖥️ Chat Interfaces</a>
-  <ul class="collapse">
-  <li><a href="#streamlit-web-app-recommended" id="toc-streamlit-web-app-recommended" class="nav-link" data-scroll-target="#streamlit-web-app-recommended">Streamlit Web App (Recommended)</a></li>
-  <li><a href="#terminal-cli" id="toc-terminal-cli" class="nav-link" data-scroll-target="#terminal-cli">Terminal CLI</a></li>
-  </ul></li>
-  <li><a href="#available-agent-swarms" id="toc-available-agent-swarms" class="nav-link" data-scroll-target="#available-agent-swarms">🚀 Available Agent Swarms</a>
-  <ul class="collapse">
-  <li><a href="#ml-analysis-swarm" id="toc-ml-analysis-swarm" class="nav-link" data-scroll-target="#ml-analysis-swarm">1. 🤖 ML Analysis Swarm</a></li>
-  <li><a href="#research-swarm" id="toc-research-swarm" class="nav-link" data-scroll-target="#research-swarm">2. 🔬 Research Swarm</a></li>
-  <li><a href="#academic-research-swarm" id="toc-academic-research-swarm" class="nav-link" data-scroll-target="#academic-research-swarm">3. 🎓 Academic Research Swarm</a></li>
-  <li><a href="#content-research-swarm" id="toc-content-research-swarm" class="nav-link" data-scroll-target="#content-research-swarm">4. 📝 Content Research Swarm</a></li>
-  <li><a href="#business-intelligence-swarm" id="toc-business-intelligence-swarm" class="nav-link" data-scroll-target="#business-intelligence-swarm">5. 💼 Business Intelligence Swarm</a></li>
-  <li><a href="#development-code-swarm" id="toc-development-code-swarm" class="nav-link" data-scroll-target="#development-code-swarm">6. 💻 Development &amp; Code Swarm</a></li>
-  <li><a href="#documentation-swarm" id="toc-documentation-swarm" class="nav-link" data-scroll-target="#documentation-swarm">7. 📚 Documentation Swarm</a></li>
-  </ul></li>
-  <li><a href="#installation" id="toc-installation" class="nav-link" data-scroll-target="#installation">🛠️ Installation</a>
+  <li><a href="#overview" id="toc-overview" class="nav-link" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#features" id="toc-features" class="nav-link" data-scroll-target="#features">Features</a></li>
+  <li><a href="#installation" id="toc-installation" class="nav-link" data-scroll-target="#installation">Installation</a>
   <ul class="collapse">
   <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link" data-scroll-target="#prerequisites">Prerequisites</a></li>
-  <li><a href="#quick-setup" id="toc-quick-setup" class="nav-link" data-scroll-target="#quick-setup">Quick Setup</a></li>
+  <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup">Setup</a></li>
   </ul></li>
-  <li><a href="#usage" id="toc-usage" class="nav-link" data-scroll-target="#usage">🚀 Usage</a>
+  <li><a href="#usage" id="toc-usage" class="nav-link" data-scroll-target="#usage">Usage</a>
   <ul class="collapse">
-  <li><a href="#command-line-interface" id="toc-command-line-interface" class="nav-link" data-scroll-target="#command-line-interface">Command Line Interface</a></li>
-  <li><a href="#streamlit-web-interface" id="toc-streamlit-web-interface" class="nav-link" data-scroll-target="#streamlit-web-interface">Streamlit Web Interface</a></li>
-  <li><a href="#cli-interface" id="toc-cli-interface" class="nav-link" data-scroll-target="#cli-interface">CLI Interface</a></li>
+  <li><a href="#basic-usage" id="toc-basic-usage" class="nav-link" data-scroll-target="#basic-usage">Basic Usage</a></li>
+  <li><a href="#programmatic-usage" id="toc-programmatic-usage" class="nav-link" data-scroll-target="#programmatic-usage">Programmatic Usage</a></li>
+  <li><a href="#adding-your-own-documents" id="toc-adding-your-own-documents" class="nav-link" data-scroll-target="#adding-your-own-documents">Adding Your Own Documents</a></li>
   </ul></li>
-  <li><a href="#configuration" id="toc-configuration" class="nav-link" data-scroll-target="#configuration">⚙️ Configuration</a>
+  <li><a href="#configuration" id="toc-configuration" class="nav-link" data-scroll-target="#configuration">Configuration</a></li>
+  <li><a href="#architecture" id="toc-architecture" class="nav-link" data-scroll-target="#architecture">Architecture</a></li>
+  <li><a href="#components" id="toc-components" class="nav-link" data-scroll-target="#components">Components</a>
   <ul class="collapse">
-  <li><a href="#environment-variables" id="toc-environment-variables" class="nav-link" data-scroll-target="#environment-variables">Environment Variables</a></li>
+  <li><a href="#rag_system.py" id="toc-rag_system.py" class="nav-link" data-scroll-target="#rag_system.py"><code>rag_system.py</code></a></li>
+  <li><a href="#main.py" id="toc-main.py" class="nav-link" data-scroll-target="#main.py"><code>main.py</code></a></li>
+  <li><a href="#config.py" id="toc-config.py" class="nav-link" data-scroll-target="#config.py"><code>config.py</code></a></li>
   </ul></li>
-  <li><a href="#output" id="toc-output" class="nav-link" data-scroll-target="#output">📊 Output</a></li>
-  <li><a href="#advanced-configuration" id="toc-advanced-configuration" class="nav-link" data-scroll-target="#advanced-configuration">🔧 Advanced Configuration</a>
+  <li><a href="#supported-file-formats" id="toc-supported-file-formats" class="nav-link" data-scroll-target="#supported-file-formats">Supported File Formats</a></li>
+  <li><a href="#vector-database" id="toc-vector-database" class="nav-link" data-scroll-target="#vector-database">Vector Database</a></li>
+  <li><a href="#embedding-models" id="toc-embedding-models" class="nav-link" data-scroll-target="#embedding-models">Embedding Models</a></li>
+  <li><a href="#llm-integration" id="toc-llm-integration" class="nav-link" data-scroll-target="#llm-integration">LLM Integration</a></li>
+  <li><a href="#performance-tips" id="toc-performance-tips" class="nav-link" data-scroll-target="#performance-tips">Performance Tips</a></li>
+  <li><a href="#troubleshooting" id="toc-troubleshooting" class="nav-link" data-scroll-target="#troubleshooting">Troubleshooting</a>
   <ul class="collapse">
-  <li><a href="#process-types" id="toc-process-types" class="nav-link" data-scroll-target="#process-types">Process Types</a></li>
-  <li><a href="#custom-agents" id="toc-custom-agents" class="nav-link" data-scroll-target="#custom-agents">Custom Agents</a></li>
-  <li><a href="#custom-tools" id="toc-custom-tools" class="nav-link" data-scroll-target="#custom-tools">Custom Tools</a></li>
+  <li><a href="#import-errors" id="toc-import-errors" class="nav-link" data-scroll-target="#import-errors">Import Errors</a></li>
+  <li><a href="#ollama-connection-issues" id="toc-ollama-connection-issues" class="nav-link" data-scroll-target="#ollama-connection-issues">Ollama Connection Issues</a></li>
+  <li><a href="#memory-issues" id="toc-memory-issues" class="nav-link" data-scroll-target="#memory-issues">Memory Issues</a></li>
   </ul></li>
-  <li><a href="#testing" id="toc-testing" class="nav-link" data-scroll-target="#testing">🧪 Testing</a></li>
-  <li><a href="#documentation" id="toc-documentation" class="nav-link" data-scroll-target="#documentation">📚 Documentation</a></li>
-  <li><a href="#contributing" id="toc-contributing" class="nav-link" data-scroll-target="#contributing">🤝 Contributing</a></li>
-  <li><a href="#license" id="toc-license" class="nav-link" data-scroll-target="#license">📄 License</a></li>
-  <li><a href="#related-projects" id="toc-related-projects" class="nav-link" data-scroll-target="#related-projects">🔗 Related Projects</a></li>
+  <li><a href="#examples" id="toc-examples" class="nav-link" data-scroll-target="#examples">Examples</a>
+  <ul class="collapse">
+  <li><a href="#example-1-simple-query" id="toc-example-1-simple-query" class="nav-link" data-scroll-target="#example-1-simple-query">Example 1: Simple Query</a></li>
+  <li><a href="#example-2-custom-configuration" id="toc-example-2-custom-configuration" class="nav-link" data-scroll-target="#example-2-custom-configuration">Example 2: Custom Configuration</a></li>
+  <li><a href="#example-3-batch-processing" id="toc-example-3-batch-processing" class="nav-link" data-scroll-target="#example-3-batch-processing">Example 3: Batch Processing</a></li>
+  </ul></li>
+  <li><a href="#license" id="toc-license" class="nav-link" data-scroll-target="#license">License</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  <li><a href="#related-projects" id="toc-related-projects" class="nav-link" data-scroll-target="#related-projects">Related Projects</a></li>
+  <li><a href="#additional-resources" id="toc-additional-resources" class="nav-link" data-scroll-target="#additional-resources">Additional Resources</a></li>
+  <li><a href="#contributing" id="toc-contributing" class="nav-link" data-scroll-target="#contributing">Contributing</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -251,254 +251,303 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="crewai-multi-agent-swarm-system" class="level1">
-<h1>CrewAI Multi-Agent Swarm System</h1>
-<p>A comprehensive multi-agent framework using CrewAI, featuring multiple specialized agent swarms for different domains including machine learning, research, development, business intelligence, and documentation.</p>
+<section id="rag-model-application" class="level1">
+<h1>RAG Model Application</h1>
+<p>A complete Retrieval-Augmented Generation (RAG) system implementation with vector database, embeddings, and intelligent document retrieval.</p>
 <section id="overview" class="level2">
-<h2 class="anchored" data-anchor-id="overview">🤖 Overview</h2>
-<p>This project implements a versatile multi-agent system where different specialized agent swarms collaborate on complex workflows. Each swarm contains domain-specific agents designed for particular tasks and industries.</p>
-</section>
-<section id="chat-interfaces" class="level2">
-<h2 class="anchored" data-anchor-id="chat-interfaces">🖥️ Chat Interfaces</h2>
-<section id="streamlit-web-app-recommended" class="level3">
-<h3 class="anchored" data-anchor-id="streamlit-web-app-recommended">Streamlit Web App (Recommended)</h3>
-<p>Interact with the swarms using a modern chat interface.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">streamlit</span> run interface_web.py</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="terminal-cli" class="level3">
-<h3 class="anchored" data-anchor-id="terminal-cli">Terminal CLI</h3>
-<p>Interact via the command line.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> interface_cli.py</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-</section>
-<section id="available-agent-swarms" class="level2">
-<h2 class="anchored" data-anchor-id="available-agent-swarms">🚀 Available Agent Swarms</h2>
-<section id="ml-analysis-swarm" class="level3">
-<h3 class="anchored" data-anchor-id="ml-analysis-swarm">1. 🤖 ML Analysis Swarm</h3>
-<p><strong>Specialization</strong>: Random Forest and machine learning evaluation <strong>Agents</strong>: 5 specialized ML agents</p>
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<p>This project implements a full RAG pipeline that:</p>
 <ul>
-<li><strong>Data Analyst</strong>: Dataset exploration and preprocessing recommendations</li>
-<li><strong>Model Evaluator</strong>: Performance assessment and comparison analysis</li>
-<li><strong>Feature Engineer</strong>: Feature importance analysis and engineering suggestions</li>
-<li><strong>Hyperparameter Optimizer</strong>: Parameter tuning and optimization strategies</li>
-<li><strong>Report Writer</strong>: Comprehensive report generation for stakeholders</li>
+<li>Ingests and processes documents</li>
+<li>Creates embeddings using transformer models</li>
+<li>Stores embeddings in a vector database (FAISS)</li>
+<li>Retrieves relevant documents for queries</li>
+<li>Generates answers using retrieved context</li>
 </ul>
 </section>
-<section id="research-swarm" class="level3">
-<h3 class="anchored" data-anchor-id="research-swarm">2. 🔬 Research Swarm</h3>
-<p><strong>Specialization</strong>: ML research, trends, and innovation <strong>Agents</strong>: 4 research-focused agents</p>
+<section id="features" class="level2">
+<h2 class="anchored" data-anchor-id="features">Features</h2>
 <ul>
-<li><strong>Literature Reviewer</strong>: Academic paper analysis and scholarly research</li>
-<li><strong>Trend Analyzer</strong>: Industry trends and market developments</li>
-<li><strong>Innovation Scout</strong>: Novel applications and breakthrough technologies</li>
-<li><strong>Research Summarizer</strong>: Synthesis of research findings</li>
+<li><strong>Document Processing</strong>: Supports TXT, MD, and JSON files</li>
+<li><strong>Vector Database</strong>: Uses FAISS for efficient similarity search</li>
+<li><strong>Embeddings</strong>: Sentence transformers for high-quality embeddings</li>
+<li><strong>Retrieval</strong>: Semantic search with configurable top-k retrieval</li>
+<li><strong>Generation</strong>: Integration with Ollama for local LLM inference</li>
+<li><strong>Interactive CLI</strong>: Command-line interface for querying</li>
 </ul>
-</section>
-<section id="academic-research-swarm" class="level3">
-<h3 class="anchored" data-anchor-id="academic-research-swarm">3. 🎓 Academic Research Swarm</h3>
-<p><strong>Specialization</strong>: Scholarly research and academic analysis <strong>Agents</strong>: 5 academic research agents</p>
-<ul>
-<li><strong>Literature Reviewer</strong>: Comprehensive academic literature review</li>
-<li><strong>Research Designer</strong>: Experimental design and methodology</li>
-<li><strong>Academic Data Analyst</strong>: Statistical analysis for research</li>
-<li><strong>Methodology Expert</strong>: Research methodology and best practices</li>
-<li><strong>Publication Writer</strong>: Academic writing and paper preparation</li>
-</ul>
-</section>
-<section id="content-research-swarm" class="level3">
-<h3 class="anchored" data-anchor-id="content-research-swarm">4. 📝 Content Research Swarm</h3>
-<p><strong>Specialization</strong>: Content creation and research <strong>Agents</strong>: Content-focused agents</p>
-<ul>
-<li><strong>Content Researcher</strong>: Research for content creation</li>
-<li><strong>Content Strategist</strong>: Content planning and strategy</li>
-<li><strong>Content Writer</strong>: Content generation and writing</li>
-</ul>
-</section>
-<section id="business-intelligence-swarm" class="level3">
-<h3 class="anchored" data-anchor-id="business-intelligence-swarm">5. 💼 Business Intelligence Swarm</h3>
-<p><strong>Specialization</strong>: Business analysis and intelligence <strong>Agents</strong>: Business-focused agents</p>
-<ul>
-<li><strong>Market Analyst</strong>: Market research and analysis</li>
-<li><strong>Business Strategist</strong>: Strategic business planning</li>
-<li><strong>Data Analyst</strong>: Business data analysis</li>
-</ul>
-</section>
-<section id="development-code-swarm" class="level3">
-<h3 class="anchored" data-anchor-id="development-code-swarm">6. 💻 Development &amp; Code Swarm</h3>
-<p><strong>Specialization</strong>: Software development and coding <strong>Agents</strong>: Development-focused agents</p>
-<ul>
-<li><strong>Code Reviewer</strong>: Code review and quality assessment</li>
-<li><strong>Developer</strong>: Code generation and implementation</li>
-<li><strong>Architect</strong>: System design and architecture</li>
-</ul>
-</section>
-<section id="documentation-swarm" class="level3">
-<h3 class="anchored" data-anchor-id="documentation-swarm">7. 📚 Documentation Swarm</h3>
-<p><strong>Specialization</strong>: Technical documentation <strong>Agents</strong>: Documentation-focused agents</p>
-<ul>
-<li><strong>Technical Writer</strong>: Technical documentation creation</li>
-<li><strong>Documentation Planner</strong>: Documentation structure and planning</li>
-<li><strong>Content Editor</strong>: Documentation editing and refinement</li>
-</ul>
-</section>
 </section>
 <section id="installation" class="level2">
-<h2 class="anchored" data-anchor-id="installation">🛠️ Installation</h2>
+<h2 class="anchored" data-anchor-id="installation">Installation</h2>
 <section id="prerequisites" class="level3">
 <h3 class="anchored" data-anchor-id="prerequisites">Prerequisites</h3>
 <ul>
 <li>Python 3.8+</li>
-<li>LLM Provider (Ollama, OpenAI, Anthropic, Google, or Azure)</li>
+<li>Ollama (for LLM generation) - <a href="https://ollama.ai">Install Ollama</a></li>
 </ul>
 </section>
-<section id="quick-setup" class="level3">
-<h3 class="anchored" data-anchor-id="quick-setup">Quick Setup</h3>
+<section id="setup" class="level3">
+<h3 class="anchored" data-anchor-id="setup">Setup</h3>
 <ol type="1">
-<li><p><strong>Install dependencies:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> projects/Crewai</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">-r</span> requirements.txt</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
-<li><p><strong>Set up LLM provider</strong> (choose one):</p>
-<p><strong>Option 1: Ollama (Free, Recommended)</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install Ollama from https://ollama.ai</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">ollama</span> pull llama3.1:8b</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">OLLAMA_BASE_URL</span><span class="op">=</span>http://localhost:11434</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>Option 2: OpenAI</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">OPENAI_API_KEY</span><span class="op">=</span>your_api_key_here</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install langchain-openai</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>Option 3: Anthropic</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">ANTHROPIC_API_KEY</span><span class="op">=</span>your_api_key_here</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install langchain-anthropic</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>Option 4: Google</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">GOOGLE_API_KEY</span><span class="op">=</span>your_api_key_here</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install langchain-google-genai</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
-<li><p><strong>Optional: Web Search</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">SERPER_API_KEY</span><span class="op">=</span>your_serper_key  <span class="co"># Get free key at https://serper.dev</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+<li>Install dependencies:</li>
 </ol>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">-r</span> requirements.txt</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ol start="2" type="1">
+<li>(Optional) Install and start Ollama for LLM generation:</li>
+</ol>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install Ollama from https://ollama.ai</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Then pull a model:</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">ollama</span> pull llama3.1:8b</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
 <section id="usage" class="level2">
-<h2 class="anchored" data-anchor-id="usage">🚀 Usage</h2>
-<section id="command-line-interface" class="level3">
-<h3 class="anchored" data-anchor-id="command-line-interface">Command Line Interface</h3>
-<p><strong>Run ML Analysis:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> main.py <span class="at">--run</span> ml</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>Run Research Swarm:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> main.py <span class="at">--run</span> research</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>Run Academic Research:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> main.py <span class="at">--run</span> research_academic</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>Run Business Intelligence:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> main.py <span class="at">--run</span> business_intelligence</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>Run Development &amp; Code:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> main.py <span class="at">--run</span> dev_code</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>Run Documentation:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> main.py <span class="at">--run</span> documentation</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>Check Status:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> main.py <span class="at">--status</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>List Available Crews:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> main.py <span class="at">--list-crews</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>Setup Environment:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> main.py <span class="at">--setup</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<h2 class="anchored" data-anchor-id="usage">Usage</h2>
+<section id="basic-usage" class="level3">
+<h3 class="anchored" data-anchor-id="basic-usage">Basic Usage</h3>
+<p>Run the interactive query interface:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> main.py</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The system will:</p>
+<ol type="1">
+<li>Create sample documents if none exist</li>
+<li>Build or load the vector store</li>
+<li>Start an interactive query session</li>
+</ol>
 </section>
-<section id="streamlit-web-interface" class="level3">
-<h3 class="anchored" data-anchor-id="streamlit-web-interface">Streamlit Web Interface</h3>
-<p>Start the web interface:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="ex">streamlit</span> run interface_web.py</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Then open <code>http://localhost:8501</code> in your browser.</p>
+<section id="programmatic-usage" class="level3">
+<h3 class="anchored" data-anchor-id="programmatic-usage">Programmatic Usage</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> rag_system <span class="im">import</span> RAGSystem</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize RAG system</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>rag <span class="op">=</span> RAGSystem(</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    embedding_model<span class="op">=</span><span class="st">"sentence-transformers/all-MiniLM-L6-v2"</span>,</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    vector_store_path<span class="op">=</span><span class="st">"vector_store"</span>,</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    llm_model<span class="op">=</span><span class="st">"llama3.1:8b"</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Load or create vector store</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>documents <span class="op">=</span> rag.load_documents([<span class="st">"doc1.txt"</span>, <span class="st">"doc2.txt"</span>])</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>rag.create_vector_store(documents, save<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Query the system</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> rag.query(<span class="st">"What is RAG?"</span>, k<span class="op">=</span><span class="dv">5</span>)</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(result[<span class="st">'answer'</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="cli-interface" class="level3">
-<h3 class="anchored" data-anchor-id="cli-interface">CLI Interface</h3>
-<p>Start the CLI interface:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> interface_cli.py</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="adding-your-own-documents" class="level3">
+<h3 class="anchored" data-anchor-id="adding-your-own-documents">Adding Your Own Documents</h3>
+<ol type="1">
+<li>Place documents in the <code>documents/</code> directory (or any directory)</li>
+<li>Update the code to load your documents:</li>
+</ol>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>file_paths <span class="op">=</span> [</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"documents/my_doc1.txt"</span>,</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"documents/my_doc2.md"</span>,</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"documents/data.json"</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>documents <span class="op">=</span> rag.load_documents(file_paths)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>rag.create_vector_store(documents, save<span class="op">=</span><span class="va">True</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
 <section id="configuration" class="level2">
-<h2 class="anchored" data-anchor-id="configuration">⚙️ Configuration</h2>
-<section id="environment-variables" class="level3">
-<h3 class="anchored" data-anchor-id="environment-variables">Environment Variables</h3>
-<p>Create a <code>.env</code> file or set environment variables:</p>
-<pre class="env"><code># LLM Provider (choose one)
-LLM_PROVIDER=ollama  # or openai, anthropic, google, azure
-
-# Ollama Configuration
-OLLAMA_BASE_URL=http://localhost:11434
-OLLAMA_MODEL=llama3.1:8b
-
-# OpenAI Configuration
-OPENAI_API_KEY=your_openai_key
-OPENAI_MODEL_NAME=gpt-4o-mini
-
-# Anthropic Configuration
-ANTHROPIC_API_KEY=your_anthropic_key
-ANTHROPIC_MODEL=claude-3-5-sonnet-20241022
-
-# Google Configuration
-GOOGLE_API_KEY=your_google_key
-GOOGLE_MODEL=gemini-pro
-
-# Azure OpenAI Configuration
-AZURE_OPENAI_API_KEY=your_azure_key
-AZURE_OPENAI_ENDPOINT=https://your-resource.openai.azure.com
-AZURE_OPENAI_DEPLOYMENT_NAME=your_deployment_name
-
-# Optional: Web Search
-SERPER_API_KEY=your_serper_key
-
-# System Configuration
-VERBOSE=true
-PROCESS_TYPE=sequential  # or hierarchical</code></pre>
+<h2 class="anchored" data-anchor-id="configuration">Configuration</h2>
+<p>Set environment variables to customize behavior:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">RAG_EMBEDDING_MODEL</span><span class="op">=</span><span class="st">"sentence-transformers/all-MiniLM-L6-v2"</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">RAG_LLM_MODEL</span><span class="op">=</span><span class="st">"llama3.1:8b"</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">RAG_CHUNK_SIZE</span><span class="op">=</span>1000</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">RAG_CHUNK_OVERLAP</span><span class="op">=</span>200</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">RAG_DEFAULT_K</span><span class="op">=</span>5</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">RAG_VECTOR_STORE_PATH</span><span class="op">=</span><span class="st">"vector_store"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Or use the config module:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> config <span class="im">import</span> config</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(config.EMBEDDING_MODEL)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(config.CHUNK_SIZE)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
+<section id="architecture" class="level2">
+<h2 class="anchored" data-anchor-id="architecture">Architecture</h2>
+<pre><code>┌─────────────┐
+│  Documents  │
+└──────┬──────┘
+       │
+       ▼
+┌─────────────┐
+│ Text Split  │
+└──────┬──────┘
+       │
+       ▼
+┌─────────────┐
+│ Embeddings  │
+└──────┬──────┘
+       │
+       ▼
+┌─────────────┐
+│Vector Store │
+│   (FAISS)   │
+└──────┬──────┘
+       │
+       ▼
+┌─────────────┐
+│  Retrieval   │
+└──────┬──────┘
+       │
+       ▼
+┌─────────────┐
+│ Generation  │
+│   (LLM)     │
+└─────────────┘</code></pre>
 </section>
-<section id="output" class="level2">
-<h2 class="anchored" data-anchor-id="output">📊 Output</h2>
-<p>Results are saved to the <code>outputs/</code> directory with: - Markdown reports - Analysis summaries - Generated documentation</p>
-</section>
-<section id="advanced-configuration" class="level2">
-<h2 class="anchored" data-anchor-id="advanced-configuration">🔧 Advanced Configuration</h2>
-<section id="process-types" class="level3">
-<h3 class="anchored" data-anchor-id="process-types">Process Types</h3>
+<section id="components" class="level2">
+<h2 class="anchored" data-anchor-id="components">Components</h2>
+<section id="rag_system.py" class="level3">
+<h3 class="anchored" data-anchor-id="rag_system.py"><code>rag_system.py</code></h3>
+<p>Core RAG implementation with:</p>
 <ul>
-<li><strong>Sequential</strong>: Agents work one after another</li>
-<li><strong>Hierarchical</strong>: Agents work in a hierarchical structure</li>
+<li>Document loading and processing</li>
+<li>Embedding generation</li>
+<li>Vector store management</li>
+<li>Retrieval and generation</li>
 </ul>
 </section>
-<section id="custom-agents" class="level3">
-<h3 class="anchored" data-anchor-id="custom-agents">Custom Agents</h3>
-<p>You can create custom agents by extending the base agent classes in <code>agents/</code>.</p>
+<section id="main.py" class="level3">
+<h3 class="anchored" data-anchor-id="main.py"><code>main.py</code></h3>
+<p>Command-line interface and demo application</p>
 </section>
-<section id="custom-tools" class="level3">
-<h3 class="anchored" data-anchor-id="custom-tools">Custom Tools</h3>
-<p>Add custom tools in the <code>tools/</code> directory.</p>
+<section id="config.py" class="level3">
+<h3 class="anchored" data-anchor-id="config.py"><code>config.py</code></h3>
+<p>Configuration management</p>
 </section>
 </section>
-<section id="testing" class="level2">
-<h2 class="anchored" data-anchor-id="testing">🧪 Testing</h2>
-<p>Run tests:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> run_tests.py</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="documentation" class="level2">
-<h2 class="anchored" data-anchor-id="documentation">📚 Documentation</h2>
+<section id="supported-file-formats" class="level2">
+<h2 class="anchored" data-anchor-id="supported-file-formats">Supported File Formats</h2>
 <ul>
-<li><a href="LLM_SETUP.md">LLM Setup Guide</a></li>
-<li><a href="TOOLS_SUMMARY.md">Tools Summary</a></li>
-<li><a href="TEST_INSTRUCTIONS.md">Test Instructions</a></li>
+<li><strong>TXT</strong>: Plain text files</li>
+<li><strong>MD</strong>: Markdown files</li>
+<li><strong>JSON</strong>: JSON data files</li>
+</ul>
+</section>
+<section id="vector-database" class="level2">
+<h2 class="anchored" data-anchor-id="vector-database">Vector Database</h2>
+<p>The system uses FAISS (Facebook AI Similarity Search) for efficient vector storage and retrieval. FAISS supports:</p>
+<ul>
+<li>Fast similarity search</li>
+<li>Scalable to millions of vectors</li>
+<li>CPU and GPU support</li>
+<li>Various indexing methods</li>
+</ul>
+</section>
+<section id="embedding-models" class="level2">
+<h2 class="anchored" data-anchor-id="embedding-models">Embedding Models</h2>
+<p>Default: <code>sentence-transformers/all-MiniLM-L6-v2</code></p>
+<p>You can use any sentence transformer model:</p>
+<ul>
+<li><code>all-MiniLM-L6-v2</code> (default, fast, 384 dims)</li>
+<li><code>all-mpnet-base-v2</code> (better quality, 768 dims)</li>
+<li><code>all-MiniLM-L12-v2</code> (larger, 384 dims)</li>
+</ul>
+</section>
+<section id="llm-integration" class="level2">
+<h2 class="anchored" data-anchor-id="llm-integration">LLM Integration</h2>
+<p>The system integrates with Ollama for local LLM inference. Supported models:</p>
+<ul>
+<li><code>llama3.1:8b</code> (default)</li>
+<li><code>mistral:7b</code></li>
+<li><code>codellama:13b</code></li>
+<li>Any Ollama-compatible model</li>
+</ul>
+</section>
+<section id="performance-tips" class="level2">
+<h2 class="anchored" data-anchor-id="performance-tips">Performance Tips</h2>
+<ol type="1">
+<li><strong>Chunk Size</strong>: Adjust based on your documents (500-2000 tokens)</li>
+<li><strong>Overlap</strong>: Use 10-20% overlap for better context</li>
+<li><strong>Top-K</strong>: Start with k=5, adjust based on results</li>
+<li><strong>Embedding Model</strong>: Larger models = better quality but slower</li>
+<li><strong>Vector Store</strong>: Use GPU FAISS for large datasets</li>
+</ol>
+</section>
+<section id="troubleshooting" class="level2">
+<h2 class="anchored" data-anchor-id="troubleshooting">Troubleshooting</h2>
+<section id="import-errors" class="level3">
+<h3 class="anchored" data-anchor-id="import-errors">Import Errors</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install langchain faiss-cpu sentence-transformers</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="ollama-connection-issues" class="level3">
+<h3 class="anchored" data-anchor-id="ollama-connection-issues">Ollama Connection Issues</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check if Ollama is running</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> http://localhost:11434/api/tags</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Start Ollama if needed</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="ex">ollama</span> serve</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="memory-issues" class="level3">
+<h3 class="anchored" data-anchor-id="memory-issues">Memory Issues</h3>
+<ul>
+<li>Reduce chunk size</li>
+<li>Use smaller embedding model</li>
+<li>Process documents in batches</li>
+</ul>
+</section>
+</section>
+<section id="examples" class="level2">
+<h2 class="anchored" data-anchor-id="examples">Examples</h2>
+<section id="example-1-simple-query" class="level3">
+<h3 class="anchored" data-anchor-id="example-1-simple-query">Example 1: Simple Query</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>rag <span class="op">=</span> RAGSystem()</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>rag.load_vector_store()</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> rag.query(<span class="st">"What is machine learning?"</span>)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(result[<span class="st">'answer'</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="example-2-custom-configuration" class="level3">
+<h3 class="anchored" data-anchor-id="example-2-custom-configuration">Example 2: Custom Configuration</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>rag <span class="op">=</span> RAGSystem(</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    embedding_model<span class="op">=</span><span class="st">"sentence-transformers/all-mpnet-base-v2"</span>,</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    chunk_size<span class="op">=</span><span class="dv">1500</span>,</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    chunk_overlap<span class="op">=</span><span class="dv">300</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="example-3-batch-processing" class="level3">
+<h3 class="anchored" data-anchor-id="example-3-batch-processing">Example 3: Batch Processing</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Process multiple document sets</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> doc_set <span class="kw">in</span> document_sets:</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    documents <span class="op">=</span> rag.load_documents(doc_set)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    rag.create_vector_store(documents, save<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Process queries</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+</section>
+<section id="license" class="level2">
+<h2 class="anchored" data-anchor-id="license">License</h2>
+<p>See main repository LICENSE file.</p>
+</section>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">References</h2>
+<ul>
+<li><a href="https://arxiv.org/abs/2005.11401">RAG Paper</a></li>
+<li><a href="https://github.com/facebookresearch/faiss">FAISS Documentation</a></li>
+<li><a href="https://www.sbert.net/">Sentence Transformers</a></li>
+<li><a href="https://ollama.ai">Ollama</a></li>
+</ul>
+</section>
+<section id="related-projects" class="level2">
+<h2 class="anchored" data-anchor-id="related-projects">Related Projects</h2>
+<p>This project is part of the <a href="https://github.com/Exios66/JJB_Gallery">JJB Gallery</a> portfolio. Related projects include:</p>
+<ul>
+<li><a href="../../projects/ruckus/README.html">Ruckus</a> - LLM Fine-tuning Framework</li>
+<li><a href="../../projects/CrewAI/README.html">CrewAI</a> - Multi-Agent System</li>
+<li><a href="../../projects/terminal_agents/README.html">Terminal Agents</a> - AI Coding Assistant</li>
+<li><a href="../../projects/litellm/README.html">LiteLLM</a> - Unified LLM API</li>
+</ul>
+</section>
+<section id="additional-resources" class="level2">
+<h2 class="anchored" data-anchor-id="additional-resources">Additional Resources</h2>
+<ul>
+<li>📚 <a href="https://github.com/Exios66/JJB_Gallery/wiki">Project Wiki</a> - Comprehensive documentation</li>
+<li>📖 <a href="https://github.com/Exios66/JJB_Gallery/wiki/RAG-Model">RAG Model Wiki Page</a> - Detailed project documentation</li>
+<li>🔧 <a href="https://github.com/Exios66/JJB_Gallery/wiki/Configuration-Guide">Configuration Guide</a> - Setup and configuration</li>
+<li>🐛 <a href="https://github.com/Exios66/JJB_Gallery/wiki/Troubleshooting">Troubleshooting</a> - Common issues and solutions</li>
 </ul>
 </section>
 <section id="contributing" class="level2">
-<h2 class="anchored" data-anchor-id="contributing">🤝 Contributing</h2>
-<p>Contributions are welcome! Please feel free to submit a Pull Request.</p>
-</section>
-<section id="license" class="level2">
-<h2 class="anchored" data-anchor-id="license">📄 License</h2>
-<p>This project is part of the JJB Gallery portfolio. See the main repository LICENSE file.</p>
-</section>
-<section id="related-projects" class="level2">
-<h2 class="anchored" data-anchor-id="related-projects">🔗 Related Projects</h2>
-<ul>
-<li><a href="../../projects/ChatUi/README.html">ChatUI</a> - Chat interface</li>
-<li><a href="../../projects/RAG_Model/README.html">RAG Model</a> - Document Q&amp;A</li>
-<li><a href="../../projects/litellm/README.html">LiteLLM</a> - LLM proxy server</li>
-<li><a href="../../projects/terminal_agents/README.html">Terminal Agents</a> - Terminal AI agent</li>
-</ul>
+<h2 class="anchored" data-anchor-id="contributing">Contributing</h2>
+<p>Contributions welcome! Please see the main repository <a href="https://github.com/Exios66/JJB_Gallery/wiki/Contributing-Guidelines">Contributing Guidelines</a>.</p>
+<p>For issues, questions, or suggestions, please use the <a href="https://github.com/Exios66/JJB_Gallery/issues">GitHub Issues</a> page.</p>
 
 
 </section>

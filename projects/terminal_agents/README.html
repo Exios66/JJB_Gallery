@@ -2,9 +2,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.26">
+<meta name="generator" content="quarto-1.8.24">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>readme – JJB Gallery</title>
@@ -20,12 +20,8 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
- 
 /* CSS for syntax highlighting */
-html {
-  -webkit-text-size-adjust: 100%;
-  text-size-adjust: 100%;
-}
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -76,7 +72,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap-5b4ad623e5705c0698d39aec6f10cf02.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
@@ -118,6 +114,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    </a>
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">JJB Gallery</span>
     </a>
@@ -133,7 +131,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../projects/Crewai/README.html"> 
+    <a class="nav-link" href="../../projects/CrewAI/README.html"> 
 <span class="menu-text">CrewAI</span></a>
   </li>  
   <li class="nav-item">
@@ -141,11 +139,39 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">Terminal Agents</span></a>
   </li>  
   <li class="nav-item">
+    <a class="nav-link" href="../../projects/RAG_Model/README.html"> 
+<span class="menu-text">RAG Model</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../projects/Psychometrics/README.html"> 
+<span class="menu-text">Psychometrics</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../projects/ChatUi/README.html"> 
+<span class="menu-text">ChatUi</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../projects/ios_chatbot/README.html"> 
+<span class="menu-text">iOS Chatbot</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../projects/litellm/README.html"> 
+<span class="menu-text">LiteLLM</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../projects/ruckus/README.html"> 
+<span class="menu-text">Ruckus</span></a>
+  </li>  
+  <li class="nav-item">
     <a class="nav-link" href="../../Quarto/randomforest.html"> 
 <span class="menu-text">Random Forests</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://github.com/Exios66/JJB_Gallery/wiki"> 
+<span class="menu-text">Wiki</span></a>
+  </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/Exios66/JJB_Gallery"> <i class="bi bi-github" role="img">
 </i> 
@@ -166,12 +192,64 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#installation" id="toc-installation" class="nav-link active" data-scroll-target="#installation">Installation</a></li>
-  <li><a href="#agents" id="toc-agents" class="nav-link" data-scroll-target="#agents">Agents</a></li>
-  <li><a href="#documentation" id="toc-documentation" class="nav-link" data-scroll-target="#documentation">Documentation</a></li>
-  <li><a href="#contributing" id="toc-contributing" class="nav-link" data-scroll-target="#contributing">Contributing</a></li>
-  <li><a href="#building-on-opencode" id="toc-building-on-opencode" class="nav-link" data-scroll-target="#building-on-opencode">Building on OpenCode</a></li>
-  <li><a href="#faq" id="toc-faq" class="nav-link" data-scroll-target="#faq">FAQ</a></li>
+  <li><a href="#terminal-agents---production-ready-ai-coding-assistant" id="toc-terminal-agents---production-ready-ai-coding-assistant" class="nav-link active" data-scroll-target="#terminal-agents---production-ready-ai-coding-assistant">Terminal Agents - Production-Ready AI Coding Assistant</a>
+  <ul class="collapse">
+  <li><a href="#features" id="toc-features" class="nav-link" data-scroll-target="#features">🚀 Features</a></li>
+  <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link" data-scroll-target="#prerequisites">📋 Prerequisites</a></li>
+  <li><a href="#installation" id="toc-installation" class="nav-link" data-scroll-target="#installation">🛠️ Installation</a>
+  <ul class="collapse">
+  <li><a href="#quick-setup" id="toc-quick-setup" class="nav-link" data-scroll-target="#quick-setup">Quick Setup</a></li>
+  <li><a href="#manual-setup" id="toc-manual-setup" class="nav-link" data-scroll-target="#manual-setup">Manual Setup</a></li>
+  </ul></li>
+  <li><a href="#configuration" id="toc-configuration" class="nav-link" data-scroll-target="#configuration">⚙️ Configuration</a>
+  <ul class="collapse">
+  <li><a href="#option-1-environment-variables-recommended" id="toc-option-1-environment-variables-recommended" class="nav-link" data-scroll-target="#option-1-environment-variables-recommended">Option 1: Environment Variables (Recommended)</a></li>
+  <li><a href="#option-2-config-file" id="toc-option-2-config-file" class="nav-link" data-scroll-target="#option-2-config-file">Option 2: Config File</a></li>
+  <li><a href="#option-3-command-line-arguments" id="toc-option-3-command-line-arguments" class="nav-link" data-scroll-target="#option-3-command-line-arguments">Option 3: Command Line Arguments</a></li>
+  </ul></li>
+  <li><a href="#usage" id="toc-usage" class="nav-link" data-scroll-target="#usage">🚀 Usage</a>
+  <ul class="collapse">
+  <li><a href="#interactive-mode-recommended" id="toc-interactive-mode-recommended" class="nav-link" data-scroll-target="#interactive-mode-recommended">Interactive Mode (Recommended)</a></li>
+  <li><a href="#command-line-commands" id="toc-command-line-commands" class="nav-link" data-scroll-target="#command-line-commands">Command-Line Commands</a></li>
+  <li><a href="#help" id="toc-help" class="nav-link" data-scroll-target="#help">Help</a></li>
+  </ul></li>
+  <li><a href="#use-cases" id="toc-use-cases" class="nav-link" data-scroll-target="#use-cases">🎯 Use Cases</a>
+  <ul class="collapse">
+  <li><a href="#code-review" id="toc-code-review" class="nav-link" data-scroll-target="#code-review">Code Review</a></li>
+  <li><a href="#learning-new-code" id="toc-learning-new-code" class="nav-link" data-scroll-target="#learning-new-code">Learning New Code</a></li>
+  <li><a href="#quick-code-generation" id="toc-quick-code-generation" class="nav-link" data-scroll-target="#quick-code-generation">Quick Code Generation</a></li>
+  <li><a href="#debugging" id="toc-debugging" class="nav-link" data-scroll-target="#debugging">Debugging</a></li>
+  <li><a href="#general-questions" id="toc-general-questions" class="nav-link" data-scroll-target="#general-questions">General Questions</a></li>
+  </ul></li>
+  <li><a href="#project-structure" id="toc-project-structure" class="nav-link" data-scroll-target="#project-structure">📦 Project Structure</a></li>
+  <li><a href="#customization" id="toc-customization" class="nav-link" data-scroll-target="#customization">🔧 Customization</a>
+  <ul class="collapse">
+  <li><a href="#changing-the-default-model" id="toc-changing-the-default-model" class="nav-link" data-scroll-target="#changing-the-default-model">Changing the Default Model</a></li>
+  <li><a href="#adding-new-commands" id="toc-adding-new-commands" class="nav-link" data-scroll-target="#adding-new-commands">Adding New Commands</a></li>
+  <li><a href="#custom-prompts" id="toc-custom-prompts" class="nav-link" data-scroll-target="#custom-prompts">Custom Prompts</a></li>
+  </ul></li>
+  <li><a href="#terminal-ui" id="toc-terminal-ui" class="nav-link" data-scroll-target="#terminal-ui">🎨 Terminal UI</a></li>
+  <li><a href="#security-safety" id="toc-security-safety" class="nav-link" data-scroll-target="#security-safety">🔐 Security &amp; Safety</a></li>
+  <li><a href="#troubleshooting" id="toc-troubleshooting" class="nav-link" data-scroll-target="#troubleshooting">🐛 Troubleshooting</a>
+  <ul class="collapse">
+  <li><a href="#no-llm-provider-available" id="toc-no-llm-provider-available" class="nav-link" data-scroll-target="#no-llm-provider-available">“No LLM provider available”</a></li>
+  <li><a href="#module-not-found-errors" id="toc-module-not-found-errors" class="nav-link" data-scroll-target="#module-not-found-errors">“Module not found” errors</a></li>
+  <li><a href="#ollama-connection-errors" id="toc-ollama-connection-errors" class="nav-link" data-scroll-target="#ollama-connection-errors">Ollama connection errors</a></li>
+  <li><a href="#rich-library-not-working" id="toc-rich-library-not-working" class="nav-link" data-scroll-target="#rich-library-not-working">Rich library not working</a></li>
+  </ul></li>
+  <li><a href="#examples" id="toc-examples" class="nav-link" data-scroll-target="#examples">📚 Examples</a>
+  <ul class="collapse">
+  <li><a href="#example-1-analyze-python-file" id="toc-example-1-analyze-python-file" class="nav-link" data-scroll-target="#example-1-analyze-python-file">Example 1: Analyze Python File</a></li>
+  <li><a href="#example-2-generate-code" id="toc-example-2-generate-code" class="nav-link" data-scroll-target="#example-2-generate-code">Example 2: Generate Code</a></li>
+  <li><a href="#example-3-interactive-session" id="toc-example-3-interactive-session" class="nav-link" data-scroll-target="#example-3-interactive-session">Example 3: Interactive Session</a></li>
+  <li><a href="#example-4-with-api-key" id="toc-example-4-with-api-key" class="nav-link" data-scroll-target="#example-4-with-api-key">Example 4: With API Key</a></li>
+  <li><a href="#example-5-pipe-code" id="toc-example-5-pipe-code" class="nav-link" data-scroll-target="#example-5-pipe-code">Example 5: Pipe Code</a></li>
+  </ul></li>
+  <li><a href="#related-projects" id="toc-related-projects" class="nav-link" data-scroll-target="#related-projects">🔗 Related Projects</a></li>
+  <li><a href="#license" id="toc-license" class="nav-link" data-scroll-target="#license">📝 License</a></li>
+  <li><a href="#contributing" id="toc-contributing" class="nav-link" data-scroll-target="#contributing">🤝 Contributing</a></li>
+  <li><a href="#acknowledgments" id="toc-acknowledgments" class="nav-link" data-scroll-target="#acknowledgments">🙏 Acknowledgments</a></li>
+  </ul></li>
   </ul>
 </nav>
 </nav>
@@ -185,106 +263,314 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<p align="center">
-<a href="https://opencode.ai"> <picture> <source srcset="packages/console/app/src/asset/logo-ornate-dark.svg" media="(prefers-color-scheme: dark)"> <source srcset="packages/console/app/src/asset/logo-ornate-light.svg" media="(prefers-color-scheme: light)"> <img src="packages/console/app/src/asset/logo-ornate-light.svg" alt="OpenCode logo"> </picture> </a>
-</p>
-<p>The AI coding agent built for the terminal.</p>
-<p><a href="https://opencode.ai/discord"><img src="https://img.shields.io/discord/1391832426048651334?style=flat-square&amp;label=discord.png" class="img-fluid" alt="Discord"></a> <a href="https://www.npmjs.com/package/opencode-ai"><img src="https://img.shields.io/npm/v/opencode-ai?style=flat-square.png" class="img-fluid" alt="npm"></a> <a href="https://github.com/sst/opencode/actions/workflows/publish.yml"><img src="https://img.shields.io/github/actions/workflow/status/sst/opencode/publish.yml?style=flat-square&amp;branch=dev" class="img-fluid" alt="Build status"></a></p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p>
-  <a href="https://opencode.ai">
-    <img src="packages/web/src/assets/lander/screenshot.png" class="img-fluid figure-img" alt="Screenshot of OpenCode Terminal UI">
-  </a>
-</p>
-<figcaption>OpenCode Terminal UI</figcaption>
-</figure>
-</div>
-<hr>
-<section id="installation" class="level3">
-<h3 class="anchored" data-anchor-id="installation">Installation</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># YOLO</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-fsSL</span> https://opencode.ai/install <span class="kw">|</span> <span class="fu">bash</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Package managers</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> i <span class="at">-g</span> opencode-ai@latest        <span class="co"># or bun/pnpm/yarn</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="ex">scoop</span> bucket add extras<span class="kw">;</span> <span class="ex">scoop</span> install extras/opencode  <span class="co"># Windows</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="ex">choco</span> install opencode             <span class="co"># Windows</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install opencode              <span class="co"># macOS and Linux</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="ex">paru</span> <span class="at">-S</span> opencode-bin               <span class="co"># Arch Linux</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="ex">mise</span> use <span class="at">--pin</span> <span class="at">-g</span> ubi:sst/opencode <span class="co"># Any OS</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="ex">nix</span> run nixpkgs#opencode           <span class="co"># or github:sst/opencode for latest dev branch</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<blockquote class="blockquote">
-<p>[!TIP] Remove versions older than 0.1.x before installing.</p>
-</blockquote>
-<section id="installation-directory" class="level4">
-<h4 class="anchored" data-anchor-id="installation-directory">Installation Directory</h4>
-<p>The install script respects the following priority order for the installation path:</p>
-<ol type="1">
-<li><code>$OPENCODE_INSTALL_DIR</code> - Custom installation directory</li>
-<li><code>$XDG_BIN_DIR</code> - XDG Base Directory Specification compliant path</li>
-<li><code>$HOME/bin</code> - Standard user binary directory (if exists or can be created)</li>
-<li><code>$HOME/.opencode/bin</code> - Default fallback</li>
-</ol>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Examples</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="va">OPENCODE_INSTALL_DIR</span><span class="op">=</span>/usr/local/bin <span class="ex">curl</span> <span class="at">-fsSL</span> https://opencode.ai/install <span class="kw">|</span> <span class="fu">bash</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="va">XDG_BIN_DIR</span><span class="op">=</span><span class="va">$HOME</span>/.local/bin <span class="ex">curl</span> <span class="at">-fsSL</span> https://opencode.ai/install <span class="kw">|</span> <span class="fu">bash</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-</section>
-<section id="agents" class="level3">
-<h3 class="anchored" data-anchor-id="agents">Agents</h3>
-<p>OpenCode includes two built-in agents you can switch between, you can switch between these using the <code>Tab</code> key.</p>
+<section id="terminal-agents---production-ready-ai-coding-assistant" class="level1">
+<h1>Terminal Agents - Production-Ready AI Coding Assistant</h1>
+<p>A comprehensive terminal-based AI agent for code assistance, similar to OpenCode. Provides AI-powered code analysis, generation, explanation, and debugging directly from your terminal.</p>
+<section id="features" class="level2">
+<h2 class="anchored" data-anchor-id="features">🚀 Features</h2>
 <ul>
-<li><strong>build</strong> - Default, full access agent for development work</li>
-<li><strong>plan</strong> - Read-only agent for analysis and code exploration
+<li><strong>Multi-Provider LLM Support</strong>: OpenAI, Anthropic Claude, Ollama (free/local), Google, Azure</li>
+<li><strong>Code Analysis</strong>: Analyze code files for issues, security vulnerabilities, and improvements</li>
+<li><strong>Code Explanation</strong>: Get detailed explanations of code functionality</li>
+<li><strong>Code Generation</strong>: Generate code from natural language descriptions</li>
+<li><strong>Code Fixing</strong>: Fix bugs and improve code quality</li>
+<li><strong>Code Refactoring</strong>: Refactor code for better maintainability</li>
+<li><strong>Interactive Chat</strong>: Real-time chat interface with conversation history</li>
+<li><strong>Rich Terminal UI</strong>: Beautiful terminal interface with colors, markdown, and syntax highlighting</li>
+<li><strong>File Operations</strong>: Read, analyze, and work with code files</li>
+<li><strong>Configuration Management</strong>: YAML config files and environment variables</li>
+</ul>
+</section>
+<section id="prerequisites" class="level2">
+<h2 class="anchored" data-anchor-id="prerequisites">📋 Prerequisites</h2>
 <ul>
-<li>Denies file edits by default</li>
-<li>Asks permission before running bash commands</li>
-<li>Ideal for exploring unfamiliar codebases or planning changes</li>
+<li>Python 3.8+</li>
+<li>At least one LLM provider configured:
+<ul>
+<li><strong>Ollama</strong> (Recommended - Free, local): <a href="https://ollama.ai">Install Ollama</a></li>
+<li><strong>OpenAI API Key</strong>: <a href="https://platform.openai.com/api-keys">Get API Key</a></li>
+<li><strong>Anthropic API Key</strong>: <a href="https://console.anthropic.com">Get API Key</a></li>
+<li><strong>Google API Key</strong>: <a href="https://makersuite.google.com/app/apikey">Get API Key</a></li>
+<li><strong>Azure OpenAI</strong>: Configure Azure endpoint</li>
 </ul></li>
 </ul>
-<p>Also, included is a <strong>general</strong> subagent for complex searches and multi-step tasks. This is used internally and can be invoked using <code>@general</code> in messages.</p>
-<p>Learn more about <a href="https://opencode.ai/docs/agents">agents</a>.</p>
 </section>
-<section id="documentation" class="level3">
-<h3 class="anchored" data-anchor-id="documentation">Documentation</h3>
-<p>For more info on how to configure OpenCode <a href="https://opencode.ai/docs"><strong>head over to our docs</strong></a>.</p>
+<section id="installation" class="level2">
+<h2 class="anchored" data-anchor-id="installation">🛠️ Installation</h2>
+<section id="quick-setup" class="level3">
+<h3 class="anchored" data-anchor-id="quick-setup">Quick Setup</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> projects/terminal_agents</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">./setup.sh</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="contributing" class="level3">
-<h3 class="anchored" data-anchor-id="contributing">Contributing</h3>
-<p>If you’re interested in contributing to OpenCode, please read our <a href="./CONTRIBUTING.md">contributing docs</a> before submitting a pull request.</p>
+<section id="manual-setup" class="level3">
+<h3 class="anchored" data-anchor-id="manual-setup">Manual Setup</h3>
+<ol type="1">
+<li><p><strong>Navigate to the project:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> projects/terminal_agents</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+<li><p><strong>Create virtual environment:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> <span class="at">-m</span> venv venv</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="bu">source</span> venv/bin/activate  <span class="co"># On Windows: venv\Scripts\activate</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+<li><p><strong>Install dependencies:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">-r</span> requirements.txt</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+<li><p><strong>Make agent executable:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chmod</span> +x agent.py</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+</ol>
 </section>
-<section id="building-on-opencode" class="level3">
-<h3 class="anchored" data-anchor-id="building-on-opencode">Building on OpenCode</h3>
-<p>If you are working on a project that’s related to OpenCode and is using “opencode” as a part of its name; for example, “opencode-dashboard” or “opencode-mobile”, please add a note to your README to clarify that it is not built by the OpenCode team and is not affiliated with us in anyway.</p>
 </section>
-<section id="faq" class="level3">
-<h3 class="anchored" data-anchor-id="faq">FAQ</h3>
-<section id="how-is-this-different-than-claude-code" class="level4">
-<h4 class="anchored" data-anchor-id="how-is-this-different-than-claude-code">How is this different than Claude Code?</h4>
-<p>It’s very similar to Claude Code in terms of capability. Here are the key differences:</p>
+<section id="configuration" class="level2">
+<h2 class="anchored" data-anchor-id="configuration">⚙️ Configuration</h2>
+<section id="option-1-environment-variables-recommended" class="level3">
+<h3 class="anchored" data-anchor-id="option-1-environment-variables-recommended">Option 1: Environment Variables (Recommended)</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># For OpenAI</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">OPENAI_API_KEY</span><span class="op">=</span>your_api_key_here</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># For Anthropic</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">ANTHROPIC_API_KEY</span><span class="op">=</span>your_api_key_here</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co"># For Ollama (default, no key needed if running locally)</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">OLLAMA_BASE_URL</span><span class="op">=</span>http://localhost:11434</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">OLLAMA_MODEL</span><span class="op">=</span>llama3.1:8b</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="option-2-config-file" class="level3">
+<h3 class="anchored" data-anchor-id="option-2-config-file">Option 2: Config File</h3>
+<p>Create <code>~/.terminal_agents/config.yaml</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Provider selection (auto-detect if not set)</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">provider</span><span class="kw">:</span><span class="at"> ollama</span><span class="co">  # Options: ollama, openai, anthropic, google, azure</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Ollama (Free, Local)</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ollama_base_url</span><span class="kw">:</span><span class="at"> http://localhost:11434</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ollama_model</span><span class="kw">:</span><span class="at"> llama3.1:8b</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co"># OpenAI</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="fu">openai_api_key</span><span class="kw">:</span><span class="at"> your_key_here</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="fu">openai_model</span><span class="kw">:</span><span class="at"> gpt-4o-mini</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Anthropic</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="fu">anthropic_api_key</span><span class="kw">:</span><span class="at"> your_key_here</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="fu">anthropic_model</span><span class="kw">:</span><span class="at"> claude-3-5-sonnet-20241022</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="option-3-command-line-arguments" class="level3">
+<h3 class="anchored" data-anchor-id="option-3-command-line-arguments">Option 3: Command Line Arguments</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> agent.py <span class="at">--api-key</span> your_key <span class="at">--provider</span> openai <span class="at">--model</span> gpt-4 chat <span class="st">"Hello"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+</section>
+<section id="usage" class="level2">
+<h2 class="anchored" data-anchor-id="usage">🚀 Usage</h2>
+<section id="interactive-mode-recommended" class="level3">
+<h3 class="anchored" data-anchor-id="interactive-mode-recommended">Interactive Mode (Recommended)</h3>
+<p>Start an interactive chat session:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> agent.py interactive</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co"># or</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="ex">./agent.py</span> interactive</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Interactive Commands:</strong> - <code>@analyze &lt;file&gt;</code> - Analyze code file - <code>@explain &lt;file&gt;</code> - Explain code file - <code>@generate &lt;description&gt;</code> - Generate code - <code>@fix &lt;file&gt;</code> - Fix code issues - <code>@refactor &lt;file&gt;</code> - Refactor code - <code>clear</code> - Clear conversation history - <code>save &lt;file&gt;</code> - Save conversation - <code>help</code> - Show help - <code>exit</code> - Exit interactive mode</p>
+</section>
+<section id="command-line-commands" class="level3">
+<h3 class="anchored" data-anchor-id="command-line-commands">Command-Line Commands</h3>
+<section id="chat" class="level4">
+<h4 class="anchored" data-anchor-id="chat">Chat</h4>
+<p>Send a message to the agent:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> agent.py chat <span class="st">"Explain Python decorators"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="analyze-code" class="level4">
+<h4 class="anchored" data-anchor-id="analyze-code">Analyze Code</h4>
+<p>Analyze a code file:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> agent.py analyze app.py</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="explain-code" class="level4">
+<h4 class="anchored" data-anchor-id="explain-code">Explain Code</h4>
+<p>Explain a piece of code:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> agent.py explain <span class="st">"def fibonacci(n): return n if n &lt; 2 else fibonacci(n-1) + fibonacci(n-2)"</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co"># or</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> agent.py explain app.py</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="generate-code" class="level4">
+<h4 class="anchored" data-anchor-id="generate-code">Generate Code</h4>
+<p>Generate code from a description:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> agent.py generate <span class="st">"A function to calculate factorial"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="fix-code" class="level4">
+<h4 class="anchored" data-anchor-id="fix-code">Fix Code</h4>
+<p>Fix code issues:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> agent.py fix <span class="st">"def broken_function(x): return x / 0"</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co"># or</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> agent.py fix buggy_code.py</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="refactor-code" class="level4">
+<h4 class="anchored" data-anchor-id="refactor-code">Refactor Code</h4>
+<p>Refactor code for improvement:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> agent.py refactor app.py</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+</section>
+<section id="help" class="level3">
+<h3 class="anchored" data-anchor-id="help">Help</h3>
+<p>View all available commands:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> agent.py help</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+</section>
+<section id="use-cases" class="level2">
+<h2 class="anchored" data-anchor-id="use-cases">🎯 Use Cases</h2>
+<section id="code-review" class="level3">
+<h3 class="anchored" data-anchor-id="code-review">Code Review</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> agent.py analyze src/main.py</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="learning-new-code" class="level3">
+<h3 class="anchored" data-anchor-id="learning-new-code">Learning New Code</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> agent.py explain <span class="st">"</span><span class="va">$(</span><span class="fu">cat</span> complex_algorithm.py<span class="va">)</span><span class="st">"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="quick-code-generation" class="level3">
+<h3 class="anchored" data-anchor-id="quick-code-generation">Quick Code Generation</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> agent.py generate <span class="st">"A REST API endpoint for user authentication"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="debugging" class="level3">
+<h3 class="anchored" data-anchor-id="debugging">Debugging</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> agent.py fix <span class="st">"</span><span class="va">$(</span><span class="fu">cat</span> buggy_code.py<span class="va">)</span><span class="st">"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="general-questions" class="level3">
+<h3 class="anchored" data-anchor-id="general-questions">General Questions</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> agent.py chat <span class="st">"What is the difference between async and await in Python?"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+</section>
+<section id="project-structure" class="level2">
+<h2 class="anchored" data-anchor-id="project-structure">📦 Project Structure</h2>
+<pre><code>terminal_agents/
+├── agent.py              # Main agent application
+├── config.py            # Configuration management
+├── llm_providers.py     # LLM provider implementations
+├── requirements.txt      # Python dependencies
+├── setup.sh             # Setup script
+├── DESIGN.md            # Design documentation
+└── README.md            # This file</code></pre>
+</section>
+<section id="customization" class="level2">
+<h2 class="anchored" data-anchor-id="customization">🔧 Customization</h2>
+<section id="changing-the-default-model" class="level3">
+<h3 class="anchored" data-anchor-id="changing-the-default-model">Changing the Default Model</h3>
+<p>Edit the default model in <code>config.py</code> or set environment variables:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">OLLAMA_MODEL</span><span class="op">=</span>mistral:7b</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">OPENAI_MODEL_NAME</span><span class="op">=</span>gpt-4</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="adding-new-commands" class="level3">
+<h3 class="anchored" data-anchor-id="adding-new-commands">Adding New Commands</h3>
+<p>Add new command handlers in the <code>main()</code> function in <code>agent.py</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> command <span class="op">==</span> <span class="st">"your_command"</span>:</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">not</span> input_text:</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>        agent._error(<span class="st">"Please provide input."</span>)</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>    response <span class="op">=</span> agent.your_method(input_text)</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>    agent._print(response)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="custom-prompts" class="level3">
+<h3 class="anchored" data-anchor-id="custom-prompts">Custom Prompts</h3>
+<p>Modify prompt templates in the agent methods:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> your_method(<span class="va">self</span>, input_data: <span class="bu">str</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>    prompt <span class="op">=</span> <span class="ss">f"""Your custom prompt template here:</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="sc">{</span>input_data<span class="sc">}</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="ss">"""</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="va">self</span>.chat(prompt)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+</section>
+<section id="terminal-ui" class="level2">
+<h2 class="anchored" data-anchor-id="terminal-ui">🎨 Terminal UI</h2>
+<p>The agent uses the <code>rich</code> library for beautiful terminal output:</p>
 <ul>
-<li>100% open source</li>
-<li>Not coupled to any provider. Although we recommend the models we provide through <a href="https://opencode.ai/zen">OpenCode Zen</a>; OpenCode can be used with Claude, OpenAI, Google or even local models. As models evolve the gaps between them will close and pricing will drop so being provider-agnostic is important.</li>
-<li>Out of the box LSP support</li>
-<li>A focus on TUI. OpenCode is built by neovim users and the creators of <a href="https://terminal.shop">terminal.shop</a>; we are going to push the limits of what’s possible in the terminal.</li>
-<li>A client/server architecture. This for example can allow OpenCode to run on your computer, while you can drive it remotely from a mobile app. Meaning that the TUI frontend is just one of the possible clients.</li>
+<li><strong>Colors</strong>: Syntax highlighting and colored output</li>
+<li><strong>Markdown</strong>: Renders markdown in terminal</li>
+<li><strong>Panels</strong>: Beautiful bordered panels for help text</li>
+<li><strong>Progress</strong>: Progress indicators for long operations</li>
+<li><strong>Syntax Highlighting</strong>: Code blocks with syntax highlighting</li>
+</ul>
+<p>If <code>rich</code> is not available, the agent falls back to plain text output.</p>
+</section>
+<section id="security-safety" class="level2">
+<h2 class="anchored" data-anchor-id="security-safety">🔐 Security &amp; Safety</h2>
+<ul>
+<li>File write operations require explicit confirmation</li>
+<li>API keys are never logged or displayed</li>
+<li>Error messages are sanitized</li>
+<li>Safe file path handling</li>
 </ul>
 </section>
-<section id="whats-the-other-repo" class="level4">
-<h4 class="anchored" data-anchor-id="whats-the-other-repo">What’s the other repo?</h4>
-<p>The other confusingly named repo has no relation to this one. You can <a href="https://x.com/thdxr/status/1933561254481666466">read the story behind it here</a>.</p>
+<section id="troubleshooting" class="level2">
+<h2 class="anchored" data-anchor-id="troubleshooting">🐛 Troubleshooting</h2>
+<section id="no-llm-provider-available" class="level3">
+<h3 class="anchored" data-anchor-id="no-llm-provider-available">“No LLM provider available”</h3>
+<p><strong>Solution</strong>: Configure at least one provider: - Install Ollama: <code>curl -fsSL https://ollama.ai/install.sh | sh</code> - Or set API keys: <code>export OPENAI_API_KEY=your_key</code></p>
+</section>
+<section id="module-not-found-errors" class="level3">
+<h3 class="anchored" data-anchor-id="module-not-found-errors">“Module not found” errors</h3>
+<p><strong>Solution</strong>: Install dependencies:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">-r</span> requirements.txt</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="ollama-connection-errors" class="level3">
+<h3 class="anchored" data-anchor-id="ollama-connection-errors">Ollama connection errors</h3>
+<p><strong>Solution</strong>: Ensure Ollama is running:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb27"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ollama</span> serve</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="co"># In another terminal:</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="ex">ollama</span> pull llama3.1:8b</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="rich-library-not-working" class="level3">
+<h3 class="anchored" data-anchor-id="rich-library-not-working">Rich library not working</h3>
+<p><strong>Solution</strong>: The agent will fall back to plain text. To fix:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb28"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install rich pygments</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+</section>
+<section id="examples" class="level2">
+<h2 class="anchored" data-anchor-id="examples">📚 Examples</h2>
+<section id="example-1-analyze-python-file" class="level3">
+<h3 class="anchored" data-anchor-id="example-1-analyze-python-file">Example 1: Analyze Python File</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb29"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> agent.py analyze my_script.py</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="example-2-generate-code" class="level3">
+<h3 class="anchored" data-anchor-id="example-2-generate-code">Example 2: Generate Code</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb30"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> agent.py generate <span class="st">"A function to sort a list of dictionaries by a key"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="example-3-interactive-session" class="level3">
+<h3 class="anchored" data-anchor-id="example-3-interactive-session">Example 3: Interactive Session</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb31"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> agent.py interactive</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> @analyze <span class="ex">app.py</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> @generate <span class="st">"A REST API with FastAPI"</span></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> @fix <span class="ex">buggy_function.py</span></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> exit</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="example-4-with-api-key" class="level3">
+<h3 class="anchored" data-anchor-id="example-4-with-api-key">Example 4: With API Key</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb32"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> agent.py <span class="at">--api-key</span> your_key_here chat <span class="st">"Hello"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="example-5-pipe-code" class="level3">
+<h3 class="anchored" data-anchor-id="example-5-pipe-code">Example 5: Pipe Code</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb33"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> code.py <span class="kw">|</span> <span class="ex">python</span> agent.py explain</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+</section>
+<section id="related-projects" class="level2">
+<h2 class="anchored" data-anchor-id="related-projects">🔗 Related Projects</h2>
+<ul>
+<li><a href="../Crewai/README.md">CrewAI</a> - Multi-agent system</li>
+<li><a href="../../projects/ChatUi/README.html">ChatUi</a> - Web-based chat interface</li>
+<li><a href="https://opencode.ai">OpenCode</a> - Inspiration for this project</li>
+</ul>
+</section>
+<section id="license" class="level2">
+<h2 class="anchored" data-anchor-id="license">📝 License</h2>
+<p>See main repository LICENSE file.</p>
+</section>
+<section id="contributing" class="level2">
+<h2 class="anchored" data-anchor-id="contributing">🤝 Contributing</h2>
+<p>Contributions welcome! Please read the main repository contributing guidelines.</p>
+</section>
+<section id="acknowledgments" class="level2">
+<h2 class="anchored" data-anchor-id="acknowledgments">🙏 Acknowledgments</h2>
+<p>Inspired by <a href="https://opencode.ai">OpenCode</a> and similar terminal-based AI coding assistants.</p>
 <hr>
-<p><strong>Join our community</strong> <a href="https://discord.gg/opencode">Discord</a> | <a href="https://x.com/opencode">X.com</a></p>
+<p><strong>Made with ❤️ for developers who love the terminal</strong></p>
 
 
 </section>
 </section>
 
 </main> <!-- /main -->
-<div style="position: fixed; bottom: 20px; right: 20px; z-index: 9999;">
-  <label for="theme-selector" style="margin-right: 5px; font-weight: bold; background: rgba(255,255,255,0.8); padding: 2px 5px; border-radius: 4px; color: #333;">Theme:</label>
-  <select id="theme-selector" onchange="switchTheme(this.value)" style="padding: 5px; border-radius: 5px; border: 1px solid #ccc;">
+<div id="theme-switcher-box" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999; transition: background 0.25s;">
+  <label for="theme-selector" style="margin-right: 5px; font-weight: bold; background: rgba(255,255,255,0.85); padding: 2px 5px; border-radius: 4px; color: #333; transition: background 0.25s, color 0.25s;">Theme:</label>
+  <select id="theme-selector" style="padding: 5px; border-radius: 5px; border: 1px solid #ccc;">
     <option value="light.css">Light (Cosmo)</option>
     <option value="dark.css">Dark (Darkly)</option>
     <option value="tokyo-neon.css">Tokyo Neon</option>
@@ -296,56 +582,177 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 
 <script>
+/**
+ * Theme switcher with smooth transitions for UI color scheme updates.
+ * Ensures seamless experience by animating body and ui background while switching.
+ */
+
+(function() {
+  const THEME_ID = 'theme-css-dynamic';
+
+  // Map theme file to body class for additional fine-grained transitions if needed
+  const themeBodyClass = {
+    "light.css": "theme-light",
+    "dark.css": "theme-dark",
+    "tokyo-neon.css": "theme-tokyo-neon",
+    "cyberpunk.css": "theme-cyberpunk",
+    "dark-solar.css": "theme-dark-solar",
+    "retrofuturism.css": "theme-retrofuturism",
+    "art-deco.css": "theme-art-deco"
+  };
+
+  // Optionally define accent/background colors for the switcher itself
+  const switcherBg = {
+    "light.css": "rgba(255,255,255,0.9)",
+    "dark.css": "rgba(26,26,32,0.97)",
+    "tokyo-neon.css": "linear-gradient(90deg, #151624 60%, #651FFF 100%)",
+    "cyberpunk.css": "linear-gradient(90deg, #2d1032 30%, #ff0099 100%)",
+    "dark-solar.css": "rgba(20,20,24,0.97)",
+    "retrofuturism.css": "linear-gradient(90deg, #180d32 60%, #ffe408 100%)",
+    "art-deco.css": "linear-gradient(90deg, #fff7ef 60%, #22262f 100%)"
+  };
+  const switcherLabelColor = {
+    "light.css": "#333",
+    "dark.css": "#eee",
+    "tokyo-neon.css": "#39fff6",
+    "cyberpunk.css": "#ff0099",
+    "dark-solar.css": "#ffd700",
+    "retrofuturism.css": "#ad03de",
+    "art-deco.css": "#866c5e"
+  };
+
   function getAssetsPath() {
     // Try to find the relative path to root from the navbar logo/brand
     const navbarBrand = document.querySelector('.navbar-brand');
     let prefix = "";
     if (navbarBrand) {
-        const href = navbarBrand.getAttribute('href');
-        // href is typically "index.html" or "../../index.html"
-        // We remove "index.html" to get the relative directory prefix
-        if (href && href.endsWith('index.html')) {
-            prefix = href.substring(0, href.length - 10);
-        } else if (href) {
-            prefix = href;
-        }
+      const href = navbarBrand.getAttribute('href');
+      if (href && href.endsWith('index.html')) {
+        prefix = href.substring(0, href.length - 10);
+      } else if (href) {
+        prefix = href;
+      }
     }
     return prefix + "assets/css/";
   }
 
-  function switchTheme(cssName) {
+  function setThemeCss(cssName) {
+    // smoothly fade the interface
+    const body = document.body;
+    body.style.transition = 'background-color 0.35s, color 0.25s';
+
+    // Remove old theme class
+    Object.values(themeBodyClass).forEach(cls => body.classList.remove(cls));
+
+    // Add the correct class
+    if (themeBodyClass[cssName]) {
+      body.classList.add(themeBodyClass[cssName]);
+    }
+
+    // Update theme CSS link
     const assetsPath = getAssetsPath();
     const fullPath = assetsPath + cssName;
-    
-    let themeLink = document.getElementById('quarto-bootstrap');
-    if (themeLink) {
+    let themeLink = document.getElementById(THEME_ID);
+
+    if (!themeLink) {
+      // Remove any old dynamic theme links
+      document.querySelectorAll('link[data-theme-dynamic]').forEach(l => l.remove());
+      // Insert a new stylesheet link at end of <head>
+      themeLink = document.createElement('link');
+      themeLink.rel = 'stylesheet';
       themeLink.href = fullPath;
+      themeLink.id = THEME_ID;
+      themeLink.setAttribute('data-theme-dynamic', '1');
+      document.head.appendChild(themeLink);
     } else {
-      // Fallback logic
-      let links = document.querySelectorAll('link[rel="stylesheet"]');
-      for (let link of links) {
-        if (link.href.includes('bootstrap') || link.href.includes('light.css') || link.href.includes('dark.css')) {
-          link.href = fullPath;
-          link.id = 'quarto-bootstrap';
-          break;
-        }
-      }
+      if (themeLink.href !== fullPath) themeLink.href = fullPath;
     }
+  }
+
+  function animateSwitcher(cssName) {
+    // Optional: animate the theme switcher background for visual continuity
+    const box = document.getElementById('theme-switcher-box');
+    const lbl = box.querySelector('label');
+    if(!box || !lbl) return;
+
+    if (box.style.transition.indexOf('background') === -1)
+      box.style.transition = 'background 0.25s';
+
+    // Animate background
+    const bg = switcherBg[cssName] || "rgba(255,255,255,0.9)";
+    const color = switcherLabelColor[cssName] || "#333";
+    box.style.background = bg;
+    lbl.style.background = bg;
+    lbl.style.color = color;
+  }
+
+  function switchTheme(cssName) {
+    // Add smooth fade for the UI
+    document.body.style.opacity = 0.6;
+    setTimeout(() => {
+      setThemeCss(cssName);
+      animateSwitcher(cssName);
+      setTimeout(() => {
+        document.body.style.opacity = 1;
+      }, 120);
+    }, 80);
     localStorage.setItem('selectedTheme', cssName);
   }
 
+  // Init and event binding
   document.addEventListener("DOMContentLoaded", function() {
+    let selector = document.getElementById('theme-selector');
     let savedTheme = localStorage.getItem('selectedTheme');
-    if (savedTheme) {
-      let selector = document.getElementById('theme-selector');
-      if (selector) {
+    if (selector) {
+      if (savedTheme && themeBodyClass[savedTheme]) {
         selector.value = savedTheme;
-        switchTheme(savedTheme);
       }
+      animateSwitcher(selector.value); // set switcher UI initial bg
+      setThemeCss(selector.value); // always ensure theme matches selector
+      setTimeout(() => { document.body.style.opacity = 1; }, 80);
+      selector.addEventListener("change", function() {
+        switchTheme(this.value);
+      });
     }
   });
+
+  // Seamless initial load
+  document.body.style.transition = 'opacity 0.35s, background-color 0.35s';
+  document.body.style.opacity = 1;
+})();
 </script>
 
+<style>
+body.theme-dark, body.theme-dark-solar {
+  color-scheme: dark;
+  transition: background-color 0.4s, color 0.3s;
+}
+body.theme-light {
+  color-scheme: light;
+  transition: background-color 0.4s, color 0.3s;
+}
+/* For custom theme additional tweaks, e.g.: */
+body.theme-tokyo-neon {
+  background: radial-gradient(ellipse at center, #18192b 65%, #251b42 100%);
+  color: #39fff6;
+  transition: background 0.4s, color 0.3s;
+}
+body.theme-cyberpunk {
+  background: linear-gradient(135deg, #2d1032 60%, #ff0099 100%);
+  color: #ffe408;
+  transition: background 0.4s, color 0.3s;
+}
+body.theme-retrofuturism {
+  background: #22003c;
+  color: #ffe408;
+  transition: background 0.4s, color 0.3s;
+}
+body.theme-art-deco {
+  background: #fff7ef;
+  color: #22262f;
+  transition: background 0.4s, color 0.3s;
+}
+</style>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
