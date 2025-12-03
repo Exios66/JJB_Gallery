@@ -25,7 +25,7 @@
     "href": "Quarto/randomforest.html#environment-setup",
     "title": "Random Forests in Practice",
     "section": "Environment Setup",
-    "text": "Environment Setup\n\n\nCode\nimport importlib\nimport subprocess\nimport sys\n\ndef ensure(package):\n    try:\n        importlib.import_module(package)\n    except ImportError:\n        subprocess.check_call([sys.executable, \"-m\", \"pip\", \"install\", package])\n\nfor pkg in (\"numpy\", \"pandas\", \"seaborn\", \"matplotlib\", \"scikit-learn\"):\n    ensure(pkg)\n\n\nRequirement already satisfied: scikit-learn in /Users/luciusjmorningstar/Desktop/GIT-REPOSITORY/JJB_Gallery/.venv/lib/python3.13/site-packages (1.7.2)\nRequirement already satisfied: numpy&gt;=1.22.0 in /Users/luciusjmorningstar/Desktop/GIT-REPOSITORY/JJB_Gallery/.venv/lib/python3.13/site-packages (from scikit-learn) (2.3.5)\nRequirement already satisfied: scipy&gt;=1.8.0 in /Users/luciusjmorningstar/Desktop/GIT-REPOSITORY/JJB_Gallery/.venv/lib/python3.13/site-packages (from scikit-learn) (1.16.3)\nRequirement already satisfied: joblib&gt;=1.2.0 in /Users/luciusjmorningstar/Desktop/GIT-REPOSITORY/JJB_Gallery/.venv/lib/python3.13/site-packages (from scikit-learn) (1.5.2)\nRequirement already satisfied: threadpoolctl&gt;=3.1.0 in /Users/luciusjmorningstar/Desktop/GIT-REPOSITORY/JJB_Gallery/.venv/lib/python3.13/site-packages (from scikit-learn) (3.6.0)\n\n\n\n\nCode\nimport numpy as np\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\nfrom sklearn.datasets import load_breast_cancer, make_classification\nfrom sklearn.model_selection import train_test_split, cross_val_score\nfrom sklearn.ensemble import RandomForestClassifier\nfrom sklearn.metrics import RocCurveDisplay, ConfusionMatrixDisplay, classification_report\nfrom sklearn.decomposition import PCA\nfrom sklearn.inspection import DecisionBoundaryDisplay\n\nsns.set_theme(style=\"whitegrid\")"
+    "text": "Environment Setup\n\n\nCode\nimport importlib\nimport subprocess\nimport sys\n\ndef ensure(package):\n    try:\n        importlib.import_module(package)\n    except ImportError:\n        subprocess.check_call([sys.executable, \"-m\", \"pip\", \"install\", package])\n\nfor pkg in (\"numpy\", \"pandas\", \"seaborn\", \"matplotlib\", \"scikit-learn\"):\n    ensure(pkg)\n\n\nRequirement already satisfied: scikit-learn in /Volumes/SEALED/DSHB/GALLERY/JJB_Gallery/.venv/lib/python3.13/site-packages (1.7.2)\nRequirement already satisfied: numpy&gt;=1.22.0 in /Volumes/SEALED/DSHB/GALLERY/JJB_Gallery/.venv/lib/python3.13/site-packages (from scikit-learn) (2.3.5)\nRequirement already satisfied: scipy&gt;=1.8.0 in /Volumes/SEALED/DSHB/GALLERY/JJB_Gallery/.venv/lib/python3.13/site-packages (from scikit-learn) (1.16.3)\nRequirement already satisfied: joblib&gt;=1.2.0 in /Volumes/SEALED/DSHB/GALLERY/JJB_Gallery/.venv/lib/python3.13/site-packages (from scikit-learn) (1.5.2)\nRequirement already satisfied: threadpoolctl&gt;=3.1.0 in /Volumes/SEALED/DSHB/GALLERY/JJB_Gallery/.venv/lib/python3.13/site-packages (from scikit-learn) (3.6.0)\n\n\n\n\nCode\nimport numpy as np\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\nfrom sklearn.datasets import load_breast_cancer, make_classification\nfrom sklearn.model_selection import train_test_split, cross_val_score\nfrom sklearn.ensemble import RandomForestClassifier\nfrom sklearn.metrics import RocCurveDisplay, ConfusionMatrixDisplay, classification_report\nfrom sklearn.decomposition import PCA\nfrom sklearn.inspection import DecisionBoundaryDisplay\n\nsns.set_theme(style=\"whitegrid\")"
   },
   {
     "objectID": "Quarto/randomforest.html#data-loading-and-preparation",
@@ -98,57 +98,512 @@
     "text": "Footnotes\n\n\nIntroduced the random forest algorithm with theoretical justification and empirical benchmarks.↩︎\nOfficial description of the dataset, feature definitions, and usage considerations.↩︎\nDemonstrated the efficiency gains of random search over grid search for hyperparameter tuning.↩︎\n^breiman2001↩︎\n^sklearn_breast↩︎\n^bergstra2012↩︎"
   },
   {
-    "objectID": "projects/Crewai/README.html",
-    "href": "projects/Crewai/README.html",
-    "title": "CrewAI Multi-Agent Swarm System",
+    "objectID": "projects/litellm/README.html",
+    "href": "projects/litellm/README.html",
+    "title": "LiteLLM Integration",
     "section": "",
-    "text": "A comprehensive multi-agent framework using CrewAI, featuring multiple specialized agent swarms for different domains including machine learning, research, development, business intelligence, and documentation.\n\n\nThis project implements a versatile multi-agent system where different specialized agent swarms collaborate on complex workflows. Each swarm contains domain-specific agents designed for particular tasks and industries.\n\n\n\n\n\nInteract with the swarms using a modern chat interface.\nstreamlit run interface_web.py\n\n\n\nInteract via the command line.\npython interface_cli.py\n\n\n\n\n\n\nSpecialization: Random Forest and machine learning evaluation Agents: 5 specialized ML agents\n\nData Analyst: Dataset exploration and preprocessing recommendations\nModel Evaluator: Performance assessment and comparison analysis\nFeature Engineer: Feature importance analysis and engineering suggestions\nHyperparameter Optimizer: Parameter tuning and optimization strategies\nReport Writer: Comprehensive report generation for stakeholders\n\n\n\n\nSpecialization: ML research, trends, and innovation Agents: 4 research-focused agents\n\nLiterature Reviewer: Academic paper analysis and scholarly research\nTrend Analyzer: Industry trends and market developments\nInnovation Scout: Novel applications and breakthrough technologies\nResearch Summarizer: Synthesis of research findings\n\n\n\n\nSpecialization: Scholarly research and academic analysis Agents: 5 academic research agents\n\nLiterature Reviewer: Comprehensive academic literature review\nResearch Designer: Experimental design and methodology\nAcademic Data Analyst: Statistical analysis for research"
+    "text": "A comprehensive integration of LiteLLM for unified LLM API access. Includes a proxy server, usage examples, and configuration templates.\n\n\nLiteLLM is a library that provides a unified interface for calling various LLM APIs (OpenAI, Anthropic, Google, Ollama, etc.) using the OpenAI format. This project includes:\n\nProxy Server: FastAPI-based proxy server for LLM requests\nUsage Examples: Comprehensive examples for different providers\nConfiguration: YAML configuration for model management\n\n\n\n\n\nUnified API: Call any LLM provider using OpenAI-compatible format\nMultiple Providers: Support for OpenAI, Anthropic, Google, Ollama, and more\nProxy Server: HTTP proxy for centralized LLM access\nStreaming Support: Real-time streaming responses\nAsync Support: Asynchronous API calls\nEasy Configuration: YAML-based configuration\n\n\n\n\n\n\npip install -r requirements.txt\n\n\n\npip install 'litellm[proxy]'\n\n\n\n# OpenAI\npip install openai\n\n# Anthropic\npip install anthropic\n\n# Google\npip install google-generativeai\n\n\n\n\n\n\nfrom litellm import completion\n\nresponse = completion(\n    model=\"gpt-3.5-turbo\",\n    messages=[{\"role\": \"user\", \"content\": \"Hello!\"}]\n)\n\nprint(response.choices[0].message.content)\n\n\n\npython proxy_server.py\nThe server will start on http://localhost:8000.\n\n\n\nimport openai\n\nclient = openai.OpenAI(\n    api_key=\"anything\",  # Proxy doesn't require real key\n    base_url=\"http://localhost:8000/v1\"\n)\n\nresponse = client.chat.completions.create(\n    model=\"gpt-3.5-turbo\",\n    messages=[{\"role\": \"user\", \"content\": \"Hello!\"}]\n)\n\n\n\n\n\n\nfrom litellm import completion\nimport os\n\nos.environ[\"OPENAI_API_KEY\"] = \"your-key\"\n\nresponse = completion(\n    model=\"gpt-3.5-turbo\",\n    messages=[{\"role\": \"user\", \"content\": \"Hello!\"}]\n)\n\n\n\nos.environ[\"ANTHROPIC_API_KEY\"] = \"your-key\"\n\nresponse = completion(\n    model=\"claude-3-sonnet-20240229\",\n    messages=[{\"role\": \"user\", \"content\": \"Hello!\"}]\n)\n\n\n\n# Make sure Ollama is running: ollama serve\n# Pull a model: ollama pull llama3.1:8b\n\nresponse = completion(\n    model=\"ollama/llama3.1:8b\",\n    messages=[{\"role\": \"user\", \"content\": \"Hello!\"}]\n)\n\n\n\nresponse = completion(\n    model=\"gpt-3.5-turbo\",\n    messages=[{\"role\": \"user\", \"content\": \"Count to 10\"}],\n    stream=True\n)\n\nfor chunk in response:\n    if chunk.choices[0].delta.content:\n        print(chunk.choices[0].delta.content, end=\"\")\n\n\n\nfrom litellm import acompletion\nimport asyncio\n\nasync def main():\n    response = await acompletion(\n        model=\"gpt-3.5-turbo\",\n        messages=[{\"role\": \"user\", \"content\": \"Hello!\"}]\n    )\n    print(response.choices[0].message.content)\n\nasyncio.run(main())\n\n\n\n\n\n\npython proxy_server.py\nOr with custom port:\nPORT=8080 python proxy_server.py\n\n\n\n\n\nOpenAI-compatible chat completions endpoint.\nRequest:\n{\n  \"model\": \"gpt-3.5-turbo\",\n  \"messages\": [\n    {\"role\": \"user\", \"content\": \"Hello!\"}\n  ],\n  \"temperature\": 0.7,\n  \"stream\": false\n}\nResponse:\n{\n  \"id\": \"chatcmpl-...\",\n  \"object\": \"chat.completion\",\n  \"created\": 1677610602,\n  \"model\": \"gpt-3.5-turbo\",\n  \"choices\": [{\n    \"message\": {\n      \"role\": \"assistant\",\n      \"content\": \"Hello! How can I help you?\"\n    }\n  }]\n}\n\n\n\nList available models.\n\n\n\nHealth check endpoint.\n\n\n\n\n\n\nimport openai\n\nclient = openai.OpenAI(\n    base_url=\"http://localhost:8000/v1\",\n    api_key=\"not-needed\"\n)\n\nresponse = client.chat.completions.create(\n    model=\"gpt-3.5-turbo\",\n    messages=[{\"role\": \"user\", \"content\": \"Hello!\"}]\n)\n\n\n\ncurl http://localhost:8000/v1/chat/completions \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\n    \"model\": \"gpt-3.5-turbo\",\n    \"messages\": [{\"role\": \"user\", \"content\": \"Hello!\"}]\n  }'\n\n\n\nconst response = await fetch('http://localhost:8000/v1/chat/completions', {\n  method: 'POST',\n  headers: { 'Content-Type': 'application/json' },\n  body: JSON.stringify({\n    model: 'gpt-3.5-turbo',\n    messages: [{ role: 'user', content: 'Hello!' }]\n  })\n});\n\nconst data = await response.json();\nconsole.log(data.choices[0].message.content);\n\n\n\n\n\n\n\nSet API keys as environment variables:\nexport OPENAI_API_KEY=\"sk-...\"\nexport ANTHROPIC_API_KEY=\"sk-ant-...\"\nexport GOOGLE_API_KEY=\"...\"\n\n\n\nUse config.yaml for advanced configuration:\nmodel_list:\n  - model_name: gpt-3.5-turbo\n    litellm_params:\n      model: openai/gpt-3.5-turbo\n      api_key: os.environ/OPENAI_API_KEY\nStart proxy with config:\nlitellm --config config.yaml\n\n\n\n\nLiteLLM supports 100+ LLM providers. Common ones include:\n\nOpenAI: GPT-3.5, GPT-4, GPT-4 Turbo\nAnthropic: Claude 3 (Sonnet, Opus, Haiku)\nGoogle: Gemini Pro, PaLM\nOllama: Local models (Llama, Mistral, etc.)\nAzure OpenAI: Azure-hosted OpenAI models\nHugging Face: Transformers models\nCohere: Command models\nTogether AI: Various open models\nAnd many more…\n\nSee LiteLLM Documentation for full list.\n\n\n\nRun the examples script:\npython examples.py\nThis will demonstrate: - Basic usage with different providers - Streaming responses - Async operations - Custom prompts - Multiple provider fallback\n\n\n\n\n\nfrom litellm import Router\n\nrouter = Router(\n    model_list=[\n        {\"model_name\": \"gpt-3.5-turbo\", \"litellm_params\": {\"model\": \"openai/gpt-3.5-turbo\"}},\n        {\"model_name\": \"claude-3-sonnet\", \"litellm_params\": {\"model\": \"anthropic/claude-3-sonnet-20240229\"}},\n    ]\n)\n\nresponse = router.completion(\n    model=\"gpt-3.5-turbo\",\n    messages=[{\"role\": \"user\", \"content\": \"Hello!\"}]\n)\n\n\n\nresponse = completion(\n    model=[\"gpt-4\", \"gpt-3.5-turbo\", \"claude-3-sonnet\"],  # Try in order\n    messages=[{\"role\": \"user\", \"content\": \"Hello!\"}]\n)\n\n\n\nimport litellm\n\nlitellm.success_callback = [\"lunary\", \"langfuse\"]  # Log to observability tools\n\n\n\n\n\n\npip install litellm\n\n\n\nEnsure API keys are set:\necho $OPENAI_API_KEY\necho $ANTHROPIC_API_KEY\n\n\n\nCheck if Ollama is running:\ncurl http://localhost:11434/api/tags\nStart Ollama:\nollama serve\n\n\n\n\n\nLiteLLM Documentation\nLiteLLM GitHub\nSupported Providers\nProxy Documentation\n\n\n\n\nSee main repository LICENSE file.\n\n\n\nThis project is part of the JJB Gallery portfolio. Related projects include:\n\nRuckus - LLM Fine-tuning Framework\nRAG Model - Retrieval-Augmented Generation\nChatUi - Modern Chat Interface\niOS Chatbot - Flask-based Chatbot\nCrewAI - Multi-Agent System\n\n\n\n\n\n📚 Project Wiki - Comprehensive documentation\n📖 LiteLLM Integration Wiki Page - Detailed project documentation\n🔧 LLM Setup Guide - LLM configuration guide\n🐛 Troubleshooting - Common issues and solutions\n\n\n\n\nContributions welcome! Please see the main repository Contributing Guidelines.\nFor issues, questions, or suggestions, please use the GitHub Issues page."
   },
   {
-    "objectID": "projects/Crewai/README.html#overview",
-    "href": "projects/Crewai/README.html#overview",
+    "objectID": "projects/litellm/README.html#overview",
+    "href": "projects/litellm/README.html#overview",
+    "title": "LiteLLM Integration",
+    "section": "",
+    "text": "LiteLLM is a library that provides a unified interface for calling various LLM APIs (OpenAI, Anthropic, Google, Ollama, etc.) using the OpenAI format. This project includes:\n\nProxy Server: FastAPI-based proxy server for LLM requests\nUsage Examples: Comprehensive examples for different providers\nConfiguration: YAML configuration for model management"
+  },
+  {
+    "objectID": "projects/litellm/README.html#features",
+    "href": "projects/litellm/README.html#features",
+    "title": "LiteLLM Integration",
+    "section": "",
+    "text": "Unified API: Call any LLM provider using OpenAI-compatible format\nMultiple Providers: Support for OpenAI, Anthropic, Google, Ollama, and more\nProxy Server: HTTP proxy for centralized LLM access\nStreaming Support: Real-time streaming responses\nAsync Support: Asynchronous API calls\nEasy Configuration: YAML-based configuration"
+  },
+  {
+    "objectID": "projects/litellm/README.html#installation",
+    "href": "projects/litellm/README.html#installation",
+    "title": "LiteLLM Integration",
+    "section": "",
+    "text": "pip install -r requirements.txt\n\n\n\npip install 'litellm[proxy]'\n\n\n\n# OpenAI\npip install openai\n\n# Anthropic\npip install anthropic\n\n# Google\npip install google-generativeai"
+  },
+  {
+    "objectID": "projects/litellm/README.html#quick-start",
+    "href": "projects/litellm/README.html#quick-start",
+    "title": "LiteLLM Integration",
+    "section": "",
+    "text": "from litellm import completion\n\nresponse = completion(\n    model=\"gpt-3.5-turbo\",\n    messages=[{\"role\": \"user\", \"content\": \"Hello!\"}]\n)\n\nprint(response.choices[0].message.content)\n\n\n\npython proxy_server.py\nThe server will start on http://localhost:8000.\n\n\n\nimport openai\n\nclient = openai.OpenAI(\n    api_key=\"anything\",  # Proxy doesn't require real key\n    base_url=\"http://localhost:8000/v1\"\n)\n\nresponse = client.chat.completions.create(\n    model=\"gpt-3.5-turbo\",\n    messages=[{\"role\": \"user\", \"content\": \"Hello!\"}]\n)"
+  },
+  {
+    "objectID": "projects/litellm/README.html#usage-examples",
+    "href": "projects/litellm/README.html#usage-examples",
+    "title": "LiteLLM Integration",
+    "section": "",
+    "text": "from litellm import completion\nimport os\n\nos.environ[\"OPENAI_API_KEY\"] = \"your-key\"\n\nresponse = completion(\n    model=\"gpt-3.5-turbo\",\n    messages=[{\"role\": \"user\", \"content\": \"Hello!\"}]\n)\n\n\n\nos.environ[\"ANTHROPIC_API_KEY\"] = \"your-key\"\n\nresponse = completion(\n    model=\"claude-3-sonnet-20240229\",\n    messages=[{\"role\": \"user\", \"content\": \"Hello!\"}]\n)\n\n\n\n# Make sure Ollama is running: ollama serve\n# Pull a model: ollama pull llama3.1:8b\n\nresponse = completion(\n    model=\"ollama/llama3.1:8b\",\n    messages=[{\"role\": \"user\", \"content\": \"Hello!\"}]\n)\n\n\n\nresponse = completion(\n    model=\"gpt-3.5-turbo\",\n    messages=[{\"role\": \"user\", \"content\": \"Count to 10\"}],\n    stream=True\n)\n\nfor chunk in response:\n    if chunk.choices[0].delta.content:\n        print(chunk.choices[0].delta.content, end=\"\")\n\n\n\nfrom litellm import acompletion\nimport asyncio\n\nasync def main():\n    response = await acompletion(\n        model=\"gpt-3.5-turbo\",\n        messages=[{\"role\": \"user\", \"content\": \"Hello!\"}]\n    )\n    print(response.choices[0].message.content)\n\nasyncio.run(main())"
+  },
+  {
+    "objectID": "projects/litellm/README.html#proxy-server",
+    "href": "projects/litellm/README.html#proxy-server",
+    "title": "LiteLLM Integration",
+    "section": "",
+    "text": "python proxy_server.py\nOr with custom port:\nPORT=8080 python proxy_server.py\n\n\n\n\n\nOpenAI-compatible chat completions endpoint.\nRequest:\n{\n  \"model\": \"gpt-3.5-turbo\",\n  \"messages\": [\n    {\"role\": \"user\", \"content\": \"Hello!\"}\n  ],\n  \"temperature\": 0.7,\n  \"stream\": false\n}\nResponse:\n{\n  \"id\": \"chatcmpl-...\",\n  \"object\": \"chat.completion\",\n  \"created\": 1677610602,\n  \"model\": \"gpt-3.5-turbo\",\n  \"choices\": [{\n    \"message\": {\n      \"role\": \"assistant\",\n      \"content\": \"Hello! How can I help you?\"\n    }\n  }]\n}\n\n\n\nList available models.\n\n\n\nHealth check endpoint.\n\n\n\n\n\n\nimport openai\n\nclient = openai.OpenAI(\n    base_url=\"http://localhost:8000/v1\",\n    api_key=\"not-needed\"\n)\n\nresponse = client.chat.completions.create(\n    model=\"gpt-3.5-turbo\",\n    messages=[{\"role\": \"user\", \"content\": \"Hello!\"}]\n)\n\n\n\ncurl http://localhost:8000/v1/chat/completions \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\n    \"model\": \"gpt-3.5-turbo\",\n    \"messages\": [{\"role\": \"user\", \"content\": \"Hello!\"}]\n  }'\n\n\n\nconst response = await fetch('http://localhost:8000/v1/chat/completions', {\n  method: 'POST',\n  headers: { 'Content-Type': 'application/json' },\n  body: JSON.stringify({\n    model: 'gpt-3.5-turbo',\n    messages: [{ role: 'user', content: 'Hello!' }]\n  })\n});\n\nconst data = await response.json();\nconsole.log(data.choices[0].message.content);"
+  },
+  {
+    "objectID": "projects/litellm/README.html#configuration",
+    "href": "projects/litellm/README.html#configuration",
+    "title": "LiteLLM Integration",
+    "section": "",
+    "text": "Set API keys as environment variables:\nexport OPENAI_API_KEY=\"sk-...\"\nexport ANTHROPIC_API_KEY=\"sk-ant-...\"\nexport GOOGLE_API_KEY=\"...\"\n\n\n\nUse config.yaml for advanced configuration:\nmodel_list:\n  - model_name: gpt-3.5-turbo\n    litellm_params:\n      model: openai/gpt-3.5-turbo\n      api_key: os.environ/OPENAI_API_KEY\nStart proxy with config:\nlitellm --config config.yaml"
+  },
+  {
+    "objectID": "projects/litellm/README.html#supported-providers",
+    "href": "projects/litellm/README.html#supported-providers",
+    "title": "LiteLLM Integration",
+    "section": "",
+    "text": "LiteLLM supports 100+ LLM providers. Common ones include:\n\nOpenAI: GPT-3.5, GPT-4, GPT-4 Turbo\nAnthropic: Claude 3 (Sonnet, Opus, Haiku)\nGoogle: Gemini Pro, PaLM\nOllama: Local models (Llama, Mistral, etc.)\nAzure OpenAI: Azure-hosted OpenAI models\nHugging Face: Transformers models\nCohere: Command models\nTogether AI: Various open models\nAnd many more…\n\nSee LiteLLM Documentation for full list."
+  },
+  {
+    "objectID": "projects/litellm/README.html#examples",
+    "href": "projects/litellm/README.html#examples",
+    "title": "LiteLLM Integration",
+    "section": "",
+    "text": "Run the examples script:\npython examples.py\nThis will demonstrate: - Basic usage with different providers - Streaming responses - Async operations - Custom prompts - Multiple provider fallback"
+  },
+  {
+    "objectID": "projects/litellm/README.html#advanced-features",
+    "href": "projects/litellm/README.html#advanced-features",
+    "title": "LiteLLM Integration",
+    "section": "",
+    "text": "from litellm import Router\n\nrouter = Router(\n    model_list=[\n        {\"model_name\": \"gpt-3.5-turbo\", \"litellm_params\": {\"model\": \"openai/gpt-3.5-turbo\"}},\n        {\"model_name\": \"claude-3-sonnet\", \"litellm_params\": {\"model\": \"anthropic/claude-3-sonnet-20240229\"}},\n    ]\n)\n\nresponse = router.completion(\n    model=\"gpt-3.5-turbo\",\n    messages=[{\"role\": \"user\", \"content\": \"Hello!\"}]\n)\n\n\n\nresponse = completion(\n    model=[\"gpt-4\", \"gpt-3.5-turbo\", \"claude-3-sonnet\"],  # Try in order\n    messages=[{\"role\": \"user\", \"content\": \"Hello!\"}]\n)\n\n\n\nimport litellm\n\nlitellm.success_callback = [\"lunary\", \"langfuse\"]  # Log to observability tools"
+  },
+  {
+    "objectID": "projects/litellm/README.html#troubleshooting",
+    "href": "projects/litellm/README.html#troubleshooting",
+    "title": "LiteLLM Integration",
+    "section": "",
+    "text": "pip install litellm\n\n\n\nEnsure API keys are set:\necho $OPENAI_API_KEY\necho $ANTHROPIC_API_KEY\n\n\n\nCheck if Ollama is running:\ncurl http://localhost:11434/api/tags\nStart Ollama:\nollama serve"
+  },
+  {
+    "objectID": "projects/litellm/README.html#resources",
+    "href": "projects/litellm/README.html#resources",
+    "title": "LiteLLM Integration",
+    "section": "",
+    "text": "LiteLLM Documentation\nLiteLLM GitHub\nSupported Providers\nProxy Documentation"
+  },
+  {
+    "objectID": "projects/litellm/README.html#license",
+    "href": "projects/litellm/README.html#license",
+    "title": "LiteLLM Integration",
+    "section": "",
+    "text": "See main repository LICENSE file."
+  },
+  {
+    "objectID": "projects/litellm/README.html#related-projects",
+    "href": "projects/litellm/README.html#related-projects",
+    "title": "LiteLLM Integration",
+    "section": "",
+    "text": "This project is part of the JJB Gallery portfolio. Related projects include:\n\nRuckus - LLM Fine-tuning Framework\nRAG Model - Retrieval-Augmented Generation\nChatUi - Modern Chat Interface\niOS Chatbot - Flask-based Chatbot\nCrewAI - Multi-Agent System"
+  },
+  {
+    "objectID": "projects/litellm/README.html#additional-resources",
+    "href": "projects/litellm/README.html#additional-resources",
+    "title": "LiteLLM Integration",
+    "section": "",
+    "text": "📚 Project Wiki - Comprehensive documentation\n📖 LiteLLM Integration Wiki Page - Detailed project documentation\n🔧 LLM Setup Guide - LLM configuration guide\n🐛 Troubleshooting - Common issues and solutions"
+  },
+  {
+    "objectID": "projects/litellm/README.html#contributing",
+    "href": "projects/litellm/README.html#contributing",
+    "title": "LiteLLM Integration",
+    "section": "",
+    "text": "Contributions welcome! Please see the main repository Contributing Guidelines.\nFor issues, questions, or suggestions, please use the GitHub Issues page."
+  },
+  {
+    "objectID": "projects/ChatUi/README.html",
+    "href": "projects/ChatUi/README.html",
+    "title": "Chat UI",
+    "section": "",
+    "text": "A modern, open-source chat interface for interacting with LLM models. Built with SvelteKit, this application provides a clean and intuitive interface for chat-based AI interactions.\n\n\nChat UI is a SvelteKit application that provides a web-based interface for chatting with various LLM models. It supports multiple backends including OpenAI, Ollama, Hugging Face, and custom API endpoints.\n\n\n\n\nModern UI: Clean, responsive chat interface\nMultiple Model Support: Connect to various LLM providers\nReal-time Streaming: Support for streaming responses\nMessage History: Persistent chat history (with MongoDB)\nCustomizable: Easy to customize and extend\nTypeScript Support: Type-safe development\n\n\n\n\n\n\n\nNode.js 18+ and npm 9+\nMongoDB (for chat history, optional)\n\n\n\n\n\nInstall dependencies:\n\nnpm install\n\nCopy environment variables:\n\ncp .env.example .env.local\n\nConfigure your environment variables in .env.local:\n\nVITE_API_BASE_URL=http://localhost:3000\nMONGODB_URL=mongodb://localhost:27017/chatui\nHF_TOKEN=your_huggingface_token\nOPENAI_API_KEY=your_openai_key\n\nStart the development server:\n\nnpm run dev\nThe application will be available at http://localhost:5173.\n\n\n\n\n\n\n# Start dev server\nnpm run dev\n\n# Build for production\nnpm run build\n\n# Preview production build\nnpm run preview\n\n# Run tests\nnpm test\n\n# Lint code\nnpm run lint\n\n# Format code\nnpm run format\n\n\n\n\n\nSet your OpenAI API key in .env.local:\nOPENAI_API_KEY=sk-...\nUpdate the API route in src/routes/api/chat/+server.js to use OpenAI:\nimport OpenAI from 'openai';\n\nconst openai = new OpenAI({\n  apiKey: process.env.OPENAI_API_KEY\n});\n\nexport async function POST({ request }) {\n  const { message } = await request.json();\n  \n  const completion = await openai.chat.completions.create({\n    model: 'gpt-3.5-turbo',\n    messages: [{ role: 'user', content: message }]\n  });\n  \n  return json({\n    role: 'assistant',\n    content: completion.choices[0].message.content\n  });\n}\n\n\n\nSet Ollama base URL:\nOLLAMA_BASE_URL=http://localhost:11434\nUpdate the API route to use Ollama:\nexport async function POST({ request }) {\n  const { message, model = 'llama3.1:8b' } = await request.json();\n  \n  const response = await fetch(`${process.env.OLLAMA_BASE_URL}/api/generate`, {\n    method: 'POST',\n    headers: { 'Content-Type': 'application/json' },\n    body: JSON.stringify({\n      model,\n      prompt: message,\n      stream: false\n    })\n  });\n  \n  const data = await response.json();\n  return json({\n    role: 'assistant',\n    content: data.response\n  });\n}\n\n\n\nSet your Hugging Face token:\nHF_TOKEN=hf_...\n\n\n\n\n\nChatUi/\n├── src/\n│   ├── components/        # Svelte components\n│   │   └── ChatInterface.svelte\n│   ├── lib/               # Utilities and libraries\n│   │   └── api.js         # API client\n│   ├── routes/           # SvelteKit routes\n│   │   ├── api/          # API endpoints\n│   │   │   └── chat/     # Chat API\n│   │   └── +page.svelte  # Main page\n│   └── app.html          # HTML template\n├── static/               # Static assets\n├── package.json\n├── svelte.config.js\n├── vite.config.js\n└── README.md\n\n\n\n\n\nThe main chat component that handles: - Message display - User input - Message sending - Loading states - Typing indicators\n\n\n\nLocated in src/lib/api.js, provides: - sendMessage(): Send a message and get response - streamMessage(): Stream responses in real-time - getModels(): Fetch available models\n\n\n\n\n\n\nSend a chat message and get a response.\nRequest:\n{\n  \"message\": \"Hello, how are you?\",\n  \"model\": \"gpt-3.5-turbo\",\n  \"temperature\": 0.7\n}\nResponse:\n{\n  \"role\": \"assistant\",\n  \"content\": \"I'm doing well, thank you!\",\n  \"timestamp\": \"2024-01-15T10:30:00Z\",\n  \"model\": \"gpt-3.5-turbo\"\n}\n\n\n\n\n\n\nModify styles in component &lt;style&gt; blocks or create a global stylesheet in src/app.css.\n\n\n\n\nNew Components: Add to src/components/\nAPI Routes: Add to src/routes/api/\nUtilities: Add to src/lib/\n\n\n\n\n\n\n\nnpm run build\n\n\n\nnpm install -g vercel\nvercel\n\n\n\nnpm install -g netlify-cli\nnetlify deploy\n\n\n\nFROM node:18-alpine\nWORKDIR /app\nCOPY package*.json ./\nRUN npm ci\nCOPY . .\nRUN npm run build\nEXPOSE 3000\nCMD [\"node\", \"build\"]\n\n\n\n\n\n\n\nVariable\nDescription\nDefault\n\n\n\n\nVITE_API_BASE_URL\nBase URL for API\nhttp://localhost:3000\n\n\nMONGODB_URL\nMongoDB connection string\n-\n\n\nHF_TOKEN\nHugging Face API token\n-\n\n\nOPENAI_API_KEY\nOpenAI API key\n-\n\n\nOLLAMA_BASE_URL\nOllama server URL\nhttp://localhost:11434\n\n\n\n\n\n\n\n\nChange the port in vite.config.js:\nserver: {\n  port: 5174  // Use different port\n}\n\n\n\nEnsure MongoDB is running:\n# Using Docker\ndocker run -d -p 27017:27017 --name mongo mongo:latest\n\n# Or check if already running\ndocker ps | grep mongo\n\n\n\nCheck browser console and server logs for detailed error messages. Ensure your API keys are correctly set in .env.local.\n\n\n\n\nThis project is part of the JJB Gallery portfolio. Related projects include:\n\niOS Chatbot - Flask-based Chatbot\nLiteLLM - Unified LLM API\nRAG Model - Retrieval-Augmented Generation\nCrewAI - Multi-Agent System\n\n\n\n\n\n📚 Project Wiki - Comprehensive documentation\n📖 ChatUi Wiki Page - Detailed project documentation\n🔧 Development Setup - Development environment setup\n🐛 Troubleshooting - Common issues and solutions\n\n\n\n\nContributions welcome! Please see the main repository Contributing Guidelines.\nFor issues, questions, or suggestions, please use the GitHub Issues page.\n\n\n\nSee main repository LICENSE file.\n\n\n\n\nSvelteKit Documentation\nSvelte Documentation\nChat UI by Hugging Face"
+  },
+  {
+    "objectID": "projects/ChatUi/README.html#overview",
+    "href": "projects/ChatUi/README.html#overview",
+    "title": "Chat UI",
+    "section": "",
+    "text": "Chat UI is a SvelteKit application that provides a web-based interface for chatting with various LLM models. It supports multiple backends including OpenAI, Ollama, Hugging Face, and custom API endpoints."
+  },
+  {
+    "objectID": "projects/ChatUi/README.html#features",
+    "href": "projects/ChatUi/README.html#features",
+    "title": "Chat UI",
+    "section": "",
+    "text": "Modern UI: Clean, responsive chat interface\nMultiple Model Support: Connect to various LLM providers\nReal-time Streaming: Support for streaming responses\nMessage History: Persistent chat history (with MongoDB)\nCustomizable: Easy to customize and extend\nTypeScript Support: Type-safe development"
+  },
+  {
+    "objectID": "projects/ChatUi/README.html#installation",
+    "href": "projects/ChatUi/README.html#installation",
+    "title": "Chat UI",
+    "section": "",
+    "text": "Node.js 18+ and npm 9+\nMongoDB (for chat history, optional)\n\n\n\n\n\nInstall dependencies:\n\nnpm install\n\nCopy environment variables:\n\ncp .env.example .env.local\n\nConfigure your environment variables in .env.local:\n\nVITE_API_BASE_URL=http://localhost:3000\nMONGODB_URL=mongodb://localhost:27017/chatui\nHF_TOKEN=your_huggingface_token\nOPENAI_API_KEY=your_openai_key\n\nStart the development server:\n\nnpm run dev\nThe application will be available at http://localhost:5173."
+  },
+  {
+    "objectID": "projects/ChatUi/README.html#usage",
+    "href": "projects/ChatUi/README.html#usage",
+    "title": "Chat UI",
+    "section": "",
+    "text": "# Start dev server\nnpm run dev\n\n# Build for production\nnpm run build\n\n# Preview production build\nnpm run preview\n\n# Run tests\nnpm test\n\n# Lint code\nnpm run lint\n\n# Format code\nnpm run format\n\n\n\n\n\nSet your OpenAI API key in .env.local:\nOPENAI_API_KEY=sk-...\nUpdate the API route in src/routes/api/chat/+server.js to use OpenAI:\nimport OpenAI from 'openai';\n\nconst openai = new OpenAI({\n  apiKey: process.env.OPENAI_API_KEY\n});\n\nexport async function POST({ request }) {\n  const { message } = await request.json();\n  \n  const completion = await openai.chat.completions.create({\n    model: 'gpt-3.5-turbo',\n    messages: [{ role: 'user', content: message }]\n  });\n  \n  return json({\n    role: 'assistant',\n    content: completion.choices[0].message.content\n  });\n}\n\n\n\nSet Ollama base URL:\nOLLAMA_BASE_URL=http://localhost:11434\nUpdate the API route to use Ollama:\nexport async function POST({ request }) {\n  const { message, model = 'llama3.1:8b' } = await request.json();\n  \n  const response = await fetch(`${process.env.OLLAMA_BASE_URL}/api/generate`, {\n    method: 'POST',\n    headers: { 'Content-Type': 'application/json' },\n    body: JSON.stringify({\n      model,\n      prompt: message,\n      stream: false\n    })\n  });\n  \n  const data = await response.json();\n  return json({\n    role: 'assistant',\n    content: data.response\n  });\n}\n\n\n\nSet your Hugging Face token:\nHF_TOKEN=hf_..."
+  },
+  {
+    "objectID": "projects/ChatUi/README.html#project-structure",
+    "href": "projects/ChatUi/README.html#project-structure",
+    "title": "Chat UI",
+    "section": "",
+    "text": "ChatUi/\n├── src/\n│   ├── components/        # Svelte components\n│   │   └── ChatInterface.svelte\n│   ├── lib/               # Utilities and libraries\n│   │   └── api.js         # API client\n│   ├── routes/           # SvelteKit routes\n│   │   ├── api/          # API endpoints\n│   │   │   └── chat/     # Chat API\n│   │   └── +page.svelte  # Main page\n│   └── app.html          # HTML template\n├── static/               # Static assets\n├── package.json\n├── svelte.config.js\n├── vite.config.js\n└── README.md"
+  },
+  {
+    "objectID": "projects/ChatUi/README.html#components",
+    "href": "projects/ChatUi/README.html#components",
+    "title": "Chat UI",
+    "section": "",
+    "text": "The main chat component that handles: - Message display - User input - Message sending - Loading states - Typing indicators\n\n\n\nLocated in src/lib/api.js, provides: - sendMessage(): Send a message and get response - streamMessage(): Stream responses in real-time - getModels(): Fetch available models"
+  },
+  {
+    "objectID": "projects/ChatUi/README.html#api-endpoints",
+    "href": "projects/ChatUi/README.html#api-endpoints",
+    "title": "Chat UI",
+    "section": "",
+    "text": "Send a chat message and get a response.\nRequest:\n{\n  \"message\": \"Hello, how are you?\",\n  \"model\": \"gpt-3.5-turbo\",\n  \"temperature\": 0.7\n}\nResponse:\n{\n  \"role\": \"assistant\",\n  \"content\": \"I'm doing well, thank you!\",\n  \"timestamp\": \"2024-01-15T10:30:00Z\",\n  \"model\": \"gpt-3.5-turbo\"\n}"
+  },
+  {
+    "objectID": "projects/ChatUi/README.html#customization",
+    "href": "projects/ChatUi/README.html#customization",
+    "title": "Chat UI",
+    "section": "",
+    "text": "Modify styles in component &lt;style&gt; blocks or create a global stylesheet in src/app.css.\n\n\n\n\nNew Components: Add to src/components/\nAPI Routes: Add to src/routes/api/\nUtilities: Add to src/lib/"
+  },
+  {
+    "objectID": "projects/ChatUi/README.html#deployment",
+    "href": "projects/ChatUi/README.html#deployment",
+    "title": "Chat UI",
+    "section": "",
+    "text": "npm run build\n\n\n\nnpm install -g vercel\nvercel\n\n\n\nnpm install -g netlify-cli\nnetlify deploy\n\n\n\nFROM node:18-alpine\nWORKDIR /app\nCOPY package*.json ./\nRUN npm ci\nCOPY . .\nRUN npm run build\nEXPOSE 3000\nCMD [\"node\", \"build\"]"
+  },
+  {
+    "objectID": "projects/ChatUi/README.html#environment-variables",
+    "href": "projects/ChatUi/README.html#environment-variables",
+    "title": "Chat UI",
+    "section": "",
+    "text": "Variable\nDescription\nDefault\n\n\n\n\nVITE_API_BASE_URL\nBase URL for API\nhttp://localhost:3000\n\n\nMONGODB_URL\nMongoDB connection string\n-\n\n\nHF_TOKEN\nHugging Face API token\n-\n\n\nOPENAI_API_KEY\nOpenAI API key\n-\n\n\nOLLAMA_BASE_URL\nOllama server URL\nhttp://localhost:11434"
+  },
+  {
+    "objectID": "projects/ChatUi/README.html#troubleshooting",
+    "href": "projects/ChatUi/README.html#troubleshooting",
+    "title": "Chat UI",
+    "section": "",
+    "text": "Change the port in vite.config.js:\nserver: {\n  port: 5174  // Use different port\n}\n\n\n\nEnsure MongoDB is running:\n# Using Docker\ndocker run -d -p 27017:27017 --name mongo mongo:latest\n\n# Or check if already running\ndocker ps | grep mongo\n\n\n\nCheck browser console and server logs for detailed error messages. Ensure your API keys are correctly set in .env.local."
+  },
+  {
+    "objectID": "projects/ChatUi/README.html#related-projects",
+    "href": "projects/ChatUi/README.html#related-projects",
+    "title": "Chat UI",
+    "section": "",
+    "text": "This project is part of the JJB Gallery portfolio. Related projects include:\n\niOS Chatbot - Flask-based Chatbot\nLiteLLM - Unified LLM API\nRAG Model - Retrieval-Augmented Generation\nCrewAI - Multi-Agent System"
+  },
+  {
+    "objectID": "projects/ChatUi/README.html#additional-resources",
+    "href": "projects/ChatUi/README.html#additional-resources",
+    "title": "Chat UI",
+    "section": "",
+    "text": "📚 Project Wiki - Comprehensive documentation\n📖 ChatUi Wiki Page - Detailed project documentation\n🔧 Development Setup - Development environment setup\n🐛 Troubleshooting - Common issues and solutions"
+  },
+  {
+    "objectID": "projects/ChatUi/README.html#contributing",
+    "href": "projects/ChatUi/README.html#contributing",
+    "title": "Chat UI",
+    "section": "",
+    "text": "Contributions welcome! Please see the main repository Contributing Guidelines.\nFor issues, questions, or suggestions, please use the GitHub Issues page."
+  },
+  {
+    "objectID": "projects/ChatUi/README.html#license",
+    "href": "projects/ChatUi/README.html#license",
+    "title": "Chat UI",
+    "section": "",
+    "text": "See main repository LICENSE file."
+  },
+  {
+    "objectID": "projects/ChatUi/README.html#references",
+    "href": "projects/ChatUi/README.html#references",
+    "title": "Chat UI",
+    "section": "",
+    "text": "SvelteKit Documentation\nSvelte Documentation\nChat UI by Hugging Face"
+  },
+  {
+    "objectID": "projects/RAG_Model/README.html",
+    "href": "projects/RAG_Model/README.html",
+    "title": "RAG Model Application",
+    "section": "",
+    "text": "A complete Retrieval-Augmented Generation (RAG) system implementation with vector database, embeddings, and intelligent document retrieval.\n\n\nThis project implements a full RAG pipeline that:\n\nIngests and processes documents\nCreates embeddings using transformer models\nStores embeddings in a vector database (FAISS)\nRetrieves relevant documents for queries\nGenerates answers using retrieved context\n\n\n\n\n\nDocument Processing: Supports TXT, MD, and JSON files\nVector Database: Uses FAISS for efficient similarity search\nEmbeddings: Sentence transformers for high-quality embeddings\nRetrieval: Semantic search with configurable top-k retrieval\nGeneration: Integration with Ollama for local LLM inference\nInteractive CLI: Command-line interface for querying\n\n\n\n\n\n\n\nPython 3.8+\nOllama (for LLM generation) - Install Ollama\n\n\n\n\n\nInstall dependencies:\n\npip install -r requirements.txt\n\n(Optional) Install and start Ollama for LLM generation:\n\n# Install Ollama from https://ollama.ai\n# Then pull a model:\nollama pull llama3.1:8b\n\n\n\n\n\n\nRun the interactive query interface:\npython main.py\nThe system will:\n\nCreate sample documents if none exist\nBuild or load the vector store\nStart an interactive query session\n\n\n\n\nfrom rag_system import RAGSystem\n\n# Initialize RAG system\nrag = RAGSystem(\n    embedding_model=\"sentence-transformers/all-MiniLM-L6-v2\",\n    vector_store_path=\"vector_store\",\n    llm_model=\"llama3.1:8b\"\n)\n\n# Load or create vector store\ndocuments = rag.load_documents([\"doc1.txt\", \"doc2.txt\"])\nrag.create_vector_store(documents, save=True)\n\n# Query the system\nresult = rag.query(\"What is RAG?\", k=5)\nprint(result['answer'])\n\n\n\n\nPlace documents in the documents/ directory (or any directory)\nUpdate the code to load your documents:\n\nfile_paths = [\n    \"documents/my_doc1.txt\",\n    \"documents/my_doc2.md\",\n    \"documents/data.json\"\n]\ndocuments = rag.load_documents(file_paths)\nrag.create_vector_store(documents, save=True)\n\n\n\n\nSet environment variables to customize behavior:\nexport RAG_EMBEDDING_MODEL=\"sentence-transformers/all-MiniLM-L6-v2\"\nexport RAG_LLM_MODEL=\"llama3.1:8b\"\nexport RAG_CHUNK_SIZE=1000\nexport RAG_CHUNK_OVERLAP=200\nexport RAG_DEFAULT_K=5\nexport RAG_VECTOR_STORE_PATH=\"vector_store\"\nOr use the config module:\nfrom config import config\n\nprint(config.EMBEDDING_MODEL)\nprint(config.CHUNK_SIZE)\n\n\n\n┌─────────────┐\n│  Documents  │\n└──────┬──────┘\n       │\n       ▼\n┌─────────────┐\n│ Text Split  │\n└──────┬──────┘\n       │\n       ▼\n┌─────────────┐\n│ Embeddings  │\n└──────┬──────┘\n       │\n       ▼\n┌─────────────┐\n│Vector Store │\n│   (FAISS)   │\n└──────┬──────┘\n       │\n       ▼\n┌─────────────┐\n│  Retrieval   │\n└──────┬──────┘\n       │\n       ▼\n┌─────────────┐\n│ Generation  │\n│   (LLM)     │\n└─────────────┘\n\n\n\n\n\nCore RAG implementation with:\n\nDocument loading and processing\nEmbedding generation\nVector store management\nRetrieval and generation\n\n\n\n\nCommand-line interface and demo application\n\n\n\nConfiguration management\n\n\n\n\n\nTXT: Plain text files\nMD: Markdown files\nJSON: JSON data files\n\n\n\n\nThe system uses FAISS (Facebook AI Similarity Search) for efficient vector storage and retrieval. FAISS supports:\n\nFast similarity search\nScalable to millions of vectors\nCPU and GPU support\nVarious indexing methods\n\n\n\n\nDefault: sentence-transformers/all-MiniLM-L6-v2\nYou can use any sentence transformer model:\n\nall-MiniLM-L6-v2 (default, fast, 384 dims)\nall-mpnet-base-v2 (better quality, 768 dims)\nall-MiniLM-L12-v2 (larger, 384 dims)\n\n\n\n\nThe system integrates with Ollama for local LLM inference. Supported models:\n\nllama3.1:8b (default)\nmistral:7b\ncodellama:13b\nAny Ollama-compatible model\n\n\n\n\n\nChunk Size: Adjust based on your documents (500-2000 tokens)\nOverlap: Use 10-20% overlap for better context\nTop-K: Start with k=5, adjust based on results\nEmbedding Model: Larger models = better quality but slower\nVector Store: Use GPU FAISS for large datasets\n\n\n\n\n\n\npip install langchain faiss-cpu sentence-transformers\n\n\n\n# Check if Ollama is running\ncurl http://localhost:11434/api/tags\n\n# Start Ollama if needed\nollama serve\n\n\n\n\nReduce chunk size\nUse smaller embedding model\nProcess documents in batches\n\n\n\n\n\n\n\nrag = RAGSystem()\nrag.load_vector_store()\nresult = rag.query(\"What is machine learning?\")\nprint(result['answer'])\n\n\n\nrag = RAGSystem(\n    embedding_model=\"sentence-transformers/all-mpnet-base-v2\",\n    chunk_size=1500,\n    chunk_overlap=300\n)\n\n\n\n# Process multiple document sets\nfor doc_set in document_sets:\n    documents = rag.load_documents(doc_set)\n    rag.create_vector_store(documents, save=False)\n    # Process queries\n\n\n\n\nSee main repository LICENSE file.\n\n\n\n\nRAG Paper\nFAISS Documentation\nSentence Transformers\nOllama\n\n\n\n\nThis project is part of the JJB Gallery portfolio. Related projects include:\n\nRuckus - LLM Fine-tuning Framework\nCrewAI - Multi-Agent System\nTerminal Agents - AI Coding Assistant\nLiteLLM - Unified LLM API\n\n\n\n\n\n📚 Project Wiki - Comprehensive documentation\n📖 RAG Model Wiki Page - Detailed project documentation\n🔧 Configuration Guide - Setup and configuration\n🐛 Troubleshooting - Common issues and solutions\n\n\n\n\nContributions welcome! Please see the main repository Contributing Guidelines.\nFor issues, questions, or suggestions, please use the GitHub Issues page."
+  },
+  {
+    "objectID": "projects/RAG_Model/README.html#overview",
+    "href": "projects/RAG_Model/README.html#overview",
+    "title": "RAG Model Application",
+    "section": "",
+    "text": "This project implements a full RAG pipeline that:\n\nIngests and processes documents\nCreates embeddings using transformer models\nStores embeddings in a vector database (FAISS)\nRetrieves relevant documents for queries\nGenerates answers using retrieved context"
+  },
+  {
+    "objectID": "projects/RAG_Model/README.html#features",
+    "href": "projects/RAG_Model/README.html#features",
+    "title": "RAG Model Application",
+    "section": "",
+    "text": "Document Processing: Supports TXT, MD, and JSON files\nVector Database: Uses FAISS for efficient similarity search\nEmbeddings: Sentence transformers for high-quality embeddings\nRetrieval: Semantic search with configurable top-k retrieval\nGeneration: Integration with Ollama for local LLM inference\nInteractive CLI: Command-line interface for querying"
+  },
+  {
+    "objectID": "projects/RAG_Model/README.html#installation",
+    "href": "projects/RAG_Model/README.html#installation",
+    "title": "RAG Model Application",
+    "section": "",
+    "text": "Python 3.8+\nOllama (for LLM generation) - Install Ollama\n\n\n\n\n\nInstall dependencies:\n\npip install -r requirements.txt\n\n(Optional) Install and start Ollama for LLM generation:\n\n# Install Ollama from https://ollama.ai\n# Then pull a model:\nollama pull llama3.1:8b"
+  },
+  {
+    "objectID": "projects/RAG_Model/README.html#usage",
+    "href": "projects/RAG_Model/README.html#usage",
+    "title": "RAG Model Application",
+    "section": "",
+    "text": "Run the interactive query interface:\npython main.py\nThe system will:\n\nCreate sample documents if none exist\nBuild or load the vector store\nStart an interactive query session\n\n\n\n\nfrom rag_system import RAGSystem\n\n# Initialize RAG system\nrag = RAGSystem(\n    embedding_model=\"sentence-transformers/all-MiniLM-L6-v2\",\n    vector_store_path=\"vector_store\",\n    llm_model=\"llama3.1:8b\"\n)\n\n# Load or create vector store\ndocuments = rag.load_documents([\"doc1.txt\", \"doc2.txt\"])\nrag.create_vector_store(documents, save=True)\n\n# Query the system\nresult = rag.query(\"What is RAG?\", k=5)\nprint(result['answer'])\n\n\n\n\nPlace documents in the documents/ directory (or any directory)\nUpdate the code to load your documents:\n\nfile_paths = [\n    \"documents/my_doc1.txt\",\n    \"documents/my_doc2.md\",\n    \"documents/data.json\"\n]\ndocuments = rag.load_documents(file_paths)\nrag.create_vector_store(documents, save=True)"
+  },
+  {
+    "objectID": "projects/RAG_Model/README.html#configuration",
+    "href": "projects/RAG_Model/README.html#configuration",
+    "title": "RAG Model Application",
+    "section": "",
+    "text": "Set environment variables to customize behavior:\nexport RAG_EMBEDDING_MODEL=\"sentence-transformers/all-MiniLM-L6-v2\"\nexport RAG_LLM_MODEL=\"llama3.1:8b\"\nexport RAG_CHUNK_SIZE=1000\nexport RAG_CHUNK_OVERLAP=200\nexport RAG_DEFAULT_K=5\nexport RAG_VECTOR_STORE_PATH=\"vector_store\"\nOr use the config module:\nfrom config import config\n\nprint(config.EMBEDDING_MODEL)\nprint(config.CHUNK_SIZE)"
+  },
+  {
+    "objectID": "projects/RAG_Model/README.html#architecture",
+    "href": "projects/RAG_Model/README.html#architecture",
+    "title": "RAG Model Application",
+    "section": "",
+    "text": "┌─────────────┐\n│  Documents  │\n└──────┬──────┘\n       │\n       ▼\n┌─────────────┐\n│ Text Split  │\n└──────┬──────┘\n       │\n       ▼\n┌─────────────┐\n│ Embeddings  │\n└──────┬──────┘\n       │\n       ▼\n┌─────────────┐\n│Vector Store │\n│   (FAISS)   │\n└──────┬──────┘\n       │\n       ▼\n┌─────────────┐\n│  Retrieval   │\n└──────┬──────┘\n       │\n       ▼\n┌─────────────┐\n│ Generation  │\n│   (LLM)     │\n└─────────────┘"
+  },
+  {
+    "objectID": "projects/RAG_Model/README.html#components",
+    "href": "projects/RAG_Model/README.html#components",
+    "title": "RAG Model Application",
+    "section": "",
+    "text": "Core RAG implementation with:\n\nDocument loading and processing\nEmbedding generation\nVector store management\nRetrieval and generation\n\n\n\n\nCommand-line interface and demo application\n\n\n\nConfiguration management"
+  },
+  {
+    "objectID": "projects/RAG_Model/README.html#supported-file-formats",
+    "href": "projects/RAG_Model/README.html#supported-file-formats",
+    "title": "RAG Model Application",
+    "section": "",
+    "text": "TXT: Plain text files\nMD: Markdown files\nJSON: JSON data files"
+  },
+  {
+    "objectID": "projects/RAG_Model/README.html#vector-database",
+    "href": "projects/RAG_Model/README.html#vector-database",
+    "title": "RAG Model Application",
+    "section": "",
+    "text": "The system uses FAISS (Facebook AI Similarity Search) for efficient vector storage and retrieval. FAISS supports:\n\nFast similarity search\nScalable to millions of vectors\nCPU and GPU support\nVarious indexing methods"
+  },
+  {
+    "objectID": "projects/RAG_Model/README.html#embedding-models",
+    "href": "projects/RAG_Model/README.html#embedding-models",
+    "title": "RAG Model Application",
+    "section": "",
+    "text": "Default: sentence-transformers/all-MiniLM-L6-v2\nYou can use any sentence transformer model:\n\nall-MiniLM-L6-v2 (default, fast, 384 dims)\nall-mpnet-base-v2 (better quality, 768 dims)\nall-MiniLM-L12-v2 (larger, 384 dims)"
+  },
+  {
+    "objectID": "projects/RAG_Model/README.html#llm-integration",
+    "href": "projects/RAG_Model/README.html#llm-integration",
+    "title": "RAG Model Application",
+    "section": "",
+    "text": "The system integrates with Ollama for local LLM inference. Supported models:\n\nllama3.1:8b (default)\nmistral:7b\ncodellama:13b\nAny Ollama-compatible model"
+  },
+  {
+    "objectID": "projects/RAG_Model/README.html#performance-tips",
+    "href": "projects/RAG_Model/README.html#performance-tips",
+    "title": "RAG Model Application",
+    "section": "",
+    "text": "Chunk Size: Adjust based on your documents (500-2000 tokens)\nOverlap: Use 10-20% overlap for better context\nTop-K: Start with k=5, adjust based on results\nEmbedding Model: Larger models = better quality but slower\nVector Store: Use GPU FAISS for large datasets"
+  },
+  {
+    "objectID": "projects/RAG_Model/README.html#troubleshooting",
+    "href": "projects/RAG_Model/README.html#troubleshooting",
+    "title": "RAG Model Application",
+    "section": "",
+    "text": "pip install langchain faiss-cpu sentence-transformers\n\n\n\n# Check if Ollama is running\ncurl http://localhost:11434/api/tags\n\n# Start Ollama if needed\nollama serve\n\n\n\n\nReduce chunk size\nUse smaller embedding model\nProcess documents in batches"
+  },
+  {
+    "objectID": "projects/RAG_Model/README.html#examples",
+    "href": "projects/RAG_Model/README.html#examples",
+    "title": "RAG Model Application",
+    "section": "",
+    "text": "rag = RAGSystem()\nrag.load_vector_store()\nresult = rag.query(\"What is machine learning?\")\nprint(result['answer'])\n\n\n\nrag = RAGSystem(\n    embedding_model=\"sentence-transformers/all-mpnet-base-v2\",\n    chunk_size=1500,\n    chunk_overlap=300\n)\n\n\n\n# Process multiple document sets\nfor doc_set in document_sets:\n    documents = rag.load_documents(doc_set)\n    rag.create_vector_store(documents, save=False)\n    # Process queries"
+  },
+  {
+    "objectID": "projects/RAG_Model/README.html#license",
+    "href": "projects/RAG_Model/README.html#license",
+    "title": "RAG Model Application",
+    "section": "",
+    "text": "See main repository LICENSE file."
+  },
+  {
+    "objectID": "projects/RAG_Model/README.html#references",
+    "href": "projects/RAG_Model/README.html#references",
+    "title": "RAG Model Application",
+    "section": "",
+    "text": "RAG Paper\nFAISS Documentation\nSentence Transformers\nOllama"
+  },
+  {
+    "objectID": "projects/RAG_Model/README.html#related-projects",
+    "href": "projects/RAG_Model/README.html#related-projects",
+    "title": "RAG Model Application",
+    "section": "",
+    "text": "This project is part of the JJB Gallery portfolio. Related projects include:\n\nRuckus - LLM Fine-tuning Framework\nCrewAI - Multi-Agent System\nTerminal Agents - AI Coding Assistant\nLiteLLM - Unified LLM API"
+  },
+  {
+    "objectID": "projects/RAG_Model/README.html#additional-resources",
+    "href": "projects/RAG_Model/README.html#additional-resources",
+    "title": "RAG Model Application",
+    "section": "",
+    "text": "📚 Project Wiki - Comprehensive documentation\n📖 RAG Model Wiki Page - Detailed project documentation\n🔧 Configuration Guide - Setup and configuration\n🐛 Troubleshooting - Common issues and solutions"
+  },
+  {
+    "objectID": "projects/RAG_Model/README.html#contributing",
+    "href": "projects/RAG_Model/README.html#contributing",
+    "title": "RAG Model Application",
+    "section": "",
+    "text": "Contributions welcome! Please see the main repository Contributing Guidelines.\nFor issues, questions, or suggestions, please use the GitHub Issues page."
+  },
+  {
+    "objectID": "projects/CrewAI/README.html",
+    "href": "projects/CrewAI/README.html",
+    "title": "CrewAI Multi-Agent Swarm System",
+    "section": "",
+    "text": "A comprehensive multi-agent framework using CrewAI, featuring multiple specialized agent swarms for different domains including machine learning, research, development, business intelligence, and documentation.\n\n\nThis project implements a versatile multi-agent system where different specialized agent swarms collaborate on complex workflows. Each swarm contains domain-specific agents designed for particular tasks and industries.\n\n\n\n\n\nInteract with the swarms using a modern chat interface.\nstreamlit run interface_web.py\n\n\n\nInteract via the command line.\npython interface_cli.py\n\n\n\n\n\n\nSpecialization: Random Forest and machine learning evaluation Agents: 5 specialized ML agents\n\nData Analyst: Dataset exploration and preprocessing recommendations\nModel Evaluator: Performance assessment and comparison analysis\nFeature Engineer: Feature importance analysis and engineering suggestions\nHyperparameter Optimizer: Parameter tuning and optimization strategies\nReport Writer: Comprehensive report generation for stakeholders\n\n\n\n\nSpecialization: ML research, trends, and innovation Agents: 4 research-focused agents\n\nLiterature Reviewer: Academic paper analysis and scholarly research\nTrend Analyzer: Industry trends and market developments\nInnovation Scout: Novel applications and breakthrough technologies\nResearch Summarizer: Synthesis of research findings\n\n\n\n\nSpecialization: Scholarly research and academic analysis Agents: 5 academic research agents\n\nLiterature Reviewer: Comprehensive academic literature review\nResearch Designer: Experimental design and methodology\nAcademic Data Analyst: Statistical analysis for research\nMethodology Expert: Research methodology and best practices\nPublication Writer: Academic writing and paper preparation\n\n\n\n\nSpecialization: Content creation and research Agents: Content-focused agents\n\nContent Researcher: Research for content creation\nContent Strategist: Content planning and strategy\nContent Writer: Content generation and writing\n\n\n\n\nSpecialization: Business analysis and intelligence Agents: Business-focused agents\n\nMarket Analyst: Market research and analysis\nBusiness Strategist: Strategic business planning\nData Analyst: Business data analysis\n\n\n\n\nSpecialization: Software development and coding Agents: Development-focused agents\n\nCode Reviewer: Code review and quality assessment\nDeveloper: Code generation and implementation\nArchitect: System design and architecture\n\n\n\n\nSpecialization: Technical documentation Agents: Documentation-focused agents\n\nTechnical Writer: Technical documentation creation\nDocumentation Planner: Documentation structure and planning\nContent Editor: Documentation editing and refinement\n\n\n\n\n\n\n\n\nPython 3.8+\nLLM Provider (Ollama, OpenAI, Anthropic, Google, or Azure)\n\n\n\n\n\nInstall dependencies:\ncd projects/Crewai\npip install -r requirements.txt\nSet up LLM provider (choose one):\nOption 1: Ollama (Free, Recommended)\n# Install Ollama from https://ollama.ai\nollama pull llama3.1:8b\nexport OLLAMA_BASE_URL=http://localhost:11434\nOption 2: OpenAI\nexport OPENAI_API_KEY=your_api_key_here\npip install langchain-openai\nOption 3: Anthropic\nexport ANTHROPIC_API_KEY=your_api_key_here\npip install langchain-anthropic\nOption 4: Google\nexport GOOGLE_API_KEY=your_api_key_here\npip install langchain-google-genai\nOptional: Web Search\nexport SERPER_API_KEY=your_serper_key  # Get free key at https://serper.dev\n\n\n\n\n\n\n\nRun ML Analysis:\npython main.py --run ml\nRun Research Swarm:\npython main.py --run research\nRun Academic Research:\npython main.py --run research_academic\nRun Business Intelligence:\npython main.py --run business_intelligence\nRun Development & Code:\npython main.py --run dev_code\nRun Documentation:\npython main.py --run documentation\nCheck Status:\npython main.py --status\nList Available Crews:\npython main.py --list-crews\nSetup Environment:\npython main.py --setup\n\n\n\nStart the web interface:\nstreamlit run interface_web.py\nThen open http://localhost:8501 in your browser.\n\n\n\nStart the CLI interface:\npython interface_cli.py\n\n\n\n\n\n\nCreate a .env file or set environment variables:\n# LLM Provider (choose one)\nLLM_PROVIDER=ollama  # or openai, anthropic, google, azure\n\n# Ollama Configuration\nOLLAMA_BASE_URL=http://localhost:11434\nOLLAMA_MODEL=llama3.1:8b\n\n# OpenAI Configuration\nOPENAI_API_KEY=your_openai_key\nOPENAI_MODEL_NAME=gpt-4o-mini\n\n# Anthropic Configuration\nANTHROPIC_API_KEY=your_anthropic_key\nANTHROPIC_MODEL=claude-3-5-sonnet-20241022\n\n# Google Configuration\nGOOGLE_API_KEY=your_google_key\nGOOGLE_MODEL=gemini-pro\n\n# Azure OpenAI Configuration\nAZURE_OPENAI_API_KEY=your_azure_key\nAZURE_OPENAI_ENDPOINT=https://your-resource.openai.azure.com\nAZURE_OPENAI_DEPLOYMENT_NAME=your_deployment_name\n\n# Optional: Web Search\nSERPER_API_KEY=your_serper_key\n\n# System Configuration\nVERBOSE=true\nPROCESS_TYPE=sequential  # or hierarchical\n\n\n\n\nResults are saved to the outputs/ directory with: - Markdown reports - Analysis summaries - Generated documentation\n\n\n\n\n\n\nSequential: Agents work one after another\nHierarchical: Agents work in a hierarchical structure\n\n\n\n\nYou can create custom agents by extending the base agent classes in agents/.\n\n\n\nAdd custom tools in the tools/ directory.\n\n\n\n\nRun tests:\npython run_tests.py\n\n\n\n\nLLM Setup Guide\nTools Summary\nTest Instructions\n\n\n\n\nContributions are welcome! Please feel free to submit a Pull Request.\n\n\n\nThis project is part of the JJB Gallery portfolio. See the main repository LICENSE file.\n\n\n\n\nChatUI - Chat interface\nRAG Model - Document Q&A\nLiteLLM - LLM proxy server\nTerminal Agents - Terminal AI agent"
+  },
+  {
+    "objectID": "projects/CrewAI/README.html#overview",
+    "href": "projects/CrewAI/README.html#overview",
     "title": "CrewAI Multi-Agent Swarm System",
     "section": "",
     "text": "This project implements a versatile multi-agent system where different specialized agent swarms collaborate on complex workflows. Each swarm contains domain-specific agents designed for particular tasks and industries."
   },
   {
-    "objectID": "projects/Crewai/README.html#chat-interfaces",
-    "href": "projects/Crewai/README.html#chat-interfaces",
+    "objectID": "projects/CrewAI/README.html#chat-interfaces",
+    "href": "projects/CrewAI/README.html#chat-interfaces",
     "title": "CrewAI Multi-Agent Swarm System",
     "section": "",
     "text": "Interact with the swarms using a modern chat interface.\nstreamlit run interface_web.py\n\n\n\nInteract via the command line.\npython interface_cli.py"
   },
   {
-    "objectID": "projects/Crewai/README.html#available-agent-swarms",
-    "href": "projects/Crewai/README.html#available-agent-swarms",
+    "objectID": "projects/CrewAI/README.html#available-agent-swarms",
+    "href": "projects/CrewAI/README.html#available-agent-swarms",
     "title": "CrewAI Multi-Agent Swarm System",
     "section": "",
-    "text": "Specialization: Random Forest and machine learning evaluation Agents: 5 specialized ML agents\n\nData Analyst: Dataset exploration and preprocessing recommendations\nModel Evaluator: Performance assessment and comparison analysis\nFeature Engineer: Feature importance analysis and engineering suggestions\nHyperparameter Optimizer: Parameter tuning and optimization strategies\nReport Writer: Comprehensive report generation for stakeholders\n\n\n\n\nSpecialization: ML research, trends, and innovation Agents: 4 research-focused agents\n\nLiterature Reviewer: Academic paper analysis and scholarly research\nTrend Analyzer: Industry trends and market developments\nInnovation Scout: Novel applications and breakthrough technologies\nResearch Summarizer: Synthesis of research findings\n\n\n\n\nSpecialization: Scholarly research and academic analysis Agents: 5 academic research agents\n\nLiterature Reviewer: Comprehensive academic literature review\nResearch Designer: Experimental design and methodology\nAcademic Data Analyst: Statistical analysis for research"
+    "text": "Specialization: Random Forest and machine learning evaluation Agents: 5 specialized ML agents\n\nData Analyst: Dataset exploration and preprocessing recommendations\nModel Evaluator: Performance assessment and comparison analysis\nFeature Engineer: Feature importance analysis and engineering suggestions\nHyperparameter Optimizer: Parameter tuning and optimization strategies\nReport Writer: Comprehensive report generation for stakeholders\n\n\n\n\nSpecialization: ML research, trends, and innovation Agents: 4 research-focused agents\n\nLiterature Reviewer: Academic paper analysis and scholarly research\nTrend Analyzer: Industry trends and market developments\nInnovation Scout: Novel applications and breakthrough technologies\nResearch Summarizer: Synthesis of research findings\n\n\n\n\nSpecialization: Scholarly research and academic analysis Agents: 5 academic research agents\n\nLiterature Reviewer: Comprehensive academic literature review\nResearch Designer: Experimental design and methodology\nAcademic Data Analyst: Statistical analysis for research\nMethodology Expert: Research methodology and best practices\nPublication Writer: Academic writing and paper preparation\n\n\n\n\nSpecialization: Content creation and research Agents: Content-focused agents\n\nContent Researcher: Research for content creation\nContent Strategist: Content planning and strategy\nContent Writer: Content generation and writing\n\n\n\n\nSpecialization: Business analysis and intelligence Agents: Business-focused agents\n\nMarket Analyst: Market research and analysis\nBusiness Strategist: Strategic business planning\nData Analyst: Business data analysis\n\n\n\n\nSpecialization: Software development and coding Agents: Development-focused agents\n\nCode Reviewer: Code review and quality assessment\nDeveloper: Code generation and implementation\nArchitect: System design and architecture\n\n\n\n\nSpecialization: Technical documentation Agents: Documentation-focused agents\n\nTechnical Writer: Technical documentation creation\nDocumentation Planner: Documentation structure and planning\nContent Editor: Documentation editing and refinement"
+  },
+  {
+    "objectID": "projects/CrewAI/README.html#installation",
+    "href": "projects/CrewAI/README.html#installation",
+    "title": "CrewAI Multi-Agent Swarm System",
+    "section": "",
+    "text": "Python 3.8+\nLLM Provider (Ollama, OpenAI, Anthropic, Google, or Azure)\n\n\n\n\n\nInstall dependencies:\ncd projects/Crewai\npip install -r requirements.txt\nSet up LLM provider (choose one):\nOption 1: Ollama (Free, Recommended)\n# Install Ollama from https://ollama.ai\nollama pull llama3.1:8b\nexport OLLAMA_BASE_URL=http://localhost:11434\nOption 2: OpenAI\nexport OPENAI_API_KEY=your_api_key_here\npip install langchain-openai\nOption 3: Anthropic\nexport ANTHROPIC_API_KEY=your_api_key_here\npip install langchain-anthropic\nOption 4: Google\nexport GOOGLE_API_KEY=your_api_key_here\npip install langchain-google-genai\nOptional: Web Search\nexport SERPER_API_KEY=your_serper_key  # Get free key at https://serper.dev"
+  },
+  {
+    "objectID": "projects/CrewAI/README.html#usage",
+    "href": "projects/CrewAI/README.html#usage",
+    "title": "CrewAI Multi-Agent Swarm System",
+    "section": "",
+    "text": "Run ML Analysis:\npython main.py --run ml\nRun Research Swarm:\npython main.py --run research\nRun Academic Research:\npython main.py --run research_academic\nRun Business Intelligence:\npython main.py --run business_intelligence\nRun Development & Code:\npython main.py --run dev_code\nRun Documentation:\npython main.py --run documentation\nCheck Status:\npython main.py --status\nList Available Crews:\npython main.py --list-crews\nSetup Environment:\npython main.py --setup\n\n\n\nStart the web interface:\nstreamlit run interface_web.py\nThen open http://localhost:8501 in your browser.\n\n\n\nStart the CLI interface:\npython interface_cli.py"
+  },
+  {
+    "objectID": "projects/CrewAI/README.html#configuration",
+    "href": "projects/CrewAI/README.html#configuration",
+    "title": "CrewAI Multi-Agent Swarm System",
+    "section": "",
+    "text": "Create a .env file or set environment variables:\n# LLM Provider (choose one)\nLLM_PROVIDER=ollama  # or openai, anthropic, google, azure\n\n# Ollama Configuration\nOLLAMA_BASE_URL=http://localhost:11434\nOLLAMA_MODEL=llama3.1:8b\n\n# OpenAI Configuration\nOPENAI_API_KEY=your_openai_key\nOPENAI_MODEL_NAME=gpt-4o-mini\n\n# Anthropic Configuration\nANTHROPIC_API_KEY=your_anthropic_key\nANTHROPIC_MODEL=claude-3-5-sonnet-20241022\n\n# Google Configuration\nGOOGLE_API_KEY=your_google_key\nGOOGLE_MODEL=gemini-pro\n\n# Azure OpenAI Configuration\nAZURE_OPENAI_API_KEY=your_azure_key\nAZURE_OPENAI_ENDPOINT=https://your-resource.openai.azure.com\nAZURE_OPENAI_DEPLOYMENT_NAME=your_deployment_name\n\n# Optional: Web Search\nSERPER_API_KEY=your_serper_key\n\n# System Configuration\nVERBOSE=true\nPROCESS_TYPE=sequential  # or hierarchical"
+  },
+  {
+    "objectID": "projects/CrewAI/README.html#output",
+    "href": "projects/CrewAI/README.html#output",
+    "title": "CrewAI Multi-Agent Swarm System",
+    "section": "",
+    "text": "Results are saved to the outputs/ directory with: - Markdown reports - Analysis summaries - Generated documentation"
+  },
+  {
+    "objectID": "projects/CrewAI/README.html#advanced-configuration",
+    "href": "projects/CrewAI/README.html#advanced-configuration",
+    "title": "CrewAI Multi-Agent Swarm System",
+    "section": "",
+    "text": "Sequential: Agents work one after another\nHierarchical: Agents work in a hierarchical structure\n\n\n\n\nYou can create custom agents by extending the base agent classes in agents/.\n\n\n\nAdd custom tools in the tools/ directory."
+  },
+  {
+    "objectID": "projects/CrewAI/README.html#testing",
+    "href": "projects/CrewAI/README.html#testing",
+    "title": "CrewAI Multi-Agent Swarm System",
+    "section": "",
+    "text": "Run tests:\npython run_tests.py"
+  },
+  {
+    "objectID": "projects/CrewAI/README.html#documentation",
+    "href": "projects/CrewAI/README.html#documentation",
+    "title": "CrewAI Multi-Agent Swarm System",
+    "section": "",
+    "text": "LLM Setup Guide\nTools Summary\nTest Instructions"
+  },
+  {
+    "objectID": "projects/CrewAI/README.html#contributing",
+    "href": "projects/CrewAI/README.html#contributing",
+    "title": "CrewAI Multi-Agent Swarm System",
+    "section": "",
+    "text": "Contributions are welcome! Please feel free to submit a Pull Request."
+  },
+  {
+    "objectID": "projects/CrewAI/README.html#license",
+    "href": "projects/CrewAI/README.html#license",
+    "title": "CrewAI Multi-Agent Swarm System",
+    "section": "",
+    "text": "This project is part of the JJB Gallery portfolio. See the main repository LICENSE file."
+  },
+  {
+    "objectID": "projects/CrewAI/README.html#related-projects",
+    "href": "projects/CrewAI/README.html#related-projects",
+    "title": "CrewAI Multi-Agent Swarm System",
+    "section": "",
+    "text": "ChatUI - Chat interface\nRAG Model - Document Q&A\nLiteLLM - LLM proxy server\nTerminal Agents - Terminal AI agent"
   },
   {
     "objectID": "CHANGELOG.html",
     "href": "CHANGELOG.html",
     "title": "CHANGELOG",
     "section": "",
-    "text": "Resolved Git repository corruption issues: Fixed corrupted remote references and missing object errors\nImproved repository organization: Moved all macOS resource fork files (._* files) to Xtra_Copies directory\n\n\n\n\n\nRepository corruption: Resolved issues with corrupted refs/remotes/origin/gh-pages and missing Git objects\nFile organization: Cleaned up macOS metadata files by consolidating them in Xtra_Copies\nDependency Management: Resolved Python environment corruption caused by disk space exhaustion; recreated virtual environment and reinstalled all dependencies\nDocumentation: Fixed Table of Contents overlay issue in index.html by updating Quarto configuration\n\n\n\n\n\nUpdated .gitignore to ignore macOS resource fork files (._*) and .DS_Store files\nRemoved all tracked ._* files from Git repository\n\n\n\n\n\n\n\n\nAdded project subdirectory\nAdded Jupyter notebooks of both pandas and SciKit Learn essentials.\nAdded a Quarto document on the essentials underlying the random forest algorithm.\nAdded a Quarto document on the random forest algorithm in practice.\nAdded a script to render the random forest document to a html and pdf file.\nAdded a script to start a preview server for the random forest document.\nEnhanced documentation and structure: Added Quarto document on random forest application, updated CHANGELOG, modified index.html for improved responsiveness, and expanded CrewAI project README with detailed agent swarm descriptions.\n\n\n\n\n\n\n\n\n\n\nAdded requirements.txt with the following dependencies:\n\nnumpy\npandas\nseaborn\nmatplotlib\nscikit-learn\n\nAdded .gitignore\nImproved README documentation\n\n\n\n\n\n\nN/A\n\n\n\n\n\nN/A"
+    "text": "Overhauled mathematical and explanatory sections for the random forest algorithm in randomforest.qmd; enhanced with formal model equations, clearer bootstrap sampling explanations, and updated diagrams.\nRevised the Quarto/Notebooks project structure to separate theoretical content from hands-on tutorials—enabling streamlined navigation between core concepts and practical walkthroughs.\nUnified environment dependencies across all Quarto documents and notebooks, adding robust setup scripts for reproducibility.\nImproved documentation linking—ensured that all new guides and references are indexed in navigation menus and README files for both accessibility and completeness.\n\n\n\n\n\nNew: Launched projects/Psychometrics/README.md — A comprehensive guide and example implementation for the NASA-TLX workload assessment metric, including Python usage walkthrough and statistical analysis details.\nNew: Added docs/development/README.md — A guide for development documentation for the repository, with clear guidance on Git protocol, remote Python environments, and development best practices.\nNew: Added docs/development/GIT_PROTOCOL_GUIDE.md — A guide for the Git protocol for the repository, with clear guidance on Git protocol, remote Python environments, and development best practices.\nNew: Added docs/development/REMOTE_PYTHON_PATHS.md — A guide for the remote Python paths for the repository, with clear guidance on remote Python environments, and development best practices.\nNew: Added docs/development/SETUP_GUIDE.md — A guide for the setup for the repository, with clear guidance on setup for the repository.\nNew: Added docs/development/TEST_INSTRUCTIONS.md — A guide for the test instructions for the repository, with clear guidance on test instructions for the repository.\nNew: Added docs/development/TOOLS_SUMMARY.md — A guide for the tools summary for the repository, with clear guidance on tools summary for the repository.\n\n\n\n\n\nCorrected previous path and reference inconsistencies in changelogs, Git protocol documentation, and associated navigation menus.\nAddressed outdated commands and formatting errors in Git workflow documentation; provided updated and tested CLIs and authentication instructions.\nPrevented possible documentation drift by automating file references and ensuring all new materials are reflected in existing indices.\nResolved minor visual inconsistencies in mathematical notation and figure rendering in Quarto documents.\nUpdated .gitignore and project settings to prevent accidental inclusion of generated or system files in the repository.\n\n\n\n\n\nAdded a new Quarto document (randomforest.qmd) detailing the mathematical foundations and practical application of the random forest algorithm—including model equations, bootstrapping explanations, visualizations, and end-to-end Python code for reproducible training, evaluation, and interpretation.\nImplemented an environment setup section in randomforest.qmd with robust dependency checking and installation routine.\nExpanded Quarto/Notebooks project structure to facilitate clear separation between math/theory and hands-on practical guides for machine learning algorithms.\nAdded a comprehensive workflow guide: docs/GIT_PROTOCOL_GUIDE.md—includes best practices for using both SSH and HTTPS Git protocols, complete with command snippets, security recommendations, and branch management strategies.\nAdded alternate Markdown version of the Git protocol guide as docs/GIT_PROTOCOL_GUIDE 2.md for compatibility.\nNEW: Created requirements-micro.txt - A lightweight, optimized requirements file with reduced storage footprint while maintaining all critical dependencies. Removed optional packages (jupyterlab, jupyter-contrib-nbextensions, ipywidgets) and duplicates (quarto-cli, pip, importlib-metadata). Uses notebook instead of full jupyter metapackage for minimal Jupyter setup.\nNEW: Added NPM support - Created package.json and package-lock.json with semantic-release for automated CI/CD release management. Includes 503 NPM packages for development tooling and GitHub Actions workflow integration.\n\n\n\n\n\nUpdated breast cancer dataset example and documentation for clarity; enhanced narrative with explanatory footnotes and statistical justifications in the new Quarto documents.\nImproved project documentation by providing explicit instructions for Python environment setup and notebook/practical reproducibility.\nApplied new documentation standards to changelogs and guides for increased transparency and project maintainability.\n\n\n\n\n\nAddressed confusions in environment configuration: clarified recommended dependency installation workflow to mitigate virtual environment corruption.\nFixed prior documentation referencing errors regarding the location of project notebooks and Quarto docs in various READMEs.\n\n\n\n\n\nEnsured all new documentation files are automatically referenced in the appropriate indexes and navigation menus.\nUpdated .gitignore for consistency with recent changes and future growth of documentation subdirectories.\n\n\n\n\n\n\n\n\nResolved Git repository corruption issues: Fixed corrupted remote references and missing object errors\nImproved repository organization: Moved all macOS resource fork files (._* files) to Xtra_Copies directory\n\n\n\n\n\nRepository corruption: Resolved issues with corrupted refs/remotes/origin/gh-pages and missing Git objects\nFile organization: Cleaned up macOS metadata files by consolidating them in Xtra_Copies\nDependency Management: Resolved Python environment corruption caused by disk space exhaustion; recreated virtual environment and reinstalled all dependencies\nDocumentation: Fixed Table of Contents overlay issue in index.html by updating Quarto configuration\n\n\n\n\n\nUpdated .gitignore to ignore macOS resource fork files (._*) and .DS_Store files\nRemoved all tracked ._* files from Git repository\n\n\n\n\n\n\n\n\nAdded project subdirectory\nAdded Jupyter notebooks of both pandas and SciKit Learn essentials.\nAdded a Quarto document on the essentials underlying the random forest algorithm.\nAdded a Quarto document on the random forest algorithm in practice.\nAdded a script to render the random forest document to a html and pdf file.\nAdded a script to start a preview server for the random forest document.\nEnhanced documentation and structure: Added Quarto document on random forest application, updated CHANGELOG, modified index.html for improved responsiveness, and expanded CrewAI project README with detailed agent swarm descriptions.\n\n\n\n\n\n\n\n\n\n\nAdded requirements.txt with the following dependencies:\n\nnumpy\npandas\nseaborn\nmatplotlib\nscikit-learn\n\nAdded .gitignore\nImproved README documentation\n\n\n\n\n\n\nN/A\n\n\n\n\n\nN/A"
   },
   {
     "objectID": "CHANGELOG.html#section",
     "href": "CHANGELOG.html#section",
     "title": "CHANGELOG",
     "section": "",
-    "text": "Resolved Git repository corruption issues: Fixed corrupted remote references and missing object errors\nImproved repository organization: Moved all macOS resource fork files (._* files) to Xtra_Copies directory\n\n\n\n\n\nRepository corruption: Resolved issues with corrupted refs/remotes/origin/gh-pages and missing Git objects\nFile organization: Cleaned up macOS metadata files by consolidating them in Xtra_Copies\nDependency Management: Resolved Python environment corruption caused by disk space exhaustion; recreated virtual environment and reinstalled all dependencies\nDocumentation: Fixed Table of Contents overlay issue in index.html by updating Quarto configuration\n\n\n\n\n\nUpdated .gitignore to ignore macOS resource fork files (._*) and .DS_Store files\nRemoved all tracked ._* files from Git repository"
+    "text": "Overhauled mathematical and explanatory sections for the random forest algorithm in randomforest.qmd; enhanced with formal model equations, clearer bootstrap sampling explanations, and updated diagrams.\nRevised the Quarto/Notebooks project structure to separate theoretical content from hands-on tutorials—enabling streamlined navigation between core concepts and practical walkthroughs.\nUnified environment dependencies across all Quarto documents and notebooks, adding robust setup scripts for reproducibility.\nImproved documentation linking—ensured that all new guides and references are indexed in navigation menus and README files for both accessibility and completeness.\n\n\n\n\n\nNew: Launched projects/Psychometrics/README.md — A comprehensive guide and example implementation for the NASA-TLX workload assessment metric, including Python usage walkthrough and statistical analysis details.\nNew: Added docs/development/README.md — A guide for development documentation for the repository, with clear guidance on Git protocol, remote Python environments, and development best practices.\nNew: Added docs/development/GIT_PROTOCOL_GUIDE.md — A guide for the Git protocol for the repository, with clear guidance on Git protocol, remote Python environments, and development best practices.\nNew: Added docs/development/REMOTE_PYTHON_PATHS.md — A guide for the remote Python paths for the repository, with clear guidance on remote Python environments, and development best practices.\nNew: Added docs/development/SETUP_GUIDE.md — A guide for the setup for the repository, with clear guidance on setup for the repository.\nNew: Added docs/development/TEST_INSTRUCTIONS.md — A guide for the test instructions for the repository, with clear guidance on test instructions for the repository.\nNew: Added docs/development/TOOLS_SUMMARY.md — A guide for the tools summary for the repository, with clear guidance on tools summary for the repository.\n\n\n\n\n\nCorrected previous path and reference inconsistencies in changelogs, Git protocol documentation, and associated navigation menus.\nAddressed outdated commands and formatting errors in Git workflow documentation; provided updated and tested CLIs and authentication instructions.\nPrevented possible documentation drift by automating file references and ensuring all new materials are reflected in existing indices.\nResolved minor visual inconsistencies in mathematical notation and figure rendering in Quarto documents.\nUpdated .gitignore and project settings to prevent accidental inclusion of generated or system files in the repository.\n\n\n\n\n\nAdded a new Quarto document (randomforest.qmd) detailing the mathematical foundations and practical application of the random forest algorithm—including model equations, bootstrapping explanations, visualizations, and end-to-end Python code for reproducible training, evaluation, and interpretation.\nImplemented an environment setup section in randomforest.qmd with robust dependency checking and installation routine.\nExpanded Quarto/Notebooks project structure to facilitate clear separation between math/theory and hands-on practical guides for machine learning algorithms.\nAdded a comprehensive workflow guide: docs/GIT_PROTOCOL_GUIDE.md—includes best practices for using both SSH and HTTPS Git protocols, complete with command snippets, security recommendations, and branch management strategies.\nAdded alternate Markdown version of the Git protocol guide as docs/GIT_PROTOCOL_GUIDE 2.md for compatibility.\nNEW: Created requirements-micro.txt - A lightweight, optimized requirements file with reduced storage footprint while maintaining all critical dependencies. Removed optional packages (jupyterlab, jupyter-contrib-nbextensions, ipywidgets) and duplicates (quarto-cli, pip, importlib-metadata). Uses notebook instead of full jupyter metapackage for minimal Jupyter setup.\nNEW: Added NPM support - Created package.json and package-lock.json with semantic-release for automated CI/CD release management. Includes 503 NPM packages for development tooling and GitHub Actions workflow integration.\n\n\n\n\n\nUpdated breast cancer dataset example and documentation for clarity; enhanced narrative with explanatory footnotes and statistical justifications in the new Quarto documents.\nImproved project documentation by providing explicit instructions for Python environment setup and notebook/practical reproducibility.\nApplied new documentation standards to changelogs and guides for increased transparency and project maintainability.\n\n\n\n\n\nAddressed confusions in environment configuration: clarified recommended dependency installation workflow to mitigate virtual environment corruption.\nFixed prior documentation referencing errors regarding the location of project notebooks and Quarto docs in various READMEs.\n\n\n\n\n\nEnsured all new documentation files are automatically referenced in the appropriate indexes and navigation menus.\nUpdated .gitignore for consistency with recent changes and future growth of documentation subdirectories."
   },
   {
     "objectID": "CHANGELOG.html#section-1",
     "href": "CHANGELOG.html#section-1",
     "title": "CHANGELOG",
     "section": "",
-    "text": "Added project subdirectory\nAdded Jupyter notebooks of both pandas and SciKit Learn essentials.\nAdded a Quarto document on the essentials underlying the random forest algorithm.\nAdded a Quarto document on the random forest algorithm in practice.\nAdded a script to render the random forest document to a html and pdf file.\nAdded a script to start a preview server for the random forest document.\nEnhanced documentation and structure: Added Quarto document on random forest application, updated CHANGELOG, modified index.html for improved responsiveness, and expanded CrewAI project README with detailed agent swarm descriptions."
+    "text": "Resolved Git repository corruption issues: Fixed corrupted remote references and missing object errors\nImproved repository organization: Moved all macOS resource fork files (._* files) to Xtra_Copies directory\n\n\n\n\n\nRepository corruption: Resolved issues with corrupted refs/remotes/origin/gh-pages and missing Git objects\nFile organization: Cleaned up macOS metadata files by consolidating them in Xtra_Copies\nDependency Management: Resolved Python environment corruption caused by disk space exhaustion; recreated virtual environment and reinstalled all dependencies\nDocumentation: Fixed Table of Contents overlay issue in index.html by updating Quarto configuration\n\n\n\n\n\nUpdated .gitignore to ignore macOS resource fork files (._*) and .DS_Store files\nRemoved all tracked ._* files from Git repository"
   },
   {
     "objectID": "CHANGELOG.html#section-2",
     "href": "CHANGELOG.html#section-2",
+    "title": "CHANGELOG",
+    "section": "",
+    "text": "Added project subdirectory\nAdded Jupyter notebooks of both pandas and SciKit Learn essentials.\nAdded a Quarto document on the essentials underlying the random forest algorithm.\nAdded a Quarto document on the random forest algorithm in practice.\nAdded a script to render the random forest document to a html and pdf file.\nAdded a script to start a preview server for the random forest document.\nEnhanced documentation and structure: Added Quarto document on random forest application, updated CHANGELOG, modified index.html for improved responsiveness, and expanded CrewAI project README with detailed agent swarm descriptions."
+  },
+  {
+    "objectID": "CHANGELOG.html#section-3",
+    "href": "CHANGELOG.html#section-3",
     "title": "CHANGELOG",
     "section": "",
     "text": "Added requirements.txt with the following dependencies:\n\nnumpy\npandas\nseaborn\nmatplotlib\nscikit-learn\n\nAdded .gitignore\nImproved README documentation\n\n\n\n\n\n\nN/A\n\n\n\n\n\nN/A"
@@ -217,6 +672,13 @@
     "text": "Socials\n\nGitHub\nTwitter/X\nLinkedIn\nHuggingFace"
   },
   {
+    "objectID": "index.html#repository-organization",
+    "href": "index.html#repository-organization",
+    "title": "GitHub-Based Portfolio & Gallery of Jack J. Burleson",
+    "section": "Repository Organization",
+    "text": "Repository Organization\nThe repository has been organized into clear, maintainable directories:\nJJB_Gallery/\n├── requirements/          # Python dependency files\n│   ├── requirements.txt          # Full installation\n│   ├── requirements-minimal.txt  # Minimal installation\n│   └── requirements-micro.txt     # Micro installation\n├── config/                # Configuration files\n│   └── pip.conf           # Pip configuration\n├── docs/                  # Comprehensive documentation\n│   ├── QUICK_START.md            # Quick start guide\n│   ├── setup/                    # Setup & configuration guides\n│   │   ├── NPM_SETUP.md\n│   │   ├── EXTERNAL_STORAGE_SETUP.md\n│   │   └── ...\n│   ├── development/              # Development guides\n│   │   ├── GIT_PROTOCOL_GUIDE.md\n│   │   └── REMOTE_PYTHON_PATHS.md\n│   └── ...\n├── projects/             # All project implementations\n│   ├── CrewAI/\n│   ├── Psychometrics/\n│   ├── RAG_Model/\n│   ├── ChatUi/\n│   └── ...\n├── scripts/             # Automation and utility scripts\n├── notebooks/           # Jupyter notebooks\n└── Quarto/              # Quarto documents\n📚 Documentation: See docs/README.md for complete documentation index."
+  },
+  {
     "objectID": "index.html#further-reading",
     "href": "index.html#further-reading",
     "title": "GitHub-Based Portfolio & Gallery of Jack J. Burleson",
@@ -282,15 +744,477 @@
   {
     "objectID": "projects/terminal_agents/README.html",
     "href": "projects/terminal_agents/README.html",
-    "title": "JJB Gallery",
+    "title": "Terminal Agents - Production-Ready AI Coding Assistant",
     "section": "",
-    "text": "The AI coding agent built for the terminal.\n  \n\n\n\nOpenCode Terminal UI\n\n\n\n\nInstallation\n# YOLO\ncurl -fsSL https://opencode.ai/install | bash\n\n# Package managers\nnpm i -g opencode-ai@latest        # or bun/pnpm/yarn\nscoop bucket add extras; scoop install extras/opencode  # Windows\nchoco install opencode             # Windows\nbrew install opencode              # macOS and Linux\nparu -S opencode-bin               # Arch Linux\nmise use --pin -g ubi:sst/opencode # Any OS\nnix run nixpkgs#opencode           # or github:sst/opencode for latest dev branch\n\n[!TIP] Remove versions older than 0.1.x before installing.\n\n\nInstallation Directory\nThe install script respects the following priority order for the installation path:\n\n$OPENCODE_INSTALL_DIR - Custom installation directory\n$XDG_BIN_DIR - XDG Base Directory Specification compliant path\n$HOME/bin - Standard user binary directory (if exists or can be created)\n$HOME/.opencode/bin - Default fallback\n\n# Examples\nOPENCODE_INSTALL_DIR=/usr/local/bin curl -fsSL https://opencode.ai/install | bash\nXDG_BIN_DIR=$HOME/.local/bin curl -fsSL https://opencode.ai/install | bash\n\n\n\nAgents\nOpenCode includes two built-in agents you can switch between, you can switch between these using the Tab key.\n\nbuild - Default, full access agent for development work\nplan - Read-only agent for analysis and code exploration\n\nDenies file edits by default\nAsks permission before running bash commands\nIdeal for exploring unfamiliar codebases or planning changes\n\n\nAlso, included is a general subagent for complex searches and multi-step tasks. This is used internally and can be invoked using @general in messages.\nLearn more about agents.\n\n\nDocumentation\nFor more info on how to configure OpenCode head over to our docs.\n\n\nContributing\nIf you’re interested in contributing to OpenCode, please read our contributing docs before submitting a pull request.\n\n\nBuilding on OpenCode\nIf you are working on a project that’s related to OpenCode and is using “opencode” as a part of its name; for example, “opencode-dashboard” or “opencode-mobile”, please add a note to your README to clarify that it is not built by the OpenCode team and is not affiliated with us in anyway.\n\n\nFAQ\n\nHow is this different than Claude Code?\nIt’s very similar to Claude Code in terms of capability. Here are the key differences:\n\n100% open source\nNot coupled to any provider. Although we recommend the models we provide through OpenCode Zen; OpenCode can be used with Claude, OpenAI, Google or even local models. As models evolve the gaps between them will close and pricing will drop so being provider-agnostic is important.\nOut of the box LSP support\nA focus on TUI. OpenCode is built by neovim users and the creators of terminal.shop; we are going to push the limits of what’s possible in the terminal.\nA client/server architecture. This for example can allow OpenCode to run on your computer, while you can drive it remotely from a mobile app. Meaning that the TUI frontend is just one of the possible clients.\n\n\n\nWhat’s the other repo?\nThe other confusingly named repo has no relation to this one. You can read the story behind it here.\n\nJoin our community Discord | X.com"
+    "text": "A comprehensive terminal-based AI agent for code assistance, similar to OpenCode. Provides AI-powered code analysis, generation, explanation, and debugging directly from your terminal.\n\n\n\nMulti-Provider LLM Support: OpenAI, Anthropic Claude, Ollama (free/local), Google, Azure\nCode Analysis: Analyze code files for issues, security vulnerabilities, and improvements\nCode Explanation: Get detailed explanations of code functionality\nCode Generation: Generate code from natural language descriptions\nCode Fixing: Fix bugs and improve code quality\nCode Refactoring: Refactor code for better maintainability\nInteractive Chat: Real-time chat interface with conversation history\nRich Terminal UI: Beautiful terminal interface with colors, markdown, and syntax highlighting\nFile Operations: Read, analyze, and work with code files\nConfiguration Management: YAML config files and environment variables\n\n\n\n\n\nPython 3.8+\nAt least one LLM provider configured:\n\nOllama (Recommended - Free, local): Install Ollama\nOpenAI API Key: Get API Key\nAnthropic API Key: Get API Key\nGoogle API Key: Get API Key\nAzure OpenAI: Configure Azure endpoint\n\n\n\n\n\n\n\ncd projects/terminal_agents\n./setup.sh\n\n\n\n\nNavigate to the project:\ncd projects/terminal_agents\nCreate virtual environment:\npython3 -m venv venv\nsource venv/bin/activate  # On Windows: venv\\Scripts\\activate\nInstall dependencies:\npip install -r requirements.txt\nMake agent executable:\nchmod +x agent.py\n\n\n\n\n\n\n\n# For OpenAI\nexport OPENAI_API_KEY=your_api_key_here\n\n# For Anthropic\nexport ANTHROPIC_API_KEY=your_api_key_here\n\n# For Ollama (default, no key needed if running locally)\nexport OLLAMA_BASE_URL=http://localhost:11434\nexport OLLAMA_MODEL=llama3.1:8b\n\n\n\nCreate ~/.terminal_agents/config.yaml:\n# Provider selection (auto-detect if not set)\nprovider: ollama  # Options: ollama, openai, anthropic, google, azure\n\n# Ollama (Free, Local)\nollama_base_url: http://localhost:11434\nollama_model: llama3.1:8b\n\n# OpenAI\nopenai_api_key: your_key_here\nopenai_model: gpt-4o-mini\n\n# Anthropic\nanthropic_api_key: your_key_here\nanthropic_model: claude-3-5-sonnet-20241022\n\n\n\npython agent.py --api-key your_key --provider openai --model gpt-4 chat \"Hello\"\n\n\n\n\n\n\nStart an interactive chat session:\npython agent.py interactive\n# or\n./agent.py interactive\nInteractive Commands: - @analyze &lt;file&gt; - Analyze code file - @explain &lt;file&gt; - Explain code file - @generate &lt;description&gt; - Generate code - @fix &lt;file&gt; - Fix code issues - @refactor &lt;file&gt; - Refactor code - clear - Clear conversation history - save &lt;file&gt; - Save conversation - help - Show help - exit - Exit interactive mode\n\n\n\n\n\nSend a message to the agent:\npython agent.py chat \"Explain Python decorators\"\n\n\n\nAnalyze a code file:\npython agent.py analyze app.py\n\n\n\nExplain a piece of code:\npython agent.py explain \"def fibonacci(n): return n if n &lt; 2 else fibonacci(n-1) + fibonacci(n-2)\"\n# or\npython agent.py explain app.py\n\n\n\nGenerate code from a description:\npython agent.py generate \"A function to calculate factorial\"\n\n\n\nFix code issues:\npython agent.py fix \"def broken_function(x): return x / 0\"\n# or\npython agent.py fix buggy_code.py\n\n\n\nRefactor code for improvement:\npython agent.py refactor app.py\n\n\n\n\nView all available commands:\npython agent.py help\n\n\n\n\n\n\npython agent.py analyze src/main.py\n\n\n\npython agent.py explain \"$(cat complex_algorithm.py)\"\n\n\n\npython agent.py generate \"A REST API endpoint for user authentication\"\n\n\n\npython agent.py fix \"$(cat buggy_code.py)\"\n\n\n\npython agent.py chat \"What is the difference between async and await in Python?\"\n\n\n\n\nterminal_agents/\n├── agent.py              # Main agent application\n├── config.py            # Configuration management\n├── llm_providers.py     # LLM provider implementations\n├── requirements.txt      # Python dependencies\n├── setup.sh             # Setup script\n├── DESIGN.md            # Design documentation\n└── README.md            # This file\n\n\n\n\n\nEdit the default model in config.py or set environment variables:\nexport OLLAMA_MODEL=mistral:7b\nexport OPENAI_MODEL_NAME=gpt-4\n\n\n\nAdd new command handlers in the main() function in agent.py:\nelif command == \"your_command\":\n    if not input_text:\n        agent._error(\"Please provide input.\")\n        return\n    response = agent.your_method(input_text)\n    agent._print(response)\n\n\n\nModify prompt templates in the agent methods:\ndef your_method(self, input_data: str) -&gt; str:\n    prompt = f\"\"\"Your custom prompt template here:\n{input_data}\n\"\"\"\n    return self.chat(prompt)\n\n\n\n\nThe agent uses the rich library for beautiful terminal output:\n\nColors: Syntax highlighting and colored output\nMarkdown: Renders markdown in terminal\nPanels: Beautiful bordered panels for help text\nProgress: Progress indicators for long operations\nSyntax Highlighting: Code blocks with syntax highlighting\n\nIf rich is not available, the agent falls back to plain text output.\n\n\n\n\nFile write operations require explicit confirmation\nAPI keys are never logged or displayed\nError messages are sanitized\nSafe file path handling\n\n\n\n\n\n\nSolution: Configure at least one provider: - Install Ollama: curl -fsSL https://ollama.ai/install.sh | sh - Or set API keys: export OPENAI_API_KEY=your_key\n\n\n\nSolution: Install dependencies:\npip install -r requirements.txt\n\n\n\nSolution: Ensure Ollama is running:\nollama serve\n# In another terminal:\nollama pull llama3.1:8b\n\n\n\nSolution: The agent will fall back to plain text. To fix:\npip install rich pygments\n\n\n\n\n\n\npython agent.py analyze my_script.py\n\n\n\npython agent.py generate \"A function to sort a list of dictionaries by a key\"\n\n\n\npython agent.py interactive\n&gt; @analyze app.py\n&gt; @generate \"A REST API with FastAPI\"\n&gt; @fix buggy_function.py\n&gt; exit\n\n\n\npython agent.py --api-key your_key_here chat \"Hello\"\n\n\n\ncat code.py | python agent.py explain\n\n\n\n\n\nCrewAI - Multi-agent system\nChatUi - Web-based chat interface\nOpenCode - Inspiration for this project\n\n\n\n\nSee main repository LICENSE file.\n\n\n\nContributions welcome! Please read the main repository contributing guidelines.\n\n\n\nInspired by OpenCode and similar terminal-based AI coding assistants.\n\nMade with ❤️ for developers who love the terminal"
   },
   {
-    "objectID": "index.html#repository-organization",
-    "href": "index.html#repository-organization",
-    "title": "GitHub-Based Portfolio & Gallery of Jack J. Burleson",
-    "section": "Repository Organization",
-    "text": "Repository Organization\nThe repository has been organized into clear, maintainable directories:\nJJB_Gallery/\n├── requirements/          # Python dependency files\n│   ├── requirements.txt          # Full installation\n│   ├── requirements-minimal.txt  # Minimal installation\n│   └── requirements-micro.txt     # Micro installation\n├── config/                # Configuration files\n│   └── pip.conf           # Pip configuration\n├── docs/                  # Comprehensive documentation\n│   ├── QUICK_START.md            # Quick start guide\n│   ├── setup/                    # Setup & configuration guides\n│   │   ├── NPM_SETUP.md\n│   │   ├── EXTERNAL_STORAGE_SETUP.md\n│   │   └── ...\n│   ├── development/              # Development guides\n│   │   ├── GIT_PROTOCOL_GUIDE.md\n│   │   └── REMOTE_PYTHON_PATHS.md\n│   └── ...\n├── projects/             # All project implementations\n│   ├── CrewAI/\n│   ├── Psychometrics/\n│   ├── RAG_Model/\n│   ├── ChatUi/\n│   └── ...\n├── scripts/             # Automation and utility scripts\n├── notebooks/           # Jupyter notebooks\n└── Quarto/              # Quarto documents\n📚 Documentation: See docs/README.md for complete documentation index."
+    "objectID": "projects/terminal_agents/README.html#features",
+    "href": "projects/terminal_agents/README.html#features",
+    "title": "Terminal Agents - Production-Ready AI Coding Assistant",
+    "section": "",
+    "text": "Multi-Provider LLM Support: OpenAI, Anthropic Claude, Ollama (free/local), Google, Azure\nCode Analysis: Analyze code files for issues, security vulnerabilities, and improvements\nCode Explanation: Get detailed explanations of code functionality\nCode Generation: Generate code from natural language descriptions\nCode Fixing: Fix bugs and improve code quality\nCode Refactoring: Refactor code for better maintainability\nInteractive Chat: Real-time chat interface with conversation history\nRich Terminal UI: Beautiful terminal interface with colors, markdown, and syntax highlighting\nFile Operations: Read, analyze, and work with code files\nConfiguration Management: YAML config files and environment variables"
+  },
+  {
+    "objectID": "projects/terminal_agents/README.html#prerequisites",
+    "href": "projects/terminal_agents/README.html#prerequisites",
+    "title": "Terminal Agents - Production-Ready AI Coding Assistant",
+    "section": "",
+    "text": "Python 3.8+\nAt least one LLM provider configured:\n\nOllama (Recommended - Free, local): Install Ollama\nOpenAI API Key: Get API Key\nAnthropic API Key: Get API Key\nGoogle API Key: Get API Key\nAzure OpenAI: Configure Azure endpoint"
+  },
+  {
+    "objectID": "projects/terminal_agents/README.html#installation",
+    "href": "projects/terminal_agents/README.html#installation",
+    "title": "Terminal Agents - Production-Ready AI Coding Assistant",
+    "section": "",
+    "text": "cd projects/terminal_agents\n./setup.sh\n\n\n\n\nNavigate to the project:\ncd projects/terminal_agents\nCreate virtual environment:\npython3 -m venv venv\nsource venv/bin/activate  # On Windows: venv\\Scripts\\activate\nInstall dependencies:\npip install -r requirements.txt\nMake agent executable:\nchmod +x agent.py"
+  },
+  {
+    "objectID": "projects/terminal_agents/README.html#configuration",
+    "href": "projects/terminal_agents/README.html#configuration",
+    "title": "Terminal Agents - Production-Ready AI Coding Assistant",
+    "section": "",
+    "text": "# For OpenAI\nexport OPENAI_API_KEY=your_api_key_here\n\n# For Anthropic\nexport ANTHROPIC_API_KEY=your_api_key_here\n\n# For Ollama (default, no key needed if running locally)\nexport OLLAMA_BASE_URL=http://localhost:11434\nexport OLLAMA_MODEL=llama3.1:8b\n\n\n\nCreate ~/.terminal_agents/config.yaml:\n# Provider selection (auto-detect if not set)\nprovider: ollama  # Options: ollama, openai, anthropic, google, azure\n\n# Ollama (Free, Local)\nollama_base_url: http://localhost:11434\nollama_model: llama3.1:8b\n\n# OpenAI\nopenai_api_key: your_key_here\nopenai_model: gpt-4o-mini\n\n# Anthropic\nanthropic_api_key: your_key_here\nanthropic_model: claude-3-5-sonnet-20241022\n\n\n\npython agent.py --api-key your_key --provider openai --model gpt-4 chat \"Hello\""
+  },
+  {
+    "objectID": "projects/terminal_agents/README.html#usage",
+    "href": "projects/terminal_agents/README.html#usage",
+    "title": "Terminal Agents - Production-Ready AI Coding Assistant",
+    "section": "",
+    "text": "Start an interactive chat session:\npython agent.py interactive\n# or\n./agent.py interactive\nInteractive Commands: - @analyze &lt;file&gt; - Analyze code file - @explain &lt;file&gt; - Explain code file - @generate &lt;description&gt; - Generate code - @fix &lt;file&gt; - Fix code issues - @refactor &lt;file&gt; - Refactor code - clear - Clear conversation history - save &lt;file&gt; - Save conversation - help - Show help - exit - Exit interactive mode\n\n\n\n\n\nSend a message to the agent:\npython agent.py chat \"Explain Python decorators\"\n\n\n\nAnalyze a code file:\npython agent.py analyze app.py\n\n\n\nExplain a piece of code:\npython agent.py explain \"def fibonacci(n): return n if n &lt; 2 else fibonacci(n-1) + fibonacci(n-2)\"\n# or\npython agent.py explain app.py\n\n\n\nGenerate code from a description:\npython agent.py generate \"A function to calculate factorial\"\n\n\n\nFix code issues:\npython agent.py fix \"def broken_function(x): return x / 0\"\n# or\npython agent.py fix buggy_code.py\n\n\n\nRefactor code for improvement:\npython agent.py refactor app.py\n\n\n\n\nView all available commands:\npython agent.py help"
+  },
+  {
+    "objectID": "projects/terminal_agents/README.html#use-cases",
+    "href": "projects/terminal_agents/README.html#use-cases",
+    "title": "Terminal Agents - Production-Ready AI Coding Assistant",
+    "section": "",
+    "text": "python agent.py analyze src/main.py\n\n\n\npython agent.py explain \"$(cat complex_algorithm.py)\"\n\n\n\npython agent.py generate \"A REST API endpoint for user authentication\"\n\n\n\npython agent.py fix \"$(cat buggy_code.py)\"\n\n\n\npython agent.py chat \"What is the difference between async and await in Python?\""
+  },
+  {
+    "objectID": "projects/terminal_agents/README.html#project-structure",
+    "href": "projects/terminal_agents/README.html#project-structure",
+    "title": "Terminal Agents - Production-Ready AI Coding Assistant",
+    "section": "",
+    "text": "terminal_agents/\n├── agent.py              # Main agent application\n├── config.py            # Configuration management\n├── llm_providers.py     # LLM provider implementations\n├── requirements.txt      # Python dependencies\n├── setup.sh             # Setup script\n├── DESIGN.md            # Design documentation\n└── README.md            # This file"
+  },
+  {
+    "objectID": "projects/terminal_agents/README.html#customization",
+    "href": "projects/terminal_agents/README.html#customization",
+    "title": "Terminal Agents - Production-Ready AI Coding Assistant",
+    "section": "",
+    "text": "Edit the default model in config.py or set environment variables:\nexport OLLAMA_MODEL=mistral:7b\nexport OPENAI_MODEL_NAME=gpt-4\n\n\n\nAdd new command handlers in the main() function in agent.py:\nelif command == \"your_command\":\n    if not input_text:\n        agent._error(\"Please provide input.\")\n        return\n    response = agent.your_method(input_text)\n    agent._print(response)\n\n\n\nModify prompt templates in the agent methods:\ndef your_method(self, input_data: str) -&gt; str:\n    prompt = f\"\"\"Your custom prompt template here:\n{input_data}\n\"\"\"\n    return self.chat(prompt)"
+  },
+  {
+    "objectID": "projects/terminal_agents/README.html#terminal-ui",
+    "href": "projects/terminal_agents/README.html#terminal-ui",
+    "title": "Terminal Agents - Production-Ready AI Coding Assistant",
+    "section": "",
+    "text": "The agent uses the rich library for beautiful terminal output:\n\nColors: Syntax highlighting and colored output\nMarkdown: Renders markdown in terminal\nPanels: Beautiful bordered panels for help text\nProgress: Progress indicators for long operations\nSyntax Highlighting: Code blocks with syntax highlighting\n\nIf rich is not available, the agent falls back to plain text output."
+  },
+  {
+    "objectID": "projects/terminal_agents/README.html#security-safety",
+    "href": "projects/terminal_agents/README.html#security-safety",
+    "title": "Terminal Agents - Production-Ready AI Coding Assistant",
+    "section": "",
+    "text": "File write operations require explicit confirmation\nAPI keys are never logged or displayed\nError messages are sanitized\nSafe file path handling"
+  },
+  {
+    "objectID": "projects/terminal_agents/README.html#troubleshooting",
+    "href": "projects/terminal_agents/README.html#troubleshooting",
+    "title": "Terminal Agents - Production-Ready AI Coding Assistant",
+    "section": "",
+    "text": "Solution: Configure at least one provider: - Install Ollama: curl -fsSL https://ollama.ai/install.sh | sh - Or set API keys: export OPENAI_API_KEY=your_key\n\n\n\nSolution: Install dependencies:\npip install -r requirements.txt\n\n\n\nSolution: Ensure Ollama is running:\nollama serve\n# In another terminal:\nollama pull llama3.1:8b\n\n\n\nSolution: The agent will fall back to plain text. To fix:\npip install rich pygments"
+  },
+  {
+    "objectID": "projects/terminal_agents/README.html#examples",
+    "href": "projects/terminal_agents/README.html#examples",
+    "title": "Terminal Agents - Production-Ready AI Coding Assistant",
+    "section": "",
+    "text": "python agent.py analyze my_script.py\n\n\n\npython agent.py generate \"A function to sort a list of dictionaries by a key\"\n\n\n\npython agent.py interactive\n&gt; @analyze app.py\n&gt; @generate \"A REST API with FastAPI\"\n&gt; @fix buggy_function.py\n&gt; exit\n\n\n\npython agent.py --api-key your_key_here chat \"Hello\"\n\n\n\ncat code.py | python agent.py explain"
+  },
+  {
+    "objectID": "projects/terminal_agents/README.html#related-projects",
+    "href": "projects/terminal_agents/README.html#related-projects",
+    "title": "Terminal Agents - Production-Ready AI Coding Assistant",
+    "section": "",
+    "text": "CrewAI - Multi-agent system\nChatUi - Web-based chat interface\nOpenCode - Inspiration for this project"
+  },
+  {
+    "objectID": "projects/terminal_agents/README.html#license",
+    "href": "projects/terminal_agents/README.html#license",
+    "title": "Terminal Agents - Production-Ready AI Coding Assistant",
+    "section": "",
+    "text": "See main repository LICENSE file."
+  },
+  {
+    "objectID": "projects/terminal_agents/README.html#contributing",
+    "href": "projects/terminal_agents/README.html#contributing",
+    "title": "Terminal Agents - Production-Ready AI Coding Assistant",
+    "section": "",
+    "text": "Contributions welcome! Please read the main repository contributing guidelines."
+  },
+  {
+    "objectID": "projects/terminal_agents/README.html#acknowledgments",
+    "href": "projects/terminal_agents/README.html#acknowledgments",
+    "title": "Terminal Agents - Production-Ready AI Coding Assistant",
+    "section": "",
+    "text": "Inspired by OpenCode and similar terminal-based AI coding assistants.\n\nMade with ❤️ for developers who love the terminal"
+  },
+  {
+    "objectID": "projects/Psychometrics/README.html",
+    "href": "projects/Psychometrics/README.html",
+    "title": "Psychometric Assessment Applications",
+    "section": "",
+    "text": "A comprehensive psychometric assessment toolkit implementing the NASA Task Load Index (TLX) and related workload measurement tools.\n\n\nThis project provides tools for conducting psychometric assessments, particularly focused on workload measurement using the NASA Task Load Index (TLX). The TLX is a widely-used tool for assessing the subjective workload experienced by users when performing tasks.\n\n\n\n\nNASA TLX Implementation: Complete implementation of the NASA Task Load Index\nRaw TLX Scores: Unweighted average of six workload dimensions\nWeighted TLX Scores: Weighted scores based on pairwise comparisons\nInteractive CLI: Command-line interface for data collection\nData Export: JSON export for analysis\nStatistical Analysis: Aggregate statistics across multiple assessments\n\n\n\n\nThe NASA TLX measures workload across six dimensions:\n\nMental Demand: How mentally demanding was the task?\nPhysical Demand: How physically demanding was the task?\nTemporal Demand: How hurried or rushed was the pace?\nPerformance: How successful were you in accomplishing the task?\nEffort: How hard did you have to work?\nFrustration: How insecure, discouraged, or annoyed were you?\n\nEach dimension is rated on a scale of 1-20, where:\n\n1 = Very Low\n20 = Very High\n\n(Note: Performance is inverted - 1 = Perfect, 20 = Failure)\n\n\n\n\n\npip install -r requirements.txt\nNote: The core functionality uses only Python standard library. Optional dependencies are for advanced analysis.\n\n\n\n\n\n\nRun the interactive assessment tool:\npython main.py\nThe tool will guide you through:\n\nEntering task and participant information\nRating each of the six dimensions (1-20)\nOptional pairwise comparisons for weighted scores\nViewing results\nSaving and exporting data\n\n\n\n\nfrom nasa_tlx import NASATLX\n\n# Initialize system\ntlx = NASATLX()\n\n# Create assessment\nresult = tlx.create_assessment(\n    task_name=\"User Interface Evaluation\",\n    participant_id=\"P001\"\n)\n\n# Add ratings\ntlx.add_rating(\n    result,\n    mental_demand=15,\n    physical_demand=3,\n    temporal_demand=12,\n    performance=5,  # Inverted: lower is better\n    effort=14,\n    frustration=8\n)\n\n# Calculate raw TLX score\ntlx.calculate_scores(result)\nprint(f\"Raw TLX Score: {result.raw_tlx_score:.2f}\")\n\n# Add pairwise comparisons for weighted score\ntlx.add_pairwise_comparison(\n    result,\n    mental_vs_physical=3,  # Mental much more important\n    mental_vs_temporal=1,  # Mental slightly more important\n    # ... other comparisons\n)\n\n# Calculate weighted TLX score\ntlx.calculate_scores(result)\nprint(f\"Weighted TLX Score: {result.weighted_tlx_score:.2f}\")\nprint(f\"Weights: {result.weights}\")\n\n# Save result\ntlx.save_result(result)\n\n# Get statistics\nstats = tlx.get_statistics(\"User Interface Evaluation\")\nprint(f\"Mean Raw TLX: {stats['raw_tlx']['mean']:.2f}\")\n\n\n\n# Export to JSON\njson_output = result.to_json()\nwith open(\"assessment.json\", \"w\") as f:\n    f.write(json_output)\n\n# Or export as dictionary\nresult_dict = result.to_dict()\n\n\n\n\n\n\nThe raw TLX score is the unweighted average of all six dimension ratings:\nRaw TLX = (Mental + Physical + Temporal + Performance + Effort + Frustration) / 6\nRange: 1-20\n\n\n\nThe weighted TLX score uses pairwise comparisons to determine the relative importance of each dimension:\n\nCompare each pair of dimensions (15 total comparisons)\nCount “wins” for each dimension\nNormalize to weights (0-1, sum to 1)\nCalculate weighted average:\n\n\nWeighted TLX = Σ(Weight_i × Rating_i)\nRange: 1-20\n\n\n\n\nWhen collecting weighted TLX scores, participants compare each pair of dimensions:\n\n+3: First dimension much more important\n+2: First dimension moderately more important\n+1: First dimension slightly more important\n0: Equal importance (or skip)\n-1: Second dimension slightly more important\n-2: Second dimension moderately more important\n-3: Second dimension much more important\n\n\n\n\n\n\n{\n    \"task_name\": \"Task Name\",\n    \"participant_id\": \"P001\",\n    \"timestamp\": \"2024-01-15T10:30:00\",\n    \"rating\": {\n        \"mental_demand\": 15,\n        \"physical_demand\": 3,\n        \"temporal_demand\": 12,\n        \"performance\": 5,\n        \"effort\": 14,\n        \"frustration\": 8\n    },\n    \"raw_tlx_score\": 9.5,\n    \"weighted_tlx_score\": 10.2,\n    \"dimension_scores\": {\n        \"mental_demand\": 2.5,\n        \"physical_demand\": 0.3,\n        ...\n    },\n    \"weights\": {\n        \"mental_demand\": 0.25,\n        \"physical_demand\": 0.10,\n        ...\n    }\n}\n\n\n\n\nGet aggregate statistics across multiple assessments:\nstats = tlx.get_statistics(task_name=\"User Interface Evaluation\")\n\n# Returns:\n{\n    \"count\": 10,\n    \"raw_tlx\": {\n        \"mean\": 9.5,\n        \"median\": 9.2,\n        \"stdev\": 1.8,\n        \"min\": 7.0,\n        \"max\": 12.5\n    },\n    \"weighted_tlx\": {\n        \"mean\": 10.2,\n        \"median\": 10.0,\n        \"stdev\": 2.1,\n        \"min\": 7.5,\n        \"max\": 13.0\n    }\n}\n\n\n\n\nUser Experience Research: Measure workload in UI/UX studies\nHuman Factors Engineering: Assess task difficulty and cognitive load\nProduct Testing: Compare workload across different product versions\nTraining Evaluation: Measure learning curve and task complexity\nErgonomic Assessment: Evaluate physical and mental demands\n\n\n\n\n\n\n\n1-5: Very Low workload\n6-10: Low to Moderate workload\n11-15: Moderate to High workload\n16-20: Very High workload\n\n\n\n\nHigh scores in specific dimensions indicate:\n\nMental Demand: Complex cognitive tasks\nPhysical Demand: Physically strenuous tasks\nTemporal Demand: Time pressure or rushed pace\nPerformance: Low success rate (inverted scale)\nEffort: High exertion required\nFrustration: Negative emotional response\n\n\n\n\n\n\nConsistent Administration: Use same instructions and scale for all participants\nPost-Task Rating: Collect ratings immediately after task completion\nClear Instructions: Explain each dimension clearly\nMultiple Assessments: Collect multiple data points for reliability\nContext Documentation: Record task details and conditions\n\n\n\n\n\nHart, S. G., & Staveland, L. E. (1988). Development of NASA-TLX (Task Load Index): Results of empirical and theoretical research. Advances in psychology, 52, 139-183.\nNASA TLX Official Documentation\n\n\n\n\nSee main repository LICENSE file.\n\n\n\nThis project is part of the JJB Gallery portfolio. Related projects include:\n\nRAG Model - Retrieval-Augmented Generation\nCrewAI - Multi-Agent System\nChatUi - Modern Chat Interface\n\n\n\n\n\n📚 Project Wiki - Comprehensive documentation\n📖 Psychometrics Wiki Page - Detailed project documentation\n🔧 Installation Guide - Setup instructions\n🐛 Troubleshooting - Common issues and solutions\n\n\n\n\nContributions welcome! Please see the main repository Contributing Guidelines.\nFor issues, questions, or suggestions, please use the GitHub Issues page."
+  },
+  {
+    "objectID": "projects/Psychometrics/README.html#overview",
+    "href": "projects/Psychometrics/README.html#overview",
+    "title": "Psychometric Assessment Applications",
+    "section": "",
+    "text": "This project provides tools for conducting psychometric assessments, particularly focused on workload measurement using the NASA Task Load Index (TLX). The TLX is a widely-used tool for assessing the subjective workload experienced by users when performing tasks."
+  },
+  {
+    "objectID": "projects/Psychometrics/README.html#features",
+    "href": "projects/Psychometrics/README.html#features",
+    "title": "Psychometric Assessment Applications",
+    "section": "",
+    "text": "NASA TLX Implementation: Complete implementation of the NASA Task Load Index\nRaw TLX Scores: Unweighted average of six workload dimensions\nWeighted TLX Scores: Weighted scores based on pairwise comparisons\nInteractive CLI: Command-line interface for data collection\nData Export: JSON export for analysis\nStatistical Analysis: Aggregate statistics across multiple assessments"
+  },
+  {
+    "objectID": "projects/Psychometrics/README.html#nasa-task-load-index-tlx",
+    "href": "projects/Psychometrics/README.html#nasa-task-load-index-tlx",
+    "title": "Psychometric Assessment Applications",
+    "section": "",
+    "text": "The NASA TLX measures workload across six dimensions:\n\nMental Demand: How mentally demanding was the task?\nPhysical Demand: How physically demanding was the task?\nTemporal Demand: How hurried or rushed was the pace?\nPerformance: How successful were you in accomplishing the task?\nEffort: How hard did you have to work?\nFrustration: How insecure, discouraged, or annoyed were you?\n\nEach dimension is rated on a scale of 1-20, where:\n\n1 = Very Low\n20 = Very High\n\n(Note: Performance is inverted - 1 = Perfect, 20 = Failure)"
+  },
+  {
+    "objectID": "projects/Psychometrics/README.html#installation",
+    "href": "projects/Psychometrics/README.html#installation",
+    "title": "Psychometric Assessment Applications",
+    "section": "",
+    "text": "pip install -r requirements.txt\nNote: The core functionality uses only Python standard library. Optional dependencies are for advanced analysis."
+  },
+  {
+    "objectID": "projects/Psychometrics/README.html#usage",
+    "href": "projects/Psychometrics/README.html#usage",
+    "title": "Psychometric Assessment Applications",
+    "section": "",
+    "text": "Run the interactive assessment tool:\npython main.py\nThe tool will guide you through:\n\nEntering task and participant information\nRating each of the six dimensions (1-20)\nOptional pairwise comparisons for weighted scores\nViewing results\nSaving and exporting data\n\n\n\n\nfrom nasa_tlx import NASATLX\n\n# Initialize system\ntlx = NASATLX()\n\n# Create assessment\nresult = tlx.create_assessment(\n    task_name=\"User Interface Evaluation\",\n    participant_id=\"P001\"\n)\n\n# Add ratings\ntlx.add_rating(\n    result,\n    mental_demand=15,\n    physical_demand=3,\n    temporal_demand=12,\n    performance=5,  # Inverted: lower is better\n    effort=14,\n    frustration=8\n)\n\n# Calculate raw TLX score\ntlx.calculate_scores(result)\nprint(f\"Raw TLX Score: {result.raw_tlx_score:.2f}\")\n\n# Add pairwise comparisons for weighted score\ntlx.add_pairwise_comparison(\n    result,\n    mental_vs_physical=3,  # Mental much more important\n    mental_vs_temporal=1,  # Mental slightly more important\n    # ... other comparisons\n)\n\n# Calculate weighted TLX score\ntlx.calculate_scores(result)\nprint(f\"Weighted TLX Score: {result.weighted_tlx_score:.2f}\")\nprint(f\"Weights: {result.weights}\")\n\n# Save result\ntlx.save_result(result)\n\n# Get statistics\nstats = tlx.get_statistics(\"User Interface Evaluation\")\nprint(f\"Mean Raw TLX: {stats['raw_tlx']['mean']:.2f}\")\n\n\n\n# Export to JSON\njson_output = result.to_json()\nwith open(\"assessment.json\", \"w\") as f:\n    f.write(json_output)\n\n# Or export as dictionary\nresult_dict = result.to_dict()"
+  },
+  {
+    "objectID": "projects/Psychometrics/README.html#scoring-methods",
+    "href": "projects/Psychometrics/README.html#scoring-methods",
+    "title": "Psychometric Assessment Applications",
+    "section": "",
+    "text": "The raw TLX score is the unweighted average of all six dimension ratings:\nRaw TLX = (Mental + Physical + Temporal + Performance + Effort + Frustration) / 6\nRange: 1-20\n\n\n\nThe weighted TLX score uses pairwise comparisons to determine the relative importance of each dimension:\n\nCompare each pair of dimensions (15 total comparisons)\nCount “wins” for each dimension\nNormalize to weights (0-1, sum to 1)\nCalculate weighted average:\n\n\nWeighted TLX = Σ(Weight_i × Rating_i)\nRange: 1-20"
+  },
+  {
+    "objectID": "projects/Psychometrics/README.html#pairwise-comparisons",
+    "href": "projects/Psychometrics/README.html#pairwise-comparisons",
+    "title": "Psychometric Assessment Applications",
+    "section": "",
+    "text": "When collecting weighted TLX scores, participants compare each pair of dimensions:\n\n+3: First dimension much more important\n+2: First dimension moderately more important\n+1: First dimension slightly more important\n0: Equal importance (or skip)\n-1: Second dimension slightly more important\n-2: Second dimension moderately more important\n-3: Second dimension much more important"
+  },
+  {
+    "objectID": "projects/Psychometrics/README.html#data-structure",
+    "href": "projects/Psychometrics/README.html#data-structure",
+    "title": "Psychometric Assessment Applications",
+    "section": "",
+    "text": "{\n    \"task_name\": \"Task Name\",\n    \"participant_id\": \"P001\",\n    \"timestamp\": \"2024-01-15T10:30:00\",\n    \"rating\": {\n        \"mental_demand\": 15,\n        \"physical_demand\": 3,\n        \"temporal_demand\": 12,\n        \"performance\": 5,\n        \"effort\": 14,\n        \"frustration\": 8\n    },\n    \"raw_tlx_score\": 9.5,\n    \"weighted_tlx_score\": 10.2,\n    \"dimension_scores\": {\n        \"mental_demand\": 2.5,\n        \"physical_demand\": 0.3,\n        ...\n    },\n    \"weights\": {\n        \"mental_demand\": 0.25,\n        \"physical_demand\": 0.10,\n        ...\n    }\n}"
+  },
+  {
+    "objectID": "projects/Psychometrics/README.html#statistical-analysis",
+    "href": "projects/Psychometrics/README.html#statistical-analysis",
+    "title": "Psychometric Assessment Applications",
+    "section": "",
+    "text": "Get aggregate statistics across multiple assessments:\nstats = tlx.get_statistics(task_name=\"User Interface Evaluation\")\n\n# Returns:\n{\n    \"count\": 10,\n    \"raw_tlx\": {\n        \"mean\": 9.5,\n        \"median\": 9.2,\n        \"stdev\": 1.8,\n        \"min\": 7.0,\n        \"max\": 12.5\n    },\n    \"weighted_tlx\": {\n        \"mean\": 10.2,\n        \"median\": 10.0,\n        \"stdev\": 2.1,\n        \"min\": 7.5,\n        \"max\": 13.0\n    }\n}"
+  },
+  {
+    "objectID": "projects/Psychometrics/README.html#use-cases",
+    "href": "projects/Psychometrics/README.html#use-cases",
+    "title": "Psychometric Assessment Applications",
+    "section": "",
+    "text": "User Experience Research: Measure workload in UI/UX studies\nHuman Factors Engineering: Assess task difficulty and cognitive load\nProduct Testing: Compare workload across different product versions\nTraining Evaluation: Measure learning curve and task complexity\nErgonomic Assessment: Evaluate physical and mental demands"
+  },
+  {
+    "objectID": "projects/Psychometrics/README.html#interpretation-guidelines",
+    "href": "projects/Psychometrics/README.html#interpretation-guidelines",
+    "title": "Psychometric Assessment Applications",
+    "section": "",
+    "text": "1-5: Very Low workload\n6-10: Low to Moderate workload\n11-15: Moderate to High workload\n16-20: Very High workload\n\n\n\n\nHigh scores in specific dimensions indicate:\n\nMental Demand: Complex cognitive tasks\nPhysical Demand: Physically strenuous tasks\nTemporal Demand: Time pressure or rushed pace\nPerformance: Low success rate (inverted scale)\nEffort: High exertion required\nFrustration: Negative emotional response"
+  },
+  {
+    "objectID": "projects/Psychometrics/README.html#best-practices",
+    "href": "projects/Psychometrics/README.html#best-practices",
+    "title": "Psychometric Assessment Applications",
+    "section": "",
+    "text": "Consistent Administration: Use same instructions and scale for all participants\nPost-Task Rating: Collect ratings immediately after task completion\nClear Instructions: Explain each dimension clearly\nMultiple Assessments: Collect multiple data points for reliability\nContext Documentation: Record task details and conditions"
+  },
+  {
+    "objectID": "projects/Psychometrics/README.html#references",
+    "href": "projects/Psychometrics/README.html#references",
+    "title": "Psychometric Assessment Applications",
+    "section": "",
+    "text": "Hart, S. G., & Staveland, L. E. (1988). Development of NASA-TLX (Task Load Index): Results of empirical and theoretical research. Advances in psychology, 52, 139-183.\nNASA TLX Official Documentation"
+  },
+  {
+    "objectID": "projects/Psychometrics/README.html#license",
+    "href": "projects/Psychometrics/README.html#license",
+    "title": "Psychometric Assessment Applications",
+    "section": "",
+    "text": "See main repository LICENSE file."
+  },
+  {
+    "objectID": "projects/Psychometrics/README.html#related-projects",
+    "href": "projects/Psychometrics/README.html#related-projects",
+    "title": "Psychometric Assessment Applications",
+    "section": "",
+    "text": "This project is part of the JJB Gallery portfolio. Related projects include:\n\nRAG Model - Retrieval-Augmented Generation\nCrewAI - Multi-Agent System\nChatUi - Modern Chat Interface"
+  },
+  {
+    "objectID": "projects/Psychometrics/README.html#additional-resources",
+    "href": "projects/Psychometrics/README.html#additional-resources",
+    "title": "Psychometric Assessment Applications",
+    "section": "",
+    "text": "📚 Project Wiki - Comprehensive documentation\n📖 Psychometrics Wiki Page - Detailed project documentation\n🔧 Installation Guide - Setup instructions\n🐛 Troubleshooting - Common issues and solutions"
+  },
+  {
+    "objectID": "projects/Psychometrics/README.html#contributing",
+    "href": "projects/Psychometrics/README.html#contributing",
+    "title": "Psychometric Assessment Applications",
+    "section": "",
+    "text": "Contributions welcome! Please see the main repository Contributing Guidelines.\nFor issues, questions, or suggestions, please use the GitHub Issues page."
+  },
+  {
+    "objectID": "projects/ios_chatbot/README.html",
+    "href": "projects/ios_chatbot/README.html",
+    "title": "iOS-Inspired Chatbot",
+    "section": "",
+    "text": "A beautiful, iOS-style chatbot interface built with Flask and vanilla JavaScript. Features a modern, gradient-based design inspired by iOS Messages.\n\n\nThis project provides a clean, iOS-inspired chat interface with a Flask backend. It’s designed to be easily integrated with various LLM providers for intelligent conversations.\n\n\n\n\niOS-Style UI: Beautiful gradient design inspired by iOS Messages\nResponsive Design: Works on desktop and mobile devices\nReal-time Chat: Instant message sending and receiving\nConversation Management: Track multiple conversations\nRESTful API: Clean API for integration\nEasy LLM Integration: Simple interface for connecting LLM backends\n\n\n\n\n\n\n\nPython 3.8+\npip\n\n\n\n\n\nInstall dependencies:\n\npip install -r requirements.txt\n\n(Optional) Set environment variables:\n\nexport FLASK_ENV=development\nexport PORT=5000\nexport SECRET_KEY=your-secret-key-here\n\nRun the application:\n\npython app.py\nThe application will be available at http://localhost:5000.\n\n\n\n\n\n\n\nStart the server:\n\npython app.py\n\nOpen your browser to http://localhost:5000\nStart chatting!\n\n\n\n\n\n\nSend a chat message and get a response.\nRequest:\n{\n  \"message\": \"Hello, how are you?\",\n  \"conversation_id\": \"optional-conversation-id\"\n}\nResponse:\n{\n  \"conversation_id\": \"uuid-here\",\n  \"response\": {\n    \"role\": \"assistant\",\n    \"content\": \"Hello! How can I help you?\",\n    \"timestamp\": \"2024-01-15T10:30:00\"\n  },\n  \"message\": {\n    \"role\": \"user\",\n    \"content\": \"Hello, how are you?\",\n    \"timestamp\": \"2024-01-15T10:30:00\"\n  }\n}\n\n\n\nGet conversation history.\nResponse:\n{\n  \"conversation_id\": \"uuid-here\",\n  \"messages\": [\n    {\n      \"role\": \"user\",\n      \"content\": \"Hello\",\n      \"timestamp\": \"2024-01-15T10:30:00\"\n    },\n    {\n      \"role\": \"assistant\",\n      \"content\": \"Hi there!\",\n      \"timestamp\": \"2024-01-15T10:30:01\"\n    }\n  ]\n}\n\n\n\nList all conversations.\n\n\n\nDelete a conversation.\n\n\n\nHealth check endpoint.\n\n\n\n\n\n\n\nUpdate app.py:\nimport openai\n\nopenai.api_key = os.getenv('OPENAI_API_KEY')\n\nclass ChatBot:\n    def respond(self, message: str, conversation_id: str) -&gt; str:\n        response = openai.ChatCompletion.create(\n            model=\"gpt-3.5-turbo\",\n            messages=[\n                {\"role\": \"user\", \"content\": message}\n            ]\n        )\n        return response.choices[0].message.content\n\n\n\nUpdate app.py:\nimport requests\n\nOLLAMA_URL = os.getenv('OLLAMA_URL', 'http://localhost:11434')\n\nclass ChatBot:\n    def respond(self, message: str, conversation_id: str) -&gt; str:\n        response = requests.post(\n            f\"{OLLAMA_URL}/api/generate\",\n            json={\n                \"model\": \"llama3.1:8b\",\n                \"prompt\": message,\n                \"stream\": False\n            }\n        )\n        return response.json()['response']\n\n\n\nUpdate app.py:\nimport anthropic\n\nclient = anthropic.Anthropic(api_key=os.getenv('ANTHROPIC_API_KEY'))\n\nclass ChatBot:\n    def respond(self, message: str, conversation_id: str) -&gt; str:\n        response = client.messages.create(\n            model=\"claude-3-sonnet-20240229\",\n            max_tokens=1024,\n            messages=[{\"role\": \"user\", \"content\": message}]\n        )\n        return response.content[0].text\n\n\n\n\n\n\nModify static/style.css to customize: - Colors and gradients - Font sizes and families - Spacing and layout - Animations\n\n\n\nModify app.py to: - Add conversation persistence (database) - Implement user authentication - Add message history - Integrate with external services\n\n\n\n\nios_chatbot/\n├── app.py                 # Flask application\n├── templates/\n│   └── index.html        # Main HTML template\n├── static/\n│   ├── style.css         # iOS-inspired styles\n│   └── app.js            # Frontend JavaScript\n├── requirements.txt      # Python dependencies\n└── README.md             # This file\n\n\n\n\n\nexport FLASK_ENV=development\npython app.py\n\n\n\nexport FLASK_ENV=production\nexport SECRET_KEY=your-secure-secret-key\ngunicorn -w 4 -b 0.0.0.0:5000 app:app\n\n\n\nFROM python:3.11-slim\nWORKDIR /app\nCOPY requirements.txt .\nRUN pip install -r requirements.txt\nCOPY . .\nEXPOSE 5000\nCMD [\"gunicorn\", \"-w\", \"4\", \"-b\", \"0.0.0.0:5000\", \"app:app\"]\n\n\n\n\n\n\n\nVariable\nDescription\nDefault\n\n\n\n\nFLASK_ENV\nFlask environment\ndevelopment\n\n\nPORT\nServer port\n5000\n\n\nSECRET_KEY\nFlask secret key\ndev-secret-key\n\n\nOPENAI_API_KEY\nOpenAI API key (optional)\n-\n\n\nOLLAMA_URL\nOllama server URL (optional)\n-\n\n\nANTHROPIC_API_KEY\nAnthropic API key (optional)\n-\n\n\n\n\n\n\n\nDatabase persistence (SQLite/PostgreSQL)\nUser authentication\nMessage search\nFile uploads\nVoice messages\nTyping indicators\nRead receipts\nMessage reactions\n\n\n\n\n\n\nChange the port:\nexport PORT=5001\npython app.py\n\n\n\nCORS is enabled by default. If you need to restrict origins, update app.py:\nCORS(app, resources={r\"/api/*\": {\"origins\": \"https://yourdomain.com\"}})\n\n\n\n\nSee main repository LICENSE file.\n\n\n\nThis project is part of the JJB Gallery portfolio. Related projects include:\n\nChatUi - Modern SvelteKit Chat Interface\nLiteLLM - Unified LLM API\nRAG Model - Retrieval-Augmented Generation\nCrewAI - Multi-Agent System\n\n\n\n\n\n📚 Project Wiki - Comprehensive documentation\n📖 iOS Chatbot Wiki Page - Detailed project documentation\n🔧 Installation Guide - Setup instructions\n🐛 Troubleshooting - Common issues and solutions\n\n\n\n\nContributions welcome! Please see the main repository Contributing Guidelines.\nFor issues, questions, or suggestions, please use the GitHub Issues page.\n\n\n\n\nFlask Documentation\niOS Human Interface Guidelines"
+  },
+  {
+    "objectID": "projects/ios_chatbot/README.html#overview",
+    "href": "projects/ios_chatbot/README.html#overview",
+    "title": "iOS-Inspired Chatbot",
+    "section": "",
+    "text": "This project provides a clean, iOS-inspired chat interface with a Flask backend. It’s designed to be easily integrated with various LLM providers for intelligent conversations."
+  },
+  {
+    "objectID": "projects/ios_chatbot/README.html#features",
+    "href": "projects/ios_chatbot/README.html#features",
+    "title": "iOS-Inspired Chatbot",
+    "section": "",
+    "text": "iOS-Style UI: Beautiful gradient design inspired by iOS Messages\nResponsive Design: Works on desktop and mobile devices\nReal-time Chat: Instant message sending and receiving\nConversation Management: Track multiple conversations\nRESTful API: Clean API for integration\nEasy LLM Integration: Simple interface for connecting LLM backends"
+  },
+  {
+    "objectID": "projects/ios_chatbot/README.html#installation",
+    "href": "projects/ios_chatbot/README.html#installation",
+    "title": "iOS-Inspired Chatbot",
+    "section": "",
+    "text": "Python 3.8+\npip\n\n\n\n\n\nInstall dependencies:\n\npip install -r requirements.txt\n\n(Optional) Set environment variables:\n\nexport FLASK_ENV=development\nexport PORT=5000\nexport SECRET_KEY=your-secret-key-here\n\nRun the application:\n\npython app.py\nThe application will be available at http://localhost:5000."
+  },
+  {
+    "objectID": "projects/ios_chatbot/README.html#usage",
+    "href": "projects/ios_chatbot/README.html#usage",
+    "title": "iOS-Inspired Chatbot",
+    "section": "",
+    "text": "Start the server:\n\npython app.py\n\nOpen your browser to http://localhost:5000\nStart chatting!\n\n\n\n\n\n\nSend a chat message and get a response.\nRequest:\n{\n  \"message\": \"Hello, how are you?\",\n  \"conversation_id\": \"optional-conversation-id\"\n}\nResponse:\n{\n  \"conversation_id\": \"uuid-here\",\n  \"response\": {\n    \"role\": \"assistant\",\n    \"content\": \"Hello! How can I help you?\",\n    \"timestamp\": \"2024-01-15T10:30:00\"\n  },\n  \"message\": {\n    \"role\": \"user\",\n    \"content\": \"Hello, how are you?\",\n    \"timestamp\": \"2024-01-15T10:30:00\"\n  }\n}\n\n\n\nGet conversation history.\nResponse:\n{\n  \"conversation_id\": \"uuid-here\",\n  \"messages\": [\n    {\n      \"role\": \"user\",\n      \"content\": \"Hello\",\n      \"timestamp\": \"2024-01-15T10:30:00\"\n    },\n    {\n      \"role\": \"assistant\",\n      \"content\": \"Hi there!\",\n      \"timestamp\": \"2024-01-15T10:30:01\"\n    }\n  ]\n}\n\n\n\nList all conversations.\n\n\n\nDelete a conversation.\n\n\n\nHealth check endpoint."
+  },
+  {
+    "objectID": "projects/ios_chatbot/README.html#integrating-llm-providers",
+    "href": "projects/ios_chatbot/README.html#integrating-llm-providers",
+    "title": "iOS-Inspired Chatbot",
+    "section": "",
+    "text": "Update app.py:\nimport openai\n\nopenai.api_key = os.getenv('OPENAI_API_KEY')\n\nclass ChatBot:\n    def respond(self, message: str, conversation_id: str) -&gt; str:\n        response = openai.ChatCompletion.create(\n            model=\"gpt-3.5-turbo\",\n            messages=[\n                {\"role\": \"user\", \"content\": message}\n            ]\n        )\n        return response.choices[0].message.content\n\n\n\nUpdate app.py:\nimport requests\n\nOLLAMA_URL = os.getenv('OLLAMA_URL', 'http://localhost:11434')\n\nclass ChatBot:\n    def respond(self, message: str, conversation_id: str) -&gt; str:\n        response = requests.post(\n            f\"{OLLAMA_URL}/api/generate\",\n            json={\n                \"model\": \"llama3.1:8b\",\n                \"prompt\": message,\n                \"stream\": False\n            }\n        )\n        return response.json()['response']\n\n\n\nUpdate app.py:\nimport anthropic\n\nclient = anthropic.Anthropic(api_key=os.getenv('ANTHROPIC_API_KEY'))\n\nclass ChatBot:\n    def respond(self, message: str, conversation_id: str) -&gt; str:\n        response = client.messages.create(\n            model=\"claude-3-sonnet-20240229\",\n            max_tokens=1024,\n            messages=[{\"role\": \"user\", \"content\": message}]\n        )\n        return response.content[0].text"
+  },
+  {
+    "objectID": "projects/ios_chatbot/README.html#customization",
+    "href": "projects/ios_chatbot/README.html#customization",
+    "title": "iOS-Inspired Chatbot",
+    "section": "",
+    "text": "Modify static/style.css to customize: - Colors and gradients - Font sizes and families - Spacing and layout - Animations\n\n\n\nModify app.py to: - Add conversation persistence (database) - Implement user authentication - Add message history - Integrate with external services"
+  },
+  {
+    "objectID": "projects/ios_chatbot/README.html#project-structure",
+    "href": "projects/ios_chatbot/README.html#project-structure",
+    "title": "iOS-Inspired Chatbot",
+    "section": "",
+    "text": "ios_chatbot/\n├── app.py                 # Flask application\n├── templates/\n│   └── index.html        # Main HTML template\n├── static/\n│   ├── style.css         # iOS-inspired styles\n│   └── app.js            # Frontend JavaScript\n├── requirements.txt      # Python dependencies\n└── README.md             # This file"
+  },
+  {
+    "objectID": "projects/ios_chatbot/README.html#deployment",
+    "href": "projects/ios_chatbot/README.html#deployment",
+    "title": "iOS-Inspired Chatbot",
+    "section": "",
+    "text": "export FLASK_ENV=development\npython app.py\n\n\n\nexport FLASK_ENV=production\nexport SECRET_KEY=your-secure-secret-key\ngunicorn -w 4 -b 0.0.0.0:5000 app:app\n\n\n\nFROM python:3.11-slim\nWORKDIR /app\nCOPY requirements.txt .\nRUN pip install -r requirements.txt\nCOPY . .\nEXPOSE 5000\nCMD [\"gunicorn\", \"-w\", \"4\", \"-b\", \"0.0.0.0:5000\", \"app:app\"]"
+  },
+  {
+    "objectID": "projects/ios_chatbot/README.html#environment-variables",
+    "href": "projects/ios_chatbot/README.html#environment-variables",
+    "title": "iOS-Inspired Chatbot",
+    "section": "",
+    "text": "Variable\nDescription\nDefault\n\n\n\n\nFLASK_ENV\nFlask environment\ndevelopment\n\n\nPORT\nServer port\n5000\n\n\nSECRET_KEY\nFlask secret key\ndev-secret-key\n\n\nOPENAI_API_KEY\nOpenAI API key (optional)\n-\n\n\nOLLAMA_URL\nOllama server URL (optional)\n-\n\n\nANTHROPIC_API_KEY\nAnthropic API key (optional)\n-"
+  },
+  {
+    "objectID": "projects/ios_chatbot/README.html#features-to-add",
+    "href": "projects/ios_chatbot/README.html#features-to-add",
+    "title": "iOS-Inspired Chatbot",
+    "section": "",
+    "text": "Database persistence (SQLite/PostgreSQL)\nUser authentication\nMessage search\nFile uploads\nVoice messages\nTyping indicators\nRead receipts\nMessage reactions"
+  },
+  {
+    "objectID": "projects/ios_chatbot/README.html#troubleshooting",
+    "href": "projects/ios_chatbot/README.html#troubleshooting",
+    "title": "iOS-Inspired Chatbot",
+    "section": "",
+    "text": "Change the port:\nexport PORT=5001\npython app.py\n\n\n\nCORS is enabled by default. If you need to restrict origins, update app.py:\nCORS(app, resources={r\"/api/*\": {\"origins\": \"https://yourdomain.com\"}})"
+  },
+  {
+    "objectID": "projects/ios_chatbot/README.html#license",
+    "href": "projects/ios_chatbot/README.html#license",
+    "title": "iOS-Inspired Chatbot",
+    "section": "",
+    "text": "See main repository LICENSE file."
+  },
+  {
+    "objectID": "projects/ios_chatbot/README.html#related-projects",
+    "href": "projects/ios_chatbot/README.html#related-projects",
+    "title": "iOS-Inspired Chatbot",
+    "section": "",
+    "text": "This project is part of the JJB Gallery portfolio. Related projects include:\n\nChatUi - Modern SvelteKit Chat Interface\nLiteLLM - Unified LLM API\nRAG Model - Retrieval-Augmented Generation\nCrewAI - Multi-Agent System"
+  },
+  {
+    "objectID": "projects/ios_chatbot/README.html#additional-resources",
+    "href": "projects/ios_chatbot/README.html#additional-resources",
+    "title": "iOS-Inspired Chatbot",
+    "section": "",
+    "text": "📚 Project Wiki - Comprehensive documentation\n📖 iOS Chatbot Wiki Page - Detailed project documentation\n🔧 Installation Guide - Setup instructions\n🐛 Troubleshooting - Common issues and solutions"
+  },
+  {
+    "objectID": "projects/ios_chatbot/README.html#contributing",
+    "href": "projects/ios_chatbot/README.html#contributing",
+    "title": "iOS-Inspired Chatbot",
+    "section": "",
+    "text": "Contributions welcome! Please see the main repository Contributing Guidelines.\nFor issues, questions, or suggestions, please use the GitHub Issues page."
+  },
+  {
+    "objectID": "projects/ios_chatbot/README.html#references",
+    "href": "projects/ios_chatbot/README.html#references",
+    "title": "iOS-Inspired Chatbot",
+    "section": "",
+    "text": "Flask Documentation\niOS Human Interface Guidelines"
+  },
+  {
+    "objectID": "projects/ruckus/README.html",
+    "href": "projects/ruckus/README.html",
+    "title": "Ruckus - Qwen Model Fine-tuning Framework",
+    "section": "",
+    "text": "A production-ready framework for fine-tuning Qwen models using LoRA (Low-Rank Adaptation). This project provides comprehensive tools for training, inference, and deploying fine-tuned language models.\n\n\n\n✅ Efficient Fine-tuning: LoRA (Low-Rank Adaptation) for parameter-efficient fine-tuning\n✅ Quantization Support: 4-bit quantization with BitsAndBytes for memory efficiency\n✅ Production-Ready API: FastAPI-based REST API for inference\n✅ Comprehensive Logging: Built-in logging with Loguru and support for Weights & Biases\n✅ Configuration Management: Environment-based and YAML configuration\n✅ Error Handling: Robust error handling throughout the pipeline\n✅ Docker Support: Containerized deployment ready\n✅ Monitoring: Integration with Weights & Biases and TensorBoard\n\n\n\n\n\nPython 3.8 or higher\nCUDA-capable GPU (recommended) or CPU\n16GB+ RAM (for 7B models)\n10GB+ free disk space\n\n\n\n\n\n\n# Clone the repository\ncd projects/ruckus\n\n# Run setup script\nchmod +x setup.sh\n./setup.sh\n\n# Activate virtual environment\nsource .venv/bin/activate  # On Windows: .venv\\Scripts\\activate\n\n\n\n# Copy environment template\ncp env.example .env\n\n# Edit .env with your configuration\nnano .env  # or use your preferred editor\nKey configuration options:\n\nMODEL_NAME: Base model (default: Qwen/Qwen2-7B-Instruct)\nDATASET_NAME: Training dataset (default: facebook/natural_reasoning)\nHF_TOKEN: HuggingFace token for gated models (optional)\n\n\n\n\n# Start training\npython training.py\nThe training script will:\n\nLoad the base model with quantization\nApply LoRA adapters\nLoad the dataset\nStart fine-tuning\nSave checkpoints periodically\n\n\n\n\n# Command-line inference\npython inference.py --prompt \"Your prompt here\" --model-path ./results\n\n# Or use the API server\npython api_server.py\n\n\n\n\n\n\nruckus/\n├── training.py          # Main training script\n├── inference.py         # Inference engine\n├── api_server.py        # FastAPI server\n├── config.py            # Configuration management\n├── config.yaml          # YAML configuration\n├── requirements.txt     # Production dependencies\n├── requirements-dev.txt # Development dependencies\n├── setup.sh            # Setup script\n├── utils/              # Utility modules\n│   └── data_loader.py  # Dataset loading utilities\n├── models/             # Model files\n├── results/            # Training outputs\n├── logs/               # Log files\n└── data/               # Data directory\n\n\n\n\n\nConfiguration can be set via environment variables in .env:\n# Model Configuration\nMODEL_NAME=Qwen/Qwen2-7B-Instruct\nUSE_QUANTIZATION=true\n\n# Training Configuration\nNUM_TRAIN_EPOCHS=3\nLEARNING_RATE=3e-5\nPER_DEVICE_TRAIN_BATCH_SIZE=2\n\n# Dataset Configuration\nDATASET_NAME=facebook/natural_reasoning\n\n# API Configuration\nAPI_HOST=0.0.0.0\nAPI_PORT=8000\n\n\n\nAlternatively, use config.yaml:\nmodel:\n  name: \"Qwen/Qwen2-7B-Instruct\"\n  \ntraining:\n  num_train_epochs: 3\n  learning_rate: 3e-5\n\n\n\n\nThe training script supports various configurations:\nfrom training import RuckusTrainer\n\n# Initialize trainer\ntrainer = RuckusTrainer()\n\n# Load custom dataset\ndataset = trainer.load_dataset(\"your-dataset-name\")\n\n# Start training\ntrainer.train()\nTraining Parameters:\n\nLORA_R: LoRA rank (default: 16)\nLORA_ALPHA: LoRA alpha (default: 32)\nNUM_TRAIN_EPOCHS: Number of epochs (default: 3)\nLEARNING_RATE: Learning rate (default: 3e-5)\nMAX_SEQ_LENGTH: Maximum sequence length (default: 2048)\n\n\n\n\n\n\npython inference.py \\\n    --model-path ./results \\\n    --base-model Qwen/Qwen2-7B-Instruct \\\n    --prompt \"Your prompt here\" \\\n    --max-tokens 512 \\\n    --temperature 0.7\n\n\n\nfrom inference import RuckusInference\n\n# Initialize inference engine\ninference = RuckusInference(\n    model_path=\"./results\",\n    base_model_name=\"Qwen/Qwen2-7B-Instruct\"\n)\n\n# Generate text\nresponse = inference.generate(\n    prompt=\"Your prompt here\",\n    max_new_tokens=512,\n    temperature=0.7\n)\n\n# Chat completion\nresponse = inference.chat([\n    {\"role\": \"user\", \"content\": \"Hello!\"}\n])\n\n\n\n\nStart the FastAPI server:\npython api_server.py\nThe server provides REST API endpoints:\n\nPOST /chat: Chat completion\nPOST /generate: Text generation\nGET /health: Health check\nPOST /load-model: Load model at runtime\n\nExample API Usage:\n# Chat completion\ncurl -X POST \"http://localhost:8000/chat\" \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\n    \"messages\": [\n      {\"role\": \"user\", \"content\": \"Hello!\"}\n    ],\n    \"max_tokens\": 512\n  }'\n\n# Text generation\ncurl -X POST \"http://localhost:8000/generate\" \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\n    \"prompt\": \"Tell me a story\",\n    \"max_tokens\": 512\n  }'\n\n\n\n\n\n\ndocker build -t ruckus:latest .\n\n\n\ndocker run --gpus all \\\n  -v $(pwd)/results:/app/results \\\n  -v $(pwd)/data:/app/data \\\n  ruckus:latest python training.py\n\n\n\ndocker run --gpus all \\\n  -p 8000:8000 \\\n  -v $(pwd)/results:/app/results \\\n  ruckus:latest python api_server.py\n\n\n\n\n\n\nEnable W&B tracking:\nUSE_WANDB=true\nWANDB_PROJECT=ruckus\nWANDB_API_KEY=your_api_key\n\n\n\nEnable TensorBoard:\nUSE_TENSORBOARD=true\nThen run:\ntensorboard --logdir ./logs\n\n\n\n\n# Install development dependencies\npip install -r requirements-dev.txt\n\n# Run tests\npytest tests/\n\n# Run with coverage\npytest --cov=. tests/\n\n\n\n\n\n\ntransformers: HuggingFace Transformers\ntorch: PyTorch\npeft: Parameter-Efficient Fine-Tuning\ntrl: Transformer Reinforcement Learning\ndatasets: HuggingFace Datasets\nbitsandbytes: Quantization support\n\n\n\n\n\nfastapi: Web framework\nuvicorn: ASGI server\npydantic: Data validation\n\nSee requirements.txt for complete list.\n\n\n\n\n\n\nIf you encounter timeout errors during setup:\n# Clean up and recreate virtual environment\n./cleanup_venv.sh\n./setup.sh --force\nSee TROUBLESHOOTING.md for detailed solutions.\n\n\n\n\nReduce PER_DEVICE_TRAIN_BATCH_SIZE\nEnable quantization: USE_QUANTIZATION=true\nReduce MAX_SEQ_LENGTH\nUse gradient accumulation\n\n\n\n\n\nCheck HuggingFace token is set for gated models\nVerify model name is correct\nCheck internet connection for model downloads\n\n\n\n\n\nVerify dataset format matches expected schema\nCheck dataset is accessible\nReview logs in ./logs/ directory\n\nFor more detailed troubleshooting, see TROUBLESHOOTING.md\n\n\n\n\n\n\nfrom datasets import load_dataset\n\n# Load your custom dataset\ndataset = load_dataset(\"your-dataset\")\n\n# Format for training\ndef format_example(ex):\n    return f\"### Instruction: {ex['instruction']}\\n### Response: {ex['response']}\"\n\nformatted = dataset.map(lambda x: {\"text\": format_example(x)})\n\n\n\nfrom peft import LoraConfig\n\ncustom_lora = LoraConfig(\n    r=32,  # Higher rank\n    lora_alpha=64,\n    target_modules=[\"q_proj\", \"v_proj\"],  # Specific modules\n    lora_dropout=0.1,\n)\n\n\n\n\nThis project is part of the JJB Gallery repository. See main repository LICENSE file.\n\n\n\n\nQwen Team for the Qwen models\nHuggingFace for transformers and datasets\nPEFT for LoRA implementation\n\n\n\n\nThis project is part of the JJB Gallery portfolio. Related projects include:\n\nRAG Model - Retrieval-Augmented Generation\nCrewAI - Multi-Agent System\nTerminal Agents - AI Coding Assistant\nLiteLLM - Unified LLM API\n\n\n\n\n\n📚 Project Wiki - Comprehensive documentation\n📖 Installation Guide - Setup instructions\n🔧 Configuration Guide - Setup and configuration\n🐛 Troubleshooting - Common issues and solutions\n📝 Development Setup - Development environment setup\n\n\n\n\n\nFork the repository\nCreate a feature branch\nMake your changes\nAdd tests\nSubmit a pull request\n\nSee the main repository Contributing Guidelines for details.\nFor issues and questions, please use the GitHub Issues page."
+  },
+  {
+    "objectID": "projects/ruckus/README.html#features",
+    "href": "projects/ruckus/README.html#features",
+    "title": "Ruckus - Qwen Model Fine-tuning Framework",
+    "section": "",
+    "text": "✅ Efficient Fine-tuning: LoRA (Low-Rank Adaptation) for parameter-efficient fine-tuning\n✅ Quantization Support: 4-bit quantization with BitsAndBytes for memory efficiency\n✅ Production-Ready API: FastAPI-based REST API for inference\n✅ Comprehensive Logging: Built-in logging with Loguru and support for Weights & Biases\n✅ Configuration Management: Environment-based and YAML configuration\n✅ Error Handling: Robust error handling throughout the pipeline\n✅ Docker Support: Containerized deployment ready\n✅ Monitoring: Integration with Weights & Biases and TensorBoard"
+  },
+  {
+    "objectID": "projects/ruckus/README.html#requirements",
+    "href": "projects/ruckus/README.html#requirements",
+    "title": "Ruckus - Qwen Model Fine-tuning Framework",
+    "section": "",
+    "text": "Python 3.8 or higher\nCUDA-capable GPU (recommended) or CPU\n16GB+ RAM (for 7B models)\n10GB+ free disk space"
+  },
+  {
+    "objectID": "projects/ruckus/README.html#quick-start",
+    "href": "projects/ruckus/README.html#quick-start",
+    "title": "Ruckus - Qwen Model Fine-tuning Framework",
+    "section": "",
+    "text": "# Clone the repository\ncd projects/ruckus\n\n# Run setup script\nchmod +x setup.sh\n./setup.sh\n\n# Activate virtual environment\nsource .venv/bin/activate  # On Windows: .venv\\Scripts\\activate\n\n\n\n# Copy environment template\ncp env.example .env\n\n# Edit .env with your configuration\nnano .env  # or use your preferred editor\nKey configuration options:\n\nMODEL_NAME: Base model (default: Qwen/Qwen2-7B-Instruct)\nDATASET_NAME: Training dataset (default: facebook/natural_reasoning)\nHF_TOKEN: HuggingFace token for gated models (optional)\n\n\n\n\n# Start training\npython training.py\nThe training script will:\n\nLoad the base model with quantization\nApply LoRA adapters\nLoad the dataset\nStart fine-tuning\nSave checkpoints periodically\n\n\n\n\n# Command-line inference\npython inference.py --prompt \"Your prompt here\" --model-path ./results\n\n# Or use the API server\npython api_server.py"
+  },
+  {
+    "objectID": "projects/ruckus/README.html#documentation",
+    "href": "projects/ruckus/README.html#documentation",
+    "title": "Ruckus - Qwen Model Fine-tuning Framework",
+    "section": "",
+    "text": "ruckus/\n├── training.py          # Main training script\n├── inference.py         # Inference engine\n├── api_server.py        # FastAPI server\n├── config.py            # Configuration management\n├── config.yaml          # YAML configuration\n├── requirements.txt     # Production dependencies\n├── requirements-dev.txt # Development dependencies\n├── setup.sh            # Setup script\n├── utils/              # Utility modules\n│   └── data_loader.py  # Dataset loading utilities\n├── models/             # Model files\n├── results/            # Training outputs\n├── logs/               # Log files\n└── data/               # Data directory\n\n\n\n\n\nConfiguration can be set via environment variables in .env:\n# Model Configuration\nMODEL_NAME=Qwen/Qwen2-7B-Instruct\nUSE_QUANTIZATION=true\n\n# Training Configuration\nNUM_TRAIN_EPOCHS=3\nLEARNING_RATE=3e-5\nPER_DEVICE_TRAIN_BATCH_SIZE=2\n\n# Dataset Configuration\nDATASET_NAME=facebook/natural_reasoning\n\n# API Configuration\nAPI_HOST=0.0.0.0\nAPI_PORT=8000\n\n\n\nAlternatively, use config.yaml:\nmodel:\n  name: \"Qwen/Qwen2-7B-Instruct\"\n  \ntraining:\n  num_train_epochs: 3\n  learning_rate: 3e-5\n\n\n\n\nThe training script supports various configurations:\nfrom training import RuckusTrainer\n\n# Initialize trainer\ntrainer = RuckusTrainer()\n\n# Load custom dataset\ndataset = trainer.load_dataset(\"your-dataset-name\")\n\n# Start training\ntrainer.train()\nTraining Parameters:\n\nLORA_R: LoRA rank (default: 16)\nLORA_ALPHA: LoRA alpha (default: 32)\nNUM_TRAIN_EPOCHS: Number of epochs (default: 3)\nLEARNING_RATE: Learning rate (default: 3e-5)\nMAX_SEQ_LENGTH: Maximum sequence length (default: 2048)\n\n\n\n\n\n\npython inference.py \\\n    --model-path ./results \\\n    --base-model Qwen/Qwen2-7B-Instruct \\\n    --prompt \"Your prompt here\" \\\n    --max-tokens 512 \\\n    --temperature 0.7\n\n\n\nfrom inference import RuckusInference\n\n# Initialize inference engine\ninference = RuckusInference(\n    model_path=\"./results\",\n    base_model_name=\"Qwen/Qwen2-7B-Instruct\"\n)\n\n# Generate text\nresponse = inference.generate(\n    prompt=\"Your prompt here\",\n    max_new_tokens=512,\n    temperature=0.7\n)\n\n# Chat completion\nresponse = inference.chat([\n    {\"role\": \"user\", \"content\": \"Hello!\"}\n])\n\n\n\n\nStart the FastAPI server:\npython api_server.py\nThe server provides REST API endpoints:\n\nPOST /chat: Chat completion\nPOST /generate: Text generation\nGET /health: Health check\nPOST /load-model: Load model at runtime\n\nExample API Usage:\n# Chat completion\ncurl -X POST \"http://localhost:8000/chat\" \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\n    \"messages\": [\n      {\"role\": \"user\", \"content\": \"Hello!\"}\n    ],\n    \"max_tokens\": 512\n  }'\n\n# Text generation\ncurl -X POST \"http://localhost:8000/generate\" \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\n    \"prompt\": \"Tell me a story\",\n    \"max_tokens\": 512\n  }'"
+  },
+  {
+    "objectID": "projects/ruckus/README.html#docker-support",
+    "href": "projects/ruckus/README.html#docker-support",
+    "title": "Ruckus - Qwen Model Fine-tuning Framework",
+    "section": "",
+    "text": "docker build -t ruckus:latest .\n\n\n\ndocker run --gpus all \\\n  -v $(pwd)/results:/app/results \\\n  -v $(pwd)/data:/app/data \\\n  ruckus:latest python training.py\n\n\n\ndocker run --gpus all \\\n  -p 8000:8000 \\\n  -v $(pwd)/results:/app/results \\\n  ruckus:latest python api_server.py"
+  },
+  {
+    "objectID": "projects/ruckus/README.html#monitoring",
+    "href": "projects/ruckus/README.html#monitoring",
+    "title": "Ruckus - Qwen Model Fine-tuning Framework",
+    "section": "",
+    "text": "Enable W&B tracking:\nUSE_WANDB=true\nWANDB_PROJECT=ruckus\nWANDB_API_KEY=your_api_key\n\n\n\nEnable TensorBoard:\nUSE_TENSORBOARD=true\nThen run:\ntensorboard --logdir ./logs"
+  },
+  {
+    "objectID": "projects/ruckus/README.html#testing",
+    "href": "projects/ruckus/README.html#testing",
+    "title": "Ruckus - Qwen Model Fine-tuning Framework",
+    "section": "",
+    "text": "# Install development dependencies\npip install -r requirements-dev.txt\n\n# Run tests\npytest tests/\n\n# Run with coverage\npytest --cov=. tests/"
+  },
+  {
+    "objectID": "projects/ruckus/README.html#dependencies",
+    "href": "projects/ruckus/README.html#dependencies",
+    "title": "Ruckus - Qwen Model Fine-tuning Framework",
+    "section": "",
+    "text": "transformers: HuggingFace Transformers\ntorch: PyTorch\npeft: Parameter-Efficient Fine-Tuning\ntrl: Transformer Reinforcement Learning\ndatasets: HuggingFace Datasets\nbitsandbytes: Quantization support\n\n\n\n\n\nfastapi: Web framework\nuvicorn: ASGI server\npydantic: Data validation\n\nSee requirements.txt for complete list."
+  },
+  {
+    "objectID": "projects/ruckus/README.html#troubleshooting",
+    "href": "projects/ruckus/README.html#troubleshooting",
+    "title": "Ruckus - Qwen Model Fine-tuning Framework",
+    "section": "",
+    "text": "If you encounter timeout errors during setup:\n# Clean up and recreate virtual environment\n./cleanup_venv.sh\n./setup.sh --force\nSee TROUBLESHOOTING.md for detailed solutions.\n\n\n\n\nReduce PER_DEVICE_TRAIN_BATCH_SIZE\nEnable quantization: USE_QUANTIZATION=true\nReduce MAX_SEQ_LENGTH\nUse gradient accumulation\n\n\n\n\n\nCheck HuggingFace token is set for gated models\nVerify model name is correct\nCheck internet connection for model downloads\n\n\n\n\n\nVerify dataset format matches expected schema\nCheck dataset is accessible\nReview logs in ./logs/ directory\n\nFor more detailed troubleshooting, see TROUBLESHOOTING.md"
+  },
+  {
+    "objectID": "projects/ruckus/README.html#examples",
+    "href": "projects/ruckus/README.html#examples",
+    "title": "Ruckus - Qwen Model Fine-tuning Framework",
+    "section": "",
+    "text": "from datasets import load_dataset\n\n# Load your custom dataset\ndataset = load_dataset(\"your-dataset\")\n\n# Format for training\ndef format_example(ex):\n    return f\"### Instruction: {ex['instruction']}\\n### Response: {ex['response']}\"\n\nformatted = dataset.map(lambda x: {\"text\": format_example(x)})\n\n\n\nfrom peft import LoraConfig\n\ncustom_lora = LoraConfig(\n    r=32,  # Higher rank\n    lora_alpha=64,\n    target_modules=[\"q_proj\", \"v_proj\"],  # Specific modules\n    lora_dropout=0.1,\n)"
+  },
+  {
+    "objectID": "projects/ruckus/README.html#license",
+    "href": "projects/ruckus/README.html#license",
+    "title": "Ruckus - Qwen Model Fine-tuning Framework",
+    "section": "",
+    "text": "This project is part of the JJB Gallery repository. See main repository LICENSE file."
+  },
+  {
+    "objectID": "projects/ruckus/README.html#acknowledgments",
+    "href": "projects/ruckus/README.html#acknowledgments",
+    "title": "Ruckus - Qwen Model Fine-tuning Framework",
+    "section": "",
+    "text": "Qwen Team for the Qwen models\nHuggingFace for transformers and datasets\nPEFT for LoRA implementation"
+  },
+  {
+    "objectID": "projects/ruckus/README.html#related-projects",
+    "href": "projects/ruckus/README.html#related-projects",
+    "title": "Ruckus - Qwen Model Fine-tuning Framework",
+    "section": "",
+    "text": "This project is part of the JJB Gallery portfolio. Related projects include:\n\nRAG Model - Retrieval-Augmented Generation\nCrewAI - Multi-Agent System\nTerminal Agents - AI Coding Assistant\nLiteLLM - Unified LLM API"
+  },
+  {
+    "objectID": "projects/ruckus/README.html#additional-resources",
+    "href": "projects/ruckus/README.html#additional-resources",
+    "title": "Ruckus - Qwen Model Fine-tuning Framework",
+    "section": "",
+    "text": "📚 Project Wiki - Comprehensive documentation\n📖 Installation Guide - Setup instructions\n🔧 Configuration Guide - Setup and configuration\n🐛 Troubleshooting - Common issues and solutions\n📝 Development Setup - Development environment setup"
+  },
+  {
+    "objectID": "projects/ruckus/README.html#contributing",
+    "href": "projects/ruckus/README.html#contributing",
+    "title": "Ruckus - Qwen Model Fine-tuning Framework",
+    "section": "",
+    "text": "Fork the repository\nCreate a feature branch\nMake your changes\nAdd tests\nSubmit a pull request\n\nSee the main repository Contributing Guidelines for details.\nFor issues and questions, please use the GitHub Issues page."
   }
 ]
