@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.26">
+<meta name="generator" content="quarto-1.8.24">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -21,6 +21,44 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+ /* CSS for syntax highlighting */
+html { 
+  -webkit-text-size-adjust: 100%; 
+  text-size-adjust: 100%; /* Add for broader browser support */
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -38,7 +76,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-5b4ad623e5705c0698d39aec6f10cf02.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
@@ -80,6 +118,8 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    </a>
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">JJB Gallery</span>
     </a>
@@ -95,7 +135,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./projects/Crewai/README.html"> 
+    <a class="nav-link" href="./projects/CrewAI/README.html"> 
 <span class="menu-text">CrewAI</span></a>
   </li>  
   <li class="nav-item">
@@ -128,18 +168,33 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#about-me" id="toc-about-me" class="nav-link active" data-scroll-target="#about-me">About Me</a></li>
+  <li><a href="#about-me" id="toc-about-me" class="nav-link active" data-scroll-target="#about-me">About Me</a>
+  <ul class="collapse">
+  <li><a href="#repository-highlights" id="toc-repository-highlights" class="nav-link" data-scroll-target="#repository-highlights">Repository Highlights</a></li>
+  </ul></li>
   <li><a href="#project-gallery" id="toc-project-gallery" class="nav-link" data-scroll-target="#project-gallery">Project Gallery</a></li>
   <li><a href="#interactive-agent-swarm" id="toc-interactive-agent-swarm" class="nav-link" data-scroll-target="#interactive-agent-swarm">Interactive Agent Swarm</a>
   <ul class="collapse">
   <li><a href="#quick-start" id="toc-quick-start" class="nav-link" data-scroll-target="#quick-start">🚀 Quick Start</a></li>
   </ul></li>
-  <li><a href="#recent-additions" id="toc-recent-additions" class="nav-link" data-scroll-target="#recent-additions">Recent Additions</a></li>
+  <li><a href="#recent-additions" id="toc-recent-additions" class="nav-link" data-scroll-target="#recent-additions">Recent Additions</a>
+  <ul class="collapse">
+  <li><a href="#december-2024---repository-reorganization" id="toc-december-2024---repository-reorganization" class="nav-link" data-scroll-target="#december-2024---repository-reorganization">December 2024 - Repository Reorganization</a></li>
+  <li><a href="#new-projects-features" id="toc-new-projects-features" class="nav-link" data-scroll-target="#new-projects-features">New Projects &amp; Features</a></li>
+  <li><a href="#enhanced-existing-projects" id="toc-enhanced-existing-projects" class="nav-link" data-scroll-target="#enhanced-existing-projects">Enhanced Existing Projects</a></li>
+  <li><a href="#infrastructure-tooling" id="toc-infrastructure-tooling" class="nav-link" data-scroll-target="#infrastructure-tooling">Infrastructure &amp; Tooling</a></li>
+  </ul></li>
   <li><a href="#skills" id="toc-skills" class="nav-link" data-scroll-target="#skills">Skills</a></li>
   <li><a href="#publications-presentations" id="toc-publications-presentations" class="nav-link" data-scroll-target="#publications-presentations">Publications &amp; Presentations</a></li>
   <li><a href="#contact" id="toc-contact" class="nav-link" data-scroll-target="#contact">Contact</a></li>
   <li><a href="#socials" id="toc-socials" class="nav-link" data-scroll-target="#socials">Socials</a></li>
-  <li><a href="#further-reading" id="toc-further-reading" class="nav-link" data-scroll-target="#further-reading">Further Reading</a></li>
+  <li><a href="#repository-organization" id="toc-repository-organization" class="nav-link" data-scroll-target="#repository-organization">Repository Organization</a></li>
+  <li><a href="#further-reading" id="toc-further-reading" class="nav-link" data-scroll-target="#further-reading">Further Reading</a>
+  <ul class="collapse">
+  <li><a href="#project-documentation" id="toc-project-documentation" class="nav-link" data-scroll-target="#project-documentation">Project Documentation</a></li>
+  <li><a href="#repository-documentation" id="toc-repository-documentation" class="nav-link" data-scroll-target="#repository-documentation">Repository Documentation</a></li>
+  <li><a href="#external-resources" id="toc-external-resources" class="nav-link" data-scroll-target="#external-resources">External Resources</a></li>
+  </ul></li>
   </ul>
 </nav>
 </nav>
@@ -176,6 +231,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 <p>Welcome! This repository serves as the official portfolio and gallery for <strong>Jack J. Burleson</strong>, showcasing a curated selection of previous work, open-source projects, research, and presentations.</p>
+<p><strong>🎉 Recent Major Update (December 2024):</strong> The repository has been comprehensively reorganized for better maintainability and clarity. All documentation, requirements, and configuration files have been moved to organized subdirectories. See the <a href="#repository-organization">Repository Organization</a> section for details.</p>
 <!-- markdownlint-disable MD033 -->
 <p align="left">
 <a href="https://github.com/Exios66/JJB_Gallery/actions"> <img alt="GitHub Workflow Status" src="https://img.shields.io/github/actions/workflow/status/Exios66/JJB_Gallery/ci.yml?branch=main&amp;label=CI&amp;logo=github"> </a> <a href="https://github.com/Exios66/JJB_Gallery/blob/main/LICENSE"> <img alt="License" src="https://img.shields.io/github/license/Exios66/JJB_Gallery?color=blue"> </a> <a href="https://github.com/Exios66/JJB_Gallery/releases"> <img alt="GitHub release" src="https://img.shields.io/github/v/release/Exios66/JJB_Gallery?include_prereleases"> </a> <a href="https://github.com/Exios66/JJB_Gallery/commits/main"> <img alt="Last Commit" src="https://img.shields.io/github/last-commit/Exios66/JJB_Gallery"> </a> <a href="https://github.com/Exios66/JJB_Gallery/issues"> <img alt="GitHub issues" src="https://img.shields.io/github/issues/Exios66/JJB_Gallery"> </a> <a href="https://github.com/Exios66/JJB_Gallery/pulls"> <img alt="GitHub pull requests" src="https://img.shields.io/github/issues-pr/Exios66/JJB_Gallery"> </a> <a href="https://www.python.org"> <img alt="Python Version" src="https://img.shields.io/badge/python-3.8%2B-blue.svg"> </a> <a href="https://github.com/psf/black"> <img alt="Code style: black" src="https://img.shields.io/badge/code%20style-black-000000.svg"> </a> <a href="https://github.com/pre-commit/pre-commit"> <img alt="pre-commit" src="https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit"> </a> <a href="https://results.pre-commit.ci/latest/github/Exios66/JJB_Gallery/main"> <img alt="pre-commit.ci status" src="https://results.pre-commit.ci/badge/github/Exios66/JJB_Gallery/main.svg"> </a>
@@ -186,8 +242,19 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="about-me">About Me</h2>
 <p>Hi! I’m <strong>Jack J. Burleson</strong> – data scientist, research engineer, and open-source enthusiast.<br>
 I am passionate about making data science, machine learning, and advanced analytics accessible and meaningful through clear code and insightful visualizations.<br>
-This portfolio highlights select projects in engineering, data analysis, machine learning, and technical writing.</p>
+This portfolio highlights select projects in engineering, data analysis, machine learning, AI/LLM integration, and technical writing.</p>
+<section id="repository-highlights" class="level3">
+<h3 class="anchored" data-anchor-id="repository-highlights">Repository Highlights</h3>
+<ul>
+<li><strong>🎯 8+ Active Projects:</strong> From multi-agent systems to psychometric assessments</li>
+<li><strong>📚 Comprehensive Documentation:</strong> Organized documentation structure with setup guides, development workflows, and project-specific docs</li>
+<li><strong>🔧 Production-Ready:</strong> Full testing frameworks, CI/CD integration, and deployment configurations</li>
+<li><strong>🌐 Modern Stack:</strong> Python, JavaScript/TypeScript, SvelteKit, Flask, and modern LLM integrations</li>
+<li><strong>📦 Flexible Installation:</strong> Multiple requirement files for different use cases (full, minimal, micro)</li>
+<li><strong>💾 External Storage Support:</strong> Automated configuration for managing large dependencies on external drives</li>
+</ul>
 <hr>
+</section>
 </section>
 <section id="project-gallery" class="level2">
 <h2 class="anchored" data-anchor-id="project-gallery">Project Gallery</h2>
@@ -208,27 +275,47 @@ This portfolio highlights select projects in engineering, data analysis, machine
 <tr class="even">
 <td><strong>CrewAI Multi-Agent Swarm System</strong></td>
 <td>Multi-agent architecture using CrewAI, with specialized swarms for ML, research, business intelligence, and documentation; includes Streamlit &amp; CLI interfaces.</td>
-<td><a href="#interactive-agent-swarm">🚀 <strong>Launch Swarm</strong></a> | <a href="./projects/Crewai/README.html">📄 Docs</a></td>
+<td><a href="#interactive-agent-swarm">🚀 <strong>Launch Swarm</strong></a> | <a href="./projects/CrewAI/README.html">📄 Docs</a></td>
 </tr>
 <tr class="odd">
+<td><strong>Psychometrics (NASA TLX)</strong></td>
+<td><strong>[New]</strong> Comprehensive psychometric assessment toolkit implementing the NASA Task Load Index (TLX) for workload measurement with statistical analysis.</td>
+<td><a href="projects/Psychometrics/README.md">📊 <strong>View Project</strong></a></td>
+</tr>
+<tr class="even">
+<td><strong>RAG Model Application</strong></td>
+<td><strong>[New]</strong> Complete Retrieval-Augmented Generation system with vector database, embeddings, and intelligent document retrieval using FAISS and Ollama.</td>
+<td><a href="projects/RAG_Model/README.md">🔍 <strong>View Project</strong></a></td>
+</tr>
+<tr class="odd">
+<td><strong>Chat UI (SvelteKit)</strong></td>
+<td><strong>[New]</strong> Modern, open-source chat interface for LLM interactions with support for multiple backends (OpenAI, Ollama, Hugging Face) and real-time streaming.</td>
+<td><a href="projects/ChatUi/README.md">💬 <strong>View Project</strong></a></td>
+</tr>
+<tr class="even">
+<td><strong>iOS Chatbot</strong></td>
+<td>Flask-based chatbot application with web interface, designed for iOS-style interactions and mobile-friendly UI.</td>
+<td><a href="projects/ios_chatbot/README.md">📱 <strong>View Project</strong></a></td>
+</tr>
+<tr class="odd">
+<td><strong>LiteLLM Proxy Server</strong></td>
+<td>Unified API proxy for multiple LLM providers, enabling easy switching between OpenAI, Anthropic, and other providers with a single interface.</td>
+<td><a href="projects/litellm/README.md">🔌 <strong>View Project</strong></a></td>
+</tr>
+<tr class="even">
 <td><strong>Terminal Agents</strong></td>
 <td>AI coding agents for the terminal; includes “build” and “plan” agents, supporting code exploration and editing with easy installation and cross-platform support.</td>
-<td><a href="./projects/terminal_agents/README.html">terminal_agents/README.md</a></td>
-</tr>
-<tr class="even">
-<td><strong>Jupyter ML &amp; Pandas Notebooks</strong></td>
-<td>Collections of essential notebooks demonstrating the use of Pandas and scikit-learn in data workflows.</td>
-<td><a href="notebooks/">notebooks/</a></td>
+<td><a href="./projects/terminal_agents/README.html">💻 <strong>View Project</strong></a></td>
 </tr>
 <tr class="odd">
-<td><strong>PyPI-Ready Python Template</strong></td>
-<td>Modern Python project template with pre-commit, Black, and CI configuration, ready for immediate use as a best-practices starter.</td>
-<td><a href="https://github.com/Exios66/python-template">Template Repo</a></td>
+<td><strong>Jupyter ML &amp; Pandas Notebooks</strong></td>
+<td>Collections of essential notebooks demonstrating the use of Pandas and scikit-learn in data workflows.</td>
+<td><a href="notebooks/">📓 <strong>View Notebooks</strong></a></td>
 </tr>
 <tr class="even">
-<td>…</td>
-<td>…</td>
-<td>…</td>
+<td><strong>PyPI-Ready Python Template</strong></td>
+<td>Modern Python project template with pre-commit, Black, and CI configuration, ready for immediate use as a best-practices starter.</td>
+<td><a href="https://github.com/Exios66/python-template">📦 <strong>Template Repo</strong></a></td>
 </tr>
 </tbody>
 </table>
@@ -254,36 +341,78 @@ To interact with the specialized agent swarms (ML, Research, Business Intelligen
 <section id="quick-start" class="level3">
 <h3 class="anchored" data-anchor-id="quick-start">🚀 Quick Start</h3>
 <ol type="1">
-<li><strong>Clone this repository</strong> to your local machine.</li>
-<li><strong>Install dependencies</strong>: <code>bash     pip install -r requirements.txt</code></li>
-<li><strong>Launch the Swarm Interface</strong>: <code>bash     streamlit run projects/Crewai/interface_web.py</code></li>
+<li><p><strong>Clone this repository</strong> to your local machine.</p></li>
+<li><p><strong>Configure external storage</strong> (recommended for large dependencies): <code>bash     npm run setup:external</code> See <a href="docs/QUICK_START.md">Quick Start Guide</a> for details.</p></li>
+<li><p><strong>Install dependencies</strong>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python dependencies (choose based on needs)</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">-r</span> requirements/requirements.txt          <span class="co"># Full installation</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">-r</span> requirements/requirements-minimal.txt   <span class="co"># Minimal installation</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">-r</span> requirements/requirements-micro.txt     <span class="co"># Micro installation</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># NPM dependencies (for ChatUi and tooling)</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> install</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+<li><p><strong>Launch the Swarm Interface</strong>: <code>bash     streamlit run projects/CrewAI/interface_web.py</code></p></li>
 </ol>
-<p><a href="https://github.com/Exios66/JJB_Gallery/tree/main/projects/Crewai"><strong>📂 Browse Source Code</strong></a> | <a href="./projects/Crewai/README.html"><strong>📄 View Documentation</strong></a></p>
+<p><a href="https://github.com/Exios66/JJB_Gallery/tree/main/projects/CrewAI"><strong>📂 Browse Source Code</strong></a> | <a href="./projects/CrewAI/README.html"><strong>📄 View Documentation</strong></a></p>
 <hr>
 </section>
 </section>
 <section id="recent-additions" class="level2">
 <h2 class="anchored" data-anchor-id="recent-additions">Recent Additions</h2>
+<section id="december-2024---repository-reorganization" class="level3">
+<h3 class="anchored" data-anchor-id="december-2024---repository-reorganization">December 2024 - Repository Reorganization</h3>
 <ul>
-<li><strong>Random Forest Analysis:</strong> Enhanced with interactive visualizations and decision boundary plots (<a href="./Quarto/randomforest.html">View Analysis</a>).</li>
-<li><strong>CrewAI Swarm System:</strong> Full-featured, multi-swarm agent orchestration, ML/research/business/reporting specializations (<a href="./projects/Crewai/README.html">README</a>)</li>
+<li><strong>📁 Organized Structure:</strong> All documentation moved to <code>docs/</code>, requirements to <code>requirements/</code>, and configs to <code>config/</code> for better maintainability</li>
+<li><strong>📚 Enhanced Documentation:</strong> Comprehensive setup guides, development documentation, and project-specific docs organized in <code>docs/</code> subdirectories</li>
+<li><strong>⚙️ Configuration Management:</strong> Centralized configuration files in <code>config/</code> directory</li>
+<li><strong>📦 Multiple Requirements Files:</strong> Added <code>requirements-minimal.txt</code> and <code>requirements-micro.txt</code> for flexible installation options</li>
+<li><strong>🔧 NPM Integration:</strong> Full NPM support with package.json, external storage configuration, and development tooling</li>
+</ul>
+</section>
+<section id="new-projects-features" class="level3">
+<h3 class="anchored" data-anchor-id="new-projects-features">New Projects &amp; Features</h3>
+<ul>
+<li><strong>Psychometrics (NASA TLX):</strong> Complete implementation of NASA Task Load Index for workload assessment with statistical analysis (<a href="projects/Psychometrics/README.md">View Project</a>)</li>
+<li><strong>RAG Model Application:</strong> Full RAG pipeline with vector database, embeddings, and document retrieval (<a href="projects/RAG_Model/README.md">View Project</a>)</li>
+<li><strong>Chat UI (SvelteKit):</strong> Modern chat interface for LLM interactions with multiple backend support (<a href="projects/ChatUi/README.md">View Project</a>)</li>
+<li><strong>iOS Chatbot:</strong> Flask-based chatbot with mobile-friendly interface (<a href="projects/ios_chatbot/README.md">View Project</a>)</li>
+<li><strong>LiteLLM Proxy:</strong> Unified API proxy for multiple LLM providers (<a href="projects/litellm/README.md">View Project</a>)</li>
+</ul>
+</section>
+<section id="enhanced-existing-projects" class="level3">
+<h3 class="anchored" data-anchor-id="enhanced-existing-projects">Enhanced Existing Projects</h3>
+<ul>
+<li><strong>Random Forest Analysis:</strong> Enhanced with interactive visualizations and decision boundary plots (<a href="./Quarto/randomforest.html">View Analysis</a>)</li>
+<li><strong>CrewAI Swarm System:</strong> Full-featured, multi-swarm agent orchestration, ML/research/business/reporting specializations (<a href="./projects/CrewAI/README.html">README</a>)</li>
 <li><strong>Terminal Coding Agents:</strong> Terminal-based agent system, built-in “build” and “plan” agents with live installation quick start (<a href="./projects/terminal_agents/README.html">README</a>)</li>
 <li><strong>Jupyter Notebooks:</strong> ML and pandas essentials, plus scikit-learn examples (<a href="notebooks/">notebooks/</a>)</li>
-<li><strong>.gitignore Improvements:</strong> Now excludes macOS ._*, .DS_Store, and other platform/editor artifacts (<a href=".gitignore">.gitignore</a>)</li>
-<li><strong>Changelog:</strong> Track recent changes in <a href="./CHANGELOG.html">CHANGELOG.md</a></li>
 </ul>
+</section>
+<section id="infrastructure-tooling" class="level3">
+<h3 class="anchored" data-anchor-id="infrastructure-tooling">Infrastructure &amp; Tooling</h3>
+<ul>
+<li><strong>External Storage Support:</strong> Automated configuration for using external USB drives for caches and dependencies</li>
+<li><strong>Development Documentation:</strong> Comprehensive guides for Git protocol, remote Python paths, and development workflows</li>
+<li><strong>Testing Framework:</strong> Complete test suite for all projects with pytest configuration</li>
+<li><strong>.gitignore Improvements:</strong> Now excludes macOS ._*, .DS_Store, and other platform/editor artifacts</li>
+</ul>
+<p><strong>📋 Track all changes:</strong> See <a href="./CHANGELOG.html">CHANGELOG.md</a> for detailed version history</p>
 <hr>
+</section>
 </section>
 <section id="skills" class="level2">
 <h2 class="anchored" data-anchor-id="skills">Skills</h2>
 <ul>
-<li><strong>Programming:</strong> <code>Python</code> (advanced), <code>R</code>, <code>JavaScript</code>, <code>bash</code>, <code>Make</code></li>
+<li><strong>Programming:</strong> <code>Python</code> (advanced), <code>R</code>, <code>JavaScript</code>, <code>TypeScript</code>, <code>SvelteKit</code>, <code>bash</code>, <code>Make</code></li>
 <li><strong>Data Analysis:</strong> <code>Pandas</code>, <code>NumPy</code>, <code>scikit-learn</code>, <code>seaborn</code>, <code>matplotlib</code></li>
-<li><strong>Visualization:</strong> <code>matplotlib</code>, <code>seaborn</code>, <code>Quarto</code>, <code>Jupyter</code></li>
-<li><strong>Machine Learning &amp; AI:</strong> <code>scikit-learn</code>, <code>CrewAI</code>, agent-based simulation, feature engineering</li>
-<li><strong>Documentation:</strong> <code>Quarto</code>, <code>Markdown</code>, <code>Jupyter Notebooks</code></li>
-<li><strong>CI/CD &amp; Tooling:</strong> <code>pre-commit</code>, <code>Black</code>, <code>GitHub Actions</code>, <code>Poetry</code>, <code>.gitignore</code> hygiene</li>
-<li><strong>Other:</strong> <code>Git</code>, <code>SQL</code>, <code>Docker</code>, technical writing, code review</li>
+<li><strong>Visualization:</strong> <code>matplotlib</code>, <code>seaborn</code>, <code>Quarto</code>, <code>Jupyter</code>, interactive dashboards</li>
+<li><strong>Machine Learning &amp; AI:</strong> <code>scikit-learn</code>, <code>CrewAI</code>, <code>RAG systems</code>, <code>vector databases</code>, <code>embeddings</code>, agent-based simulation, feature engineering</li>
+<li><strong>LLM Integration:</strong> <code>OpenAI API</code>, <code>Ollama</code>, <code>LiteLLM</code>, <code>Hugging Face</code>, <code>Anthropic</code>, custom LLM backends</li>
+<li><strong>Web Development:</strong> <code>Flask</code>, <code>SvelteKit</code>, <code>Streamlit</code>, <code>REST APIs</code>, <code>WebSockets</code></li>
+<li><strong>Documentation:</strong> <code>Quarto</code>, <code>Markdown</code>, <code>Jupyter Notebooks</code>, technical writing</li>
+<li><strong>CI/CD &amp; Tooling:</strong> <code>pre-commit</code>, <code>Black</code>, <code>GitHub Actions</code>, <code>Poetry</code>, <code>npm</code>, <code>.gitignore</code> hygiene</li>
+<li><strong>DevOps:</strong> <code>Docker</code>, <code>Git</code>, <code>SQL</code>, external storage management, dependency optimization</li>
+<li><strong>Other:</strong> <code>Git</code>, <code>SQL</code>, <code>Docker</code>, technical writing, code review, psychometric assessment</li>
 </ul>
 <hr>
 </section>
@@ -293,7 +422,6 @@ To interact with the specialized agent swarms (ML, Research, Business Intelligen
 <li><strong>Random Forest Essentials</strong> – Quarto doc, 2024. (<a href="./Quarto/randomforest.html">Link</a>)</li>
 <li><strong>Talking to Agents: architecting Multi-Agent Systems</strong> – Internal seminar, 2024.</li>
 <li><em>(More manuscripts and presentations to be added.)</em></li>
-<li>For a list of all talks and publications, see <a href="docs/publications.md">docs/publications.md</a> <em>(Coming soon)</em></li>
 </ul>
 <hr>
 </section>
@@ -316,24 +444,76 @@ To interact with the specialized agent swarms (ML, Research, Business Intelligen
 </ul>
 <hr>
 </section>
+<section id="repository-organization" class="level2">
+<h2 class="anchored" data-anchor-id="repository-organization">Repository Organization</h2>
+<p>The repository has been organized into clear, maintainable directories:</p>
+<pre><code>JJB_Gallery/
+├── requirements/          # Python dependency files
+│   ├── requirements.txt          # Full installation
+│   ├── requirements-minimal.txt  # Minimal installation
+│   └── requirements-micro.txt     # Micro installation
+├── config/                # Configuration files
+│   └── pip.conf           # Pip configuration
+├── docs/                  # Comprehensive documentation
+│   ├── QUICK_START.md            # Quick start guide
+│   ├── setup/                    # Setup &amp; configuration guides
+│   │   ├── NPM_SETUP.md
+│   │   ├── EXTERNAL_STORAGE_SETUP.md
+│   │   └── ...
+│   ├── development/              # Development guides
+│   │   ├── GIT_PROTOCOL_GUIDE.md
+│   │   └── REMOTE_PYTHON_PATHS.md
+│   └── ...
+├── projects/             # All project implementations
+│   ├── CrewAI/
+│   ├── Psychometrics/
+│   ├── RAG_Model/
+│   ├── ChatUi/
+│   └── ...
+├── scripts/             # Automation and utility scripts
+├── notebooks/           # Jupyter notebooks
+└── Quarto/              # Quarto documents</code></pre>
+<p><strong>📚 Documentation:</strong> See <a href="docs/README.md">docs/README.md</a> for complete documentation index.</p>
+</section>
 <section id="further-reading" class="level2">
 <h2 class="anchored" data-anchor-id="further-reading">Further Reading</h2>
+<section id="project-documentation" class="level3">
+<h3 class="anchored" data-anchor-id="project-documentation">Project Documentation</h3>
 <ul>
-<li><a href="./projects/terminal_agents/README.html">Terminal Agents Project README</a></li>
-<li><a href="./projects/Crewai/README.html">CrewAI Multi-Agent System README</a></li>
-<li><a href="./CHANGELOG.html">CHANGELOG.md</a></li>
-<li><a href="./SECURITY.html">SECURITY.md</a></li>
-<li><a href="https://github.com/Exios66/python-template">Official Python Template Repo</a></li>
+<li><a href="./projects/terminal_agents/README.html">Terminal Agents Project</a> - AI coding agents for terminal</li>
+<li><a href="./projects/CrewAI/README.html">CrewAI Multi-Agent System</a> - Multi-agent orchestration</li>
+<li><a href="projects/Psychometrics/README.md">Psychometrics (NASA TLX)</a> - Workload assessment toolkit</li>
+<li><a href="projects/RAG_Model/README.md">RAG Model Application</a> - Retrieval-augmented generation</li>
+<li><a href="projects/ChatUi/README.md">Chat UI</a> - Modern chat interface</li>
+<li><a href="projects/ios_chatbot/README.md">iOS Chatbot</a> - Flask-based chatbot</li>
+<li><a href="projects/litellm/README.md">LiteLLM Proxy</a> - Unified LLM API proxy</li>
+</ul>
+</section>
+<section id="repository-documentation" class="level3">
+<h3 class="anchored" data-anchor-id="repository-documentation">Repository Documentation</h3>
+<ul>
+<li><a href="docs/QUICK_START.md">Quick Start Guide</a> - Get started quickly</li>
+<li><a href="docs/README.md">Documentation Index</a> - Complete documentation</li>
+<li><a href="docs/ORGANIZATION.md">Repository Organization</a> - File organization guide</li>
+<li><a href="./CHANGELOG.html">CHANGELOG.md</a> - Version history and changes</li>
+<li><a href="./SECURITY.html">SECURITY.md</a> - Security policy</li>
+</ul>
+</section>
+<section id="external-resources" class="level3">
+<h3 class="anchored" data-anchor-id="external-resources">External Resources</h3>
+<ul>
+<li><a href="https://github.com/Exios66/python-template">Official Python Template Repo</a> - Best practices starter</li>
 </ul>
 <p><em>Repository updated regularly. Check project directories for the latest code, docs, and research.</em></p>
 
 
 </section>
+</section>
 
 </main> <!-- /main -->
-<div style="position: fixed; bottom: 20px; right: 20px; z-index: 9999;">
-  <label for="theme-selector" style="margin-right: 5px; font-weight: bold; background: rgba(255,255,255,0.8); padding: 2px 5px; border-radius: 4px; color: #333;">Theme:</label>
-  <select id="theme-selector" onchange="switchTheme(this.value)" style="padding: 5px; border-radius: 5px; border: 1px solid #ccc;">
+<div id="theme-switcher-box" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999; transition: background 0.25s;">
+  <label for="theme-selector" style="margin-right: 5px; font-weight: bold; background: rgba(255,255,255,0.85); padding: 2px 5px; border-radius: 4px; color: #333; transition: background 0.25s, color 0.25s;">Theme:</label>
+  <select id="theme-selector" style="padding: 5px; border-radius: 5px; border: 1px solid #ccc;">
     <option value="light.css">Light (Cosmo)</option>
     <option value="dark.css">Dark (Darkly)</option>
     <option value="tokyo-neon.css">Tokyo Neon</option>
@@ -345,56 +525,177 @@ To interact with the specialized agent swarms (ML, Research, Business Intelligen
 </div>
 
 <script>
+/**
+ * Theme switcher with smooth transitions for UI color scheme updates.
+ * Ensures seamless experience by animating body and ui background while switching.
+ */
+
+(function() {
+  const THEME_ID = 'theme-css-dynamic';
+
+  // Map theme file to body class for additional fine-grained transitions if needed
+  const themeBodyClass = {
+    "light.css": "theme-light",
+    "dark.css": "theme-dark",
+    "tokyo-neon.css": "theme-tokyo-neon",
+    "cyberpunk.css": "theme-cyberpunk",
+    "dark-solar.css": "theme-dark-solar",
+    "retrofuturism.css": "theme-retrofuturism",
+    "art-deco.css": "theme-art-deco"
+  };
+
+  // Optionally define accent/background colors for the switcher itself
+  const switcherBg = {
+    "light.css": "rgba(255,255,255,0.9)",
+    "dark.css": "rgba(26,26,32,0.97)",
+    "tokyo-neon.css": "linear-gradient(90deg, #151624 60%, #651FFF 100%)",
+    "cyberpunk.css": "linear-gradient(90deg, #2d1032 30%, #ff0099 100%)",
+    "dark-solar.css": "rgba(20,20,24,0.97)",
+    "retrofuturism.css": "linear-gradient(90deg, #180d32 60%, #ffe408 100%)",
+    "art-deco.css": "linear-gradient(90deg, #fff7ef 60%, #22262f 100%)"
+  };
+  const switcherLabelColor = {
+    "light.css": "#333",
+    "dark.css": "#eee",
+    "tokyo-neon.css": "#39fff6",
+    "cyberpunk.css": "#ff0099",
+    "dark-solar.css": "#ffd700",
+    "retrofuturism.css": "#ad03de",
+    "art-deco.css": "#866c5e"
+  };
+
   function getAssetsPath() {
     // Try to find the relative path to root from the navbar logo/brand
     const navbarBrand = document.querySelector('.navbar-brand');
     let prefix = "";
     if (navbarBrand) {
-        const href = navbarBrand.getAttribute('href');
-        // href is typically "index.html" or "../../index.html"
-        // We remove "index.html" to get the relative directory prefix
-        if (href && href.endsWith('index.html')) {
-            prefix = href.substring(0, href.length - 10);
-        } else if (href) {
-            prefix = href;
-        }
+      const href = navbarBrand.getAttribute('href');
+      if (href && href.endsWith('index.html')) {
+        prefix = href.substring(0, href.length - 10);
+      } else if (href) {
+        prefix = href;
+      }
     }
     return prefix + "assets/css/";
   }
 
-  function switchTheme(cssName) {
+  function setThemeCss(cssName) {
+    // smoothly fade the interface
+    const body = document.body;
+    body.style.transition = 'background-color 0.35s, color 0.25s';
+
+    // Remove old theme class
+    Object.values(themeBodyClass).forEach(cls => body.classList.remove(cls));
+
+    // Add the correct class
+    if (themeBodyClass[cssName]) {
+      body.classList.add(themeBodyClass[cssName]);
+    }
+
+    // Update theme CSS link
     const assetsPath = getAssetsPath();
     const fullPath = assetsPath + cssName;
-    
-    let themeLink = document.getElementById('quarto-bootstrap');
-    if (themeLink) {
+    let themeLink = document.getElementById(THEME_ID);
+
+    if (!themeLink) {
+      // Remove any old dynamic theme links
+      document.querySelectorAll('link[data-theme-dynamic]').forEach(l => l.remove());
+      // Insert a new stylesheet link at end of <head>
+      themeLink = document.createElement('link');
+      themeLink.rel = 'stylesheet';
       themeLink.href = fullPath;
+      themeLink.id = THEME_ID;
+      themeLink.setAttribute('data-theme-dynamic', '1');
+      document.head.appendChild(themeLink);
     } else {
-      // Fallback logic
-      let links = document.querySelectorAll('link[rel="stylesheet"]');
-      for (let link of links) {
-        if (link.href.includes('bootstrap') || link.href.includes('light.css') || link.href.includes('dark.css')) {
-          link.href = fullPath;
-          link.id = 'quarto-bootstrap';
-          break;
-        }
-      }
+      if (themeLink.href !== fullPath) themeLink.href = fullPath;
     }
+  }
+
+  function animateSwitcher(cssName) {
+    // Optional: animate the theme switcher background for visual continuity
+    const box = document.getElementById('theme-switcher-box');
+    const lbl = box.querySelector('label');
+    if(!box || !lbl) return;
+
+    if (box.style.transition.indexOf('background') === -1)
+      box.style.transition = 'background 0.25s';
+
+    // Animate background
+    const bg = switcherBg[cssName] || "rgba(255,255,255,0.9)";
+    const color = switcherLabelColor[cssName] || "#333";
+    box.style.background = bg;
+    lbl.style.background = bg;
+    lbl.style.color = color;
+  }
+
+  function switchTheme(cssName) {
+    // Add smooth fade for the UI
+    document.body.style.opacity = 0.6;
+    setTimeout(() => {
+      setThemeCss(cssName);
+      animateSwitcher(cssName);
+      setTimeout(() => {
+        document.body.style.opacity = 1;
+      }, 120);
+    }, 80);
     localStorage.setItem('selectedTheme', cssName);
   }
 
+  // Init and event binding
   document.addEventListener("DOMContentLoaded", function() {
+    let selector = document.getElementById('theme-selector');
     let savedTheme = localStorage.getItem('selectedTheme');
-    if (savedTheme) {
-      let selector = document.getElementById('theme-selector');
-      if (selector) {
+    if (selector) {
+      if (savedTheme && themeBodyClass[savedTheme]) {
         selector.value = savedTheme;
-        switchTheme(savedTheme);
       }
+      animateSwitcher(selector.value); // set switcher UI initial bg
+      setThemeCss(selector.value); // always ensure theme matches selector
+      setTimeout(() => { document.body.style.opacity = 1; }, 80);
+      selector.addEventListener("change", function() {
+        switchTheme(this.value);
+      });
     }
   });
+
+  // Seamless initial load
+  document.body.style.transition = 'opacity 0.35s, background-color 0.35s';
+  document.body.style.opacity = 1;
+})();
 </script>
 
+<style>
+body.theme-dark, body.theme-dark-solar {
+  color-scheme: dark;
+  transition: background-color 0.4s, color 0.3s;
+}
+body.theme-light {
+  color-scheme: light;
+  transition: background-color 0.4s, color 0.3s;
+}
+/* For custom theme additional tweaks, e.g.: */
+body.theme-tokyo-neon {
+  background: radial-gradient(ellipse at center, #18192b 65%, #251b42 100%);
+  color: #39fff6;
+  transition: background 0.4s, color 0.3s;
+}
+body.theme-cyberpunk {
+  background: linear-gradient(135deg, #2d1032 60%, #ff0099 100%);
+  color: #ffe408;
+  transition: background 0.4s, color 0.3s;
+}
+body.theme-retrofuturism {
+  background: #22003c;
+  color: #ffe408;
+  transition: background 0.4s, color 0.3s;
+}
+body.theme-art-deco {
+  background: #fff7ef;
+  color: #22262f;
+  transition: background 0.4s, color 0.3s;
+}
+</style>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

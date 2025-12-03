@@ -129,7 +129,7 @@ result_dict = result.to_dict()
 
 The raw TLX score is the unweighted average of all six dimension ratings:
 
-```
+```text
 Raw TLX = (Mental + Physical + Temporal + Performance + Effort + Frustration) / 6
 ```
 
@@ -144,7 +144,8 @@ The weighted TLX score uses pairwise comparisons to determine the relative impor
 3. Normalize to weights (0-1, sum to 1)
 4. Calculate weighted average:
 
-```
+```text
+
 Weighted TLX = Σ(Weight_i × Rating_i)
 ```
 

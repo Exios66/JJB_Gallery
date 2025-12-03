@@ -84,3 +84,6 @@ _quarto.yml
 
 # Pip configuration (user-specific)
 pip.conf.local
+
+/.quarto/
+**/*.quarto_ipynb

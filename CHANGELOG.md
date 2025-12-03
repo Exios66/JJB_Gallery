@@ -9,6 +9,16 @@
 - Unified environment dependencies across all Quarto documents and notebooks, adding robust setup scripts for reproducibility.
 - Improved documentation linking—ensured that all new guides and references are indexed in navigation menus and README files for both accessibility and completeness.
 
+### Added in v0.0.3
+
+- **New: Launched `projects/Psychometrics/README.md`** — A comprehensive guide and example implementation for the NASA-TLX workload assessment metric, including Python usage walkthrough and statistical analysis details.
+- **New: Added `docs/development/README.md`** — A guide for development documentation for the repository, with clear guidance on Git protocol, remote Python environments, and development best practices.
+- **New: Added `docs/development/GIT_PROTOCOL_GUIDE.md`** — A guide for the Git protocol for the repository, with clear guidance on Git protocol, remote Python environments, and development best practices.
+- **New: Added `docs/development/REMOTE_PYTHON_PATHS.md`** — A guide for the remote Python paths for the repository, with clear guidance on remote Python environments, and development best practices.
+- **New: Added `docs/development/SETUP_GUIDE.md`** — A guide for the setup for the repository, with clear guidance on setup for the repository.
+- **New: Added `docs/development/TEST_INSTRUCTIONS.md`** — A guide for the test instructions for the repository, with clear guidance on test instructions for the repository.
+- **New: Added `docs/development/TOOLS_SUMMARY.md`** — A guide for the tools summary for the repository, with clear guidance on tools summary for the repository.
+
 ### Fixed in v0.0.3
 
 - Corrected previous path and reference inconsistencies in changelogs, Git protocol documentation, and associated navigation menus.
@@ -33,7 +43,7 @@
 - Improved project documentation by providing explicit instructions for Python environment setup and notebook/practical reproducibility.
 - Applied new documentation standards to changelogs and guides for increased transparency and project maintainability.
 
-### Fixed in v0.0.3
+### Fixed (Additional) in v0.0.3
 
 - Addressed confusions in environment configuration: clarified recommended dependency installation workflow to mitigate virtual environment corruption.
 - Fixed prior documentation referencing errors regarding the location of project notebooks and Quarto docs in various READMEs.
@@ -57,7 +67,7 @@
 - Dependency Management: Resolved Python environment corruption caused by disk space exhaustion; recreated virtual environment and reinstalled all dependencies
 - Documentation: Fixed Table of Contents overlay issue in index.html by updating Quarto configuration
 
-### Repository Configuration
+### Repository Configuration in v0.0.2
 
 - Updated .gitignore to ignore macOS resource fork files (._*) and .DS_Store files
 - Removed all tracked ._* files from Git repository
