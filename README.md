@@ -48,7 +48,7 @@ Welcome! This GitHub repository serves as an evolving digital portfolio and gall
 
 ## About Me
 
-![image](https://github.com/user-attachments/assets/3059746c-851f-4242-b34c-679347d30959)
+![image](https://github.com/user-attachments/assets/a0d994ed-46e0-4185-886e-5568c9561843)
 
 Hi! I'm **Jack J. Burleson** – I am a data scientist, artificial intelligence-research engineer, a computational neuroscience researcher, and an open-source enthusiast.  
 
