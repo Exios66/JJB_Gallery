@@ -67,6 +67,7 @@ python app.py
 Send a chat message and get a response.
 
 **Request:**
+
 ```json
 {
   "message": "Hello, how are you?",
@@ -75,6 +76,7 @@ Send a chat message and get a response.
 ```
 
 **Response:**
+
 ```json
 {
   "conversation_id": "uuid-here",
@@ -96,6 +98,7 @@ Send a chat message and get a response.
 Get conversation history.
 
 **Response:**
+
 ```json
 {
   "conversation_id": "uuid-here",
@@ -194,6 +197,7 @@ class ChatBot:
 ### Styling
 
 Modify `static/style.css` to customize:
+
 - Colors and gradients
 - Font sizes and families
 - Spacing and layout
@@ -202,6 +206,7 @@ Modify `static/style.css` to customize:
 ### Backend Logic
 
 Modify `app.py` to:
+
 - Add conversation persistence (database)
 - Implement user authentication
 - Add message history

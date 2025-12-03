@@ -89,3 +89,228 @@
   }
 }
 
+/* Additional Mobile Accessibility Enhancements */
+
+/* Ensure tables are scrollable on mobile */
+@media (max-width: 767.98px) {
+  table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Make table cells wrap better on mobile */
+  table td, table th {
+    white-space: normal;
+    word-wrap: break-word;
+    padding: 0.5rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Improve code block readability on mobile */
+@media (max-width: 767.98px) {
+  pre, code {
+    font-size: 0.85rem;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+  }
+  
+  pre {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 1rem;
+  }
+  
+  div.sourceCode {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* Make images responsive */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Improve mobile typography and spacing */
+@media (max-width: 767.98px) {
+  body {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  
+  h1 {
+    font-size: 1.75rem;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+  }
+  
+  h3 {
+    font-size: 1.25rem;
+  }
+  
+  /* Better spacing for mobile content */
+  .quarto-title-block {
+    padding: 1rem 0;
+  }
+  
+  .page-columns {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+}
+
+/* Improve mobile content layout */
+@media (max-width: 767.98px) {
+  .quarto-container {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+  
+  /* Better spacing for sections */
+  section {
+    margin-bottom: 2rem;
+  }
+  
+  /* Improve list spacing on mobile */
+  ul, ol {
+    padding-left: 1.5rem;
+  }
+  
+  li {
+    margin-bottom: 0.5rem;
+  }
+}
+
+/* Better mobile table of contents */
+@media (max-width: 767.98px) {
+  #quarto-sidebar {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 80%;
+    max-width: 300px;
+    height: 100vh;
+    overflow-y: auto;
+    z-index: 1030;
+    transition: left 0.3s ease;
+    background-color: var(--bs-body-bg);
+  }
+  
+  #quarto-sidebar.sidebar-expanded {
+    left: 0;
+  }
+  
+  /* Add overlay when sidebar is open */
+  .sidebar-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1029;
+  }
+  
+  .sidebar-overlay.active {
+    display: block;
+  }
+}
+
+/* Improve mobile button accessibility */
+@media (max-width: 767.98px) {
+  button, .btn, a.button {
+    min-height: 44px;
+    min-width: 44px;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+  }
+}
+
+/* Ensure all links are easily tappable */
+@media (max-width: 767.98px) {
+  a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0;
+  }
+}
+
+/* Better mobile form inputs */
+@media (max-width: 767.98px) {
+  input, textarea, select {
+    font-size: 16px; /* Prevents zoom on iOS */
+    padding: 0.75rem;
+    min-height: 44px;
+  }
+}
+
+/* Improve mobile project gallery table */
+@media (max-width: 767.98px) {
+  table {
+    border-collapse: collapse;
+  }
+  
+  /* Stack table rows on very small screens */
+  @media (max-width: 575.98px) {
+    table, thead, tbody, th, td, tr {
+      display: block;
+    }
+    
+    thead tr {
+      position: absolute;
+      top: -9999px;
+      left: -9999px;
+    }
+    
+    tr {
+      border: 1px solid #ccc;
+      margin-bottom: 1rem;
+      padding: 0.5rem;
+    }
+    
+    td {
+      border: none;
+      position: relative;
+      padding-left: 50%;
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+    }
+    
+    td:before {
+      content: attr(data-label) ": ";
+      position: absolute;
+      left: 6px;
+      width: 45%;
+      padding-right: 10px;
+      white-space: nowrap;
+      font-weight: bold;
+    }
+  }
+}
+
+/* Ensure proper mobile viewport handling */
+html {
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+/* Improve mobile scrolling */
+@media (max-width: 767.98px) {
+  body {
+    -webkit-overflow-scrolling: touch;
+    overflow-x: hidden;
+  }
+  
+  .quarto-container {
+    overflow-x: hidden;
+  }
+}
+
