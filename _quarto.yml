@@ -12,7 +12,6 @@ project:
     - projects/ChatUi/README.md
     - projects/ios_chatbot/README.md
     - projects/litellm/README.md
-    - projects/ruckus/README.md
     - Quarto/randomforest.qmd
 
 website:
@@ -35,8 +34,6 @@ website:
         text: iOS Chatbot
       - href: projects/litellm/README.md
         text: LiteLLM
-      - href: projects/ruckus/README.md
-        text: Ruckus
       - href: Quarto/randomforest.qmd
         text: Random Forests
     right:

@@ -284,7 +284,6 @@ See main repository LICENSE file.
 
 This project is part of the [JJB Gallery](https://github.com/Exios66/JJB_Gallery) portfolio. Related projects include:
 
-- [Ruckus](../ruckus/README.md) - LLM Fine-tuning Framework
 - [CrewAI](../CrewAI/README.md) - Multi-Agent System
 - [Terminal Agents](../terminal_agents/README.md) - AI Coding Assistant
 - [LiteLLM](../litellm/README.md) - Unified LLM API

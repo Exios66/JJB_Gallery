@@ -399,7 +399,6 @@ See main repository LICENSE file.
 
 This project is part of the [JJB Gallery](https://github.com/Exios66/JJB_Gallery) portfolio. Related projects include:
 
-- [Ruckus](../ruckus/README.md) - LLM Fine-tuning Framework
 - [RAG Model](../RAG_Model/README.md) - Retrieval-Augmented Generation
 - [ChatUi](../ChatUi/README.md) - Modern Chat Interface
 - [iOS Chatbot](../ios_chatbot/README.md) - Flask-based Chatbot
