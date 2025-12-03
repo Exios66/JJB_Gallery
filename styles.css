@@ -1,0 +1,91 @@
+/* Mobile Navigation Enhancements */
+
+/* Ensure navbar is properly collapsed on mobile */
+@media (max-width: 991.98px) {
+  .navbar-collapse {
+    max-height: calc(100vh - 60px);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .navbar-nav {
+    padding: 1rem 0;
+  }
+  
+  .navbar-nav .nav-link {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .navbar-nav .nav-link:last-child {
+    border-bottom: none;
+  }
+  
+  /* Ensure navbar brand is visible on mobile */
+  .navbar-brand-container {
+    flex: 0 0 auto;
+  }
+  
+  /* Better spacing for mobile navbar */
+  .navbar-toggler {
+    margin-left: auto;
+    padding: 0.5rem 0.75rem;
+  }
+}
+
+/* Improve mobile navbar toggle button visibility */
+.navbar-toggler {
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 0.5rem 0.75rem;
+}
+
+.navbar-toggler:focus {
+  box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.25);
+}
+
+/* Better touch targets for mobile */
+@media (max-width: 991.98px) {
+  .nav-link {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+  
+  button.navbar-toggler {
+    min-width: 44px;
+    min-height: 44px;
+  }
+}
+
+/* Prevent horizontal scroll on mobile */
+@media (max-width: 767.98px) {
+  .navbar-container {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+  
+  .navbar-brand {
+    font-size: 1.1rem;
+  }
+}
+
+/* Improve mobile sidebar behavior */
+@media (max-width: 767.98px) {
+  #quarto-sidebar {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  
+  /* Hide sidebar on mobile when navbar is collapsed */
+  .sidebar-navigation:not(.sidebar-expanded) {
+    transform: translateX(-100%);
+  }
+}
+
+/* Better mobile search positioning */
+@media (max-width: 991.98px) {
+  #quarto-search {
+    margin-right: 0.5rem;
+  }
+}
+

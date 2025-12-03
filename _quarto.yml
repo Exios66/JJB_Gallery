@@ -17,6 +17,7 @@ project:
 website:
   title: "JJB Gallery"
   navbar:
+    background: dark
     left:
       - href: index.html
         text: Home
@@ -53,6 +54,7 @@ format:
     include-after-body: theme-switcher.html
     embed-resources: false
     max-width: 1200px
+    css: styles.css
 
 execute:
   timeout: 300
