@@ -275,6 +275,13 @@ This project is part of the [JJB Gallery](https://github.com/Exios66/JJB_Gallery
 - [CrewAI](../CrewAI/README.md) - Multi-Agent System
 - [ChatUi](../ChatUi/README.md) - Modern Chat Interface
 
+### Neural Architecture of Truth & Deception
+
+This Psychometrics toolkit is used in the **Neural Architecture of Truth & Deception** research project, which explores truth-telling and deceptive behaviors in AI systems:
+
+- 🔗 [NATD API Interface](https://exios66.github.io/NATD-API/) - Interactive API endpoint for GPT functionalities
+- 🧠 [NATD Repository](https://github.com/Exios66/truth-deception-architecture) - Complete research framework with specialized chatbot profiles, instruction sets, and experimental conditions
+
 ## Additional Resources
 
 - 📚 [Project Wiki](https://github.com/Exios66/JJB_Gallery/wiki) - Comprehensive documentation
