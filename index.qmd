@@ -49,6 +49,12 @@ Organization](#repository-organization) section for details.
 
 ------------------------------------------------------------------------
 
+<div style="text-align: center; margin: 2em 0;">
+  <img src="https://github.com/user-attachments/assets/3059746c-851f-4242-b34c-679347d30959" 
+       alt="Jack J. Burleson" 
+       style="max-width: 300px; border-radius: 50%; border: 3px solid #e0e0e0; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+</div>
+
 ## About Me
 
 Hi! I'm **Jack J. Burleson** – data scientist, research engineer, and
