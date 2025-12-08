@@ -1,0 +1,19 @@
+# Prevent macOS from creating resource fork files
+* -apple-extension
+* -apple-resource-fork
+
+# Auto-detect text files and normalize line endings
+* text=auto
+
+# Explicitly mark binary files
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.eot binary
+*.svg binary
+*.pdf binary

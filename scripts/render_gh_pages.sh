@@ -135,6 +135,10 @@ clean_build_artifacts() {
     if [[ "$CLEAN_BUILD" == "true" ]]; then
         log_info "Cleaning build artifacts..."
         
+        # Prevent macOS from creating ._ resource fork files
+        export COPYFILE_DISABLE=1
+        export COPY_EXTENDED_ATTRIBUTES_DISABLE=1
+        
         # Remove macOS resource fork files (._*) that cause Quarto errors
         local resource_forks=$(find "$REPO_ROOT" -name "._*" -type f 2>/dev/null | wc -l | tr -d ' ')
         if [[ "$resource_forks" -gt 0 ]]; then
@@ -195,31 +199,57 @@ render_quarto_site() {
         exit 1
     fi
     
+    # Prevent macOS from creating ._ resource fork files
+    export COPYFILE_DISABLE=1
+    export COPY_EXTENDED_ATTRIBUTES_DISABLE=1
+    
     # Render the website (this renders all pages in _quarto.yml)
-    # Note: Quarto may exit with error code during post-processing (sitemap generation)
-    # but the HTML files are still generated successfully
-    if quarto render --to html 2>&1 | tee /tmp/quarto_render.log; then
+    # Suppress sitemap errors which are non-critical when output-dir is root
+    local render_log="/tmp/quarto_render_$$.log"
+    local render_exit_code
+    
+    # Run quarto render, capturing both stdout and stderr
+    # Filter out sitemap-related errors from display
+    set +e  # Temporarily disable exit on error to handle sitemap error
+    quarto render --to html >"$render_log" 2>&1
+    render_exit_code=$?
+    set -e  # Re-enable exit on error
+    
+    # Display output, filtering sitemap errors
+    grep -v -E "(Source and destination cannot be the same|updateSitemap|ERROR.*sitemap)" "$render_log" || true
+    
+    # Check if rendering succeeded or if only sitemap error occurred
+    if [[ $render_exit_code -eq 0 ]]; then
         log_success "Quarto website rendered successfully"
     else
-        # Check if files were actually generated despite the error
-        local error_occurred=false
-        if grep -q "Source and destination cannot be the same" /tmp/quarto_render.log 2>/dev/null; then
-            log_warning "Sitemap generation error detected (known issue, files were still generated)"
-            error_occurred=true
-        fi
-        
-        # Verify that key files were generated
-        if [[ -f "$REPO_ROOT/index.html" ]] && [[ -f "$REPO_ROOT/CHANGELOG.html" ]]; then
-            if [[ "$error_occurred" == "true" ]]; then
-                log_success "HTML files generated successfully (sitemap error is non-critical)"
+        # Check if it's just the sitemap error
+        if grep -q "Source and destination cannot be the same" "$render_log" 2>/dev/null; then
+            # Verify that key files were generated despite the sitemap error
+            if [[ -f "$REPO_ROOT/index.html" ]] && [[ -f "$REPO_ROOT/CHANGELOG.html" ]]; then
+                log_success "HTML files generated successfully (sitemap generation skipped)"
             else
-                log_error "Quarto rendering failed"
+                log_error "Quarto rendering failed and files were not generated"
+                cat "$render_log" >&2
+                rm -f "$render_log"
                 exit 1
             fi
         else
-            log_error "Quarto rendering failed and files were not generated"
+            # Real error - show the full output
+            log_error "Quarto rendering failed"
+            cat "$render_log" >&2
+            rm -f "$render_log"
             exit 1
         fi
+    fi
+    
+    # Clean up log file
+    rm -f "$render_log"
+    
+    # Clean up any ._ files that may have been created during render
+    local resource_forks=$(find "$REPO_ROOT" -name "._*" -type f 2>/dev/null | wc -l | tr -d ' ')
+    if [[ "$resource_forks" -gt 0 ]]; then
+        find "$REPO_ROOT" -name "._*" -type f -delete 2>/dev/null
+        log_success "Cleaned up $resource_forks macOS resource fork files created during render"
     fi
 }
 
@@ -358,6 +388,10 @@ main() {
     log_info "Starting GitHub Pages rendering process..."
     echo ""
     
+    # Prevent macOS from creating ._ resource fork files globally
+    export COPYFILE_DISABLE=1
+    export COPY_EXTENDED_ATTRIBUTES_DISABLE=1
+    
     # Pre-flight checks
     check_quarto
     setup_python_env
@@ -366,6 +400,13 @@ main() {
     clean_build_artifacts
     render_quarto_site
     verify_outputs
+    
+    # Final cleanup of any ._ files
+    local final_cleanup=$(find "$REPO_ROOT" -name "._*" -type f 2>/dev/null | wc -l | tr -d ' ')
+    if [[ "$final_cleanup" -gt 0 ]]; then
+        find "$REPO_ROOT" -name "._*" -type f -delete 2>/dev/null
+        log_success "Final cleanup: removed $final_cleanup macOS resource fork files"
+    fi
     
     # Summary
     print_summary
