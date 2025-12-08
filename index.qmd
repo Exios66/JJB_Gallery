@@ -51,10 +51,10 @@ Organization](#repository-organization) section for details.
 ------------------------------------------------------------------------
 
 <div style="text-align: center; margin: 2em 0;">
-  <img src="https://github.com/user-attachments/assets/a0d994ed-46e0-4185-886e-5568c9561843" 
-       alt="Jack J. Burleson" 
+  <img src="https://github.com/user-attachments/assets/a0d994ed-46e0-4185-886e-5568c9561843.jpg"
+       alt="Jack J. Burleson"
        loading="lazy"
-       style="max-width: 300px; border-radius: 50%; border: 3px solid #e0e0e0; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+       style="max-width: 220px; border-radius: 50%; border: 3px solid #e0e0e0; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
 </div>
 
 ## About Me
@@ -82,6 +82,30 @@ machine learning, AI/LLM integration, and technical writing.
     different use cases (full, minimal, micro)
 -   **💾 External Storage Support:** Automated configuration for
     managing large dependencies on external drives
+
+### Gallery Mission
+
+The **JJB Gallery** is dedicated to making advanced data science,
+machine learning, and AI technologies accessible to everyone. Our mission
+is to:
+
+-   **Democratize AI & ML:** Provide clear, well-documented code
+    examples and implementations that lower barriers to entry for
+    aspiring data scientists and ML engineers
+-   **Foster Open Source:** Contribute to the open-source community
+    with production-ready tools, frameworks, and educational resources
+-   **Bridge Research & Practice:** Translate cutting-edge research
+    into practical, usable applications that solve real-world problems
+-   **Promote Best Practices:** Demonstrate industry-standard
+    development workflows, testing strategies, and deployment
+    configurations
+-   **Enable Learning:** Create comprehensive documentation and
+    interactive examples that serve as both reference materials and
+    learning resources
+
+Through this gallery, we aim to inspire innovation, support the
+learning journey of developers at all levels, and contribute to the
+broader advancement of AI and data science capabilities.
 
 ------------------------------------------------------------------------
 

@@ -4565,6 +4565,183 @@ overflow-x: hidden;
 overflow-x: hidden;
 }
 }
+
+#view-all-btn {
+background-color: #2c3e50;
+border-color: #2c3e50;
+color: #fff;
+transition: background-color 0.3s, transform 0.2s;
+}
+#view-all-btn:hover {
+background-color: #1a252f;
+border-color: #1a252f;
+transform: translateY(-2px);
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+#view-all-btn:focus {
+outline: 3px solid #3498db;
+outline-offset: 2px;
+}
+
+.gallery-grid {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 1.5rem;
+margin: 2rem 0;
+padding: 1rem 0;
+}
+@media (max-width: 991.98px) {
+.gallery-grid {
+grid-template-columns: repeat(2, 1fr);
+gap: 1rem;
+}
+}
+@media (max-width: 767.98px) {
+.gallery-grid {
+grid-template-columns: 1fr;
+gap: 1rem;
+}
+}
+.gallery-item {
+position: relative;
+overflow: hidden;
+border-radius: 8px;
+box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+cursor: pointer;
+transition: transform 0.3s, box-shadow 0.3s;
+aspect-ratio: 1;
+}
+.gallery-item:hover {
+transform: translateY(-5px);
+box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+.gallery-item img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+display: block;
+transition: transform 0.3s;
+}
+.gallery-item:hover img {
+transform: scale(1.05);
+}
+
+.lightbox {
+display: none;
+position: fixed;
+z-index: 10000;
+left: 0;
+top: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(0, 0, 0, 0.9);
+animation: fadeIn 0.3s;
+}
+.lightbox.active {
+display: flex;
+align-items: center;
+justify-content: center;
+}
+@keyframes fadeIn {
+from {
+opacity: 0;
+}
+to {
+opacity: 1;
+}
+}
+.lightbox-content {
+position: relative;
+max-width: 90%;
+max-height: 90%;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.lightbox-content img {
+max-width: 100%;
+max-height: 90vh;
+object-fit: contain;
+border-radius: 4px;
+box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+.lightbox-close {
+position: absolute;
+top: 20px;
+right: 35px;
+color: #fff;
+font-size: 40px;
+font-weight: bold;
+cursor: pointer;
+z-index: 10001;
+width: 50px;
+height: 50px;
+display: flex;
+align-items: center;
+justify-content: center;
+border-radius: 50%;
+background-color: rgba(0, 0, 0, 0.5);
+transition: background-color 0.3s;
+}
+.lightbox-close:hover {
+background-color: rgba(0, 0, 0, 0.8);
+}
+.lightbox-prev,
+.lightbox-next {
+position: absolute;
+top: 50%;
+transform: translateY(-50%);
+color: #fff;
+font-size: 30px;
+font-weight: bold;
+cursor: pointer;
+z-index: 10001;
+width: 50px;
+height: 50px;
+display: flex;
+align-items: center;
+justify-content: center;
+border-radius: 50%;
+background-color: rgba(0, 0, 0, 0.5);
+transition: background-color 0.3s;
+user-select: none;
+}
+.lightbox-prev {
+left: 20px;
+}
+.lightbox-next {
+right: 20px;
+}
+.lightbox-prev:hover,
+.lightbox-next:hover {
+background-color: rgba(0, 0, 0, 0.8);
+}
+
+@media (max-width: 767.98px) {
+.lightbox-close {
+top: 10px;
+right: 15px;
+font-size: 30px;
+width: 40px;
+height: 40px;
+}
+.lightbox-prev,
+.lightbox-next {
+font-size: 24px;
+width: 40px;
+height: 40px;
+}
+.lightbox-prev {
+left: 10px;
+}
+.lightbox-next {
+right: 10px;
+}
+.lightbox-content {
+max-width: 95%;
+max-height: 85%;
+}
+}
 </style>
 
 
@@ -4786,7 +4963,7 @@ transition-duration: 0.01ms !important;
 </section>
 <section id="environment-setup" class="level2">
 <h2 class="anchored" data-anchor-id="environment-setup">Environment Setup</h2>
-<div id="703522ce" class="cell" data-execution_count="1">
+<div id="7a5a3b71" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> importlib</span>
@@ -4810,7 +4987,7 @@ Requirement already satisfied: joblib&gt;=1.2.0 in /Volumes/SEALED/DSHB/GALLERY/
 Requirement already satisfied: threadpoolctl&gt;=3.1.0 in /Volumes/SEALED/DSHB/GALLERY/JJB_Gallery/.venv/lib/python3.13/site-packages (from scikit-learn) (3.6.0)</code></pre>
 </div>
 </div>
-<div id="1764ad7f" class="cell" data-execution_count="2">
+<div id="454ff00f" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -4832,7 +5009,7 @@ Requirement already satisfied: threadpoolctl&gt;=3.1.0 in /Volumes/SEALED/DSHB/G
 <section id="data-loading-and-preparation" class="level2">
 <h2 class="anchored" data-anchor-id="data-loading-and-preparation">Data Loading and Preparation</h2>
 <p>We will use the Breast Cancer Wisconsin dataset bundled with scikit-learn, which contains 30 features computed from digitized fine needle aspirate images.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
-<div id="88e5c822" class="cell" data-execution_count="3">
+<div id="eddb3907" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>dataset <span class="op">=</span> load_breast_cancer(as_frame<span class="op">=</span><span class="va">True</span>)</span>
@@ -4999,7 +5176,7 @@ Requirement already satisfied: threadpoolctl&gt;=3.1.0 in /Volumes/SEALED/DSHB/G
 </div>
 </div>
 <p>Split the data into training and testing sets (stratified to maintain label balance).</p>
-<div id="424751a6" class="cell" data-execution_count="4">
+<div id="81979e10" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(</span>
@@ -5019,7 +5196,7 @@ Requirement already satisfied: threadpoolctl&gt;=3.1.0 in /Volumes/SEALED/DSHB/G
 </section>
 <section id="model-training" class="level2">
 <h2 class="anchored" data-anchor-id="model-training">Model Training</h2>
-<div id="d5cb5851" class="cell" data-execution_count="5">
+<div id="84aff914" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>rf <span class="op">=</span> RandomForestClassifier(</span>
@@ -5595,7 +5772,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </div>
 </div>
 <p>Evaluate cross-validated training performance to estimate generalization ability.</p>
-<div id="93f97300" class="cell" data-execution_count="6">
+<div id="f7a6e4e1" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>cv_scores <span class="op">=</span> cross_val_score(rf, X_train, y_train, cv<span class="op">=</span><span class="dv">5</span>)</span>
@@ -5608,7 +5785,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </section>
 <section id="diagnostics" class="level2">
 <h2 class="anchored" data-anchor-id="diagnostics">Diagnostics</h2>
-<div id="9939dc8d" class="cell" data-execution_count="7">
+<div id="b3efbff8" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>y_pred <span class="op">=</span> rf.predict(X_test)</span>
@@ -5628,7 +5805,7 @@ weighted avg       0.96      0.96      0.96       143
 </div>
 <section id="receiver-operating-characteristic" class="level3">
 <h3 class="anchored" data-anchor-id="receiver-operating-characteristic">Receiver Operating Characteristic</h3>
-<div id="63591a62" class="cell" data-execution_count="8">
+<div id="764ed167" class="cell" data-execution_count="8">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>))</span>
@@ -5648,7 +5825,7 @@ weighted avg       0.96      0.96      0.96       143
 </section>
 <section id="confusion-matrix" class="level3">
 <h3 class="anchored" data-anchor-id="confusion-matrix">Confusion Matrix</h3>
-<div id="d25e05b3" class="cell" data-execution_count="9">
+<div id="9eb4e817" class="cell" data-execution_count="9">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">6</span>))</span>
@@ -5669,7 +5846,7 @@ weighted avg       0.96      0.96      0.96       143
 </section>
 <section id="feature-importance-visualization" class="level2">
 <h2 class="anchored" data-anchor-id="feature-importance-visualization">Feature Importance Visualization</h2>
-<div id="cad99d7a" class="cell" data-execution_count="10">
+<div id="191330a2" class="cell" data-execution_count="10">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>importances <span class="op">=</span> pd.Series(rf.feature_importances_, index<span class="op">=</span>df.columns[:<span class="op">-</span><span class="dv">1</span>]).sort_values(ascending<span class="op">=</span><span class="va">False</span>)</span>
@@ -5695,7 +5872,7 @@ weighted avg       0.96      0.96      0.96       143
 <section id="complex-visualization-decision-boundaries" class="level2">
 <h2 class="anchored" data-anchor-id="complex-visualization-decision-boundaries">Complex Visualization: Decision Boundaries</h2>
 <p>To visualize the decision boundaries of the high-dimensional Random Forest model, we project the data onto its first two Principal Components (PCA). This allows us to see how the model separates classes in a 2D latent space.</p>
-<div id="9dff86d7" class="cell" data-execution_count="11">
+<div id="686a0a78" class="cell" data-execution_count="11">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># PCA Projection</span></span>
@@ -5736,7 +5913,7 @@ weighted avg       0.96      0.96      0.96       143
 <section id="error-rate-vs.-number-of-trees" class="level2">
 <h2 class="anchored" data-anchor-id="error-rate-vs.-number-of-trees">Error Rate vs. Number of Trees</h2>
 <p>This graph illustrates how the model’s Out-of-Bag (OOB) error rate stabilizes as the number of trees in the forest increases, demonstrating the ensemble effect.</p>
-<div id="9d614032" class="cell" data-execution_count="12">
+<div id="9f4928f9" class="cell" data-execution_count="12">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>n_estimators_range <span class="op">=</span> <span class="bu">range</span>(<span class="dv">15</span>, <span class="dv">300</span>, <span class="dv">10</span>)</span>
