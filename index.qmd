@@ -51,7 +51,7 @@ Organization](#repository-organization) section for details.
 ------------------------------------------------------------------------
 
 <div style="text-align: center; margin: 2em 0;">
-  <img src="https://github.com/user-attachments/assets/a0d994ed-46e0-4185-886e-5568c9561843" 
+  <img src="https://github.com/user-attachments/assets/3059746c-851f-4242-b34c-679347d30959" 
        alt="Jack J. Burleson" 
        loading="lazy"
        style="max-width: 300px; border-radius: 50%; border: 3px solid #e0e0e0; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
