@@ -35,7 +35,7 @@ website:
         text: iOS Chatbot
       - href: projects/litellm/README.md
         text: LiteLLM
-      - href: Quarto/randomforest.qmd
+      - href: Quarto/randomforest.html
         text: Random Forests
     right:
       - href: https://github.com/Exios66/JJB_Gallery/wiki
@@ -52,9 +52,31 @@ format:
     toc-location: left
     toc-expand: 2
     include-after-body: theme-switcher.html
-    embed-resources: false
+    include-in-header: 
+      - accessibility.html
+      - structured-data.html
+    include-before-body: ux-enhancements.html
+    embed-resources: true
     max-width: 1200px
     css: styles.css
+    favicon: favicon.svg
+    meta:
+      - name: description
+        content: "Portfolio and gallery of Jack J. Burleson - Data scientist, research engineer, and open-source enthusiast. Showcasing projects in AI/LLM integration, machine learning, multi-agent systems, and data analysis."
+      - property: og:title
+        content: "JJB Gallery - Portfolio of Jack J. Burleson"
+      - property: og:description
+        content: "Portfolio and gallery showcasing projects in AI/LLM integration, machine learning, multi-agent systems, and data analysis."
+      - property: og:type
+        content: website
+      - property: og:url
+        content: "https://exios66.github.io/JJB_Gallery/"
+      - name: twitter:card
+        content: summary_large_image
+      - name: twitter:title
+        content: "JJB Gallery - Portfolio of Jack J. Burleson"
+      - name: twitter:description
+        content: "Portfolio and gallery showcasing projects in AI/LLM integration, machine learning, and data analysis."
 
 execute:
   timeout: 300

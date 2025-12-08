@@ -301,6 +301,209 @@ html {
   -ms-text-size-adjust: 100%;
 }
 
+/* Accessibility Improvements */
+
+/* Skip to content link */
+.skip-to-content-link {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.skip-to-content-link:focus {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  width: auto;
+  height: auto;
+  background: #2c3e50;
+  color: #fff;
+  padding: 10px 15px;
+  z-index: 10000;
+  text-decoration: none;
+  border-radius: 4px;
+  outline: 3px solid #3498db;
+  outline-offset: 2px;
+}
+
+/* Improve focus indicators for keyboard navigation */
+a:focus,
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 3px solid #3498db;
+  outline-offset: 2px;
+}
+
+/* Improve color contrast for links */
+a {
+  color: #2c3e50;
+  text-decoration: underline;
+}
+
+a:hover {
+  color: #1a252f;
+}
+
+/* Ensure proper heading hierarchy is maintained */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* Improve ARIA landmark visibility (for screen readers) */
+[role="banner"],
+[role="navigation"],
+[role="main"],
+[role="contentinfo"] {
+  position: relative;
+}
+
+/* Improve table accessibility */
+table {
+  border-collapse: collapse;
+}
+
+th {
+  font-weight: 600;
+  text-align: left;
+}
+
+/* Improve form accessibility */
+label {
+  font-weight: 500;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+/* Ensure images have proper alt text handling */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+img[alt=""] {
+  border: 2px dashed #e74c3c;
+}
+
+/* Improve button accessibility */
+button,
+.btn {
+  min-height: 44px;
+  min-width: 44px;
+  cursor: pointer;
+}
+
+button:disabled,
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* UX Enhancements */
+
+/* Back to top button */
+#back-to-top {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  background: #2c3e50;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  transition: opacity 0.3s, transform 0.3s;
+  opacity: 0.8;
+}
+
+#back-to-top:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+#back-to-top:focus {
+  outline: 3px solid #3498db;
+  outline-offset: 2px;
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Improve project gallery table */
+.project-gallery-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.project-gallery-table th {
+  background-color: #f8f9fa;
+  font-weight: 600;
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 2px solid #dee2e6;
+}
+
+.project-gallery-table td {
+  padding: 1rem;
+  border-bottom: 1px solid #dee2e6;
+  vertical-align: top;
+}
+
+.project-gallery-table tr:hover {
+  background-color: #f8f9fa;
+}
+
+/* Improve link styling in project gallery */
+.project-gallery-table a {
+  color: #2c3e50;
+  text-decoration: none;
+  font-weight: 500;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s;
+}
+
+.project-gallery-table a:hover {
+  border-bottom-color: #2c3e50;
+}
+
+/* Loading states */
+.loading {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* Improve image lazy loading */
+img[loading="lazy"] {
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+img[loading="lazy"].loaded {
+  opacity: 1;
+}
+
 /* Improve mobile scrolling */
 @media (max-width: 767.98px) {
   body {

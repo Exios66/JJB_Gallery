@@ -193,6 +193,11 @@ verify_outputs() {
         "SECURITY.html"
         "projects/CrewAI/README.html"
         "projects/terminal_agents/README.html"
+        "projects/RAG_Model/README.html"
+        "projects/Psychometrics/README.html"
+        "projects/ChatUi/README.html"
+        "projects/ios_chatbot/README.html"
+        "projects/litellm/README.html"
         "Quarto/randomforest.html"
     )
     
@@ -217,12 +222,57 @@ verify_outputs() {
         log_success "All expected output files found"
     fi
     
+    # Verify embed-resources configuration
+    if grep -q "embed-resources: true" "$QUARTO_CONFIG" 2>/dev/null; then
+        log_info "embed-resources: true is enabled - resources should be embedded in HTML"
+        log_info "Checking if HTML files are self-contained..."
+        
+        local html_files=("index.html" "CHANGELOG.html" "SECURITY.html")
+        local embedded_count=0
+        
+        for html_file in "${html_files[@]}"; do
+            local full_path="$REPO_ROOT/$html_file"
+            if [[ -f "$full_path" ]]; then
+                # Check if file contains embedded styles/scripts (indicator of embed-resources)
+                if grep -q "<style>" "$full_path" 2>/dev/null || grep -q "<script>" "$full_path" 2>/dev/null; then
+                    embedded_count=$((embedded_count + 1))
+                fi
+            fi
+        done
+        
+        if [[ $embedded_count -gt 0 ]]; then
+            log_success "Resources appear to be embedded in HTML files"
+        else
+            log_warning "Resources may not be embedded - verify embed-resources: true is working"
+        fi
+    else
+        log_info "embed-resources: false - checking for site_libs directory"
+        if [[ -d "$REPO_ROOT/site_libs" ]]; then
+            log_success "site_libs directory found"
+            local lib_count=$(find "$REPO_ROOT/site_libs" -type f ! -name "._*" | wc -l | tr -d ' ')
+            log_info "Found $lib_count files in site_libs"
+        else
+            log_warning "site_libs directory not found"
+        fi
+    fi
+    
     # Check for build directory
     if [[ -d "$BUILD_DIR" ]]; then
         log_success "Build artifacts in: $BUILD_DIR"
     else
-        log_warning "Build directory not found (may be normal if embed-resources: true)"
+        log_info "Build directory not found (expected if embed-resources: true)"
     fi
+    
+    # Verify additional files
+    local additional_files=("404.html" "robots.txt" "favicon.svg")
+    for file in "${additional_files[@]}"; do
+        local full_path="$REPO_ROOT/$file"
+        if [[ -f "$full_path" ]]; then
+            log_success "Found: $file"
+        else
+            log_warning "Missing: $file"
+        fi
+    done
 }
 
 start_preview() {
