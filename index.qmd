@@ -51,7 +51,7 @@ Organization](#repository-organization) section for details.
 ------------------------------------------------------------------------
 
 <div style="text-align: center; margin: 2em 0;">
-  <img src="https://github.com/user-attachments/assets/3059746c-851f-4242-b34c-679347d30959" 
+  <img src="https://github.com/user-attachments/assets/a0d994ed-46e0-4185-886e-5568c9561843" 
        alt="Jack J. Burleson" 
        loading="lazy"
        style="max-width: 300px; border-radius: 50%; border: 3px solid #e0e0e0; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
@@ -102,6 +102,36 @@ machine learning, AI/LLM integration, and technical writing.
 
 *More projects, research, and documentation are regularly added. See
 repository folders for latest content.*
+
+<div style="text-align: center; margin: 2em 0;">
+  <button id="view-all-btn" class="btn btn-primary" style="padding: 0.75rem 2rem; font-size: 1.1rem;">
+    View All Images
+  </button>
+</div>
+
+<div id="gallery-container" style="display: none;">
+  <div class="gallery-grid" id="gallery-grid">
+    <!-- Images will be populated here -->
+    <!-- Example structure - replace with your actual images -->
+    <!-- 
+    <div class="gallery-item">
+      <img src="path/to/image1.jpg" alt="Image 1" loading="lazy">
+    </div>
+    -->
+  </div>
+</div>
+
+<!-- Lightbox -->
+<div id="lightbox" class="lightbox" style="display: none;">
+  <span class="lightbox-close">&times;</span>
+  <span class="lightbox-prev">&#10094;</span>
+  <span class="lightbox-next">&#10095;</span>
+  <div class="lightbox-content">
+    <img id="lightbox-img" src="" alt="">
+  </div>
+</div>
+
+<script src="gallery.js"></script>
 
 ------------------------------------------------------------------------
 
