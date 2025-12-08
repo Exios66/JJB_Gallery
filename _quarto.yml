@@ -16,6 +16,7 @@ project:
 
 website:
   title: "JJB Gallery"
+  sitemap: false
   navbar:
     background: dark
     left:
