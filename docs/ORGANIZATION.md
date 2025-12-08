@@ -8,10 +8,9 @@ This document describes how documentation files are organized in the `docs/` dir
 docs/
 ├── README.md                    # Main documentation index
 ├── ORGANIZATION.md              # This file
+├── QUICK_START.md               # Quick start guide
 │
 ├── setup/                       # Setup & Configuration
-│   ├── README.md
-│   ├── QUICK_START.md
 │   ├── NPM_SETUP.md
 │   ├── STORAGE_CONFIGURATION.md
 │   ├── EXTERNAL_STORAGE_SETUP.md
@@ -19,22 +18,30 @@ docs/
 │   ├── pip.conf.README.md
 │   └── dependencies.md
 │
+├── deployment/                  # Production Deployment (New)
+│   ├── PRODUCTION_DEPLOYMENT.md # Main production guide
+│   ├── DOCKER.md                # Docker deployment guide
+│   └── KUBERNETES.md            # Kubernetes deployment guide
+│
+├── architecture/                # Architecture Documentation (New)
+│   └── OVERVIEW.md              # System architecture overview
+│
+├── monitoring/                  # Monitoring & Observability (New)
+│   └── SETUP.md                 # Monitoring setup guide
+│
 ├── development/                 # Development Guides
-│   ├── README.md
 │   ├── GIT_PROTOCOL_GUIDE.md
 │   └── REMOTE_PYTHON_PATHS.md
 │
 ├── security/                    # Security Documentation
-│   ├── README.md
-│   └── SECURITY.md
+│   ├── SECURITY.md              # Security policy
+│   └── PRODUCTION_HARDENING.md  # Production hardening (New)
 │
 ├── scripts/                     # Script Documentation
-│   ├── README.md
 │   ├── scripts.md
 │   └── npm-README.md
 │
 └── projects/                    # Project-Specific Docs
-    ├── README.md
     └── crewai/
         ├── LLM_SETUP.md
         ├── TEST_INSTRUCTIONS.md
@@ -44,32 +51,67 @@ docs/
 ## 📋 File Organization Rules
 
 ### Setup & Configuration (`docs/setup/`)
+
 Contains all setup guides, configuration instructions, and dependency management:
+
 - Quick start guides
 - Package manager setup (NPM, pip)
 - Storage configuration
 - Dependency documentation
 
+### Production Deployment (`docs/deployment/`)
+
+Documentation for deploying applications to production:
+
+- Deployment strategies
+- Docker and Kubernetes guides
+- Production environment configuration
+
+### Architecture (`docs/architecture/`)
+
+High-level system design documentation:
+
+- System overview
+- Component interaction
+- Data flow diagrams
+
+### Monitoring (`docs/monitoring/`)
+
+Observability and health check documentation:
+
+- Logging setup
+- Metrics collection
+- Alerting configuration
+
 ### Development (`docs/development/`)
+
 Technical documentation for developers:
+
 - Git and GitHub setup
 - Remote development configuration
 - Development workflows
 
 ### Security (`docs/security/`)
+
 Security-related documentation:
+
 - Security policies
 - Vulnerability reporting
 - Security best practices
+- Production hardening guides
 
 ### Scripts (`docs/scripts/`)
+
 Documentation for repository scripts:
+
 - Script overview and usage
 - NPM scripts documentation
 - Automation tools
 
 ### Projects (`docs/projects/`)
+
 Project-specific documentation:
+
 - Individual project guides
 - Project setup instructions
 - Project-specific tools and features
@@ -77,6 +119,7 @@ Project-specific documentation:
 ## 🔄 Migration Notes
 
 ### Files Moved from Root (2024-12-02 Reorganization)
+
 - `NPM_SETUP.md` → `docs/setup/NPM_SETUP.md`
 - `QUICK_START.md` → `docs/QUICK_START.md`
 - `EXTERNAL_STORAGE_SETUP.md` → `docs/setup/EXTERNAL_STORAGE_SETUP.md`
@@ -91,20 +134,14 @@ Project-specific documentation:
 - `SECURITY.md` → Kept at root (standard location)
 
 ### Files Moved from `docs/`
+
 - `docs/GIT_PROTOCOL_GUIDE.md` → `docs/development/GIT_PROTOCOL_GUIDE.md`
 - `docs/REMOTE_PYTHON_PATHS.md` → `docs/development/REMOTE_PYTHON_PATHS.md`
-
-### Files Copied from Other Locations
-- `scripts/scripts.md` → `docs/scripts/scripts.md` (copied)
-- `scripts/npm/README.md` → `docs/scripts/npm-README.md` (copied)
-- `projects/Crewai/LLM_SETUP.md` → `docs/projects/crewai/LLM_SETUP.md` (copied)
-- `projects/Crewai/TEST_INSTRUCTIONS.md` → `docs/projects/crewai/TEST_INSTRUCTIONS.md` (copied)
-- `projects/Crewai/TOOLS_SUMMARY.md` → `docs/projects/crewai/TOOLS_SUMMARY.md` (copied)
-- `Quickstart/docs/dependencies.md` → `docs/setup/dependencies.md` (copied)
 
 ## 📝 Files Kept at Root
 
 These files remain at the repository root:
+
 - `README.md` - Main repository README
 - `CHANGELOG.md` - Changelog (standard location)
 - `SECURITY.md` - Security policy (standard location)
@@ -120,6 +157,7 @@ These files remain at the repository root:
 ## 🔗 Link Updates
 
 When referencing documentation, use paths relative to the repository root:
+
 - `docs/setup/QUICK_START.md` (not `QUICK_START.md`)
 - `docs/security/SECURITY.md` (not `SECURITY.md`)
 - `docs/development/GIT_PROTOCOL_GUIDE.md` (not `docs/GIT_PROTOCOL_GUIDE.md`)
@@ -147,4 +185,3 @@ When adding new documentation:
 - **Category READMEs**: Each subdirectory has a README with links
 - **Search**: Use your editor's search to find specific topics
 - **Project READMEs**: See individual project directories for project-specific docs
-

@@ -1,5 +1,36 @@
 # CHANGELOG
 
+## [0.0.4] - 12-05-25
+
+### Changed in v0.0.4
+
+- Enhanced main `README.md` with production deployment section, architecture overview, and operational runbooks.
+- Updated `docs/README.md` to include new documentation categories for deployment, architecture, monitoring, and security.
+- Expanded `docs/QUICK_START.md` with a production deployment quick start guide, including Docker instructions and a readiness checklist.
+- Fixed `SECURITY.md` contact email and added comprehensive production security hardening guidelines.
+- Updated `docs/ORGANIZATION.md` to reflect the new documentation structure.
+
+### Added in v0.0.4
+
+- **New: Production Deployment Documentation**
+  - `docs/deployment/PRODUCTION_DEPLOYMENT.md`: Comprehensive guide for deployment strategies.
+  - `docs/deployment/DOCKER.md`: Specific instructions for Docker-based deployments.
+  - `docs/deployment/KUBERNETES.md`: Guide for Kubernetes orchestration.
+- **New: Architecture Documentation**
+  - `docs/architecture/OVERVIEW.md`: High-level system architecture and data flow diagrams.
+- **New: Monitoring & Security Documentation**
+  - `docs/monitoring/SETUP.md`: Guide for setting up logging, metrics, and alerting.
+  - `docs/security/PRODUCTION_HARDENING.md`: Best practices for securing production environments.
+- **New: Project-Specific Deployment Guides**
+  - Added production deployment sections to all project READMEs:
+    - `projects/CrewAI/README.md`
+    - `projects/RAG_Model/README.md`
+    - `projects/Psychometrics/README.md`
+    - `projects/ChatUi/README.md`
+    - `projects/litellm/README.md`
+    - `projects/terminal_agents/README.md`
+    - `projects/ios_chatbot/README.md`
+
 ## [0.0.3] - 11-30-25
 
 ### Changed in v0.0.3

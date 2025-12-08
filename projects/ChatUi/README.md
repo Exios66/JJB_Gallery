@@ -78,9 +78,86 @@ npm run lint
 npm run format
 ```
 
-### Connecting to LLM Backends
+## 🏭 Production Deployment
 
-#### OpenAI
+### 1. Docker Deployment (Recommended)
+
+Build and run the Docker container:
+
+```bash
+# Build
+docker build -t chatui:latest .
+
+# Run
+docker run -d \
+  -p 3000:3000 \
+  --env-file .env.production \
+  --name chatui \
+  chatui:latest
+```
+
+### 2. Vercel Deployment
+
+ChatUi is optimized for Vercel deployment:
+
+1. Install Vercel CLI: `npm i -g vercel`
+2. Deploy: `vercel`
+3. Set environment variables in the Vercel dashboard.
+
+### 3. Node.js Hosting (PM2)
+
+For VPS deployment (DigitalOcean, EC2):
+
+```bash
+npm run build
+pm2 start build/index.js --name "chatui"
+```
+
+### WebSocket Scaling
+
+To scale WebSocket connections across multiple instances:
+
+1. **Redis Adapter**: Use Redis to broadcast events between instances.
+2. **Sticky Sessions**: Configure your load balancer (Nginx/HAProxy) to use IP-hash or sticky sessions to ensure a client stays connected to the same server.
+
+### CDN Configuration
+
+Serve static assets (`_app/immutable/`) via a CDN (Cloudflare/CloudFront) by configuring `svelte.config.js`:
+
+```javascript
+kit: {
+  paths: {
+    assets: 'https://cdn.yourdomain.com'
+  }
+}
+```
+
+### Performance Optimization
+
+- **Tree Shaking**: Enabled by default in Vite build.
+- **Image Optimization**: Use `@sveltejs/enhanced-img`.
+- **Lazy Loading**: Code-split routes are automatically lazy-loaded.
+
+### Monitoring
+
+- **Error Tracking**: Integrate Sentry in `hooks.server.js`.
+- **Performance**: Monitor Core Web Vitals using Vercel Analytics or Google Analytics.
+- **Server Metrics**: Monitor CPU/RAM usage of the Node.js process.
+
+## Environment Variables
+
+| Variable | Description | Default |
+|----------|-------------|---------|
+| `VITE_API_BASE_URL` | Base URL for API | `http://localhost:3000` |
+| `MONGODB_URL` | MongoDB connection string | - |
+| `HF_TOKEN` | Hugging Face API token | - |
+| `OPENAI_API_KEY` | OpenAI API key | - |
+| `OLLAMA_BASE_URL` | Ollama server URL | `http://localhost:11434` |
+| `ORIGIN` | Allowed origin for CORS | `http://localhost:3000` |
+
+## Connecting to LLM Backends
+
+### OpenAI
 
 Set your OpenAI API key in `.env.local`:
 
@@ -88,31 +165,7 @@ Set your OpenAI API key in `.env.local`:
 OPENAI_API_KEY=sk-...
 ```
 
-Update the API route in `src/routes/api/chat/+server.js` to use OpenAI:
-
-```javascript
-import OpenAI from 'openai';
-
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY
-});
-
-export async function POST({ request }) {
-  const { message } = await request.json();
-  
-  const completion = await openai.chat.completions.create({
-    model: 'gpt-3.5-turbo',
-    messages: [{ role: 'user', content: message }]
-  });
-  
-  return json({
-    role: 'assistant',
-    content: completion.choices[0].message.content
-  });
-}
-```
-
-#### Ollama
+### Ollama
 
 Set Ollama base URL:
 
@@ -120,31 +173,7 @@ Set Ollama base URL:
 OLLAMA_BASE_URL=http://localhost:11434
 ```
 
-Update the API route to use Ollama:
-
-```javascript
-export async function POST({ request }) {
-  const { message, model = 'llama3.1:8b' } = await request.json();
-  
-  const response = await fetch(`${process.env.OLLAMA_BASE_URL}/api/generate`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      model,
-      prompt: message,
-      stream: false
-    })
-  });
-  
-  const data = await response.json();
-  return json({
-    role: 'assistant',
-    content: data.response
-  });
-}
-```
-
-#### Hugging Face
+### Hugging Face
 
 Set your Hugging Face token:
 
@@ -154,7 +183,7 @@ HF_TOKEN=hf_...
 
 ## Project Structure
 
-```
+```bash
 ChatUi/
 ├── src/
 │   ├── components/        # Svelte components
@@ -306,8 +335,6 @@ docker ps | grep mongo
 Check browser console and server logs for detailed error messages. Ensure your API keys are correctly set in `.env.local`.
 
 ## Related Projects
-
-This project is part of the [JJB Gallery](https://github.com/Exios66/JJB_Gallery) portfolio. Related projects include:
 
 - [iOS Chatbot](../ios_chatbot/README.md) - Flask-based Chatbot
 - [LiteLLM](../litellm/README.md) - Unified LLM API

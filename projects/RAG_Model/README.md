@@ -109,14 +109,47 @@ export RAG_DEFAULT_K=5
 export RAG_VECTOR_STORE_PATH="vector_store"
 ```
 
-Or use the config module:
+## 🏭 Production Deployment
 
-```python
-from config import config
+### Deployment Strategy
 
-print(config.EMBEDDING_MODEL)
-print(config.CHUNK_SIZE)
+For production, we recommend wrapping the RAG system in a REST API (using FastAPI) and deploying it as a containerized service.
+
+### Docker Deployment
+
+1. **Dockerfile**:
+
+```dockerfile
+FROM python:3.9-slim
+WORKDIR /app
+COPY requirements.txt .
+RUN pip install -r requirements.txt
+COPY . .
+CMD ["uvicorn", "api:app", "--host", "0.0.0.0", "--port", "8000"]
 ```
+
+2. **Run Container**:
+
+```bash
+docker run -d -p 8000:8000 -v ./vector_store:/app/vector_store rag-service:latest
+```
+
+### Vector Database Scaling
+
+1. **FAISS on GPU**: For large-scale datasets (>1M vectors), use `faiss-gpu` for significantly faster indexing and search.
+2. **IVF Indexing**: Use Inverted File (IVF) indexing to speed up search by clustering vectors.
+3. **External Vector DB**: For distributed scaling, consider migrating from local FAISS files to managed services like Qdrant, Pinecone, or Weaviate.
+
+### Caching Strategies
+
+- **Embedding Cache**: Cache embeddings for frequently ingested documents to avoid re-computation.
+- **Query Cache**: Cache results for identical queries using Redis to reduce LLM latency.
+
+### Performance Optimization
+
+1. **Quantization**: Use quantized embedding models (int8) to reduce memory usage and increase speed with minimal accuracy loss.
+2. **Batch Processing**: Process document ingestion in batches to utilize vectorization efficiencies.
+3. **Asynchronous Ingestion**: Offload document processing to a background worker (Celery/RQ) to keep the API responsive.
 
 ## Architecture
 
@@ -143,7 +176,7 @@ print(config.CHUNK_SIZE)
        │
        ▼
 ┌─────────────┐
-│  Retrieval   │
+│  Retrieval  │
 └──────┬──────┘
        │
        ▼
@@ -167,16 +200,6 @@ Core RAG implementation with:
 ### `main.py`
 
 Command-line interface and demo application
-
-### `config.py`
-
-Configuration management
-
-## Supported File Formats
-
-- **TXT**: Plain text files
-- **MD**: Markdown files
-- **JSON**: JSON data files
 
 ## Vector Database
 
@@ -227,9 +250,6 @@ pip install langchain faiss-cpu sentence-transformers
 ```bash
 # Check if Ollama is running
 curl http://localhost:11434/api/tags
-
-# Start Ollama if needed
-ollama serve
 ```
 
 ### Memory Issues
@@ -237,37 +257,6 @@ ollama serve
 - Reduce chunk size
 - Use smaller embedding model
 - Process documents in batches
-
-## Examples
-
-### Example 1: Simple Query
-
-```python
-rag = RAGSystem()
-rag.load_vector_store()
-result = rag.query("What is machine learning?")
-print(result['answer'])
-```
-
-### Example 2: Custom Configuration
-
-```python
-rag = RAGSystem(
-    embedding_model="sentence-transformers/all-mpnet-base-v2",
-    chunk_size=1500,
-    chunk_overlap=300
-)
-```
-
-### Example 3: Batch Processing
-
-```python
-# Process multiple document sets
-for doc_set in document_sets:
-    documents = rag.load_documents(doc_set)
-    rag.create_vector_store(documents, save=False)
-    # Process queries
-```
 
 ## License
 
@@ -282,21 +271,6 @@ See main repository LICENSE file.
 
 ## Related Projects
 
-This project is part of the [JJB Gallery](https://github.com/Exios66/JJB_Gallery) portfolio. Related projects include:
-
 - [CrewAI](../CrewAI/README.md) - Multi-Agent System
 - [Terminal Agents](../terminal_agents/README.md) - AI Coding Assistant
 - [LiteLLM](../litellm/README.md) - Unified LLM API
-
-## Additional Resources
-
-- 📚 [Project Wiki](https://github.com/Exios66/JJB_Gallery/wiki) - Comprehensive documentation
-- 📖 [RAG Model Wiki Page](https://github.com/Exios66/JJB_Gallery/wiki/RAG-Model) - Detailed project documentation
-- 🔧 [Configuration Guide](https://github.com/Exios66/JJB_Gallery/wiki/Configuration-Guide) - Setup and configuration
-- 🐛 [Troubleshooting](https://github.com/Exios66/JJB_Gallery/wiki/Troubleshooting) - Common issues and solutions
-
-## Contributing
-
-Contributions welcome! Please see the main repository [Contributing Guidelines](https://github.com/Exios66/JJB_Gallery/wiki/Contributing-Guidelines).
-
-For issues, questions, or suggestions, please use the [GitHub Issues](https://github.com/Exios66/JJB_Gallery/issues) page.

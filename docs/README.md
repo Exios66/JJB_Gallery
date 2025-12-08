@@ -11,7 +11,7 @@ cd docs # pwd: Documents/docs
 ├── ORGANIZATION.md              # Organization guide
 ├── QUICK_START.md               # Quick start guide
 │
-├── setup/                       # Setup & Configuration (6 files)
+├── setup/                       # Setup & Configuration
 │   ├── NPM_SETUP.md
 │   ├── STORAGE_CONFIGURATION.md
 │   ├── EXTERNAL_STORAGE_SETUP.md
@@ -19,18 +19,30 @@ cd docs # pwd: Documents/docs
 │   ├── pip.conf.README.md
 │   └── dependencies.md
 │
-├── development/                 # Development Guides (2 files)
+├── deployment/                  # Production Deployment (New)
+│   ├── PRODUCTION_DEPLOYMENT.md # Main production guide
+│   ├── DOCKER.md                # Docker deployment guide
+│   └── KUBERNETES.md            # Kubernetes deployment guide
+│
+├── architecture/                # Architecture Documentation (New)
+│   └── OVERVIEW.md              # System architecture overview
+│
+├── development/                 # Development Guides
 │   ├── GIT_PROTOCOL_GUIDE.md
 │   └── REMOTE_PYTHON_PATHS.md
 │
-├── security/                    # Security Documentation (1 file)
-│   └── SECURITY.md
+├── security/                    # Security Documentation
+│   ├── SECURITY.md              # Security policy
+│   └── PRODUCTION_HARDENING.md  # Production hardening (New)
 │
-├── scripts/                     # Script Documentation (2 files)
+├── monitoring/                  # Monitoring & Observability (New)
+│   └── SETUP.md                 # Monitoring setup guide
+│
+├── scripts/                     # Script Documentation
 │   ├── scripts.md
 │   └── npm-README.md
 │
-└── projects/                    # Project-Specific Docs (3 files)
+└── projects/                    # Project-Specific Docs
     └── crewai/
         ├── LLM_SETUP.md
         ├── TEST_INSTRUCTIONS.md
@@ -51,6 +63,26 @@ Guides for setting up and configuring the repository and its dependencies.
 - [Pip Configuration](./setup/pip.conf.README.md) - Python pip configuration
 - [Dependencies](./setup/dependencies.md) - Dependency management
 
+### [Production Deployment](./deployment/)
+
+Comprehensive guides for deploying applications to production environments.
+
+- [Production Deployment Guide](./deployment/PRODUCTION_DEPLOYMENT.md) - Best practices and strategies
+- [Docker Deployment](./deployment/DOCKER.md) - Containerization and deployment
+- [Kubernetes Deployment](./deployment/KUBERNETES.md) - Orchestration and scaling
+
+### [Architecture](./architecture/)
+
+High-level system design and component interaction documentation.
+
+- [Architecture Overview](./architecture/OVERVIEW.md) - System design and data flow
+
+### [Monitoring & Observability](./monitoring/)
+
+Guides for ensuring system health and performance.
+
+- [Monitoring Setup](./monitoring/SETUP.md) - Logging, metrics, and alerting configuration
+
 ### [Development](./development/)
 
 Development guides and technical documentation.
@@ -63,6 +95,7 @@ Development guides and technical documentation.
 Security policies and best practices.
 
 - [Security Policy](./security/SECURITY.md) - Security reporting and policies
+- [Production Hardening](./security/PRODUCTION_HARDENING.md) - Securing production deployments
 
 ### [Scripts](./scripts/)
 
@@ -89,6 +122,12 @@ Project-specific documentation.
 2. Configure [Storage](./setup/STORAGE_CONFIGURATION.md)
 3. Set up [NPM](./setup/NPM_SETUP.md)
 
+### Production Deployment
+
+1. Review [Production Deployment Guide](./deployment/PRODUCTION_DEPLOYMENT.md)
+2. Consult [Security Hardening](./security/PRODUCTION_HARDENING.md)
+3. Set up [Monitoring](./monitoring/SETUP.md)
+
 ### Development
 
 1. Review [Git Protocol Guide](./development/GIT_PROTOCOL_GUIDE.md)
@@ -113,4 +152,3 @@ When adding new documentation:
 - [Main Repository README](../README.md)
 - [Changelog](../CHANGELOG.md)
 - [License](../LICENSE)
-

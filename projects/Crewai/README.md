@@ -104,6 +104,7 @@ python interface_cli.py
 ### Quick Setup
 
 1. **Install dependencies:**
+
    ```bash
    cd projects/Crewai
    pip install -r requirements.txt
@@ -112,6 +113,7 @@ python interface_cli.py
 2. **Set up LLM provider** (choose one):
 
    **Option 1: Ollama (Free, Recommended)**
+
    ```bash
    # Install Ollama from https://ollama.ai
    ollama pull llama3.1:8b
@@ -119,24 +121,28 @@ python interface_cli.py
    ```
 
    **Option 2: OpenAI**
+
    ```bash
    export OPENAI_API_KEY=your_api_key_here
    pip install langchain-openai
    ```
 
    **Option 3: Anthropic**
+
    ```bash
    export ANTHROPIC_API_KEY=your_api_key_here
    pip install langchain-anthropic
    ```
 
    **Option 4: Google**
+
    ```bash
-   export GOOGLE_API_KEY=your_api_key_here
+   export GOOGLE_API_KEY=your_google_key
    pip install langchain-google-genai
    ```
 
 3. **Optional: Web Search**
+
    ```bash
    export SERPER_API_KEY=your_serper_key  # Get free key at https://serper.dev
    ```
@@ -146,46 +152,55 @@ python interface_cli.py
 ### Command Line Interface
 
 **Run ML Analysis:**
+
 ```bash
 python main.py --run ml
 ```
 
 **Run Research Swarm:**
+
 ```bash
 python main.py --run research
 ```
 
 **Run Academic Research:**
+
 ```bash
 python main.py --run research_academic
 ```
 
 **Run Business Intelligence:**
+
 ```bash
 python main.py --run business_intelligence
 ```
 
 **Run Development & Code:**
+
 ```bash
 python main.py --run dev_code
 ```
 
 **Run Documentation:**
+
 ```bash
 python main.py --run documentation
 ```
 
 **Check Status:**
+
 ```bash
 python main.py --status
 ```
 
 **List Available Crews:**
+
 ```bash
 python main.py --list-crews
 ```
 
 **Setup Environment:**
+
 ```bash
 python main.py --setup
 ```
@@ -246,6 +261,61 @@ SERPER_API_KEY=your_serper_key
 VERBOSE=true
 PROCESS_TYPE=sequential  # or hierarchical
 ```
+
+## 🏭 Production Deployment
+
+### Deployment Strategy
+
+For production, we recommend deploying the API service (if exposed) or the Streamlit app using Docker.
+
+### Docker Deployment
+
+1. **Build the image**:
+
+   ```bash
+   docker build -t crewai-swarm:latest .
+   ```
+
+2. **Run the container**:
+
+   ```bash
+   docker run -d \
+     -p 8501:8501 \
+     --env-file .env.production \
+     --name crewai-swarm \
+     crewai-swarm:latest
+   ```
+
+### Architecture Overview
+
+```mermaid
+graph TD
+    User[User Interface] --> Main[Main Orchestrator]
+    Main --> Router{Swarm Router}
+    Router --> ML[ML Analysis Swarm]
+    Router --> Research[Research Swarm]
+    Router --> Dev[Dev Swarm]
+    
+    ML --> |Task Delegation| Agent1[Data Analyst]
+    ML --> |Task Delegation| Agent2[Model Evaluator]
+    
+    Research --> |Task Delegation| Agent3[Researcher]
+    
+    Agent1 --> LLM[LLM Provider]
+    Agent2 --> LLM
+    Agent3 --> LLM
+```
+
+### Scaling Strategies
+
+1. **Horizontal Scaling**: Deploy multiple instances of the container behind a load balancer. Note that agent operations are stateful within a single execution but stateless between separate requests.
+2. **Worker Queues**: For high-volume environments, decouple the request from execution using a message queue (e.g., Redis/Celery). The web UI submits a job ID, and worker containers process the swarm execution.
+
+### Monitoring & Observability
+
+- **Logs**: All agent activities and LLM interactions are logged to stdout/stderr in JSON format for ingestion by ELK/Loki.
+- **Metrics**: Monitor container CPU/Memory usage. Heavy agent workflows can be memory-intensive.
+- **Cost Tracking**: Track token usage per request to manage LLM API costs.
 
 ## 📊 Output
 

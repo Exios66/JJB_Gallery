@@ -60,9 +60,86 @@ python app.py
 
 3. Start chatting!
 
-### API Endpoints
+## 🏭 Production Deployment
 
-#### POST `/api/chat`
+### Deployment Strategy
+
+For production, do NOT use the built-in Flask server. Instead, use a WSGI server like Gunicorn behind a reverse proxy (Nginx).
+
+### Docker Deployment
+
+1. **Dockerfile**:
+
+```dockerfile
+FROM python:3.9-slim
+WORKDIR /app
+COPY requirements.txt .
+RUN pip install -r requirements.txt gunicorn
+COPY . .
+CMD ["gunicorn", "-w", "4", "-b", "0.0.0.0:5000", "--access-logfile", "-", "--error-logfile", "-", "app:app"]
+```
+
+2. **Run Container**:
+
+```bash
+docker run -d -p 5000:5000 \
+  -e FLASK_ENV=production \
+  -e SECRET_KEY=prod-secret-key \
+  ios-chatbot:latest
+```
+
+### WSGI Configuration
+
+We recommend **Gunicorn** for production.
+
+**Configuration (`gunicorn_config.py`):**
+
+```python
+workers = 4
+bind = "0.0.0.0:5000"
+accesslog = "-"
+errorlog = "-"
+loglevel = "info"
+timeout = 120
+```
+
+Run with config: `gunicorn -c gunicorn_config.py app:app`
+
+### Database Setup
+
+For production, replace in-memory or SQLite storage with **PostgreSQL**.
+
+1. Install driver: `pip install psycopg2-binary`
+2. Configure `SQLALCHEMY_DATABASE_URI` in `app.py`:
+
+```python
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL', 'postgresql://user:pass@localhost/db')
+```
+
+### WebSocket Scaling
+
+If using Flask-SocketIO:
+
+1. Use **Redis** as a message queue to sync state across multiple Gunicorn workers.
+2. Enable sticky sessions in your load balancer (Nginx/HAProxy) to ensure client connection persistence.
+
+### Security Headers
+
+In production, ensure Nginx or your application sets security headers:
+
+- `Strict-Transport-Security` (HSTS)
+- `X-Content-Type-Options: nosniff`
+- `X-Frame-Options: SAMEORIGIN`
+
+### Monitoring
+
+- **Application Logs**: Stream logs to stdout for Docker logging drivers.
+- **Uptime Monitoring**: Check `/api/health` endpoint.
+- **Performance**: Use New Relic or Datadog APM agents for Python.
+
+## API Endpoints
+
+### POST `/api/chat`
 
 Send a chat message and get a response.
 
@@ -93,39 +170,11 @@ Send a chat message and get a response.
 }
 ```
 
-#### GET `/api/conversations/<conversation_id>`
+### GET `/api/conversations/<conversation_id>`
 
 Get conversation history.
 
-**Response:**
-
-```json
-{
-  "conversation_id": "uuid-here",
-  "messages": [
-    {
-      "role": "user",
-      "content": "Hello",
-      "timestamp": "2024-01-15T10:30:00"
-    },
-    {
-      "role": "assistant",
-      "content": "Hi there!",
-      "timestamp": "2024-01-15T10:30:01"
-    }
-  ]
-}
-```
-
-#### GET `/api/conversations`
-
-List all conversations.
-
-#### DELETE `/api/conversations/<conversation_id>`
-
-Delete a conversation.
-
-#### GET `/api/health`
+### GET `/api/health`
 
 Health check endpoint.
 
@@ -173,110 +222,6 @@ class ChatBot:
         return response.json()['response']
 ```
 
-### Anthropic Claude
-
-Update `app.py`:
-
-```python
-import anthropic
-
-client = anthropic.Anthropic(api_key=os.getenv('ANTHROPIC_API_KEY'))
-
-class ChatBot:
-    def respond(self, message: str, conversation_id: str) -> str:
-        response = client.messages.create(
-            model="claude-3-sonnet-20240229",
-            max_tokens=1024,
-            messages=[{"role": "user", "content": message}]
-        )
-        return response.content[0].text
-```
-
-## Customization
-
-### Styling
-
-Modify `static/style.css` to customize:
-
-- Colors and gradients
-- Font sizes and families
-- Spacing and layout
-- Animations
-
-### Backend Logic
-
-Modify `app.py` to:
-
-- Add conversation persistence (database)
-- Implement user authentication
-- Add message history
-- Integrate with external services
-
-## Project Structure
-
-```
-ios_chatbot/
-├── app.py                 # Flask application
-├── templates/
-│   └── index.html        # Main HTML template
-├── static/
-│   ├── style.css         # iOS-inspired styles
-│   └── app.js            # Frontend JavaScript
-├── requirements.txt      # Python dependencies
-└── README.md             # This file
-```
-
-## Deployment
-
-### Local Development
-
-```bash
-export FLASK_ENV=development
-python app.py
-```
-
-### Production
-
-```bash
-export FLASK_ENV=production
-export SECRET_KEY=your-secure-secret-key
-gunicorn -w 4 -b 0.0.0.0:5000 app:app
-```
-
-### Docker
-
-```dockerfile
-FROM python:3.11-slim
-WORKDIR /app
-COPY requirements.txt .
-RUN pip install -r requirements.txt
-COPY . .
-EXPOSE 5000
-CMD ["gunicorn", "-w", "4", "-b", "0.0.0.0:5000", "app:app"]
-```
-
-## Environment Variables
-
-| Variable | Description | Default |
-|----------|-------------|---------|
-| `FLASK_ENV` | Flask environment | `development` |
-| `PORT` | Server port | `5000` |
-| `SECRET_KEY` | Flask secret key | `dev-secret-key` |
-| `OPENAI_API_KEY` | OpenAI API key (optional) | - |
-| `OLLAMA_URL` | Ollama server URL (optional) | - |
-| `ANTHROPIC_API_KEY` | Anthropic API key (optional) | - |
-
-## Features to Add
-
-- [ ] Database persistence (SQLite/PostgreSQL)
-- [ ] User authentication
-- [ ] Message search
-- [ ] File uploads
-- [ ] Voice messages
-- [ ] Typing indicators
-- [ ] Read receipts
-- [ ] Message reactions
-
 ## Troubleshooting
 
 ### Port Already in Use
@@ -302,27 +247,13 @@ See main repository LICENSE file.
 
 ## Related Projects
 
-This project is part of the [JJB Gallery](https://github.com/Exios66/JJB_Gallery) portfolio. Related projects include:
-
 - [ChatUi](../ChatUi/README.md) - Modern SvelteKit Chat Interface
 - [LiteLLM](../litellm/README.md) - Unified LLM API
 - [RAG Model](../RAG_Model/README.md) - Retrieval-Augmented Generation
 - [CrewAI](../CrewAI/README.md) - Multi-Agent System
-
-## Additional Resources
-
-- 📚 [Project Wiki](https://github.com/Exios66/JJB_Gallery/wiki) - Comprehensive documentation
-- 📖 [iOS Chatbot Wiki Page](https://github.com/Exios66/JJB_Gallery/wiki/iOS-Chatbot) - Detailed project documentation
-- 🔧 [Installation Guide](https://github.com/Exios66/JJB_Gallery/wiki/Installation-Guide) - Setup instructions
-- 🐛 [Troubleshooting](https://github.com/Exios66/JJB_Gallery/wiki/Troubleshooting) - Common issues and solutions
 
 ## Contributing
 
 Contributions welcome! Please see the main repository [Contributing Guidelines](https://github.com/Exios66/JJB_Gallery/wiki/Contributing-Guidelines).
 
 For issues, questions, or suggestions, please use the [GitHub Issues](https://github.com/Exios66/JJB_Gallery/issues) page.
-
-## References
-
-- [Flask Documentation](https://flask.palletsprojects.com/)
-- [iOS Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/)

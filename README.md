@@ -37,12 +37,20 @@ Welcome! This GitHub repository serves as an evolving digital portfolio and gall
   - [About Me](#about-me)
   - [📂 Repository Map](#-repository-map)
   - [Project Gallery](#project-gallery)
+  - [Production \& Deployment](#production--deployment)
+    - [Deployment Options](#deployment-options)
+    - [Production Readiness](#production-readiness)
+    - [Operational Runbooks](#operational-runbooks)
+  - [Architecture Overview](#architecture-overview)
+    - [Core Components](#core-components)
+    - [Performance Considerations](#performance-considerations)
   - [Recent Additions](#recent-additions)
   - [Skills](#skills)
   - [Presentations](#presentations)
   - [Preferred Contact Methods](#preferred-contact-methods)
   - [Socials](#socials)
   - [Further Reading](#further-reading)
+  - [📚 Documentation](#-documentation)
 
 ---
 
@@ -52,7 +60,7 @@ Welcome! This GitHub repository serves as an evolving digital portfolio and gall
 
 Hi! I'm **Jack J. Burleson** – I am a data scientist, artificial intelligence-research engineer, a computational neuroscience researcher, and an open-source enthusiast.  
 
-I am passionate about fully expanding the notion of making data science, machine learning, and advanced statisticL analytics democratically accessible and meaningful through clear code examples, integrations, and insightful visualizations.  
+I am passionate about fully expanding the notion of making data science, machine learning, and advanced statistical analytics democratically accessible and meaningful through clear code examples, integrations, and insightful visualizations.  
 
 This living portfolio highlights select projects in engineering, data analysis, machine learning, and technical writing.
 
@@ -125,6 +133,64 @@ This living portfolio highlights select projects in engineering, data analysis, 
 | **Random Forest Essentials** | Theory + application Quarto docs | [Quarto/RandomForest](Quarto/RandomForest) |
 | **Jupyter ML & Pandas Notebooks** | Machine learning workflow demos | [notebooks/](notebooks/README.md) |
 | **PyPI-Ready Python Template** | Full CI/CD + packaging starter | [Template Repo](https://github.com/Exios66/python-template) |
+| **RAG Model Application** | Retrieval-Augmented Generation system | [RAG_Model/README.md](projects/RAG_Model/README.md) |
+| **Psychometrics (NASA TLX)** | Workload assessment toolkit | [Psychometrics/README.md](projects/Psychometrics/README.md) |
+| **Chat UI** | Modern SvelteKit chat interface | [ChatUi/README.md](projects/ChatUi/README.md) |
+| **LiteLLM Integration** | Unified LLM API proxy | [litellm/README.md](projects/litellm/README.md) |
+
+---
+
+## Production & Deployment
+
+This repository maintains production-grade standards for all included projects. Each major project is designed for scalability, reliability, and ease of deployment.
+
+### Deployment Options
+
+Projects in this portfolio support multiple deployment strategies:
+
+1. **Docker Containers**: Most applications (ChatUi, iOS Chatbot, LiteLLM) include Dockerfiles for containerized deployment.
+2. **Cloud Platforms**: Ready for deployment on AWS, Google Cloud, Azure, Vercel, and Netlify.
+3. **Self-Hosted**: Comprehensive guides for running on bare metal or virtual machines.
+
+### Production Readiness
+
+- **CI/CD**: GitHub Actions workflows for automated testing and linting.
+- **Security**: Regular dependency scanning, API key management best practices, and security headers.
+- **Monitoring**: Health check endpoints and logging configuration.
+- **Documentation**: Detailed setup guides, API references, and troubleshooting.
+
+For detailed deployment guides, please refer to individual project READMEs or the [Quick Start Guide](docs/QUICK_START.md).
+
+### Operational Runbooks
+
+- **Health Checks**: `/health` endpoints available on API services.
+- **Logging**: Structured logging configured for major services.
+- **Backup**: Procedures for backing up vector databases and chat history.
+
+---
+
+## Architecture Overview
+
+The repository follows a modular architecture designed for interoperability and maintainability.
+
+### Core Components
+
+1. **Frontend Layer**: SvelteKit (ChatUi) and Flask templates (iOS Chatbot) providing user interfaces.
+2. **API Layer**: RESTful APIs and WebSocket connections handling communication.
+3. **Intelligence Layer**:
+    - **Orchestration**: CrewAI for multi-agent coordination.
+    - **Inference**: LiteLLM proxy for unified model access (OpenAI, Anthropic, Ollama).
+    - **Retrieval**: RAG Model with FAISS vector database.
+4. **Data Layer**:
+    - **Vector Store**: FAISS for semantic search.
+    - **Storage**: File-based storage and support for external drives (optimized for large models).
+5. **Infrastructure**: Docker containers and Python virtual environments.
+
+### Performance Considerations
+
+- **Caching**: Utilization of external storage for large model weights and pip/npm caches.
+- **Async Processing**: Asynchronous API calls for non-blocking operations in ChatUi and LiteLLM.
+- **Optimized Builds**: Minimal docker images and tree-shaking for frontend assets.
 
 ---
 
@@ -133,16 +199,19 @@ This living portfolio highlights select projects in engineering, data analysis, 
 - CrewAI Swarm System overhaul
 - Terminal Coding Agents improvements
 - Random Forest Quarto docs expansion
+- Production deployment guides for all major projects
+- Enhanced security policies and operational documentation
 
 ---
 
 ## Skills
 
-- **Programming:** Python, R, JavaScript
-- **ML & Data:** Pandas, NumPy, scikit-learn
-- **Visualization:** Matplotlib, Quarto
-- **EngOps:** GitHub Actions, Docker, pre-commit
-- **Documentation:** Jupyter, Markdown, Quarto
+- **Programming:** Python, R, JavaScript, TypeScript, SvelteKit, Flask
+- **ML & Data:** Pandas, NumPy, scikit-learn, TensorFlow, PyTorch
+- **Visualization:** Matplotlib, Seaborn, Quarto, D3.js
+- **EngOps:** GitHub Actions, Docker, Kubernetes, pre-commit
+- **Documentation:** Jupyter, Markdown, Quarto, Technical Writing
+- **AI Engineering:** RAG, Vector Databases, LLM Integration, Agent Systems
 
 ---
 
