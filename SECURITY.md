@@ -20,7 +20,7 @@ _Only the latest version is actively maintained and receives security updates._
 **If you discover a security vulnerability, please follow these steps:**
 
 1. **Privately disclose the issue.**  
-   Email us at [security@opencode.ai](mailto:security@opencode.ai) or contact a maintainer directly. Avoid creating public GitHub issues for vulnerabilities.
+   Email us at [jackjburleson@proton.me](mailto:jackjburleson@proton.me) or contact a maintainer directly. Avoid creating public GitHub issues for vulnerabilities.
 
 2. **Include details:**
    - Affected files and versions
@@ -36,11 +36,55 @@ _Only the latest version is actively maintained and receives security updates._
 
 ---
 
+## Production Security Hardening
+
+For production deployments, we strictly recommend the following hardening measures:
+
+### 1. Network Security
+
+- **TLS/SSL**: Enforce HTTPS for all services. Use HSTS headers.
+- **Firewall**: Restrict inbound traffic to port 443 (HTTPS) and 80 (HTTP redirect).
+- **VPC**: Run backend services (Databases, Vector Stores) in private subnets.
+
+### 2. Application Security
+
+- **Secrets Management**: Do not store secrets in code or Docker images. Use environment variables or a secrets manager (e.g., AWS Secrets Manager, HashiCorp Vault).
+- **Rate Limiting**: Implement strict rate limiting on all API endpoints, especially those triggering expensive LLM calls.
+- **Input Validation**: Sanitize all user inputs to prevent Injection and XSS attacks.
+
+### 3. Container Security
+
+- **Non-Root**: Run all containers as a non-root user.
+- **Image Scanning**: Scan Docker images for vulnerabilities before deployment (e.g., using Trivy).
+- **Minimal Base Images**: Use Alpine or distroless images to reduce the attack surface.
+
+See [Production Hardening Guide](docs/security/PRODUCTION_HARDENING.md) for detailed instructions.
+
+---
+
+## Monitoring and Incident Response
+
+### Security Monitoring
+
+- **Logs**: Centralize logs and monitor for suspicious patterns (e.g., repeated 401/403 errors).
+- **Alerts**: Set up alerts for high error rates, unusual traffic spikes, or unauthorized access attempts.
+- **Dependency Scanning**: Enable GitHub Dependabot or similar tools to monitor dependencies for CVEs.
+
+### Incident Response Plan
+
+1. **Identify**: Confirm the breach or vulnerability.
+2. **Contain**: Isolate affected systems (e.g., take container offline).
+3. **Eradicate**: Patch the vulnerability or remove malicious artifacts.
+4. **Recover**: Restore systems from clean backups.
+5. **Review**: Conduct a post-mortem and update security policies.
+
+---
+
 ## Security Best Practices
 
 ### For Users
 
-- **Keep up-to-date**: Always use the latest release from GitHub or [official sites](https://opencode.ai).
+- **Keep up-to-date**: Always use the latest release.
 - **Verify downloads**: Check for sha256 signatures when available.
 - **Never share sensitive credentials** in issues, PRs, or chat logs.
 - **Review third-party dependencies**: This repo uses several. Monitor for CVEs and update dependencies regularly.
@@ -54,41 +98,22 @@ _Only the latest version is actively maintained and receives security updates._
 - **Run static analysis** and linters before submitting code.
 - **Lockdown GitHub Actions**: Reference only trusted actions, pin to a specific commit SHA.
 - **Follow the Principle of Least Privilege** in all scripts and integrations.
-- **Keep dependencies updated**; submit a PR if you spot an outdated or vulnerable one.
 
 ---
 
 ## Third-Party Dependencies
 
-This repository makes use of open-source tools and packages (see `requirements.txt` and `package.json` if available).
+This repository makes use of open-source tools and packages (see `requirements.txt` and `package.json`).
 
 - Review the dependencies for newly announced vulnerabilities
-- Use `pip list --outdated` and `npm audit` (where applicable)
+- Use `pip-audit` and `npm audit`
 - Managed dependencies are periodically updated by maintainers
-
----
-
-## Build & Runtime Security
-
-- **Default settings avoid privilege escalation** and limit shell command execution.
-- **Do not run scripts with elevated privileges (sudo/root)** unless explicitly required.
-- **Kill unnecessary or idle processes** and remove temporary files after execution (see `scripts/free_ram.sh` for an example).
-- **Monitor for unauthorized access** or unexpected network traffic during use.
-- Use secure communication methods (e.g., SSH, HTTPS).
-
----
-
-## Responsible Disclosure
-
-We adhere to [responsible disclosure principles](https://www.disclose.io/).  
-All security concerns will be kept confidential until a patch is available and users have reasonable time to upgrade.
 
 ---
 
 ## Security Contact
 
-- Email: [security@opencode.ai](mailto:security@opencode.ai)
-- Discord: [https://opencode.ai/discord](https://opencode.ai/discord)
+- Email: [jackjburleson@proton.me](mailto:jackjburleson@proton.me)
 - Or contact a maintainer privately
 
 ---

@@ -17,6 +17,8 @@ execute:
   echo: true
   warning: false
   message: false
+  freeze: true
+  timeout: 300
 ---
 
 ## Overview

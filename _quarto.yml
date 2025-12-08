@@ -7,11 +7,17 @@ project:
     - SECURITY.md
     - projects/CrewAI/README.md
     - projects/terminal_agents/README.md
+    - projects/RAG_Model/README.md
+    - projects/Psychometrics/README.md
+    - projects/ChatUi/README.md
+    - projects/ios_chatbot/README.md
+    - projects/litellm/README.md
     - Quarto/randomforest.qmd
 
 website:
   title: "JJB Gallery"
   navbar:
+    background: dark
     left:
       - href: index.html
         text: Home
@@ -19,9 +25,21 @@ website:
         text: CrewAI
       - href: projects/terminal_agents/README.md
         text: Terminal Agents
-      - href: Quarto/randomforest.qmd
+      - href: projects/RAG_Model/README.md
+        text: RAG Model
+      - href: projects/Psychometrics/README.md
+        text: Psychometrics
+      - href: projects/ChatUi/README.md
+        text: ChatUi
+      - href: projects/ios_chatbot/README.md
+        text: iOS Chatbot
+      - href: projects/litellm/README.md
+        text: LiteLLM
+      - href: Quarto/randomforest.html
         text: Random Forests
     right:
+      - href: https://github.com/Exios66/JJB_Gallery/wiki
+        text: Wiki
       - icon: github
         href: https://github.com/Exios66/JJB_Gallery
   page-footer:
@@ -34,6 +52,33 @@ format:
     toc-location: left
     toc-expand: 2
     include-after-body: theme-switcher.html
-    embed-resources: false
+    include-in-header: 
+      - accessibility.html
+      - structured-data.html
+    include-before-body: ux-enhancements.html
+    embed-resources: true
     max-width: 1200px
+    css: styles.css
+    favicon: favicon.svg
+    meta:
+      - name: description
+        content: "Portfolio and gallery of Jack J. Burleson - Data scientist, research engineer, and open-source enthusiast. Showcasing projects in AI/LLM integration, machine learning, multi-agent systems, and data analysis."
+      - property: og:title
+        content: "JJB Gallery - Portfolio of Jack J. Burleson"
+      - property: og:description
+        content: "Portfolio and gallery showcasing projects in AI/LLM integration, machine learning, multi-agent systems, and data analysis."
+      - property: og:type
+        content: website
+      - property: og:url
+        content: "https://exios66.github.io/JJB_Gallery/"
+      - name: twitter:card
+        content: summary_large_image
+      - name: twitter:title
+        content: "JJB Gallery - Portfolio of Jack J. Burleson"
+      - name: twitter:description
+        content: "Portfolio and gallery showcasing projects in AI/LLM integration, machine learning, and data analysis."
+
+execute:
+  timeout: 300
+  freeze: true  # Use frozen results only, skip execution
 

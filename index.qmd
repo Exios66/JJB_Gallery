@@ -4,6 +4,7 @@ author: "Jack J. Burleson"
 editor: 
   markdown: 
     wrap: 72
+favicon: favicon.svg
 ---
 
 Welcome! This repository serves as the official portfolio and gallery
@@ -49,6 +50,13 @@ Organization](#repository-organization) section for details.
 
 ------------------------------------------------------------------------
 
+<div style="text-align: center; margin: 2em 0;">
+  <img src="https://github.com/user-attachments/assets/a0d994ed-46e0-4185-886e-5568c9561843" 
+       alt="Jack J. Burleson" 
+       loading="lazy"
+       style="max-width: 300px; border-radius: 50%; border: 3px solid #e0e0e0; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+</div>
+
 ## About Me
 
 Hi! I'm **Jack J. Burleson** – data scientist, research engineer, and
@@ -81,19 +89,49 @@ machine learning, AI/LLM integration, and technical writing.
 
 | Project | Description | Link |
 |----------------------|-----------------------------------|------------------|
-| **Random Forest Essentials** | **\[New\]** Comprehensive analysis with interactive plots, decision boundaries, and ROC curves. | [📊 **View Interactive Analysis**](Quarto/randomforest.qmd) |
-| **CrewAI Multi-Agent Swarm System** | Multi-agent architecture using CrewAI, with specialized swarms for ML, research, business intelligence, and documentation; includes Streamlit & CLI interfaces. | [🚀 **Launch Swarm**](#interactive-agent-swarm) \| [📄 Docs](projects/CrewAI/README.md) |
-| **Psychometrics (NASA TLX)** | **\[New\]** Comprehensive psychometric assessment toolkit implementing the NASA Task Load Index (TLX) for workload measurement with statistical analysis. | [📊 **View Project**](projects/Psychometrics/README.md) |
-| **RAG Model Application** | **\[New\]** Complete Retrieval-Augmented Generation system with vector database, embeddings, and intelligent document retrieval using FAISS and Ollama. | [🔍 **View Project**](projects/RAG_Model/README.md) |
-| **Chat UI (SvelteKit)** | **\[New\]** Modern, open-source chat interface for LLM interactions with support for multiple backends (OpenAI, Ollama, Hugging Face) and real-time streaming. | [💬 **View Project**](projects/ChatUi/README.md) |
-| **iOS Chatbot** | Flask-based chatbot application with web interface, designed for iOS-style interactions and mobile-friendly UI. | [📱 **View Project**](projects/ios_chatbot/README.md) |
-| **LiteLLM Proxy Server** | Unified API proxy for multiple LLM providers, enabling easy switching between OpenAI, Anthropic, and other providers with a single interface. | [🔌 **View Project**](projects/litellm/README.md) |
-| **Terminal Agents** | AI coding agents for the terminal; includes "build" and "plan" agents, supporting code exploration and editing with easy installation and cross-platform support. | [💻 **View Project**](projects/terminal_agents/README.md) |
+| **Random Forest Essentials** | **\[New\]** Comprehensive analysis with interactive plots, decision boundaries, and ROC curves. | [📊 **View Interactive Analysis**](Quarto/randomforest.html) |
+| **CrewAI Multi-Agent Swarm System** | Multi-agent architecture using CrewAI, with specialized swarms for ML, research, business intelligence, and documentation; includes Streamlit & CLI interfaces. | [🚀 **Launch Swarm**](#interactive-agent-swarm) \| [📄 Docs](projects/CrewAI/README.html) |
+| **Psychometrics (NASA TLX)** | **\[New\]** Comprehensive psychometric assessment toolkit implementing the NASA Task Load Index (TLX) for workload measurement with statistical analysis. Used in the Neural Architecture of Truth & Deception research project. | [📊 **View Project**](projects/Psychometrics/README.html) \| [🔗 **NATD API**](https://exios66.github.io/NATD-API/) \| [🧠 **NATD Repository**](https://github.com/Exios66/truth-deception-architecture) |
+| **RAG Model Application** | **\[New\]** Complete Retrieval-Augmented Generation system with vector database, embeddings, and intelligent document retrieval using FAISS and Ollama. | [🔍 **View Project**](projects/RAG_Model/README.html) |
+| **Chat UI (SvelteKit)** | **\[New\]** Modern, open-source chat interface for LLM interactions with support for multiple backends (OpenAI, Ollama, Hugging Face) and real-time streaming. | [💬 **View Project**](projects/ChatUi/README.html) |
+| **iOS Chatbot** | Flask-based chatbot application with web interface, designed for iOS-style interactions and mobile-friendly UI. | [📱 **View Project**](projects/ios_chatbot/README.html) |
+| **LiteLLM Proxy Server** | Unified API proxy for multiple LLM providers, enabling easy switching between OpenAI, Anthropic, and other providers with a single interface. | [🔌 **View Project**](projects/litellm/README.html) |
+| **Terminal Agents** | AI coding agents for the terminal; includes "build" and "plan" agents, supporting code exploration and editing with easy installation and cross-platform support. | [💻 **View Project**](projects/terminal_agents/README.html) |
 | **Jupyter ML & Pandas Notebooks** | Collections of essential notebooks demonstrating the use of Pandas and scikit-learn in data workflows. | [📓 **View Notebooks**](notebooks/) |
 | **PyPI-Ready Python Template** | Modern Python project template with pre-commit, Black, and CI configuration, ready for immediate use as a best-practices starter. | [📦 **Template Repo**](https://github.com/Exios66/python-template) |
 
 *More projects, research, and documentation are regularly added. See
 repository folders for latest content.*
+
+<div style="text-align: center; margin: 2em 0;">
+  <button id="view-all-btn" class="btn btn-primary" style="padding: 0.75rem 2rem; font-size: 1.1rem;">
+    View All Images
+  </button>
+</div>
+
+<div id="gallery-container" style="display: none;">
+  <div class="gallery-grid" id="gallery-grid">
+    <!-- Images will be populated here -->
+    <!-- Example structure - replace with your actual images -->
+    <!-- 
+    <div class="gallery-item">
+      <img src="path/to/image1.jpg" alt="Image 1" loading="lazy">
+    </div>
+    -->
+  </div>
+</div>
+
+<!-- Lightbox -->
+<div id="lightbox" class="lightbox" style="display: none;">
+  <span class="lightbox-close">&times;</span>
+  <span class="lightbox-prev">&#10094;</span>
+  <span class="lightbox-next">&#10095;</span>
+  <div class="lightbox-content">
+    <img id="lightbox-img" src="" alt="">
+  </div>
+</div>
+
+<script src="gallery.js"></script>
 
 ------------------------------------------------------------------------
 
@@ -133,7 +171,7 @@ Intelligence), you can run the Streamlit interface locally.
 
 [**📂 Browse Source
 Code**](https://github.com/Exios66/JJB_Gallery/tree/main/projects/CrewAI)
-\| [**📄 View Documentation**](projects/CrewAI/README.md)
+\| [**📄 View Documentation**](projects/CrewAI/README.html)
 
 ------------------------------------------------------------------------
 
@@ -158,29 +196,29 @@ Code**](https://github.com/Exios66/JJB_Gallery/tree/main/projects/CrewAI)
 
 -   **Psychometrics (NASA TLX):** Complete implementation of NASA Task
     Load Index for workload assessment with statistical analysis ([View
-    Project](projects/Psychometrics/README.md))
+    Project](projects/Psychometrics/README.html))
 -   **RAG Model Application:** Full RAG pipeline with vector database,
     embeddings, and document retrieval ([View
-    Project](projects/RAG_Model/README.md))
+    Project](projects/RAG_Model/README.html))
 -   **Chat UI (SvelteKit):** Modern chat interface for LLM interactions
     with multiple backend support ([View
-    Project](projects/ChatUi/README.md))
+    Project](projects/ChatUi/README.html))
 -   **iOS Chatbot:** Flask-based chatbot with mobile-friendly interface
-    ([View Project](projects/ios_chatbot/README.md))
+    ([View Project](projects/ios_chatbot/README.html))
 -   **LiteLLM Proxy:** Unified API proxy for multiple LLM providers
-    ([View Project](projects/litellm/README.md))
+    ([View Project](projects/litellm/README.html))
 
 ### Enhanced Existing Projects
 
 -   **Random Forest Analysis:** Enhanced with interactive visualizations
     and decision boundary plots ([View
-    Analysis](Quarto/randomforest.qmd))
+    Analysis](Quarto/randomforest.html))
 -   **CrewAI Swarm System:** Full-featured, multi-swarm agent
     orchestration, ML/research/business/reporting specializations
-    ([README](projects/CrewAI/README.md))
+    ([README](projects/CrewAI/README.html))
 -   **Terminal Coding Agents:** Terminal-based agent system, built-in
     "build" and "plan" agents with live installation quick start
-    ([README](projects/terminal_agents/README.md))
+    ([README](projects/terminal_agents/README.html))
 -   **Jupyter Notebooks:** ML and pandas essentials, plus scikit-learn
     examples ([notebooks/](notebooks/))
 
@@ -195,7 +233,7 @@ Code**](https://github.com/Exios66/JJB_Gallery/tree/main/projects/CrewAI)
 -   **.gitignore Improvements:** Now excludes macOS .\_\*, .DS_Store,
     and other platform/editor artifacts
 
-**📋 Track all changes:** See [CHANGELOG.md](CHANGELOG.md) for detailed
+**📋 Track all changes:** See [CHANGELOG.html](CHANGELOG.html) for detailed
 version history
 
 ------------------------------------------------------------------------
@@ -229,7 +267,7 @@ version history
 ## Publications & Presentations
 
 -   **Random Forest Essentials** – Quarto doc, 2024.
-    ([Link](Quarto/randomforest.qmd))
+    ([Link](Quarto/randomforest.html))
 -   **Talking to Agents: architecting Multi-Agent Systems** – Internal
     seminar, 2024.
 -   *(More manuscripts and presentations to be added.)*
@@ -288,24 +326,23 @@ JJB_Gallery/
 └── Quarto/              # Quarto documents
 ```
 
-**📚 Documentation:** See [docs/README.md](docs/README.md) for complete
-documentation index.
+**📚 Documentation:** See [docs/README.md](docs/README.md) for complete documentation index.
 
 ## Further Reading
 
 ### Project Documentation
 
--   [Terminal Agents Project](projects/terminal_agents/README.md) - AI
+-   [Terminal Agents Project](projects/terminal_agents/README.html) - AI
     coding agents for terminal
--   [CrewAI Multi-Agent System](projects/CrewAI/README.md) - Multi-agent
+-   [CrewAI Multi-Agent System](projects/CrewAI/README.html) - Multi-agent
     orchestration
--   [Psychometrics (NASA TLX)](projects/Psychometrics/README.md) -
+-   [Psychometrics (NASA TLX)](projects/Psychometrics/README.html) -
     Workload assessment toolkit
--   [RAG Model Application](projects/RAG_Model/README.md) -
+-   [RAG Model Application](projects/RAG_Model/README.html) -
     Retrieval-augmented generation
--   [Chat UI](projects/ChatUi/README.md) - Modern chat interface
--   [iOS Chatbot](projects/ios_chatbot/README.md) - Flask-based chatbot
--   [LiteLLM Proxy](projects/litellm/README.md) - Unified LLM API proxy
+-   [Chat UI](projects/ChatUi/README.html) - Modern chat interface
+-   [iOS Chatbot](projects/ios_chatbot/README.html) - Flask-based chatbot
+-   [LiteLLM Proxy](projects/litellm/README.html) - Unified LLM API proxy
 
 ### Repository Documentation
 
@@ -313,8 +350,8 @@ documentation index.
 -   [Documentation Index](docs/README.md) - Complete documentation
 -   [Repository Organization](docs/ORGANIZATION.md) - File organization
     guide
--   [CHANGELOG.md](CHANGELOG.md) - Version history and changes
--   [SECURITY.md](SECURITY.md) - Security policy
+-   [CHANGELOG.html](CHANGELOG.html) - Version history and changes
+-   [SECURITY.html](SECURITY.html) - Security policy
 
 ### External Resources
 

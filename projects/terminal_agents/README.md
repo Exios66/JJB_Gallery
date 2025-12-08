@@ -37,22 +37,26 @@ cd projects/terminal_agents
 ### Manual Setup
 
 1. **Navigate to the project:**
+
    ```bash
    cd projects/terminal_agents
    ```
 
 2. **Create virtual environment:**
+
    ```bash
    python3 -m venv venv
    source venv/bin/activate  # On Windows: venv\Scripts\activate
    ```
 
 3. **Install dependencies:**
+
    ```bash
    pip install -r requirements.txt
    ```
 
 4. **Make agent executable:**
+
    ```bash
    chmod +x agent.py
    ```
@@ -113,6 +117,7 @@ python agent.py interactive
 ```
 
 **Interactive Commands:**
+
 - `@analyze <file>` - Analyze code file
 - `@explain <file>` - Explain code file
 - `@generate <description>` - Generate code
@@ -185,6 +190,44 @@ View all available commands:
 python agent.py help
 ```
 
+## 🏭 Production Considerations
+
+### CLI Distribution
+
+To distribute this tool to a team:
+
+1. **PyPI Package**: Package the agent as a Python package and publish to a private PyPI repository.
+
+   ```bash
+   python -m build
+   twine upload dist/*
+   ```
+
+2. **Standalone Binary**: Use PyInstaller to create a single-file executable.
+
+   ```bash
+   pyinstaller --onefile agent.py
+   ```
+
+3. **Docker Image**: Distribute as a Docker image for consistent environments.
+
+   ```bash
+   docker run -it -v $(pwd):/app/code terminal-agent:latest
+   ```
+
+### Configuration Management
+
+For team-wide configuration:
+
+1. **Shared Config**: Distribute a standard `config.yaml` to `~/.terminal_agents/` via configuration management tools (Ansible, Chef).
+2. **Environment Variables**: Enforce API keys via environment variables in CI/CD pipelines.
+
+### Security Hardening
+
+1. **API Key Storage**: Never commit `config.yaml` with API keys to version control. Use a secrets manager (e.g., `keyring` python package) for local storage.
+2. **Input Sanitization**: The agent executes within the user's shell context. Ensure prompts do not contain malicious shell commands if piping input.
+3. **Audit Logging**: Enable logging to a file to audit agent usage and generated code.
+
 ## 🎯 Use Cases
 
 ### Code Review
@@ -243,28 +286,11 @@ export OPENAI_MODEL_NAME=gpt-4
 
 ### Adding New Commands
 
-Add new command handlers in the `main()` function in `agent.py`:
-
-```python
-elif command == "your_command":
-    if not input_text:
-        agent._error("Please provide input.")
-        return
-    response = agent.your_method(input_text)
-    agent._print(response)
-```
+Add new command handlers in the `main()` function in `agent.py`.
 
 ### Custom Prompts
 
-Modify prompt templates in the agent methods:
-
-```python
-def your_method(self, input_data: str) -> str:
-    prompt = f"""Your custom prompt template here:
-{input_data}
-"""
-    return self.chat(prompt)
-```
+Modify prompt templates in the agent methods.
 
 ## 🎨 Terminal UI
 
@@ -290,12 +316,14 @@ If `rich` is not available, the agent falls back to plain text output.
 ### "No LLM provider available"
 
 **Solution**: Configure at least one provider:
+
 - Install Ollama: `curl -fsSL https://ollama.ai/install.sh | sh`
 - Or set API keys: `export OPENAI_API_KEY=your_key`
 
 ### "Module not found" errors
 
 **Solution**: Install dependencies:
+
 ```bash
 pip install -r requirements.txt
 ```
@@ -303,6 +331,7 @@ pip install -r requirements.txt
 ### Ollama connection errors
 
 **Solution**: Ensure Ollama is running:
+
 ```bash
 ollama serve
 # In another terminal:
@@ -312,6 +341,7 @@ ollama pull llama3.1:8b
 ### Rich library not working
 
 **Solution**: The agent will fall back to plain text. To fix:
+
 ```bash
 pip install rich pygments
 ```

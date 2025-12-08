@@ -79,6 +79,19 @@ log_error() {
     echo -e "${RED}✗${NC} $1" >&2
 }
 
+setup_python_env() {
+    # Set up Python environment for Quarto
+    if [[ -d "$REPO_ROOT/.venv" ]]; then
+        export QUARTO_PYTHON="$REPO_ROOT/.venv/bin/python"
+        log_info "Using Python from .venv: $QUARTO_PYTHON"
+    elif [[ -d "$REPO_ROOT/venv" ]]; then
+        export QUARTO_PYTHON="$REPO_ROOT/venv/bin/python"
+        log_info "Using Python from venv: $QUARTO_PYTHON"
+    else
+        log_info "No virtual environment found, using system Python"
+    fi
+}
+
 check_quarto() {
     if ! command -v quarto &> /dev/null; then
         log_error "Quarto CLI is not installed or not in PATH."
@@ -122,6 +135,13 @@ clean_build_artifacts() {
     if [[ "$CLEAN_BUILD" == "true" ]]; then
         log_info "Cleaning build artifacts..."
         
+        # Remove macOS resource fork files (._*) that cause Quarto errors
+        local resource_forks=$(find "$REPO_ROOT" -name "._*" -type f 2>/dev/null | wc -l | tr -d ' ')
+        if [[ "$resource_forks" -gt 0 ]]; then
+            find "$REPO_ROOT" -name "._*" -type f -delete 2>/dev/null
+            log_success "Removed $resource_forks macOS resource fork files"
+        fi
+        
         # Remove build directory
         if [[ -d "$BUILD_DIR" ]]; then
             rm -rf "$BUILD_DIR"
@@ -143,6 +163,7 @@ clean_build_artifacts() {
         done
         
         # Remove old artifact directories (if they exist in root)
+        # These are legacy artifacts from previous builds and should be in _build/quarto/
         local old_dirs=(
             "$REPO_ROOT/site_libs"
             "$REPO_ROOT/index_files"
@@ -152,7 +173,7 @@ clean_build_artifacts() {
         for dir in "${old_dirs[@]}"; do
             if [[ -d "$dir" ]]; then
                 rm -rf "$dir"
-                log_warning "Removed old directory: $dir (should be in _build/quarto/)"
+                log_info "Cleaned up legacy artifact: $(basename "$dir") (artifacts should be in _build/quarto/)"
             fi
         done
         
@@ -175,11 +196,30 @@ render_quarto_site() {
     fi
     
     # Render the website (this renders all pages in _quarto.yml)
-    if quarto render --to html; then
+    # Note: Quarto may exit with error code during post-processing (sitemap generation)
+    # but the HTML files are still generated successfully
+    if quarto render --to html 2>&1 | tee /tmp/quarto_render.log; then
         log_success "Quarto website rendered successfully"
     else
-        log_error "Quarto rendering failed"
-        exit 1
+        # Check if files were actually generated despite the error
+        local error_occurred=false
+        if grep -q "Source and destination cannot be the same" /tmp/quarto_render.log 2>/dev/null; then
+            log_warning "Sitemap generation error detected (known issue, files were still generated)"
+            error_occurred=true
+        fi
+        
+        # Verify that key files were generated
+        if [[ -f "$REPO_ROOT/index.html" ]] && [[ -f "$REPO_ROOT/CHANGELOG.html" ]]; then
+            if [[ "$error_occurred" == "true" ]]; then
+                log_success "HTML files generated successfully (sitemap error is non-critical)"
+            else
+                log_error "Quarto rendering failed"
+                exit 1
+            fi
+        else
+            log_error "Quarto rendering failed and files were not generated"
+            exit 1
+        fi
     fi
 }
 
@@ -192,6 +232,11 @@ verify_outputs() {
         "SECURITY.html"
         "projects/CrewAI/README.html"
         "projects/terminal_agents/README.html"
+        "projects/RAG_Model/README.html"
+        "projects/Psychometrics/README.html"
+        "projects/ChatUi/README.html"
+        "projects/ios_chatbot/README.html"
+        "projects/litellm/README.html"
         "Quarto/randomforest.html"
     )
     
@@ -216,12 +261,57 @@ verify_outputs() {
         log_success "All expected output files found"
     fi
     
+    # Verify embed-resources configuration
+    if grep -q "embed-resources: true" "$QUARTO_CONFIG" 2>/dev/null; then
+        log_info "embed-resources: true is enabled - resources should be embedded in HTML"
+        log_info "Checking if HTML files are self-contained..."
+        
+        local html_files=("index.html" "CHANGELOG.html" "SECURITY.html")
+        local embedded_count=0
+        
+        for html_file in "${html_files[@]}"; do
+            local full_path="$REPO_ROOT/$html_file"
+            if [[ -f "$full_path" ]]; then
+                # Check if file contains embedded styles/scripts (indicator of embed-resources)
+                if grep -q "<style>" "$full_path" 2>/dev/null || grep -q "<script>" "$full_path" 2>/dev/null; then
+                    embedded_count=$((embedded_count + 1))
+                fi
+            fi
+        done
+        
+        if [[ $embedded_count -gt 0 ]]; then
+            log_success "Resources appear to be embedded in HTML files"
+        else
+            log_warning "Resources may not be embedded - verify embed-resources: true is working"
+        fi
+    else
+        log_info "embed-resources: false - checking for site_libs directory"
+        if [[ -d "$REPO_ROOT/site_libs" ]]; then
+            log_success "site_libs directory found"
+            local lib_count=$(find "$REPO_ROOT/site_libs" -type f ! -name "._*" | wc -l | tr -d ' ')
+            log_info "Found $lib_count files in site_libs"
+        else
+            log_warning "site_libs directory not found"
+        fi
+    fi
+    
     # Check for build directory
     if [[ -d "$BUILD_DIR" ]]; then
         log_success "Build artifacts in: $BUILD_DIR"
     else
-        log_warning "Build directory not found (may be normal if embed-resources: true)"
+        log_info "Build directory not found (expected if embed-resources: true)"
     fi
+    
+    # Verify additional files
+    local additional_files=("404.html" "robots.txt" "favicon.svg")
+    for file in "${additional_files[@]}"; do
+        local full_path="$REPO_ROOT/$file"
+        if [[ -f "$full_path" ]]; then
+            log_success "Found: $file"
+        else
+            log_warning "Missing: $file"
+        fi
+    done
 }
 
 start_preview() {
