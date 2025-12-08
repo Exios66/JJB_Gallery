@@ -176,11 +176,30 @@ render_quarto_site() {
     fi
     
     # Render the website (this renders all pages in _quarto.yml)
-    if quarto render --to html; then
+    # Note: Quarto may exit with error code during post-processing (sitemap generation)
+    # but the HTML files are still generated successfully
+    if quarto render --to html 2>&1 | tee /tmp/quarto_render.log; then
         log_success "Quarto website rendered successfully"
     else
-        log_error "Quarto rendering failed"
-        exit 1
+        # Check if files were actually generated despite the error
+        local error_occurred=false
+        if grep -q "Source and destination cannot be the same" /tmp/quarto_render.log 2>/dev/null; then
+            log_warning "Sitemap generation error detected (known issue, files were still generated)"
+            error_occurred=true
+        fi
+        
+        # Verify that key files were generated
+        if [[ -f "$REPO_ROOT/index.html" ]] && [[ -f "$REPO_ROOT/CHANGELOG.html" ]]; then
+            if [[ "$error_occurred" == "true" ]]; then
+                log_success "HTML files generated successfully (sitemap error is non-critical)"
+            else
+                log_error "Quarto rendering failed"
+                exit 1
+            fi
+        else
+            log_error "Quarto rendering failed and files were not generated"
+            exit 1
+        fi
     fi
 }
 
