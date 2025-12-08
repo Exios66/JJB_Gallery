@@ -3,14 +3,17 @@
 ## [0.0.3] - 11-30-25
 
 ### Changed in v0.0.3
-
+- Deleted outdated or duplicate documentation and configuration files across .cloud_sandbox, .codespaces, .devcontainer, and docs directories.
+- Removed extraneous Quarto config and auxiliary files now superseded by consolidated structure.
+- Renamed and reorganized Jupyter notebooks under the new 'notebooks' directory for clarity.
+- Updated changelog and documentation references to reflect new file organization.
+- Improved consistency in README, index.qmd, and environment/dependency setup documentation.
+- Cleaned up .gitignore to match current project contents and prevent tracking of generated or platform-specific files.
+- Minor updates to GitHub workflows and PR templates to support new structure and conventions.
 - Overhauled mathematical and explanatory sections for the random forest algorithm in `randomforest.qmd`; enhanced with formal model equations, clearer bootstrap sampling explanations, and updated diagrams.
 - Revised the Quarto/Notebooks project structure to separate theoretical content from hands-on tutorials—enabling streamlined navigation between core concepts and practical walkthroughs.
 - Unified environment dependencies across all Quarto documents and notebooks, adding robust setup scripts for reproducibility.
 - Improved documentation linking—ensured that all new guides and references are indexed in navigation menus and README files for both accessibility and completeness.
-
-### Added in v0.0.3
-
 - **New: Launched `projects/Psychometrics/README.md`** — A comprehensive guide and example implementation for the NASA-TLX workload assessment metric, including Python usage walkthrough and statistical analysis details.
 - **New: Added `docs/development/README.md`** — A guide for development documentation for the repository, with clear guidance on Git protocol, remote Python environments, and development best practices.
 - **New: Added `docs/development/GIT_PROTOCOL_GUIDE.md`** — A guide for the Git protocol for the repository, with clear guidance on Git protocol, remote Python environments, and development best practices.
@@ -36,15 +39,9 @@
 - Added alternate Markdown version of the Git protocol guide as `docs/GIT_PROTOCOL_GUIDE 2.md` for compatibility.
 - **NEW: Created `requirements-micro.txt`** - A lightweight, optimized requirements file with reduced storage footprint while maintaining all critical dependencies. Removed optional packages (jupyterlab, jupyter-contrib-nbextensions, ipywidgets) and duplicates (quarto-cli, pip, importlib-metadata). Uses `notebook` instead of full `jupyter` metapackage for minimal Jupyter setup.
 - **NEW: Added NPM support** - Created `package.json` and `package-lock.json` with semantic-release for automated CI/CD release management. Includes 503 NPM packages for development tooling and GitHub Actions workflow integration.
-
-### Improved in v0.0.3
-
 - Updated breast cancer dataset example and documentation for clarity; enhanced narrative with explanatory footnotes and statistical justifications in the new Quarto documents.
 - Improved project documentation by providing explicit instructions for Python environment setup and notebook/practical reproducibility.
 - Applied new documentation standards to changelogs and guides for increased transparency and project maintainability.
-
-### Fixed (Additional) in v0.0.3
-
 - Addressed confusions in environment configuration: clarified recommended dependency installation workflow to mitigate virtual environment corruption.
 - Fixed prior documentation referencing errors regarding the location of project notebooks and Quarto docs in various READMEs.
 
