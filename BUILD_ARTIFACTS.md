@@ -35,11 +35,13 @@ The `render_gh_pages.sh` script automatically cleans up:
 ### Legacy Artifact Cleanup
 
 If you see messages like:
+
 ```
 ⚠ Removed old directory: /path/to/site_libs (should be in _build/quarto/)
 ```
 
 This is **expected behavior**. The script is:
+
 - ✅ Removing old artifact directories from the root
 - ✅ Ensuring a clean build environment
 - ✅ Organizing artifacts properly in `_build/quarto/`
@@ -47,6 +49,7 @@ This is **expected behavior**. The script is:
 ## GitHub Pages Configuration
 
 For GitHub Pages to work correctly:
+
 - HTML files must be in the repository root
 - Support files can be in `_build/` (gitignored) or embedded
 - The `output-dir: .` setting ensures HTML files are in root
@@ -54,10 +57,12 @@ For GitHub Pages to work correctly:
 ## Configuration
 
 The current Quarto configuration (`_quarto.yml`) uses:
+
 - `output-dir: .` - Outputs HTML to root (required for GitHub Pages)
 - `embed-resources: false` - Keeps resources separate (better for caching)
 
 This means:
+
 - HTML files → Root directory (for GitHub Pages)
 - CSS/JS/resources → `_build/quarto/` or embedded in HTML
 
@@ -66,4 +71,3 @@ This means:
 - The `_build/` directory is automatically gitignored
 - Legacy artifacts in root are cleaned automatically
 - No manual cleanup needed - the script handles everything
-

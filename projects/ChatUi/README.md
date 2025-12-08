@@ -36,13 +36,14 @@ npm install
 cp .env.example .env.local
 ```
 
-3. Configure your environment variables in `.env.local`:
+3. Create a `.env.local` file and configure your environment variables:
 
 ```env
 VITE_API_BASE_URL=http://localhost:3000
 MONGODB_URL=mongodb://localhost:27017/chatui
 HF_TOKEN=your_huggingface_token
 OPENAI_API_KEY=your_openai_key
+OLLAMA_BASE_URL=http://localhost:11434
 ```
 
 4. Start the development server:
@@ -177,6 +178,7 @@ ChatUi/
 ### ChatInterface
 
 The main chat component that handles:
+
 - Message display
 - User input
 - Message sending
@@ -186,6 +188,7 @@ The main chat component that handles:
 ### API Client
 
 Located in `src/lib/api.js`, provides:
+
 - `sendMessage()`: Send a message and get response
 - `streamMessage()`: Stream responses in real-time
 - `getModels()`: Fetch available models
@@ -197,6 +200,7 @@ Located in `src/lib/api.js`, provides:
 Send a chat message and get a response.
 
 **Request:**
+
 ```json
 {
   "message": "Hello, how are you?",
@@ -206,6 +210,7 @@ Send a chat message and get a response.
 ```
 
 **Response:**
+
 ```json
 {
   "role": "assistant",

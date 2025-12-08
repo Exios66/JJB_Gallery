@@ -119,13 +119,11 @@
   
   pre {
     overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
     padding: 1rem;
   }
   
   div.sourceCode {
     overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
   }
 }
 

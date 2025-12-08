@@ -175,6 +175,7 @@ PORT=8080 python proxy_server.py
 OpenAI-compatible chat completions endpoint.
 
 **Request:**
+
 ```json
 {
   "model": "gpt-3.5-turbo",
@@ -187,6 +188,7 @@ OpenAI-compatible chat completions endpoint.
 ```
 
 **Response:**
+
 ```json
 {
   "id": "chatcmpl-...",
@@ -310,6 +312,7 @@ python examples.py
 ```
 
 This will demonstrate:
+
 - Basic usage with different providers
 - Streaming responses
 - Async operations
