@@ -79,6 +79,19 @@ log_error() {
     echo -e "${RED}✗${NC} $1" >&2
 }
 
+setup_python_env() {
+    # Set up Python environment for Quarto
+    if [[ -d "$REPO_ROOT/.venv" ]]; then
+        export QUARTO_PYTHON="$REPO_ROOT/.venv/bin/python"
+        log_info "Using Python from .venv: $QUARTO_PYTHON"
+    elif [[ -d "$REPO_ROOT/venv" ]]; then
+        export QUARTO_PYTHON="$REPO_ROOT/venv/bin/python"
+        log_info "Using Python from venv: $QUARTO_PYTHON"
+    else
+        log_info "No virtual environment found, using system Python"
+    fi
+}
+
 check_quarto() {
     if ! command -v quarto &> /dev/null; then
         log_error "Quarto CLI is not installed or not in PATH."

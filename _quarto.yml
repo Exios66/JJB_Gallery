@@ -80,5 +80,5 @@ format:
 
 execute:
   timeout: 300
-  freeze: auto  # Use frozen results if available, execute if not
+  freeze: true  # Use frozen results only, skip execution
 
