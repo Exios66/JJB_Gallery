@@ -12,7 +12,8 @@ project:
     - projects/ChatUi/README.md
     - projects/ios_chatbot/README.md
     - projects/litellm/README.md
-    - Quarto/randomforest.qmd
+    # Temporarily disabled due to resource fork file issues
+    # - Quarto/randomforest.qmd
 
 website:
   title: "JJB Gallery"
