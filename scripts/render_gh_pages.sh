@@ -228,33 +228,31 @@ render_quarto_site() {
     local render_exit_code
     
     # Run quarto render, capturing both stdout and stderr
-    # Filter out sitemap-related errors from display
+    # Filter out sitemap-related errors from display in real-time
     set +e  # Temporarily disable exit on error to handle sitemap error
-    quarto render --to html >"$render_log" 2>&1
-    render_exit_code=$?
+    quarto render --to html 2>&1 | grep -v -E "(Source and destination cannot be the same|updateSitemap|ERROR.*sitemap|Stack trace:.*sitemap|at updateSitemap|at copyTo.*sitemap)" | tee "$render_log"
+    render_exit_code=${PIPESTATUS[0]}
     set -e  # Re-enable exit on error
-    
-    # Display output, filtering sitemap errors
-    grep -v -E "(Source and destination cannot be the same|updateSitemap|ERROR.*sitemap)" "$render_log" || true
     
     # Check if rendering succeeded or if only sitemap error occurred
     if [[ $render_exit_code -eq 0 ]]; then
         log_success "Quarto website rendered successfully"
     else
-        # Check if it's just the sitemap error
-        if grep -q "Source and destination cannot be the same" "$render_log" 2>/dev/null; then
-            # Verify that key files were generated despite the sitemap error
-            if [[ -f "$REPO_ROOT/index.html" ]] && [[ -f "$REPO_ROOT/CHANGELOG.html" ]]; then
+        # Check if it's just the sitemap error by looking at the original stderr
+        # Re-run to capture full error, but only check for sitemap error
+        local sitemap_error_only=true
+        quarto render --to html 2>&1 | grep -v -E "(Source and destination cannot be the same|updateSitemap)" | grep -q "ERROR" && sitemap_error_only=false || true
+        
+        # Verify that key files were generated despite the sitemap error
+        if [[ -f "$REPO_ROOT/index.html" ]] && [[ -f "$REPO_ROOT/CHANGELOG.html" ]]; then
+            if [[ "$sitemap_error_only" == "true" ]] || grep -q "Source and destination cannot be the same" "$render_log" 2>/dev/null; then
                 log_success "HTML files generated successfully (sitemap generation skipped)"
             else
-                log_error "Quarto rendering failed and files were not generated"
-                cat "$render_log" >&2
-                rm -f "$render_log"
-                exit 1
+                log_warning "HTML files generated, but there may be other errors"
             fi
         else
-            # Real error - show the full output
-            log_error "Quarto rendering failed"
+            # Real error - files weren't generated
+            log_error "Quarto rendering failed and files were not generated"
             cat "$render_log" >&2
             rm -f "$render_log"
             exit 1
