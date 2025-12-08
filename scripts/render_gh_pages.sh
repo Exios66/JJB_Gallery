@@ -122,6 +122,13 @@ clean_build_artifacts() {
     if [[ "$CLEAN_BUILD" == "true" ]]; then
         log_info "Cleaning build artifacts..."
         
+        # Remove macOS resource fork files (._*) that cause Quarto errors
+        local resource_forks=$(find "$REPO_ROOT" -name "._*" -type f 2>/dev/null | wc -l | tr -d ' ')
+        if [[ "$resource_forks" -gt 0 ]]; then
+            find "$REPO_ROOT" -name "._*" -type f -delete 2>/dev/null
+            log_success "Removed $resource_forks macOS resource fork files"
+        fi
+        
         # Remove build directory
         if [[ -d "$BUILD_DIR" ]]; then
             rm -rf "$BUILD_DIR"
