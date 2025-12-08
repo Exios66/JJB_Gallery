@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.8.24">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <meta name="author" content="Data Science Lab">
 <meta name="dcterms.date" content="2025-11-21">
@@ -22,11 +22,16 @@ width: 0.8em;
 margin: 0 0.8em 0.2em -1em;  vertical-align: middle;
 }
 
-html { -webkit-text-size-adjust: 100%; }
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
+.sourceCode { overflow-x: auto; }
+
+
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
@@ -4274,8 +4279,9 @@ font-weight: bold;
 }
 
 html {
--webkit-text-size-adjust: 100%;
--ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 @media (max-width: 767.98px) {
@@ -5097,12 +5103,33 @@ display: block;
     height: 14px;
     cursor: pointer;
 }
-</style><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>RandomForestClassifier(min_samples_leaf=2, n_estimators=400, n_jobs=-1,
-                       random_state=42)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" checked><label for="sk-estimator-id-1" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>RandomForestClassifier</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.7/modules/generated/sklearn.ensemble.RandomForestClassifier.html">?<span>Documentation for RandomForestClassifier</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></div></label><div class="sk-toggleable__content fitted" data-param-prefix>
-        <div class="estimator-table">
+</style>
+<div id="sk-container-id-1" class="sk-top-container">
+  <div class="sk-text-repr-fallback">
+    <pre>RandomForestClassifier(min_samples_leaf=2, n_estimators=400, n_jobs=-1,
+                       random_state=42)</pre>
+    <b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br>
+      On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b>
+  </div>
+  <div class="sk-container" hidden>
+    <div class="sk-item">
+      <div class="sk-estimator fitted sk-toggleable">
+        <input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" checked>
+        <label for="sk-estimator-id-1" class="sk-toggleable__label fitted sk-toggleable__label-arrow">
+          <div>
+            <div>RandomForestClassifier</div>
+          </div>
+          <div>
+            <a class="sk-estimator-doc-link fitted" rel="noreferrer noopener" target="_blank" href="https://scikit-learn.org/1.7/modules/generated/sklearn.ensemble.RandomForestClassifier.html">
+              ?<span>Documentation for RandomForestClassifier</span>
+            </a>
+            <span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span>
+          </div>
+        </label>
+        <div class="sk-toggleable__content fitted" data-param-prefix>
+          <div class="estimator-table">
             <details>
-                <summary>Parameters</summary>
-                
+              <summary>Parameters</summary>
 <table class="parameters-table caption-top table table-sm table-striped small">
 <tbody>
 <tr class="user-set odd">
