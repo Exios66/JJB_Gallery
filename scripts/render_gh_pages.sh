@@ -139,11 +139,12 @@ clean_build_artifacts() {
         export COPYFILE_DISABLE=1
         export COPY_EXTENDED_ATTRIBUTES_DISABLE=1
         
-        # Remove macOS resource fork files (._*) that cause Quarto errors
-        local resource_forks=$(find "$REPO_ROOT" -name "._*" -type f 2>/dev/null | wc -l | tr -d ' ')
+        # Remove macOS resource fork files and directories (._*) that cause Quarto errors
+        # Exclude .git directory to avoid breaking git operations
+        local resource_forks=$(find "$REPO_ROOT" -name "._*" \( -type f -o -type d \) ! -path "*/.git/*" 2>/dev/null | wc -l | tr -d ' ')
         if [[ "$resource_forks" -gt 0 ]]; then
-            find "$REPO_ROOT" -name "._*" -type f -delete 2>/dev/null
-            log_success "Removed $resource_forks macOS resource fork files"
+            find "$REPO_ROOT" -name "._*" \( -type f -o -type d \) ! -path "*/.git/*" -delete 2>/dev/null
+            log_success "Removed $resource_forks macOS resource fork files and directories"
         fi
         
         # Remove build directory
@@ -203,6 +204,24 @@ render_quarto_site() {
     export COPYFILE_DISABLE=1
     export COPY_EXTENDED_ATTRIBUTES_DISABLE=1
     
+    # Pre-render cleanup: Remove any ._ files from Quarto output directories
+    # This prevents Quarto from trying to process them as directories
+    local quarto_dirs=(
+        "$REPO_ROOT/Quarto"
+        "$REPO_ROOT/Quarto/randomforest_files"
+        "$REPO_ROOT/projects"
+    )
+    
+    for dir in "${quarto_dirs[@]}"; do
+        if [[ -d "$dir" ]]; then
+            local count=$(find "$dir" -name "._*" \( -type f -o -type d \) 2>/dev/null | wc -l | tr -d ' ')
+            if [[ "$count" -gt 0 ]]; then
+                find "$dir" -name "._*" \( -type f -o -type d \) -delete 2>/dev/null
+                log_info "Pre-render cleanup: removed $count ._ files/directories from $(basename "$dir")"
+            fi
+        fi
+    done
+    
     # Render the website (this renders all pages in _quarto.yml)
     # Suppress sitemap errors which are non-critical when output-dir is root
     local render_log="/tmp/quarto_render_$$.log"
@@ -245,11 +264,12 @@ render_quarto_site() {
     # Clean up log file
     rm -f "$render_log"
     
-    # Clean up any ._ files that may have been created during render
-    local resource_forks=$(find "$REPO_ROOT" -name "._*" -type f 2>/dev/null | wc -l | tr -d ' ')
+    # Clean up any ._ files and directories that may have been created during render
+    # Exclude .git directory to avoid breaking git operations
+    local resource_forks=$(find "$REPO_ROOT" -name "._*" \( -type f -o -type d \) ! -path "*/.git/*" 2>/dev/null | wc -l | tr -d ' ')
     if [[ "$resource_forks" -gt 0 ]]; then
-        find "$REPO_ROOT" -name "._*" -type f -delete 2>/dev/null
-        log_success "Cleaned up $resource_forks macOS resource fork files created during render"
+        find "$REPO_ROOT" -name "._*" \( -type f -o -type d \) ! -path "*/.git/*" -delete 2>/dev/null
+        log_success "Cleaned up $resource_forks macOS resource fork files and directories created during render"
     fi
 }
 
@@ -401,11 +421,12 @@ main() {
     render_quarto_site
     verify_outputs
     
-    # Final cleanup of any ._ files
-    local final_cleanup=$(find "$REPO_ROOT" -name "._*" -type f 2>/dev/null | wc -l | tr -d ' ')
+    # Final cleanup of any ._ files and directories
+    # Exclude .git directory to avoid breaking git operations
+    local final_cleanup=$(find "$REPO_ROOT" -name "._*" \( -type f -o -type d \) ! -path "*/.git/*" 2>/dev/null | wc -l | tr -d ' ')
     if [[ "$final_cleanup" -gt 0 ]]; then
-        find "$REPO_ROOT" -name "._*" -type f -delete 2>/dev/null
-        log_success "Final cleanup: removed $final_cleanup macOS resource fork files"
+        find "$REPO_ROOT" -name "._*" \( -type f -o -type d \) ! -path "*/.git/*" -delete 2>/dev/null
+        log_success "Final cleanup: removed $final_cleanup macOS resource fork files and directories"
     fi
     
     # Summary
