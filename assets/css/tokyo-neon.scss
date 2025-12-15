@@ -10,16 +10,24 @@ $link-hover-color: #0ff;
   background-color: #0a0a0a;
   border-bottom: 2px solid #ff0099;
 }
-h1, h2, h3, h4, h5, h6 {
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   text-shadow: 2px 2px 4px #ff0099;
 }
+
 code {
   color: #ccff00;
   background-color: #111;
   border: 1px solid #0ff;
 }
-.btn, .callout {
-    border: 1px solid #0ff;
-    box-shadow: 0 0 5px #0ff;
-}
 
+.btn,
+.callout {
+  border: 1px solid #0ff;
+  box-shadow: 0 0 5px #0ff;
+}
