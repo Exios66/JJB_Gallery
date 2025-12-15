@@ -14,6 +14,16 @@ REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 DOC_PATH="$REPO_ROOT/Quarto/randomforest.qmd"
 QUARTO_DIR="$REPO_ROOT/Quarto"
 DEST_INDEX="$REPO_ROOT/index.html"
+RESOURCE_FORK_ARCHIVER="$REPO_ROOT/scripts/archive-macos-resource-forks.sh"
+
+# Prevent macOS from creating ._ resource fork files (no-op on Linux)
+export COPYFILE_DISABLE=1
+export COPY_EXTENDED_ATTRIBUTES_DISABLE=1
+
+# Archive any existing dot-underscore files before we touch Quarto outputs
+if [[ -f "$RESOURCE_FORK_ARCHIVER" ]]; then
+    bash "$RESOURCE_FORK_ARCHIVER" --quiet || true
+fi
 
 # Check if Quarto is installed
 if ! command -v quarto &> /dev/null; then
@@ -62,6 +72,11 @@ if [[ -f "randomforest.html" ]]; then
     
     echo "Success! Document rendered to $DEST_INDEX"
     echo "Ready to be pushed to GitHub for Pages deployment."
+
+    # Final sweep in case any `._*` files were created during render/move
+    if [[ -f "$RESOURCE_FORK_ARCHIVER" ]]; then
+        bash "$RESOURCE_FORK_ARCHIVER" --quiet || true
+    fi
 else
     echo "Error: Rendering failed, randomforest.html not found."
     exit 1
