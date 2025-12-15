@@ -12,14 +12,29 @@ PSYCHOMETRICS_DIR = Path(__file__).parent.parent / "Psychometrics"
 sys.path.insert(0, str(PSYCHOMETRICS_DIR))
 
 
+def _import_psychometrics_app():
+    """
+    Import the Psychometrics `app.py` deterministically.
+
+    Multiple subprojects in this repo use the module name `app`. Other tests
+    add their directories to `sys.path`, so `import app` can bind to the wrong
+    project unless we force our path + reload.
+    """
+    import importlib
+
+    sys.path.insert(0, str(PSYCHOMETRICS_DIR))
+    sys.modules.pop("app", None)
+    return importlib.import_module("app")
+
+
 class TestTLXDimensions:
     """Test TLX dimensions."""
     
     def test_tlx_dimensions_defined(self):
         """Test that TLX dimensions are properly defined."""
         try:
-            import app
-            assert hasattr(app, 'TLX_DIMENSIONS')
+            app = _import_psychometrics_app()
+            assert hasattr(app, "TLX_DIMENSIONS")
             dimensions = app.TLX_DIMENSIONS
             
             assert len(dimensions) == 6
@@ -35,7 +50,7 @@ class TestTLXDimensions:
     def test_dimension_structure(self):
         """Test dimension structure."""
         try:
-            import app
+            app = _import_psychometrics_app()
             dimensions = app.TLX_DIMENSIONS
             
             for dim_name, dim_info in dimensions.items():
@@ -53,7 +68,7 @@ class TestTLXCalculation:
     def test_unweighted_tlx_calculation(self):
         """Test unweighted TLX calculation."""
         try:
-            import app
+            app = _import_psychometrics_app()
             
             ratings = {
                 "Mental Demand": 50,
@@ -75,7 +90,7 @@ class TestTLXCalculation:
     def test_weighted_tlx_calculation(self):
         """Test weighted TLX calculation."""
         try:
-            import app
+            app = _import_psychometrics_app()
             
             ratings = {
                 "Mental Demand": 50,
@@ -109,7 +124,7 @@ class TestTLXCalculation:
     def test_score_range(self):
         """Test that scores are in valid range."""
         try:
-            import app
+            app = _import_psychometrics_app()
             
             ratings = {
                 "Mental Demand": 100,
@@ -137,7 +152,7 @@ class TestPairwiseComparison:
     def test_pairwise_comparison_structure(self):
         """Test pairwise comparison structure."""
         try:
-            import app
+            app = _import_psychometrics_app()
             dimensions = list(app.TLX_DIMENSIONS.keys())
             
             # Should have n*(n-1)/2 comparisons for n dimensions

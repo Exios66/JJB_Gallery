@@ -13,13 +13,31 @@ IOS_CHATBOT_DIR = Path(__file__).parent.parent / "ios_chatbot"
 sys.path.insert(0, str(IOS_CHATBOT_DIR))
 
 
+def _import_ios_app():
+    """
+    Import the iOS chatbot `app.py` deterministically.
+
+    This repo contains multiple subprojects with a top-level `app.py` (e.g. RAG_Model,
+    Psychometrics, ios_chatbot). Other tests mutate `sys.path`, so a plain `import app`
+    can resolve to the wrong project depending on collection/execution order.
+    """
+    import importlib
+
+    # Ensure our project path is first
+    sys.path.insert(0, str(IOS_CHATBOT_DIR))
+
+    # Force re-import of the correct module
+    sys.modules.pop("app", None)
+    return importlib.import_module("app")
+
+
 class TestIOSChatbot:
     """Test iOS chatbot application."""
     
     def test_imports(self):
         """Test that the app can be imported."""
         try:
-            import app
+            _import_ios_app()
             assert True
         except ImportError as e:
             pytest.skip(f"App not available: {e}")
@@ -29,7 +47,7 @@ class TestIOSChatbot:
     def test_page_config(self, mock_markdown, mock_page_config):
         """Test page configuration."""
         try:
-            import app
+            _import_ios_app()
             # Verify page config was called
             assert True
         except ImportError:
