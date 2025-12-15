@@ -11,6 +11,15 @@ HTML_OUTPUT="$REPO_ROOT/Quarto/randomforest.html"
 PDF_OUTPUT="$REPO_ROOT/Quarto/randomforest.pdf"
 HOST="${HOST:-127.0.0.1}"
 PORT="${PORT:-4343}"
+RESOURCE_FORK_ARCHIVER="$REPO_ROOT/scripts/archive-macos-resource-forks.sh"
+
+# Prevent macOS from creating ._ resource fork files (no-op on Linux)
+export COPYFILE_DISABLE=1
+export COPY_EXTENDED_ATTRIBUTES_DISABLE=1
+
+if [[ -f "$RESOURCE_FORK_ARCHIVER" ]]; then
+  bash "$RESOURCE_FORK_ARCHIVER" --quiet || true
+fi
 
 if [[ ! -f "$DOC_PATH" ]]; then
   echo "Document not found at $DOC_PATH" >&2
@@ -30,6 +39,10 @@ fi
 
 echo "Rendering $DOC_PATH ..."
 quarto render "$DOC_PATH"
+
+if [[ -f "$RESOURCE_FORK_ARCHIVER" ]]; then
+  bash "$RESOURCE_FORK_ARCHIVER" --quiet || true
+fi
 
 echo "Starting Quarto preview on http://$HOST:$PORT ..."
 quarto preview "$DOC_PATH" --no-browser --host "$HOST" --port "$PORT" &

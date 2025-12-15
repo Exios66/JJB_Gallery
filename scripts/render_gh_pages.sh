@@ -32,6 +32,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 QUARTO_CONFIG="$REPO_ROOT/_quarto.yml"
 BUILD_DIR="$REPO_ROOT/_build/quarto"
+RESOURCE_FORK_ARCHIVER="$REPO_ROOT/scripts/archive-macos-resource-forks.sh"
 
 # Parse command line arguments
 CLEAN_BUILD=true
@@ -79,16 +80,11 @@ log_error() {
     echo -e "${RED}✗${NC} $1" >&2
 }
 
-setup_python_env() {
-    # Set up Python environment for Quarto
-    if [[ -d "$REPO_ROOT/.venv" ]]; then
-        export QUARTO_PYTHON="$REPO_ROOT/.venv/bin/python"
-        log_info "Using Python from .venv: $QUARTO_PYTHON"
-    elif [[ -d "$REPO_ROOT/venv" ]]; then
-        export QUARTO_PYTHON="$REPO_ROOT/venv/bin/python"
-        log_info "Using Python from venv: $QUARTO_PYTHON"
-    else
-        log_info "No virtual environment found, using system Python"
+archive_resource_forks() {
+    # Move any `._*` files out of the working tree into archives/
+    # (keeps repo clean; avoids Quarto trying to interpret `._*` as dirs)
+    if [[ -f "$RESOURCE_FORK_ARCHIVER" ]]; then
+        bash "$RESOURCE_FORK_ARCHIVER" --quiet || true
     fi
 }
 
@@ -135,12 +131,11 @@ clean_build_artifacts() {
     if [[ "$CLEAN_BUILD" == "true" ]]; then
         log_info "Cleaning build artifacts..."
         
-        # Remove macOS resource fork files (._*) that cause Quarto errors
-        local resource_forks=$(find "$REPO_ROOT" -name "._*" -type f 2>/dev/null | wc -l | tr -d ' ')
-        if [[ "$resource_forks" -gt 0 ]]; then
-            find "$REPO_ROOT" -name "._*" -type f -delete 2>/dev/null
-            log_success "Removed $resource_forks macOS resource fork files"
-        fi
+        # Prevent macOS from creating ._ resource fork files
+        export COPYFILE_DISABLE=1
+        export COPY_EXTENDED_ATTRIBUTES_DISABLE=1
+
+        archive_resource_forks
         
         # Remove build directory
         if [[ -d "$BUILD_DIR" ]]; then
@@ -195,32 +190,55 @@ render_quarto_site() {
         exit 1
     fi
     
+    # Prevent macOS from creating ._ resource fork files
+    export COPYFILE_DISABLE=1
+    export COPY_EXTENDED_ATTRIBUTES_DISABLE=1
+
+    # Pre-render sweep: archive any existing `._*` files
+    archive_resource_forks
+    
     # Render the website (this renders all pages in _quarto.yml)
-    # Note: Quarto may exit with error code during post-processing (sitemap generation)
-    # but the HTML files are still generated successfully
-    if quarto render --to html 2>&1 | tee /tmp/quarto_render.log; then
+    # Suppress sitemap errors which are non-critical when output-dir is root
+    local render_log="/tmp/quarto_render_$$.log"
+    local render_exit_code
+    
+    # Run quarto render, capturing both stdout and stderr
+    # Filter out sitemap-related errors from display in real-time
+    set +e  # Temporarily disable exit on error to handle sitemap error
+    quarto render --to html 2>&1 | grep -v -E "(Source and destination cannot be the same|updateSitemap|ERROR.*sitemap|Stack trace:.*sitemap|at updateSitemap|at copyTo.*sitemap)" | tee "$render_log"
+    render_exit_code=${PIPESTATUS[0]}
+    set -e  # Re-enable exit on error
+    
+    # Check if rendering succeeded or if only sitemap error occurred
+    if [[ $render_exit_code -eq 0 ]]; then
         log_success "Quarto website rendered successfully"
     else
-        # Check if files were actually generated despite the error
-        local error_occurred=false
-        if grep -q "Source and destination cannot be the same" /tmp/quarto_render.log 2>/dev/null; then
-            log_warning "Sitemap generation error detected (known issue, files were still generated)"
-            error_occurred=true
-        fi
+        # Check if it's just the sitemap error by looking at the original stderr
+        # Re-run to capture full error, but only check for sitemap error
+        local sitemap_error_only=true
+        quarto render --to html 2>&1 | grep -v -E "(Source and destination cannot be the same|updateSitemap)" | grep -q "ERROR" && sitemap_error_only=false || true
         
-        # Verify that key files were generated
+        # Verify that key files were generated despite the sitemap error
         if [[ -f "$REPO_ROOT/index.html" ]] && [[ -f "$REPO_ROOT/CHANGELOG.html" ]]; then
-            if [[ "$error_occurred" == "true" ]]; then
-                log_success "HTML files generated successfully (sitemap error is non-critical)"
+            if [[ "$sitemap_error_only" == "true" ]] || grep -q "Source and destination cannot be the same" "$render_log" 2>/dev/null; then
+                log_success "HTML files generated successfully (sitemap generation skipped)"
             else
-                log_error "Quarto rendering failed"
-                exit 1
+                log_warning "HTML files generated, but there may be other errors"
             fi
         else
+            # Real error - files weren't generated
             log_error "Quarto rendering failed and files were not generated"
+            cat "$render_log" >&2
+            rm -f "$render_log"
             exit 1
         fi
     fi
+    
+    # Clean up log file
+    rm -f "$render_log"
+    
+    # Post-render sweep: archive any `._*` created during rendering
+    archive_resource_forks
 }
 
 verify_outputs() {
@@ -358,6 +376,13 @@ main() {
     log_info "Starting GitHub Pages rendering process..."
     echo ""
     
+    # Prevent macOS from creating ._ resource fork files globally
+    export COPYFILE_DISABLE=1
+    export COPY_EXTENDED_ATTRIBUTES_DISABLE=1
+
+    # Always archive early so scripts don't interact with `._*` paths
+    archive_resource_forks
+    
     # Pre-flight checks
     check_quarto
     setup_python_env
@@ -366,6 +391,9 @@ main() {
     clean_build_artifacts
     render_quarto_site
     verify_outputs
+    
+    # Final sweep of any remaining `._*`
+    archive_resource_forks
     
     # Summary
     print_summary

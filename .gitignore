@@ -50,6 +50,11 @@ Desktop.ini
 ._*
 **/._*
 
+# Local archive directory for unwanted OS artifacts
+# Keep the folder, but never track its contents.
+archives/**
+!archives/.gitkeep
+
 # Husky
 .husky/_/
 
