@@ -24,7 +24,12 @@
     "test:apis": "node scripts/npm/integrations.js",
     "examples": "node scripts/npm/examples.js",
     "postinstall": "husky install",
-    "fix:css": "postcss assets/css/*.css --dir assets/css --replace"
+    "fix:css": "postcss assets/css/*.css --dir assets/css --replace || true",
+    "render": "bash scripts/render_gh_pages.sh --no-clean",
+    "render:clean": "bash scripts/render_gh_pages.sh --clean",
+    "preview": "bash scripts/render_gh_pages.sh --no-clean --preview",
+    "start": "npm run fix:css && npm run render && npm run preview",
+    "start:clean": "npm run fix:css && npm run render:clean && npm run preview"
   },
   "keywords": [
     "portfolio",
