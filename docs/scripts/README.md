@@ -1,38 +1,57 @@
 # Scripts Documentation
 
-Documentation for all scripts and automation tools in the JJB Gallery repository.
+Documentation for the repository automation scripts under `scripts/`.
 
 ## 📋 Available Documentation
 
-- **[Scripts Overview](./scripts.md)** - Complete guide to all repository scripts
-- **[NPM Scripts](./npm-README.md)** - NPM-related scripts and tools
+- **[Scripts Overview](./scripts.md)** - What each script does, prerequisites, and usage examples
+- **[NPM Scripts & Utilities](./npm-README.md)** - `scripts/npm/*` plus the root `package.json` shortcuts
 
-## 🛠️ Script Categories
+## 🧭 Quick Navigation
 
-### Rendering Scripts
-- `render_gh_pages.sh` - Render all GitHub Pages content
-- `render_randomforest.sh` - Render Quarto documents
-- `rerender_gh_pages.sh` - Re-render for GitHub Pages
+- **Repository scripts directory**: `../../scripts/README.md`
+- **Root npm shortcuts** (recommended entry points):
+  - `npm run clean:resource-forks`
+  - `npm run prevent:resource-forks`
+  - `npm run setup:external`
+  - `npm run verify:storage`
+  - `npm run clean:disk`
+  - `npm run test:apis`
 
-### System Management
-- `free_ram.sh` - Free up system resources
-- `cleanup-macos-resource-forks.sh` - Clean macOS resource forks
-- `prevent-resource-forks.sh` - Prevent resource fork creation
+## 🛠️ Script Categories (high level)
 
-### Cloud & Remote
-- `setup_cloud_sandbox.sh` - Configure cloud development environments
-- `use_cloud_sandbox.sh` - Use cloud sandbox for execution
-- `launch_codespace.sh` - Launch GitHub Codespaces
+### Rendering (Quarto / GitHub Pages)
 
-### Storage & Setup
-- `setup-external-storage.sh` - Configure external storage
-- `verify-external-storage.sh` - Verify storage configuration
+- **`render_gh_pages.sh`**: Render the full site defined by `_quarto.yml` (`--preview`, `--no-clean`)
+- **`render_randomforest.sh`**: Render `Quarto/randomforest.qmd` and start a preview server (`HOST`, `PORT`)
+- **`rerender_gh_pages.sh`**: Legacy one-off flow that renders `randomforest.qmd` and moves it to `index.html`
+- **`fix_quarto_rendering.sh`**: Helper for Quarto kernel timeout / freeze workflows
+
+### macOS resource fork hygiene (._* files)
+
+- **`archive-macos-resource-forks.sh`**: Move `._*` files into `archives/macos-resource-forks/` (`--dry-run`, `--quiet`)
+- **`cleanup-macos-resource-forks.sh`**: Wrapper for the archiver (kept for backwards compatibility)
+- **`prevent-resource-forks.sh`**: Adds shell exports to reduce future `._*` creation (one-time setup)
+
+### Storage & disk-space management
+
+- **`setup-external-storage.sh`**: Configure caches to live on an external drive (also exposed as `npm run setup:external`)
+- **`verify-external-storage.sh`**: Verify your storage/caching setup (also exposed as `npm run verify:storage`)
+- **`free_ram.sh`**: Aggressive cache cleanup across tools; optional process termination via `KILL_IDLE_PROCESSES=yes`
+- **`scripts/npm/cleanup-disk-space.sh`**: Node/npm-focused cleanup (also exposed as `npm run clean:disk`)
+
+### Cloud & remote execution
+
+- **`setup_cloud_sandbox.sh`**: Interactive setup for Codespaces/SSH/Docker sandbox execution
+- **`use_cloud_sandbox.sh`**: Run Python in the configured sandbox (reads `.cloud_sandbox/config.env`)
+- **`launch_codespace.sh`**: Create/open a GitHub Codespace via `gh`
 
 ### Git & SSH
-- `setup_git_ssh.sh` - Configure Git SSH keys
+
+- **`setup_git_ssh.sh`**: Interactive SSH key setup and optional remote conversion (HTTPS → SSH)
 
 ## 📚 Related Documentation
 
-- [Setup Guides](../setup/) - Initial setup
-- [Development Guides](../development/) - Development workflows
+- [Setup Guides](../setup/) - Initial setup and external storage workflows
+- [Development Guides](../development/) - Git protocol and remote environment guidance
 

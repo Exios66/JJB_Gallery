@@ -254,6 +254,6 @@ fi
 ## 📚 Related Documentation
 
 - [NPM Setup Guide](NPM_SETUP.md)
-- [Python Requirements](requirements-minimal.txt)
-- [Scripts Documentation](scripts/scripts.md)
+- [Python Requirements](../../requirements/requirements-minimal.txt)
+- [Scripts Documentation](../scripts/scripts.md)
 
