@@ -1,7 +1,3 @@
-# Prevent macOS from creating resource fork files
-* -apple-extension
-* -apple-resource-fork
-
 # Auto-detect text files and normalize line endings
 * text=auto
 
@@ -15,5 +11,5 @@
 *.woff2 binary
 *.ttf binary
 *.eot binary
-*.svg binary
+*.svg text
 *.pdf binary
