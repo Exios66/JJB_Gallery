@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://exios66.github.io/JJB_Gallery/sitemap.xml
+
+# Disallow build artifacts
+Disallow: /_build/
+Disallow: /.quarto/
+Disallow: /site_libs/

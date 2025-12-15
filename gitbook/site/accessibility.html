@@ -1,0 +1,27 @@
+<!-- Skip to content link for accessibility -->
+<a href="#quarto-content" class="skip-to-content-link" style="position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden;">Skip to main content</a>
+<script>
+  // Make skip link visible on focus
+  document.addEventListener('DOMContentLoaded', function() {
+    const skipLink = document.querySelector('.skip-to-content-link');
+    if (skipLink) {
+      skipLink.addEventListener('focus', function() {
+        this.style.position = 'absolute';
+        this.style.left = '10px';
+        this.style.top = '10px';
+        this.style.width = 'auto';
+        this.style.height = 'auto';
+        this.style.background = '#2c3e50';
+        this.style.color = '#fff';
+        this.style.padding = '10px 15px';
+        this.style.zIndex = '10000';
+        this.style.textDecoration = 'none';
+        this.style.borderRadius = '4px';
+      });
+      skipLink.addEventListener('blur', function() {
+        this.style.position = 'absolute';
+        this.style.left = '-9999px';
+      });
+    }
+  });
+</script>
