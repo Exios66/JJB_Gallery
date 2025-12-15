@@ -63,3 +63,11 @@ graph TD
 - **Transport**: TLS/SSL for all external communication.
 - **Authentication**: API Key validation at the Proxy level.
 - **Isolation**: Components run in isolated Docker containers.
+
+---
+
+<div align="center">
+
+**Copyright © Existential Ventures LLC, 2025. All Rights Reserved.**
+
+</div>

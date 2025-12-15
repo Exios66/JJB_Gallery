@@ -258,3 +258,9 @@ Comprehensive documentation is available in the [`docs/`](docs/) directory:
 - **[Projects](docs/projects/)** - Project-specific documentation
 
 ---
+
+<div align="center">
+
+**Copyright © Existential Ventures LLC, 2025. All Rights Reserved.**
+
+</div>

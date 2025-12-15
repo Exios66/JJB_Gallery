@@ -60,3 +60,11 @@ Always tag your Docker images or git releases. To rollback:
 * [Docker Deployment](./DOCKER.md)
 * [Kubernetes Deployment](./KUBERNETES.md)
 * [Security Hardening](../security/PRODUCTION_HARDENING.md)
+
+---
+
+<div align="center">
+
+**Copyright © Existential Ventures LLC, 2025. All Rights Reserved.**
+
+</div>

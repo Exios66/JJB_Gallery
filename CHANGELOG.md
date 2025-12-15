@@ -135,3 +135,11 @@
 ### Removed
 
 - N/A
+
+---
+
+<div align="center">
+
+**Copyright © Existential Ventures LLC, 2025. All Rights Reserved.**
+
+</div>

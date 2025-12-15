@@ -119,3 +119,11 @@ This repository makes use of open-source tools and packages (see `requirements.t
 ---
 
 Thank you for helping keep the project and its users secure!
+
+---
+
+<div align="center">
+
+**Copyright © Existential Ventures LLC, 2025. All Rights Reserved.**
+
+</div>

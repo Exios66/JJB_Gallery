@@ -152,3 +152,11 @@ When adding new documentation:
 - [Main Repository README](../README.md)
 - [Changelog](../CHANGELOG.md)
 - [License](../LICENSE)
+
+---
+
+<div align="center">
+
+**Copyright © Existential Ventures LLC, 2025. All Rights Reserved.**
+
+</div>

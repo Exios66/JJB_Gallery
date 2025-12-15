@@ -105,6 +105,14 @@ If you get `ENOSPC: no space left on device`:
 
 ## 📚 Documentation
 
-- [NPM Setup](NPM_SETUP.md) - Complete NPM configuration guide
-- [External Storage Setup](EXTERNAL_STORAGE_SETUP.md) - External drive configuration
+- [NPM Setup](docs/setup/NPM_SETUP.md) - Complete NPM configuration guide
+- [External Storage Setup](docs/setup/EXTERNAL_STORAGE_SETUP.md) - External drive configuration
 - [API Integrations](scripts/npm/README.md) - API client usage
+
+---
+
+<div align="center">
+
+**Copyright © Existential Ventures LLC, 2025. All Rights Reserved.**
+
+</div>

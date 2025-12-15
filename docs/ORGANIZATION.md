@@ -185,3 +185,11 @@ When adding new documentation:
 - **Category READMEs**: Each subdirectory has a README with links
 - **Search**: Use your editor's search to find specific topics
 - **Project READMEs**: See individual project directories for project-specific docs
+
+---
+
+<div align="center">
+
+**Copyright © Existential Ventures LLC, 2025. All Rights Reserved.**
+
+</div>
