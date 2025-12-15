@@ -21,7 +21,7 @@ JJB_Gallery/
 
 **Architecture**: Pipeline-based
 
-```
+```mermaid
 Documents → Text Splitter → Embeddings → Vector Store (FAISS)
                                               ↓
                                          Query → Retrieval
@@ -30,6 +30,7 @@ Documents → Text Splitter → Embeddings → Vector Store (FAISS)
 ```
 
 **Components**:
+
 - **Document Loader**: Handles multiple file formats
 - **Text Splitter**: Chunks documents for processing
 - **Embedding Model**: Creates vector representations
@@ -48,6 +49,7 @@ User Input → Rating Collection → Pairwise Comparisons → Score Calculation
 ```
 
 **Components**:
+
 - **TLXRating**: Individual dimension ratings
 - **TLXPairwiseComparison**: Weight calculation
 - **TLXResult**: Complete assessment result
@@ -64,6 +66,7 @@ Frontend (SvelteKit) → API Routes → LLM Backend
 ```
 
 **Components**:
+
 - **Frontend**: SvelteKit components
 - **API Routes**: Server-side endpoints
 - **Database**: MongoDB for chat history
@@ -80,6 +83,7 @@ Browser → Flask Server → ChatBot → LLM Provider
 ```
 
 **Components**:
+
 - **Frontend**: HTML/CSS/JavaScript
 - **Backend**: Flask application
 - **API**: RESTful endpoints
@@ -96,6 +100,7 @@ Client → LiteLLM Proxy → Provider Router → LLM Providers
 ```
 
 **Components**:
+
 - **Proxy Server**: FastAPI application
 - **Router**: Provider selection and routing
 - **Adapters**: Provider-specific adapters
@@ -114,6 +119,7 @@ User Request → Crew Selection → Agent Swarm → Task Execution
 ```
 
 **Components**:
+
 - **Agents**: Specialized AI agents
 - **Crews**: Agent swarms
 - **Tasks**: Workflow definitions
@@ -125,6 +131,7 @@ User Request → Crew Selection → Agent Swarm → Task Execution
 ### 1. Factory Pattern
 
 Used in:
+
 - **RAG Model**: Embedding model selection
 - **CrewAI**: Agent and crew creation
 - **LiteLLM**: Provider initialization
@@ -132,6 +139,7 @@ Used in:
 ### 2. Strategy Pattern
 
 Used in:
+
 - **LiteLLM**: Provider selection
 - **CrewAI**: LLM provider switching
 - **RAG Model**: Embedding model selection
@@ -139,6 +147,7 @@ Used in:
 ### 3. Repository Pattern
 
 Used in:
+
 - **RAG Model**: Vector store abstraction
 - **ChatUi**: MongoDB data access
 - **Psychometrics**: Result storage
@@ -146,6 +155,7 @@ Used in:
 ### 4. Adapter Pattern
 
 Used in:
+
 - **LiteLLM**: Provider API adaptation
 - **RAG Model**: LLM provider integration
 - **ChatUi**: Multiple backend support
@@ -181,6 +191,7 @@ Client → Server → Async Task → Background Processing → Response
 ### Direct Integration
 
 Projects directly calling LLM APIs:
+
 - iOS Chatbot
 - Terminal Agents
 - CrewAI
@@ -188,12 +199,14 @@ Projects directly calling LLM APIs:
 ### Proxy Integration
 
 Projects using proxy layer:
+
 - ChatUi (can use LiteLLM proxy)
 - LiteLLM (proxy server)
 
 ### Abstraction Layer
 
 Projects with abstraction:
+
 - LiteLLM (unified API)
 - RAG Model (provider-agnostic)
 
@@ -294,4 +307,3 @@ Projects with abstraction:
 - [Project Overview](Project-Overview.md)
 - [API Reference](API-Reference.md)
 - [Development Setup](Development-Setup.md)
-
