@@ -1,40 +1,52 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Prevent macOS Resource Fork File Creation
-# Configures environment to prevent ._* files from being created
-# This is a one-time setup script
+# Configures your shell environment to reduce `._*` file creation on macOS.
+# This is a one-time setup script.
 
-set -e
+set -euo pipefail
 
-ZSHRC="$HOME/.zshrc"
-ENV_VAR="COPYFILE_DISABLE=1"
-
-echo "🔧 Configuring macOS to prevent resource fork file creation..."
+echo "Configuring shell to prevent macOS resource fork file creation..."
 echo ""
 
-# Check if already configured
-if grep -q "COPYFILE_DISABLE" "$ZSHRC" 2>/dev/null; then
-    echo "✅ COPYFILE_DISABLE is already configured in $ZSHRC"
-    echo ""
-    echo "Current configuration:"
-    grep "COPYFILE_DISABLE" "$ZSHRC" | head -3
-    echo ""
-    echo "💡 To apply changes, run: source $ZSHRC"
-    exit 0
+# Prefer the rc file matching the current shell; fall back to bash/zsh defaults.
+RC_FILE=""
+CURRENT_SHELL="${SHELL:-}"
+
+if [[ "$CURRENT_SHELL" == *"zsh" ]]; then
+  RC_FILE="$HOME/.zshrc"
+elif [[ "$CURRENT_SHELL" == *"bash" ]]; then
+  RC_FILE="$HOME/.bashrc"
+else
+  if [[ -f "$HOME/.zshrc" ]]; then
+    RC_FILE="$HOME/.zshrc"
+  else
+    RC_FILE="$HOME/.bashrc"
+  fi
 fi
 
-# Add configuration
-echo "Adding COPYFILE_DISABLE=1 to $ZSHRC..."
-echo "" >> "$ZSHRC"
-echo "# Prevent macOS resource fork files (._*)" >> "$ZSHRC"
-echo "export COPYFILE_DISABLE=1" >> "$ZSHRC"
+if [[ -z "$RC_FILE" ]]; then
+  echo "Error: Could not determine shell rc file." >&2
+  exit 1
+fi
 
-echo "✅ Configuration added to $ZSHRC"
+if grep -q "COPYFILE_DISABLE" "$RC_FILE" 2>/dev/null; then
+  echo "COPYFILE_DISABLE is already configured in $RC_FILE"
+  echo ""
+  echo "To apply changes, run: source $RC_FILE"
+  exit 0
+fi
+
+echo "Adding COPYFILE_DISABLE=1 to $RC_FILE..."
+{
+  echo ""
+  echo "# Prevent macOS resource fork files (._*)"
+  echo "export COPYFILE_DISABLE=1"
+  echo "export COPY_EXTENDED_ATTRIBUTES_DISABLE=1"
+} >> "$RC_FILE"
+
 echo ""
-echo "📝 To apply immediately, run:"
-echo "   source $ZSHRC"
+echo "Done. To apply immediately, run:"
+echo "  source $RC_FILE"
 echo ""
-echo "Or restart your terminal."
-echo ""
-echo "💡 This prevents macOS from creating ._* files when copying/moving files."
-echo "   Note: This only affects new operations. Existing ._* files won't be removed."
-echo "   Use scripts/cleanup-macos-resource-forks.sh to remove existing files."
+echo "Note: This only affects new operations. Existing ._* files can be archived via:"
+echo "  ./scripts/cleanup-macos-resource-forks.sh"

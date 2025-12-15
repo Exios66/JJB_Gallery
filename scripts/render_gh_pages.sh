@@ -32,6 +32,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 QUARTO_CONFIG="$REPO_ROOT/_quarto.yml"
 BUILD_DIR="$REPO_ROOT/_build/quarto"
+RESOURCE_FORK_ARCHIVER="$REPO_ROOT/scripts/archive-macos-resource-forks.sh"
 
 # Parse command line arguments
 CLEAN_BUILD=true
@@ -79,16 +80,11 @@ log_error() {
     echo -e "${RED}✗${NC} $1" >&2
 }
 
-setup_python_env() {
-    # Set up Python environment for Quarto
-    if [[ -d "$REPO_ROOT/.venv" ]]; then
-        export QUARTO_PYTHON="$REPO_ROOT/.venv/bin/python"
-        log_info "Using Python from .venv: $QUARTO_PYTHON"
-    elif [[ -d "$REPO_ROOT/venv" ]]; then
-        export QUARTO_PYTHON="$REPO_ROOT/venv/bin/python"
-        log_info "Using Python from venv: $QUARTO_PYTHON"
-    else
-        log_info "No virtual environment found, using system Python"
+archive_resource_forks() {
+    # Move any `._*` files out of the working tree into archives/
+    # (keeps repo clean; avoids Quarto trying to interpret `._*` as dirs)
+    if [[ -f "$RESOURCE_FORK_ARCHIVER" ]]; then
+        bash "$RESOURCE_FORK_ARCHIVER" --quiet || true
     fi
 }
 
@@ -138,14 +134,8 @@ clean_build_artifacts() {
         # Prevent macOS from creating ._ resource fork files
         export COPYFILE_DISABLE=1
         export COPY_EXTENDED_ATTRIBUTES_DISABLE=1
-        
-        # Remove macOS resource fork files and directories (._*) that cause Quarto errors
-        # Exclude .git directory to avoid breaking git operations
-        local resource_forks=$(find "$REPO_ROOT" -name "._*" \( -type f -o -type d \) ! -path "*/.git/*" 2>/dev/null | wc -l | tr -d ' ')
-        if [[ "$resource_forks" -gt 0 ]]; then
-            find "$REPO_ROOT" -name "._*" \( -type f -o -type d \) ! -path "*/.git/*" -delete 2>/dev/null
-            log_success "Removed $resource_forks macOS resource fork files and directories"
-        fi
+
+        archive_resource_forks
         
         # Remove build directory
         if [[ -d "$BUILD_DIR" ]]; then
@@ -203,24 +193,9 @@ render_quarto_site() {
     # Prevent macOS from creating ._ resource fork files
     export COPYFILE_DISABLE=1
     export COPY_EXTENDED_ATTRIBUTES_DISABLE=1
-    
-    # Pre-render cleanup: Remove any ._ files from Quarto output directories
-    # This prevents Quarto from trying to process them as directories
-    local quarto_dirs=(
-        "$REPO_ROOT/Quarto"
-        "$REPO_ROOT/Quarto/randomforest_files"
-        "$REPO_ROOT/projects"
-    )
-    
-    for dir in "${quarto_dirs[@]}"; do
-        if [[ -d "$dir" ]]; then
-            local count=$(find "$dir" -name "._*" \( -type f -o -type d \) 2>/dev/null | wc -l | tr -d ' ')
-            if [[ "$count" -gt 0 ]]; then
-                find "$dir" -name "._*" \( -type f -o -type d \) -delete 2>/dev/null
-                log_info "Pre-render cleanup: removed $count ._ files/directories from $(basename "$dir")"
-            fi
-        fi
-    done
+
+    # Pre-render sweep: archive any existing `._*` files
+    archive_resource_forks
     
     # Render the website (this renders all pages in _quarto.yml)
     # Suppress sitemap errors which are non-critical when output-dir is root
@@ -262,13 +237,8 @@ render_quarto_site() {
     # Clean up log file
     rm -f "$render_log"
     
-    # Clean up any ._ files and directories that may have been created during render
-    # Exclude .git directory to avoid breaking git operations
-    local resource_forks=$(find "$REPO_ROOT" -name "._*" \( -type f -o -type d \) ! -path "*/.git/*" 2>/dev/null | wc -l | tr -d ' ')
-    if [[ "$resource_forks" -gt 0 ]]; then
-        find "$REPO_ROOT" -name "._*" \( -type f -o -type d \) ! -path "*/.git/*" -delete 2>/dev/null
-        log_success "Cleaned up $resource_forks macOS resource fork files and directories created during render"
-    fi
+    # Post-render sweep: archive any `._*` created during rendering
+    archive_resource_forks
 }
 
 verify_outputs() {
@@ -409,6 +379,9 @@ main() {
     # Prevent macOS from creating ._ resource fork files globally
     export COPYFILE_DISABLE=1
     export COPY_EXTENDED_ATTRIBUTES_DISABLE=1
+
+    # Always archive early so scripts don't interact with `._*` paths
+    archive_resource_forks
     
     # Pre-flight checks
     check_quarto
@@ -419,13 +392,8 @@ main() {
     render_quarto_site
     verify_outputs
     
-    # Final cleanup of any ._ files and directories
-    # Exclude .git directory to avoid breaking git operations
-    local final_cleanup=$(find "$REPO_ROOT" -name "._*" \( -type f -o -type d \) ! -path "*/.git/*" 2>/dev/null | wc -l | tr -d ' ')
-    if [[ "$final_cleanup" -gt 0 ]]; then
-        find "$REPO_ROOT" -name "._*" \( -type f -o -type d \) ! -path "*/.git/*" -delete 2>/dev/null
-        log_success "Final cleanup: removed $final_cleanup macOS resource fork files and directories"
-    fi
+    # Final sweep of any remaining `._*`
+    archive_resource_forks
     
     # Summary
     print_summary
