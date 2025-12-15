@@ -5,7 +5,7 @@ project:
     - index.qmd
     - CHANGELOG.md
     - SECURITY.md
-    - projects/CrewAI/README.md
+    - projects/Crewai/README.md
     - projects/terminal_agents/README.md
     - projects/RAG_Model/README.md
     - projects/Psychometrics/README.md
@@ -16,24 +16,26 @@ project:
 
 website:
   title: "JJB Gallery"
+  site-url: "https://exios66.github.io/JJB_Gallery/"
+  repo-url: "https://github.com/Exios66/JJB_Gallery"
   navbar:
     background: dark
     left:
       - href: index.html
         text: Home
-      - href: projects/CrewAI/README.md
+      - href: projects/Crewai/README.html
         text: CrewAI
-      - href: projects/terminal_agents/README.md
+      - href: projects/terminal_agents/README.html
         text: Terminal Agents
-      - href: projects/RAG_Model/README.md
+      - href: projects/RAG_Model/README.html
         text: RAG Model
-      - href: projects/Psychometrics/README.md
+      - href: projects/Psychometrics/README.html
         text: Psychometrics
-      - href: projects/ChatUi/README.md
+      - href: projects/ChatUi/README.html
         text: ChatUi
-      - href: projects/ios_chatbot/README.md
+      - href: projects/ios_chatbot/README.html
         text: iOS Chatbot
-      - href: projects/litellm/README.md
+      - href: projects/litellm/README.html
         text: LiteLLM
       - href: Quarto/randomforest.html
         text: Random Forests

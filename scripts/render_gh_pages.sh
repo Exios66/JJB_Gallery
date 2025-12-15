@@ -79,19 +79,6 @@ log_error() {
     echo -e "${RED}✗${NC} $1" >&2
 }
 
-setup_python_env() {
-    # Set up Python environment for Quarto
-    if [[ -d "$REPO_ROOT/.venv" ]]; then
-        export QUARTO_PYTHON="$REPO_ROOT/.venv/bin/python"
-        log_info "Using Python from .venv: $QUARTO_PYTHON"
-    elif [[ -d "$REPO_ROOT/venv" ]]; then
-        export QUARTO_PYTHON="$REPO_ROOT/venv/bin/python"
-        log_info "Using Python from venv: $QUARTO_PYTHON"
-    else
-        log_info "No virtual environment found, using system Python"
-    fi
-}
-
 check_quarto() {
     if ! command -v quarto &> /dev/null; then
         log_error "Quarto CLI is not installed or not in PATH."
@@ -278,7 +265,7 @@ verify_outputs() {
         "index.html"
         "CHANGELOG.html"
         "SECURITY.html"
-        "projects/CrewAI/README.html"
+        "projects/Crewai/README.html"
         "projects/terminal_agents/README.html"
         "projects/RAG_Model/README.html"
         "projects/Psychometrics/README.html"
@@ -383,7 +370,7 @@ print_summary() {
     echo "  • index.html (Home)"
     echo "  • CHANGELOG.html"
     echo "  • SECURITY.html"
-    echo "  • projects/CrewAI/README.html"
+    echo "  • projects/Crewai/README.html"
     echo "  • projects/terminal_agents/README.html"
     echo "  • Quarto/randomforest.html"
     echo ""

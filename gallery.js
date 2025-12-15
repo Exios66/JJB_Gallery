@@ -25,6 +25,13 @@
 
     let currentImageIndex = 0;
 
+    // If no images are configured, disable the UI affordance.
+    if (viewAllBtn && galleryImages.length === 0) {
+      viewAllBtn.disabled = true;
+      viewAllBtn.textContent = 'Gallery (coming soon)';
+      viewAllBtn.setAttribute('aria-disabled', 'true');
+    }
+
     // Populate gallery grid with images
     function populateGallery() {
       if (galleryImages.length === 0) {

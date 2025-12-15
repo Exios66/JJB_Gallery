@@ -58,6 +58,10 @@ Desktop.ini
 *.temp
 .cache/
 
+# Core dumps (Linux)
+core
+core.*
+
 # Python (keep existing)
 __pycache__/
 *.py[cod]
@@ -70,7 +74,7 @@ ENV/
 env/
 
 # Quarto
-_quarto.yml
+# NOTE: `_quarto.yml` is the Quarto website config and should be tracked.
 .quarto/
 
 # Jupyter

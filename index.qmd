@@ -90,7 +90,7 @@ machine learning, AI/LLM integration, and technical writing.
 | Project | Description | Link |
 |----------------------|-----------------------------------|------------------|
 | **Random Forest Essentials** | **\[New\]** Comprehensive analysis with interactive plots, decision boundaries, and ROC curves. | [📊 **View Interactive Analysis**](Quarto/randomforest.html) |
-| **CrewAI Multi-Agent Swarm System** | Multi-agent architecture using CrewAI, with specialized swarms for ML, research, business intelligence, and documentation; includes Streamlit & CLI interfaces. | [🚀 **Launch Swarm**](#interactive-agent-swarm) \| [📄 Docs](projects/CrewAI/README.html) |
+| **CrewAI Multi-Agent Swarm System** | Multi-agent architecture using CrewAI, with specialized swarms for ML, research, business intelligence, and documentation; includes Streamlit & CLI interfaces. | [🚀 **Launch Swarm**](#interactive-agent-swarm) \| [📄 Docs](projects/Crewai/README.html) |
 | **Psychometrics (NASA TLX)** | **\[New\]** Comprehensive psychometric assessment toolkit implementing the NASA Task Load Index (TLX) for workload measurement with statistical analysis. Used in the Neural Architecture of Truth & Deception research project. | [📊 **View Project**](projects/Psychometrics/README.html) \| [🔗 **NATD API**](https://exios66.github.io/NATD-API/) \| [🧠 **NATD Repository**](https://github.com/Exios66/truth-deception-architecture) |
 | **RAG Model Application** | **\[New\]** Complete Retrieval-Augmented Generation system with vector database, embeddings, and intelligent document retrieval using FAISS and Ollama. | [🔍 **View Project**](projects/RAG_Model/README.html) |
 | **Chat UI (SvelteKit)** | **\[New\]** Modern, open-source chat interface for LLM interactions with support for multiple backends (OpenAI, Ollama, Hugging Face) and real-time streaming. | [💬 **View Project**](projects/ChatUi/README.html) |
@@ -167,11 +167,11 @@ Intelligence), you can run the Streamlit interface locally.
     ```
 
 4.  **Launch the Swarm Interface**:
-    `bash     streamlit run projects/CrewAI/interface_web.py`
+    `bash     streamlit run projects/Crewai/interface_web.py`
 
 [**📂 Browse Source
-Code**](https://github.com/Exios66/JJB_Gallery/tree/main/projects/CrewAI)
-\| [**📄 View Documentation**](projects/CrewAI/README.html)
+Code**](https://github.com/Exios66/JJB_Gallery/tree/main/projects/Crewai)
+\| [**📄 View Documentation**](projects/Crewai/README.html)
 
 ------------------------------------------------------------------------
 
@@ -334,7 +334,7 @@ JJB_Gallery/
 
 -   [Terminal Agents Project](projects/terminal_agents/README.html) - AI
     coding agents for terminal
--   [CrewAI Multi-Agent System](projects/CrewAI/README.html) - Multi-agent
+-   [CrewAI Multi-Agent System](projects/Crewai/README.html) - Multi-agent
     orchestration
 -   [Psychometrics (NASA TLX)](projects/Psychometrics/README.html) -
     Workload assessment toolkit

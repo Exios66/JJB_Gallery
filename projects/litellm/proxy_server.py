@@ -11,12 +11,12 @@ from fastapi import FastAPI, HTTPException, Request
 from fastapi.responses import StreamingResponse
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
-import uvicorn
 
 try:
-    from litellm import completion, acompletion
+    import litellm
     LITELLM_AVAILABLE = True
 except ImportError:
+    litellm = None  # type: ignore[assignment]
     LITELLM_AVAILABLE = False
     print("Warning: litellm not available. Install with: pip install litellm")
 
@@ -59,6 +59,7 @@ class ChatResponse(BaseModel):
 async def root():
     """Root endpoint."""
     return {
+        "name": "LiteLLM Proxy Server",
         "service": "LiteLLM Proxy Server",
         "status": "running",
         "litellm_available": LITELLM_AVAILABLE
@@ -104,6 +105,12 @@ async def list_models():
     return {"data": models, "object": "list"}
 
 
+@app.get("/v1/models")
+async def list_models_v1():
+    """OpenAI-compatible models endpoint."""
+    return await list_models()
+
+
 @app.post("/v1/chat/completions")
 async def chat_completions(request: ChatRequest):
     """
@@ -133,7 +140,7 @@ async def chat_completions(request: ChatRequest):
         if request.stream:
             async def generate():
                 try:
-                    response = await acompletion(**params, stream=True)
+                    response = await litellm.acompletion(**params, stream=True)
                     async for chunk in response:
                         yield f"data: {chunk.model_dump_json()}\n\n"
                     yield "data: [DONE]\n\n"
@@ -143,7 +150,7 @@ async def chat_completions(request: ChatRequest):
             return StreamingResponse(generate(), media_type="text/event-stream")
         
         # Non-streaming response
-        response = completion(**params)
+        response = litellm.completion(**params)
         
         # Format response in OpenAI-compatible format
         return {
@@ -182,7 +189,7 @@ async def completions(request: dict):
         )
     
     try:
-        response = completion(
+        response = litellm.completion(
             model=request.get("model", "gpt-3.5-turbo"),
             prompt=request.get("prompt", ""),
             temperature=request.get("temperature", 0.7),
@@ -206,6 +213,7 @@ async def completions(request: dict):
 
 
 if __name__ == "__main__":
+    import uvicorn
     port = int(os.getenv("PORT", 8000))
     host = os.getenv("HOST", "0.0.0.0")
     
