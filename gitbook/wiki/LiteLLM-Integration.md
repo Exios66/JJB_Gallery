@@ -326,3 +326,11 @@ ollama serve
 - [Configuration Guide](Configuration-Guide.md)
 - [API Reference](API-Reference.md)
 
+---
+
+<div align="center">
+
+**Copyright © Existential Ventures LLC, 2025. All Rights Reserved.**
+
+</div>
+

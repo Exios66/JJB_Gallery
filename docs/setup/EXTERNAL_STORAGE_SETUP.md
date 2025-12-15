@@ -257,3 +257,11 @@ fi
 - [Python Requirements](requirements-minimal.txt)
 - [Scripts Documentation](scripts/scripts.md)
 
+---
+
+<div align="center">
+
+**Copyright © Existential Ventures LLC, 2025. All Rights Reserved.**
+
+</div>
+

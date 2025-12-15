@@ -363,3 +363,11 @@ See main repository LICENSE file.
 - [SvelteKit Documentation](https://kit.svelte.dev/)
 - [Svelte Documentation](https://svelte.dev/)
 - [Chat UI by Hugging Face](https://github.com/huggingface/chat-ui)
+
+---
+
+<div align="center">
+
+**Copyright © Existential Ventures LLC, 2025. All Rights Reserved.**
+
+</div>

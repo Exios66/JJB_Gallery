@@ -354,3 +354,11 @@ server: { port: 5174 }
 - [Quick Start](Quick-Start.md)
 - [Troubleshooting](Troubleshooting.md)
 
+---
+
+<div align="center">
+
+**Copyright © Existential Ventures LLC, 2025. All Rights Reserved.**
+
+</div>
+

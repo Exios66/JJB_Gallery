@@ -356,3 +356,11 @@ While most projects use Python, NPM is used for:
 
 Python dependencies are managed separately in `requirements.txt` and `requirements-minimal.txt`.
 
+---
+
+<div align="center">
+
+**Copyright © Existential Ventures LLC, 2025. All Rights Reserved.**
+
+</div>
+

@@ -123,3 +123,11 @@ Quick fixes:
 - [NPM_SETUP.md](NPM_SETUP.md) - NPM configuration details
 - [QUICK_START.md](QUICK_START.md) - Quick start guide
 
+---
+
+<div align="center">
+
+**Copyright © Existential Ventures LLC, 2025. All Rights Reserved.**
+
+</div>
+

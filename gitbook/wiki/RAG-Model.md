@@ -266,3 +266,11 @@ for doc_set in document_sets:
 - [Configuration Guide](Configuration-Guide.md)
 - [API Reference](API-Reference.md)
 
+---
+
+<div align="center">
+
+**Copyright © Existential Ventures LLC, 2025. All Rights Reserved.**
+
+</div>
+

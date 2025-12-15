@@ -342,3 +342,11 @@ def test_with_mock(mock_openai):
 - [Contributing Guidelines](Contributing-Guidelines.md)
 - [Architecture Overview](Architecture-Overview.md)
 
+---
+
+<div align="center">
+
+**Copyright © Existential Ventures LLC, 2025. All Rights Reserved.**
+
+</div>
+

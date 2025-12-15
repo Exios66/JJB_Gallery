@@ -58,3 +58,11 @@ Set up alerts for critical conditions:
 ## Health Checks
 
 Implement active health checks using tools like **Uptime Kuma** or AWS Route53 Health Checks against the service endpoints.
+
+---
+
+<div align="center">
+
+**Copyright © Existential Ventures LLC, 2025. All Rights Reserved.**
+
+</div>

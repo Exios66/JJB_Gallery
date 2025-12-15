@@ -237,3 +237,11 @@ Check browser console and server logs for detailed error messages. Ensure your A
 - [Configuration Guide](Configuration-Guide.md)
 - [API Reference](API-Reference.md)
 
+---
+
+<div align="center">
+
+**Copyright © Existential Ventures LLC, 2025. All Rights Reserved.**
+
+</div>
+

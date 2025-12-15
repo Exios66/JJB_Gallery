@@ -23,3 +23,11 @@ See [Security Policy](./SECURITY.md) for details on reporting security vulnerabi
 - [Development Guides](../development/) - Development best practices
 - [Setup Guides](../setup/) - Secure configuration
 
+---
+
+<div align="center">
+
+**Copyright © Existential Ventures LLC, 2025. All Rights Reserved.**
+
+</div>
+

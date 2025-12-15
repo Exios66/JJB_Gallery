@@ -176,3 +176,11 @@ pip install -r requirements.txt
 - [Configuration Guide](Configuration-Guide.md)
 - [Quick Start](Quick-Start.md)
 
+---
+
+<div align="center">
+
+**Copyright © Existential Ventures LLC, 2025. All Rights Reserved.**
+
+</div>
+

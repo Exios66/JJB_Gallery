@@ -97,3 +97,11 @@ Use Kubernetes Secrets for sensitive data:
 ```bash
 kubectl create secret generic chatui-secrets --from-env-file=.env.production
 ```
+
+---
+
+<div align="center">
+
+**Copyright © Existential Ventures LLC, 2025. All Rights Reserved.**
+
+</div>

@@ -274,3 +274,11 @@ See main repository LICENSE file.
 - [CrewAI](../CrewAI/README.md) - Multi-Agent System
 - [Terminal Agents](../terminal_agents/README.md) - AI Coding Assistant
 - [LiteLLM](../litellm/README.md) - Unified LLM API
+
+---
+
+<div align="center">
+
+**Copyright © Existential Ventures LLC, 2025. All Rights Reserved.**
+
+</div>

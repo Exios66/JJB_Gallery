@@ -403,3 +403,11 @@ Inspired by [OpenCode](https://opencode.ai) and similar terminal-based AI coding
 ---
 
 **Made with ❤️ for developers who love the terminal**
+
+---
+
+<div align="center">
+
+**Copyright © Existential Ventures LLC, 2025. All Rights Reserved.**
+
+</div>

@@ -153,3 +153,11 @@ For issues or questions:
 
 See the main repository LICENSE file.
 
+---
+
+<div align="center">
+
+**Copyright © Existential Ventures LLC, 2025. All Rights Reserved.**
+
+</div>
+

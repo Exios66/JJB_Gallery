@@ -186,5 +186,12 @@ chmod +x test_all.sh
 - Check [Troubleshooting](Troubleshooting.md) guide
 - Review project-specific README files
 - Check GitHub Issues
-- Contact: jackburleson.dev@gmail.com
+- Contact: <jackburleson.dev@gmail.com>
 
+---
+
+<div align="center">
+
+**Copyright © Existential Ventures LLC, 2025. All Rights Reserved.**
+
+</div>

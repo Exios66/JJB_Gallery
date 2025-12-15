@@ -195,6 +195,7 @@ npm run test:coverage
 ### Docstrings
 
 **Python**:
+
 ```python
 def function(param: str) -> str:
     """
@@ -258,6 +259,7 @@ node --inspect app.js
 ### VS Code
 
 **Extensions**:
+
 - Python
 - Pylance
 - Black Formatter
@@ -265,6 +267,7 @@ node --inspect app.js
 - Prettier
 
 **Settings** (`.vscode/settings.json`):
+
 ```json
 {
   "python.formatting.provider": "black",
@@ -307,6 +310,7 @@ chore: maintenance tasks
 ### GitHub Actions
 
 Projects may include GitHub Actions workflows:
+
 - **Tests**: Run on PR
 - **Linting**: Check code style
 - **Build**: Build artifacts
@@ -318,3 +322,10 @@ Projects may include GitHub Actions workflows:
 - [Testing Guide](Testing-Guide.md)
 - [Installation Guide](Installation-Guide.md)
 
+---
+
+<div align="center">
+
+**Copyright © Existential Ventures LLC, 2025. All Rights Reserved.**
+
+</div>

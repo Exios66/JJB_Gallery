@@ -66,3 +66,11 @@ docker-compose up -d --build
     volumes:
       - ./data:/app/data
 ```
+
+---
+
+<div align="center">
+
+**Copyright © Existential Ventures LLC, 2025. All Rights Reserved.**
+
+</div>

@@ -36,3 +36,11 @@ Documentation for all scripts and automation tools in the JJB Gallery repository
 - [Setup Guides](../setup/) - Initial setup
 - [Development Guides](../development/) - Development workflows
 
+---
+
+<div align="center">
+
+**Copyright © Existential Ventures LLC, 2025. All Rights Reserved.**
+
+</div>
+

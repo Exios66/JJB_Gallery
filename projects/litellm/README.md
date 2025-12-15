@@ -207,3 +207,11 @@ See main repository LICENSE file.
 - [ChatUi](../ChatUi/README.md) - Modern Chat Interface
 - [iOS Chatbot](../ios_chatbot/README.md) - Flask-based Chatbot
 - [CrewAI](../CrewAI/README.md) - Multi-Agent System
+
+---
+
+<div align="center">
+
+**Copyright © Existential Ventures LLC, 2025. All Rights Reserved.**
+
+</div>

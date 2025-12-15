@@ -307,3 +307,11 @@ Projects with abstraction:
 - [Project Overview](Project-Overview.md)
 - [API Reference](API-Reference.md)
 - [Development Setup](Development-Setup.md)
+
+---
+
+<div align="center">
+
+**Copyright © Existential Ventures LLC, 2025. All Rights Reserved.**
+
+</div>

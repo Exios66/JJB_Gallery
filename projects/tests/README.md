@@ -281,3 +281,11 @@ When adding new tests:
 
 This test suite is part of the JJB Gallery portfolio. See the main repository LICENSE file.
 
+---
+
+<div align="center">
+
+**Copyright © Existential Ventures LLC, 2025. All Rights Reserved.**
+
+</div>
+

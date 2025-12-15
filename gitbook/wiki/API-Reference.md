@@ -440,3 +440,11 @@ export LITELLM_MASTER_KEY=sk-1234
 - [Project Overview](Project-Overview.md)
 - [Configuration Guide](Configuration-Guide.md)
 - [Architecture Overview](Architecture-Overview.md)
+
+---
+
+<div align="center">
+
+**Copyright © Existential Ventures LLC, 2025. All Rights Reserved.**
+
+</div>

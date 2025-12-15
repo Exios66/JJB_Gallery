@@ -134,3 +134,11 @@ After setup, test the connection:
 ```
 
 This will show you if the Python path is correct.
+
+---
+
+<div align="center">
+
+**Copyright © Existential Ventures LLC, 2025. All Rights Reserved.**
+
+</div>

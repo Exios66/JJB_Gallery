@@ -345,3 +345,11 @@ git add .gitattributes
 - Works well with your current setup
 
 Both work great! Choose based on your preference for automation vs simplicity.
+
+---
+
+<div align="center">
+
+**Copyright © Existential Ventures LLC, 2025. All Rights Reserved.**
+
+</div>

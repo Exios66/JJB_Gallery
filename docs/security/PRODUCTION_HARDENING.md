@@ -43,3 +43,11 @@ This guide outlines security best practices for hardening JJB Gallery deployment
 1. **Prompt Injection**: Implement guardrails to detect and block malicious prompts.
 2. **Data Leakage**: Ensure private data sent to RAG systems is sanitized and encrypted at rest.
 3. **Output Validation**: Sanitize LLM outputs before rendering to prevent XSS.
+
+---
+
+<div align="center">
+
+**Copyright © Existential Ventures LLC, 2025. All Rights Reserved.**
+
+</div>

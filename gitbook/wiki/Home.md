@@ -5,6 +5,7 @@ Welcome to the comprehensive wiki for the **JJB Gallery** repository - a portfol
 ## 📚 Wiki Contents
 
 ### Getting Started
+
 - [Installation Guide](Installation-Guide.md)
 - [Quick Start](Quick-Start.md)
 - [Project Overview](Project-Overview.md)
@@ -12,19 +13,23 @@ Welcome to the comprehensive wiki for the **JJB Gallery** repository - a portfol
 ### Core Projects
 
 #### AI & Machine Learning
+
 - [RAG Model](RAG-Model.md) - Retrieval-Augmented Generation system
 - [CrewAI Multi-Agent System](CrewAI-Multi-Agent-System.md) - Multi-agent workflows
 - [Psychometrics](Psychometrics.md) - NASA TLX assessment tools
 
 #### Chat Interfaces
+
 - [ChatUi](ChatUi.md) - Modern SvelteKit chat interface
 - [iOS Chatbot](iOS-Chatbot.md) - iOS-inspired chatbot with Flask
 
 #### LLM Integration
+
 - [LiteLLM Integration](LiteLLM-Integration.md) - Unified LLM API proxy
 - [Terminal Agents](Terminal-Agents.md) - AI coding agents for terminal
 
 ### Documentation
+
 - [Architecture Overview](Architecture-Overview.md)
 - [API Reference](API-Reference.md)
 - [LLM Setup Guide](LLM-Setup.md)
@@ -32,6 +37,7 @@ Welcome to the comprehensive wiki for the **JJB Gallery** repository - a portfol
 - [Troubleshooting](Troubleshooting.md)
 
 ### Development
+
 - [Contributing Guidelines](Contributing-Guidelines.md)
 - [Development Setup](Development-Setup.md)
 - [Testing Guide](Testing-Guide.md)
@@ -66,8 +72,8 @@ This repository serves as the official portfolio and gallery for **Jack J. Burle
 
 ## 📞 Contact & Support
 
-- **Email**: jackburleson.dev@gmail.com
-- **Website**: https://jackburleson.dev
+- **Email**: <jackburleson.dev@gmail.com>
+- **Website**: <https://jackburleson.dev>
 - **GitHub**: [@Exios66](https://github.com/Exios66)
 - **LinkedIn**: [jack-j-burleson](https://linkedin.com/in/jack-j-burleson)
 
@@ -80,3 +86,10 @@ This repository is licensed under the MIT License. See [LICENSE](../LICENSE) for
 **Last Updated**: 2024-11-30  
 **Repository**: [JJB_Gallery](https://github.com/Exios66/JJB_Gallery)
 
+---
+
+<div align="center">
+
+**Copyright © Existential Ventures LLC, 2025. All Rights Reserved.**
+
+</div>

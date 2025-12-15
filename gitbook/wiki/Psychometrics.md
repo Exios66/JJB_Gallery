@@ -271,3 +271,11 @@ Get statistics for all results or specific task.
 - [Installation Guide](Installation-Guide.md)
 - [Configuration Guide](Configuration-Guide.md)
 
+---
+
+<div align="center">
+
+**Copyright © Existential Ventures LLC, 2025. All Rights Reserved.**
+
+</div>
+

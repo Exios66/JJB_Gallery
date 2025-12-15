@@ -72,3 +72,11 @@ git push -u origin main
 - Links use relative paths within wiki
 - Code blocks should specify language for syntax highlighting
 
+---
+
+<div align="center">
+
+**Copyright © Existential Ventures LLC, 2025. All Rights Reserved.**
+
+</div>
+

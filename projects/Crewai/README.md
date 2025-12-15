@@ -367,3 +367,11 @@ This project is part of the JJB Gallery portfolio. See the main repository LICEN
 - [RAG Model](../RAG_Model/README.md) - Document Q&A
 - [LiteLLM](../litellm/README.md) - LLM proxy server
 - [Terminal Agents](../terminal_agents/README.md) - Terminal AI agent
+
+---
+
+<div align="center">
+
+**Copyright © Existential Ventures LLC, 2025. All Rights Reserved.**
+
+</div>

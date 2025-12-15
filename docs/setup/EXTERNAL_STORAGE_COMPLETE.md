@@ -117,3 +117,11 @@ After setup, all caches should point to external drive:
 
 **Ready to use!** Run `npm run setup:external` to configure everything automatically.
 
+---
+
+<div align="center">
+
+**Copyright © Existential Ventures LLC, 2025. All Rights Reserved.**
+
+</div>
+

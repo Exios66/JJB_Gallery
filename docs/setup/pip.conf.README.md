@@ -44,3 +44,11 @@ pip cache dir
 - If the drive is not mounted, pip will use default cache location
 - Run `npm run verify:storage` to check all configurations
 
+---
+
+<div align="center">
+
+**Copyright © Existential Ventures LLC, 2025. All Rights Reserved.**
+
+</div>
+

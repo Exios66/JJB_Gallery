@@ -26,3 +26,11 @@ Development guides and technical documentation for working with the JJB Gallery 
 - [Setup Guides](../setup/) - Initial setup and configuration
 - [Scripts Documentation](../scripts/) - Automation and scripts
 - [Project Documentation](../projects/) - Project-specific guides
+
+---
+
+<div align="center">
+
+**Copyright © Existential Ventures LLC, 2025. All Rights Reserved.**
+
+</div>

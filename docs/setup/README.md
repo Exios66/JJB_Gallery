@@ -29,3 +29,11 @@ This directory contains all setup and configuration guides for the JJB Gallery r
 - Storage setup is recommended before installing large dependencies
 - Configuration files can be customized for your environment
 
+---
+
+<div align="center">
+
+**Copyright © Existential Ventures LLC, 2025. All Rights Reserved.**
+
+</div>
+

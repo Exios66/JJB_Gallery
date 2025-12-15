@@ -214,3 +214,11 @@ Thank you for contributing! 🎉
 - [Development Setup](Development-Setup.md)
 - [Testing Guide](Testing-Guide.md)
 - [Architecture Overview](Architecture-Overview.md)
+
+---
+
+<div align="center">
+
+**Copyright © Existential Ventures LLC, 2025. All Rights Reserved.**
+
+</div>

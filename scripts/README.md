@@ -421,3 +421,11 @@ If the script fails:
 - Verify authentication: `gh auth status`
 - Check Codespace quota: `gh api user/codespaces`
 - Manually create: Go to GitHub → Code → Codespaces → Create codespace
+
+---
+
+<div align="center">
+
+**Copyright © Existential Ventures LLC, 2025. All Rights Reserved.**
+
+</div>

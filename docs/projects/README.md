@@ -5,6 +5,7 @@ Project-specific documentation for individual projects in the JJB Gallery.
 ## 📋 Available Projects
 
 ### CrewAI Multi-Agent System
+
 - **[LLM Setup](./crewai/LLM_SETUP.md)** - Configuration for LLM providers (Ollama, OpenAI, Anthropic, etc.)
 - **[Test Instructions](./crewai/TEST_INSTRUCTIONS.md)** - How to test the CrewAI system
 - **[Tools Summary](./crewai/TOOLS_SUMMARY.md)** - Overview of available tools and agents
@@ -27,3 +28,10 @@ For complete project documentation, see the README files in each project directo
 - [Development Guides](../development/) - Development workflows
 - [Scripts Documentation](../scripts/) - Automation tools
 
+---
+
+<div align="center">
+
+**Copyright © Existential Ventures LLC, 2025. All Rights Reserved.**
+
+</div>
