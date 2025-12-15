@@ -11,7 +11,8 @@ httpx>=0.24.0
 fastapi>=0.104.0
 
 # Mocking and fixtures
-unittest-mock>=1.0.1
+# NOTE: The stdlib `unittest.mock` is available in Python 3.x, so no extra
+# package is needed here. (The PyPI package name `unittest-mock` does not exist.)
 
 # Test utilities
 coverage>=7.3.0
