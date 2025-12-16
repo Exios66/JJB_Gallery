@@ -1,0 +1,13 @@
+# Monorepo Python requirements (convenience entrypoint)
+#
+# Many docs reference: `pip install -r requirements.txt`
+# The actual dependency lists live under `requirements/` and per-project folders.
+#
+# This file intentionally includes:
+# - a lightweight core set (covers most notebooks/docs/tools)
+# - test dependencies (so `import pytest` resolves for the test suite)
+
+-r requirements/requirements-minimal.txt
+-r projects/tests/requirements.txt
+
+

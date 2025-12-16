@@ -106,7 +106,7 @@ print(f"Weighted TLX Score: {result.weighted_tlx_score:.2f}")
 
 The raw TLX score is the unweighted average of all six dimension ratings:
 
-```
+```bash
 Raw TLX = (Mental + Physical + Temporal + Performance + Effort + Frustration) / 6
 ```
 
@@ -266,7 +266,7 @@ Get statistics for all results or specific task.
 
 ## References
 
-- Hart, S. G., & Staveland, L. E. (1988). Development of NASA-TLX (Task Load Index): Results of empirical and theoretical research. *Advances in psychology*, 52, 139-183. <https://humansystems.arc.nasa.gov/groups/tlx/>
+- Hart, S. G., & Staveland, L. E. (1988). Development of NASA-TLX (Task Load Index): Results of empirical and theoretical research. _Advances in psychology_, 52, 139-183. <https://humansystems.arc.nasa.gov/groups/tlx/>
 - [NASA TLX Official Documentation](https://humansystems.arc.nasa.gov/groups/tlx/)
 
 ## Related Documentation
