@@ -55,12 +55,13 @@ export OPENAI_MODEL_NAME=gpt-4o-mini  # Affordable option
 ```
 
 **Models Available:**
+
 - `gpt-4` - Most capable (expensive)
 - `gpt-4-turbo` - Fast GPT-4 variant
 - `gpt-4o-mini` - Affordable, recommended
 - `gpt-3.5-turbo` - Fast and economical
 
-**Get API Key:** https://platform.openai.com/api-keys
+**Get API Key:** <https://platform.openai.com/api-keys>
 
 ### Anthropic Claude
 
@@ -70,11 +71,12 @@ export ANTHROPIC_MODEL=claude-3-5-sonnet-20241022
 ```
 
 **Models Available:**
+
 - `claude-3-5-sonnet-20241022` - Latest, most capable
 - `claude-3-opus` - Most powerful
 - `claude-3-haiku` - Fast and efficient
 
-**Get API Key:** https://console.anthropic.com/
+**Get API Key:** <https://console.anthropic.com/>
 
 ### Google Gemini (Free Tier Available)
 
@@ -84,10 +86,11 @@ export GOOGLE_MODEL=gemini-pro
 ```
 
 **Models Available:**
+
 - `gemini-pro` - General purpose
 - `gemini-pro-vision` - Multimodal
 
-**Get API Key:** https://ai.google.dev
+**Get API Key:** <https://ai.google.dev>
 
 ### Azure OpenAI
 
@@ -213,12 +216,14 @@ echo $GOOGLE_API_KEY
 ### Test Provider Connection
 
 **OpenAI:**
+
 ```bash
 curl https://api.openai.com/v1/models \
   -H "Authorization: Bearer $OPENAI_API_KEY"
 ```
 
 **Anthropic:**
+
 ```bash
 curl https://api.anthropic.com/v1/messages \
   -H "x-api-key: $ANTHROPIC_API_KEY" \
@@ -339,11 +344,11 @@ GOOGLE_MODEL=gemini-pro
 
 ## Additional Resources
 
-- **Ollama:** https://ollama.ai
-- **OpenAI:** https://platform.openai.com
-- **Anthropic:** https://console.anthropic.com
-- **Google AI Studio:** https://ai.google.dev
-- **Azure OpenAI:** https://azure.microsoft.com/en-us/products/ai-services/openai-service
+- **Ollama:** <https://ollama.ai>
+- **OpenAI:** <https://platform.openai.com>
+- **Anthropic:** <https://console.anthropic.com>
+- **Google AI Studio:** <https://ai.google.dev>
+- **Azure OpenAI:** <https://azure.microsoft.com/en-us/products/ai-services/openai-service>
 
 ## Related Documentation
 
@@ -351,4 +356,3 @@ GOOGLE_MODEL=gemini-pro
 - [CrewAI Multi-Agent System](CrewAI-Multi-Agent-System) - CrewAI-specific LLM setup
 - [Installation Guide](Installation-Guide) - Project installation instructions
 - [Troubleshooting](Troubleshooting) - Common issues and solutions
-

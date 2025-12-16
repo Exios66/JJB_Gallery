@@ -5,6 +5,7 @@ Welcome to the comprehensive wiki for the **JJB Gallery** repository - a portfol
 ## 📚 Wiki Contents
 
 ### Getting Started
+
 - [Installation Guide](Installation-Guide)
 - [Quick Start](Quick-Start)
 - [Project Overview](Project-Overview)
@@ -12,19 +13,23 @@ Welcome to the comprehensive wiki for the **JJB Gallery** repository - a portfol
 ### Core Projects
 
 #### AI & Machine Learning
+
 - [RAG Model](RAG-Model) - Retrieval-Augmented Generation system
 - [CrewAI Multi-Agent System](CrewAI-Multi-Agent-System) - Multi-agent workflows
 - [Psychometrics](Psychometrics) - NASA TLX assessment tools
 
 #### Chat Interfaces
+
 - [ChatUi](ChatUi) - Modern SvelteKit chat interface
 - [iOS Chatbot](iOS-Chatbot) - iOS-inspired chatbot with Flask
 
 #### LLM Integration
+
 - [LiteLLM Integration](LiteLLM-Integration) - Unified LLM API proxy
 - [Terminal Agents](Terminal-Agents) - AI coding agents for terminal
 
 ### Documentation
+
 - [Architecture Overview](Architecture-Overview)
 - [API Reference](API-Reference)
 - [LLM Setup Guide](LLM-Setup)
@@ -32,6 +37,7 @@ Welcome to the comprehensive wiki for the **JJB Gallery** repository - a portfol
 - [Troubleshooting](Troubleshooting)
 
 ### Development
+
 - [Contributing Guidelines](Contributing-Guidelines)
 - [Development Setup](Development-Setup)
 - [Testing Guide](Testing-Guide)
@@ -66,8 +72,8 @@ This repository serves as the official portfolio and gallery for **Jack J. Burle
 
 ## 📞 Contact & Support
 
-- **Email**: jackburleson.dev@gmail.com
-- **Website**: https://jackburleson.dev
+- **Email**: <jackburleson.dev@gmail.com>
+- **Website**: <https://jackburleson.dev>
 - **GitHub**: [@Exios66](https://github.com/Exios66)
 - **LinkedIn**: [jack-j-burleson](https://linkedin.com/in/jack-j-burleson)
 
@@ -79,4 +85,3 @@ This repository is licensed under the MIT License. See [LICENSE](../LICENSE) for
 
 **Last Updated**: 2024-11-30  
 **Repository**: [JJB_Gallery](https://github.com/Exios66/JJB_Gallery)
-

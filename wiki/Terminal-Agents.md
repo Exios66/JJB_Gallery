@@ -100,6 +100,7 @@ OPENAI_API_KEY=your_api_key_here
 ### Code Analysis
 
 The agent can analyze code for:
+
 - Code quality issues
 - Performance problems
 - Security vulnerabilities
@@ -109,6 +110,7 @@ The agent can analyze code for:
 ### Code Explanation
 
 Get detailed explanations of:
+
 - Function behavior
 - Algorithm logic
 - Design patterns
@@ -117,6 +119,7 @@ Get detailed explanations of:
 ### Code Generation
 
 Generate code for:
+
 - Functions and classes
 - Complete applications
 - Test cases
@@ -125,6 +128,7 @@ Generate code for:
 ### Interactive Chat
 
 Engage in real-time conversation about:
+
 - Code questions
 - Programming concepts
 - Debugging help
@@ -132,7 +136,7 @@ Engage in real-time conversation about:
 
 ## Project Structure
 
-```
+```bash
 terminal_agents/
 ├── agent.py            # Main agent script
 ├── requirements.txt     # Dependencies
@@ -175,4 +179,3 @@ pip install -r requirements.txt
 - [Installation Guide](Installation-Guide)
 - [Configuration Guide](Configuration-Guide)
 - [Quick Start](Quick-Start)
-

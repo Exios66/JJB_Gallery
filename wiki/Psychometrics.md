@@ -27,6 +27,7 @@ The NASA TLX measures workload across six dimensions:
 6. **Frustration**: How insecure, discouraged, or annoyed were you?
 
 Each dimension is rated on a scale of 1-20, where:
+
 - 1 = Very Low
 - 20 = Very High
 
@@ -50,6 +51,7 @@ python main.py
 ```
 
 The tool will guide you through:
+
 1. Entering task and participant information
 2. Rating each of the six dimensions (1-20)
 3. Optional pairwise comparisons for weighted scores
@@ -119,7 +121,7 @@ The weighted TLX score uses pairwise comparisons to determine the relative impor
 3. Normalize to weights (0-1, sum to 1)
 4. Calculate weighted average:
 
-```
+```bash
 Weighted TLX = Σ(Weight_i × Rating_i)
 ```
 
@@ -208,6 +210,7 @@ stats = tlx.get_statistics(task_name="User Interface Evaluation")
 ### Dimension Analysis
 
 High scores in specific dimensions indicate:
+
 - **Mental Demand**: Complex cognitive tasks
 - **Physical Demand**: Physically strenuous tasks
 - **Temporal Demand**: Time pressure or rushed pace
@@ -225,7 +228,7 @@ High scores in specific dimensions indicate:
 
 ## File Structure
 
-```
+```bash
 Psychometrics/
 ├── nasa_tlx.py        # Core TLX implementation
 ├── main.py            # Interactive CLI
@@ -263,11 +266,10 @@ Get statistics for all results or specific task.
 
 ## References
 
-- Hart, S. G., & Staveland, L. E. (1988). Development of NASA-TLX (Task Load Index): Results of empirical and theoretical research. *Advances in psychology*, 52, 139-183.
+- Hart, S. G., & Staveland, L. E. (1988). Development of NASA-TLX (Task Load Index): Results of empirical and theoretical research. *Advances in psychology*, 52, 139-183. <https://humansystems.arc.nasa.gov/groups/tlx/>
 - [NASA TLX Official Documentation](https://humansystems.arc.nasa.gov/groups/tlx/)
 
 ## Related Documentation
 
-- [Installation Guide](Installation-Guide)
-- [Configuration Guide](Configuration-Guide)
-
+- <[Installation Guide](Installation-Guide)>
+- <[Configuration Guide](Configuration-Guide)>

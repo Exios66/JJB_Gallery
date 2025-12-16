@@ -6,7 +6,7 @@ High-level architecture and design patterns used across projects in the JJB Gall
 
 ### Overall Structure
 
-```
+```bash
 JJB_Gallery/
 ├── projects/           # Individual project implementations
 ├── docs/              # Documentation
@@ -21,7 +21,7 @@ JJB_Gallery/
 
 **Architecture**: Pipeline-based
 
-```
+```bash
 Documents → Text Splitter → Embeddings → Vector Store (FAISS)
                                               ↓
                                          Query → Retrieval
@@ -30,6 +30,7 @@ Documents → Text Splitter → Embeddings → Vector Store (FAISS)
 ```
 
 **Components**:
+
 - **Document Loader**: Handles multiple file formats
 - **Text Splitter**: Chunks documents for processing
 - **Embedding Model**: Creates vector representations
@@ -41,13 +42,14 @@ Documents → Text Splitter → Embeddings → Vector Store (FAISS)
 
 **Architecture**: Assessment Pipeline
 
-```
+```bash
 User Input → Rating Collection → Pairwise Comparisons → Score Calculation
                                                               ↓
                                                          Statistics & Export
 ```
 
 **Components**:
+
 - **TLXRating**: Individual dimension ratings
 - **TLXPairwiseComparison**: Weight calculation
 - **TLXResult**: Complete assessment result
@@ -57,13 +59,14 @@ User Input → Rating Collection → Pairwise Comparisons → Score Calculation
 
 **Architecture**: Client-Server (SvelteKit)
 
-```
+```bash
 Frontend (SvelteKit) → API Routes → LLM Backend
          ↓
     MongoDB (History)
 ```
 
 **Components**:
+
 - **Frontend**: SvelteKit components
 - **API Routes**: Server-side endpoints
 - **Database**: MongoDB for chat history
@@ -73,13 +76,14 @@ Frontend (SvelteKit) → API Routes → LLM Backend
 
 **Architecture**: Traditional Web App
 
-```
+```bash
 Browser → Flask Server → ChatBot → LLM Provider
               ↓
         In-Memory Storage (conversations)
 ```
 
 **Components**:
+
 - **Frontend**: HTML/CSS/JavaScript
 - **Backend**: Flask application
 - **API**: RESTful endpoints
@@ -89,13 +93,14 @@ Browser → Flask Server → ChatBot → LLM Provider
 
 **Architecture**: Proxy Server
 
-```
+```bash
 Client → LiteLLM Proxy → Provider Router → LLM Providers
                               ↓
                          Response Aggregation
 ```
 
 **Components**:
+
 - **Proxy Server**: FastAPI application
 - **Router**: Provider selection and routing
 - **Adapters**: Provider-specific adapters
@@ -105,7 +110,7 @@ Client → LiteLLM Proxy → Provider Router → LLM Providers
 
 **Architecture**: Multi-Agent System
 
-```
+```bash
 User Request → Crew Selection → Agent Swarm → Task Execution
                                       ↓
                                  Tool Execution
@@ -114,6 +119,7 @@ User Request → Crew Selection → Agent Swarm → Task Execution
 ```
 
 **Components**:
+
 - **Agents**: Specialized AI agents
 - **Crews**: Agent swarms
 - **Tasks**: Workflow definitions
@@ -125,6 +131,7 @@ User Request → Crew Selection → Agent Swarm → Task Execution
 ### 1. Factory Pattern
 
 Used in:
+
 - **RAG Model**: Embedding model selection
 - **CrewAI**: Agent and crew creation
 - **LiteLLM**: Provider initialization
@@ -132,6 +139,7 @@ Used in:
 ### 2. Strategy Pattern
 
 Used in:
+
 - **LiteLLM**: Provider selection
 - **CrewAI**: LLM provider switching
 - **RAG Model**: Embedding model selection
@@ -139,6 +147,7 @@ Used in:
 ### 3. Repository Pattern
 
 Used in:
+
 - **RAG Model**: Vector store abstraction
 - **ChatUi**: MongoDB data access
 - **Psychometrics**: Result storage
@@ -146,6 +155,7 @@ Used in:
 ### 4. Adapter Pattern
 
 Used in:
+
 - **LiteLLM**: Provider API adaptation
 - **RAG Model**: LLM provider integration
 - **ChatUi**: Multiple backend support
@@ -156,7 +166,7 @@ Used in:
 
 Most projects use synchronous request-response:
 
-```
+```bash
 Client → Server → LLM → Response → Client
 ```
 
@@ -164,7 +174,7 @@ Client → Server → LLM → Response → Client
 
 Projects supporting streaming:
 
-```
+```bash
 Client → Server → LLM (stream) → Chunks → Client
 ```
 
@@ -172,7 +182,7 @@ Client → Server → LLM (stream) → Chunks → Client
 
 Projects using async:
 
-```
+```bash
 Client → Server → Async Task → Background Processing → Response
 ```
 
@@ -181,6 +191,7 @@ Client → Server → Async Task → Background Processing → Response
 ### Direct Integration
 
 Projects directly calling LLM APIs:
+
 - iOS Chatbot
 - Terminal Agents
 - CrewAI
@@ -188,12 +199,14 @@ Projects directly calling LLM APIs:
 ### Proxy Integration
 
 Projects using proxy layer:
+
 - ChatUi (can use LiteLLM proxy)
 - LiteLLM (proxy server)
 
 ### Abstraction Layer
 
 Projects with abstraction:
+
 - LiteLLM (unified API)
 - RAG Model (provider-agnostic)
 
@@ -294,4 +307,3 @@ Projects with abstraction:
 - [Project Overview](Project-Overview)
 - [API Reference](API-Reference)
 - [Development Setup](Development-Setup)
-

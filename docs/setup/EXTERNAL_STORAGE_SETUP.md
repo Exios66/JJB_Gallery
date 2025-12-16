@@ -11,6 +11,7 @@ This repository is configured to store all storage-intensive files (npm cache, p
 ```
 
 This script will:
+
 - ✅ Create necessary directories on the external drive
 - ✅ Configure npm to use external drive for cache
 - ✅ Configure pip to use external drive for cache
@@ -44,7 +45,7 @@ pip cache dir
 
 ## 📁 Directory Structure on External Drive
 
-```
+```bash
 /Volumes/SEALED/DSHB/GALLERY/
 ├── .npm-cache/          # NPM package cache
 ├── .npm-tmp/            # NPM temporary files
@@ -162,6 +163,7 @@ The external drive must be mounted before running npm/pip commands. If the drive
 ### 4. Multiple Machines
 
 If working on multiple machines:
+
 - Each machine needs the external drive mounted
 - Configuration is per-machine
 - Consider using the same drive path on all machines
@@ -199,6 +201,7 @@ df -h ~
 ### Issue: "No space left on device" even after setup
 
 **Solution:**
+
 1. Verify external drive is mounted: `df -h | grep SEALED`
 2. Check npm is using external cache: `npm config get cache`
 3. Run cleanup: `npm run clean:disk`
@@ -207,6 +210,7 @@ df -h ~
 ### Issue: npm/pip still using local cache
 
 **Solution:**
+
 1. Check environment variables: `echo $NPM_CONFIG_CACHE`
 2. Reload shell config: `source ~/.zshrc` (or `~/.bashrc`)
 3. Verify `.npmrc` file has correct paths
@@ -215,6 +219,7 @@ df -h ~
 ### Issue: External drive not found
 
 **Solution:**
+
 1. Mount the USB drive
 2. Update `EXTERNAL_BASE` in `scripts/setup-external-storage.sh` if path changed
 3. Verify path: `ls /Volumes/SEALED/DSHB/GALLERY`
@@ -222,6 +227,7 @@ df -h ~
 ### Issue: Slow npm/pip operations
 
 **Solution:**
+
 - This is expected with USB drives
 - Consider using USB 3.0+ for better performance
 - For critical operations, temporarily use local storage
@@ -235,7 +241,9 @@ By moving storage to external drive, you can save significant local disk space:
 - **node_modules**: Varies by project (can be 100MB - 5GB+)
 - **Python venvs**: Typically 100MB - 500MB each
 
-**Total potential savings: 1GB - 10GB+ on local drive**
+### Total Potential Savings
+
+1GB - 10GB+ on local drive
 
 ## 🔄 Migration from Local to External
 
@@ -256,4 +264,3 @@ fi
 - [NPM Setup Guide](NPM_SETUP.md)
 - [Python Requirements](requirements-minimal.txt)
 - [Scripts Documentation](scripts/scripts.md)
-

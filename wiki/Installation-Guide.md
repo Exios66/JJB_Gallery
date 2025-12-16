@@ -31,6 +31,7 @@ chmod +x setup_all.sh
 ```
 
 This script will:
+
 - Install all Python dependencies
 - Install Node.js dependencies for ChatUi
 - Verify installations
@@ -82,6 +83,7 @@ python -c "from rag_system import RAGSystem; print('✓ RAG System installed')"
 ```
 
 **Dependencies:**
+
 - langchain
 - faiss-cpu (or faiss-gpu for GPU support)
 - sentence-transformers
@@ -99,6 +101,7 @@ python -c "from nasa_tlx import NASATLX; print('✓ NASA TLX installed')"
 ```
 
 **Dependencies:**
+
 - Standard library only (numpy, pandas optional for advanced analysis)
 
 ### ChatUi
@@ -112,6 +115,7 @@ npm run check
 ```
 
 **Dependencies:**
+
 - @sveltejs/kit
 - @huggingface/inference
 - mongodb
@@ -128,6 +132,7 @@ python -c "import app; print('✓ Flask app installed')"
 ```
 
 **Dependencies:**
+
 - Flask
 - flask-cors
 - python-dotenv
@@ -143,6 +148,7 @@ python -c "from litellm import completion; print('✓ LiteLLM installed')"
 ```
 
 **Dependencies:**
+
 - litellm
 - fastapi
 - uvicorn
@@ -159,6 +165,7 @@ python main.py --status
 ```
 
 **Dependencies:**
+
 - crewai
 - crewai-tools
 - streamlit
@@ -177,12 +184,14 @@ ollama pull mistral:7b
 
 ### MongoDB (for ChatUi)
 
-**Option 1: Docker**
+#### Option 1: Docker
+
 ```bash
 docker run -d -p 27017:27017 --name mongo-chatui mongo:latest
 ```
 
-**Option 2: MongoDB Atlas**
+#### Option 2: MongoDB Atlas
+
 1. Sign up at [mongodb.com/atlas](https://www.mongodb.com/atlas)
 2. Create a free cluster
 3. Get connection string
@@ -194,6 +203,7 @@ docker run -d -p 27017:27017 --name mongo-chatui mongo:latest
 Each project may require environment variables. See [Configuration Guide](Configuration-Guide) for details.
 
 **Quick setup:**
+
 ```bash
 # RAG Model
 cd projects/RAG_Model
@@ -265,8 +275,10 @@ npm install
 #### Port Conflicts
 
 If ports are already in use:
+
 - Change port in `.env` files
 - Or kill existing processes:
+
   ```bash
   lsof -i :5000  # Find process
   kill -9 <PID>   # Kill process
@@ -287,4 +299,3 @@ After installation:
 - [Configuration Guide](Configuration-Guide)
 - [Troubleshooting](Troubleshooting)
 - [Development Setup](Development-Setup)
-

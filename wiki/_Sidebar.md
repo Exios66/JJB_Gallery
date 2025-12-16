@@ -23,4 +23,3 @@
 * [Development Setup](Development-Setup)
 * [Testing Guide](Testing-Guide)
 * [Contributing Guidelines](Contributing-Guidelines)
-

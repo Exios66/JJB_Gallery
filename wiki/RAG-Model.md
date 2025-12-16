@@ -5,6 +5,7 @@ A complete Retrieval-Augmented Generation (RAG) system implementation with vecto
 ## Overview
 
 The RAG Model project implements a full RAG pipeline that:
+
 - Ingests and processes documents (TXT, MD, JSON)
 - Creates embeddings using transformer models
 - Stores embeddings in a vector database (FAISS)
@@ -28,6 +29,7 @@ pip install -r requirements.txt
 ```
 
 **Key Dependencies:**
+
 - langchain
 - faiss-cpu (or faiss-gpu)
 - sentence-transformers
@@ -43,6 +45,7 @@ python main.py
 ```
 
 The system will:
+
 1. Create sample documents if none exist
 2. Build or load the vector store
 3. Start an interactive query session
@@ -70,7 +73,18 @@ print(result['answer'])
 
 ## Architecture
 
+```bash
+# Architecture:
+# Documents → Text Split → Embeddings → Vector Store (FAISS)
+#                                           ↓
+#                                      Retrieval
+#                                           ↓
+#                                  Generation (LLM)
 ```
+
+# End of Selection
+
+```bash
 Documents → Text Split → Embeddings → Vector Store (FAISS)
                                               ↓
                                          Retrieval
@@ -95,6 +109,7 @@ RAG_DEFAULT_K=5
 ### Embedding Models
 
 **Recommended Models:**
+
 - `all-MiniLM-L6-v2` (default, fast, 384 dims)
 - `all-mpnet-base-v2` (better quality, 768 dims)
 - `all-MiniLM-L12-v2` (larger, 384 dims)
@@ -102,12 +117,14 @@ RAG_DEFAULT_K=5
 ### LLM Integration
 
 **Ollama (Local, Free):**
+
 ```bash
 ollama pull llama3.1:8b
 # Set RAG_LLM_MODEL=llama3.1:8b
 ```
 
 **OpenAI (Cloud, Paid):**
+
 ```bash
 export OPENAI_API_KEY=sk-...
 # Use OpenAI models in generation
@@ -148,7 +165,7 @@ rag.create_vector_store(documents, save=True)
 
 ## File Structure
 
-```
+```bash
 RAG_Model/
 ├── rag_system.py      # Core RAG implementation
 ├── main.py            # CLI interface
@@ -265,4 +282,3 @@ for doc_set in document_sets:
 - [Installation Guide](Installation-Guide)
 - [Configuration Guide](Configuration-Guide)
 - [API Reference](API-Reference)
-

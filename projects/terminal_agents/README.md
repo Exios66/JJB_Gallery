@@ -262,7 +262,7 @@ python agent.py chat "What is the difference between async and await in Python?"
 
 ## 📦 Project Structure
 
-```
+```bash
 terminal_agents/
 ├── agent.py              # Main agent application
 ├── config.py            # Configuration management

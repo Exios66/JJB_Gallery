@@ -28,6 +28,7 @@ The primary script for rendering all GitHub Pages content. Renders all Quarto pa
 #### What It Renders
 
 This script renders all pages configured in `_quarto.yml`:
+
 - ✅ `index.html` (Home page)
 - ✅ `CHANGELOG.html`
 - ✅ `SECURITY.html`
@@ -93,7 +94,7 @@ This script renders all pages configured in `_quarto.yml`:
 
 #### Prerequisites
 
-- Quarto CLI installed: https://quarto.org/docs/get-started/
+- Quarto CLI installed: <https://quarto.org/docs/get-started/>
 - Python environment (optional, but recommended)
 - All dependencies from `requirements/requirements.txt` installed
 
@@ -153,6 +154,7 @@ PORT=8080 ./scripts/render_randomforest.sh
 #### Preview Server
 
 After rendering, the script automatically:
+
 - Starts Quarto preview server on `http://127.0.0.1:4343`
 - Opens the URL in your default browser
 - Runs in background until you press Ctrl+C
@@ -163,13 +165,13 @@ After rendering, the script automatically:
 
 Legacy script that re-renders `Quarto/randomforest.qmd` and moves output to `index.html`. **Note**: This script is superseded by `render_gh_pages.sh` for most use cases.
 
-#### Usage
+#### How to Use
 
 ```bash
 ./scripts/rerender_gh_pages.sh
 ```
 
-#### What It Does
+#### Details
 
 1. ✅ Cleans up old `index.html` and Quarto cache/freeze directories
 2. ✅ Activates the virtual environment (if available)
@@ -177,7 +179,7 @@ Legacy script that re-renders `Quarto/randomforest.qmd` and moves output to `ind
 4. ✅ Moves the output HTML to `index.html` in the repository root
 5. ✅ Moves/updates the support files directory (`randomforest_files`) to the repository root
 
-#### When to Use
+#### When Should You Use This Script?
 
 Run this script when you make changes to `Quarto/randomforest.qmd` and want to update the public-facing page on GitHub Pages. However, `render_gh_pages.sh` is recommended for most use cases as it handles all pages.
 
@@ -199,12 +201,13 @@ Helps resolve kernel timeout errors when rendering Quarto documents with Python 
 2. Activates Python virtual environment if available
 3. Attempts to render the document to generate cache
 
-#### When to Use
+#### When Should You Use This Script?
 
-Use this script when you encounter:
-- Python kernel timeout errors during Quarto rendering
-- Issues with code execution in Quarto documents
-- Need to pre-generate frozen outputs for faster subsequent renders
+Use this script in the following situations:
+
+- You experience Python kernel timeout errors during Quarto rendering
+- There are issues with code execution in Quarto documents
+- You need to pre-generate frozen outputs to enable faster subsequent renders
 
 #### Additional Solutions
 
@@ -235,6 +238,7 @@ KILL_IDLE_PROCESSES=yes ./scripts/free_ram.sh
 #### What It Clears
 
 **Python & Development Tools:**
+
 - Python cache files: `__pycache__` directories, `.pyc`, `.pyo`, and `.py[cod]` files
 - Jupyter/IPython checkpoints: `.ipynb_checkpoints` directories
 - Quarto cache: Quarto freeze directories and user cache
@@ -245,6 +249,7 @@ KILL_IDLE_PROCESSES=yes ./scripts/free_ram.sh
 - Virtual environment caches: Cache files in `.venv`, `venv`, and `env` directories
 
 **Package Manager Caches:**
+
 - npm cache: Node.js package manager cache
 - yarn cache: Yarn package manager cache
 - Homebrew cache (macOS): Homebrew package cache
@@ -252,6 +257,7 @@ KILL_IDLE_PROCESSES=yes ./scripts/free_ram.sh
 - Go module cache: Go language module cache
 
 **System & Application Caches:**
+
 - Docker cache: Docker images, containers, and volumes (unused)
 - Browser caches: Chrome, Firefox, Safari caches (macOS)
 - IDE caches: VS Code, PyCharm, IntelliJ IDEA caches
@@ -261,6 +267,7 @@ KILL_IDLE_PROCESSES=yes ./scripts/free_ram.sh
 - DNS cache: System DNS resolver cache
 
 **System Resources (Optional):**
+
 - System page cache (Linux): Kernel page cache (requires sudo)
 - Swap files: Clear and reset swap (Linux, requires sudo)
 
@@ -310,7 +317,7 @@ KILL_IDLE_PROCESSES=yes ./scripts/free_ram.sh
 
 Moves macOS AppleDouble "dot-underscore" files (`._*`) into an archive directory to keep the repository clean while retaining artifacts for inspection.
 
-#### Usage
+#### How to Use
 
 ```bash
 # Archive resource fork files
@@ -381,6 +388,7 @@ One-time setup script that configures your shell environment to reduce `._*` fil
 #### Configuration
 
 The script modifies:
+
 - `~/.zshrc` (for zsh)
 - `~/.bashrc` or `~/.bash_profile` (for bash)
 
@@ -415,22 +423,26 @@ Configures remote Python environments to avoid local disk space usage. Particula
 #### Available Options
 
 **1. GitHub Codespaces (Recommended)**
+
 - Free tier: 60 hours/month
 - Automatic package installation
 - Full VS Code in browser
 - Zero local disk usage
 
 **2. Remote SSH Server**
+
 - Use existing remote server
 - Execute Python remotely
 - Requires SSH access
 
 **3. Docker Container**
+
 - Local containerized environment
 - Minimal local disk usage
 - Requires Docker installed
 
 **4. Replit/CodeSandbox**
+
 - Browser-based development
 - Free tiers available
 - Manual setup instructions
@@ -438,13 +450,16 @@ Configures remote Python environments to avoid local disk space usage. Particula
 #### What It Creates
 
 **For GitHub Codespaces:**
+
 - `.devcontainer/devcontainer.json` - VS Code dev container configuration
 - `.codespaces/README.md` - Setup instructions
 
 **For SSH:**
+
 - `.cloud_sandbox/config.env` - SSH configuration
 
 **For Docker:**
+
 - `Dockerfile.cloud` - Docker image definition
 - `docker-compose.cloud.yml` - Docker Compose configuration
 - `.cloud_sandbox/config.env` - Docker configuration
@@ -486,24 +501,29 @@ Executes Python commands in the configured remote/cloud environment.
 #### Supported Sandbox Types
 
 **GitHub Codespaces:**
+
 - Execute commands directly in the Codespace terminal
 - All packages are already installed
 
 **SSH:**
+
 - Connects to remote server via SSH
 - Executes Python commands remotely
 - Uses configured `REMOTE_PYTHON` path
 
 **Docker:**
+
 - Executes commands in Docker container
 - Uses `docker-compose.cloud.yml` configuration
 
 **Manual:**
+
 - Displays instructions from `.cloud_sandbox/REPLIT_SETUP.md`
 
 #### Configuration
 
 Configuration is stored in `.cloud_sandbox/config.env`:
+
 - `SANDBOX_TYPE` - Type of sandbox (github_codespaces, ssh, docker, manual)
 - `SSH_HOST` - SSH server address (for SSH type)
 - `REMOTE_PYTHON` - Python path on remote server (for SSH type)
@@ -547,17 +567,20 @@ Automatically creates and launches a GitHub Codespace in the free tier. Provides
 #### Installation
 
 **macOS:**
+
 ```bash
 brew install gh
 gh auth login
 ```
 
 **Linux:**
+
 ```bash
 # See https://cli.github.com/manual/installation
 ```
 
 **Windows:**
+
 ```bash
 winget install GitHub.cli
 gh auth login
@@ -566,6 +589,7 @@ gh auth login
 #### Troubleshooting
 
 If the script fails:
+
 - Ensure repository is pushed: `git push -u origin main`
 - Verify authentication: `gh auth status`
 - Check Codespace quota: `gh api user/codespaces`
@@ -588,18 +612,22 @@ Configures npm, pip, and other package managers to use an external USB drive for
 #### What It Configures
 
 **NPM:**
+
 - Cache directory: `$EXTERNAL_BASE/.npm-cache`
 - Temporary directory: `$EXTERNAL_BASE/.npm-tmp`
 - Global packages: `$EXTERNAL_BASE/.npm-global`
 
 **Pip:**
+
 - Cache directory: `$EXTERNAL_BASE/.pip-cache`
 - Installs `config/pip.conf` to `~/.pip/pip.conf`
 
 **Python Virtual Environments:**
+
 - Sets `WORKON_HOME` to `$EXTERNAL_BASE/.python-venvs`
 
 **Quarto:**
+
 - Cache directory: `$EXTERNAL_BASE/.quarto-cache`
 
 #### External Drive Path
@@ -690,6 +718,7 @@ Checks that all package managers are correctly configured to use the external dr
 #### Output
 
 The script provides color-coded output:
+
 - ✅ Green: Configuration correct
 - ⚠️ Yellow: Warning or missing configuration
 - ❌ Red: Error or incorrect configuration
@@ -697,6 +726,7 @@ The script provides color-coded output:
 #### Troubleshooting
 
 If verification fails:
+
 1. Ensure external drive is mounted
 2. Run `./scripts/setup-external-storage.sh` again
 3. Check that shell profile was updated
@@ -736,6 +766,7 @@ Configures SSH keys for GitHub and switches your repository to use SSH protocol.
 #### After Setup
 
 Once configured:
+
 - All `git push/pull` operations use SSH
 - No password prompts required
 - Works seamlessly with `gh` CLI commands
@@ -744,6 +775,7 @@ Once configured:
 #### Interactive Steps
 
 The script will:
+
 1. Ask for your GitHub email (if not in git config)
 2. Check for existing SSH keys
 3. Generate new key if needed
@@ -754,7 +786,7 @@ The script will:
 
 #### Adding Key to GitHub
 
-1. Go to: https://github.com/settings/keys
+1. Go to: <https://github.com/settings/keys>
 2. Click 'New SSH key'
 3. Paste your public key (already in clipboard if on macOS)
 4. Click 'Add SSH key'
@@ -762,6 +794,7 @@ The script will:
 #### Current Status
 
 Your repository currently uses HTTPS protocol. To switch to SSH, run:
+
 ```bash
 ./scripts/setup_git_ssh.sh
 ```
@@ -777,6 +810,7 @@ The `scripts/npm/` directory contains NPM-related scripts and utilities. See the
 ### Quick Overview
 
 **`scripts/npm/integrations.js`** - API client utilities for external services:
+
 - GitHub API
 - Hugging Face API
 - OpenAI API
@@ -787,6 +821,7 @@ The `scripts/npm/` directory contains NPM-related scripts and utilities. See the
 **`scripts/npm/examples.js`** - Example usage of all API clients
 
 **`scripts/npm/cleanup-disk-space.sh`** - Disk space cleanup script that cleans:
+
 - NPM cache
 - node_modules directories
 - Build artifacts
@@ -810,6 +845,7 @@ node scripts/npm/examples.js
 ### Environment Variables
 
 Set these in your `.env` file:
+
 ```env
 GITHUB_TOKEN=your_github_token
 HF_TOKEN=your_huggingface_token
@@ -905,6 +941,7 @@ source ~/.zshrc
 ### Quarto Rendering Issues
 
 **Problem**: Quarto not found
+
 ```bash
 # macOS
 brew install quarto
@@ -914,6 +951,7 @@ brew install quarto
 ```
 
 **Problem**: Python kernel timeout
+
 ```bash
 # Run fix script
 ./scripts/fix_quarto_rendering.sh
@@ -922,10 +960,12 @@ brew install quarto
 ```
 
 **Problem**: Build artifacts in wrong location
+
 - The script automatically moves old artifacts to `_build/quarto/`
 - Check `.gitignore` to ensure `_build/` is ignored
 
 **Problem**: macOS resource fork files (`._*`) causing issues
+
 ```bash
 # Archive existing files
 ./scripts/archive-macos-resource-forks.sh
@@ -937,16 +977,19 @@ brew install quarto
 ### Cloud Sandbox Issues
 
 **Problem**: SSH connection fails
+
 - Verify SSH host and credentials
 - Test connection manually: `ssh user@host`
 - Check `.cloud_sandbox/config.env` for correct settings
 
 **Problem**: Docker container won't start
+
 - Ensure Docker is installed and running
 - Check `docker-compose.cloud.yml` configuration
 - Verify Docker has sufficient resources
 
 **Problem**: Codespace creation fails
+
 - Verify repository is pushed to GitHub
 - Check GitHub CLI authentication: `gh auth status`
 - Verify Codespace quota: `gh api user/codespaces`
@@ -954,11 +997,13 @@ brew install quarto
 ### Storage Configuration Issues
 
 **Problem**: External drive not found
+
 - Verify drive is mounted
 - Check mount path in script (default: `/Volumes/SEALED/DSHB/GALLERY`)
 - Update `EXTERNAL_BASE` in script if using different path
 
 **Problem**: Package managers not using external drive
+
 - Run verification: `./scripts/verify-external-storage.sh`
 - Re-run setup: `./scripts/setup-external-storage.sh`
 - Ensure shell profile was updated and sourced
@@ -966,17 +1011,20 @@ brew install quarto
 ### Git SSH Issues
 
 **Problem**: SSH key not working
-- Verify key was added to GitHub: https://github.com/settings/keys
+
+- Verify key was added to GitHub: <https://github.com/settings/keys>
 - Test connection: `ssh -T git@github.com`
 - Check SSH agent: `ssh-add -l`
 
 **Problem**: Remote still using HTTPS
+
 - Run setup script again: `./scripts/setup_git_ssh.sh`
 - Or manually update: `git remote set-url origin git@github.com:USER/REPO.git`
 
 ### System Resource Issues
 
 **Problem**: Out of disk space
+
 ```bash
 # Free up RAM and caches
 ./scripts/free_ram.sh
@@ -989,6 +1037,7 @@ brew install quarto
 ```
 
 **Problem**: Script requires sudo but fails
+
 - Some operations (page cache, swap) require sudo
 - Script will skip these if sudo is not available
 - Run with sudo if needed: `sudo ./scripts/free_ram.sh` (use with caution)
@@ -1028,4 +1077,3 @@ brew install quarto
 ---
 
 *Last updated: 2024*
-

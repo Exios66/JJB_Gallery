@@ -49,12 +49,14 @@ kill -9 <PID>
 **Solutions**:
 
 1. **Verify API key is set**:
+
    ```bash
    echo $OPENAI_API_KEY
    echo $ANTHROPIC_API_KEY
    ```
 
 2. **Check key is in .env file**:
+
    ```bash
    cat .env | grep API_KEY
    ```
@@ -65,6 +67,7 @@ kill -9 <PID>
    - Check key has required permissions
 
 4. **Remove extra spaces or quotes**:
+
    ```bash
    # Bad
    OPENAI_API_KEY="sk-... "
@@ -367,6 +370,7 @@ dos2unix setup_all.sh
 ### When Asking for Help
 
 Include:
+
 - Project name and version
 - Error message (full traceback)
 - Steps to reproduce
@@ -395,4 +399,3 @@ Include:
 - [Installation Guide](Installation-Guide)
 - [Configuration Guide](Configuration-Guide)
 - [Quick Start](Quick-Start)
-

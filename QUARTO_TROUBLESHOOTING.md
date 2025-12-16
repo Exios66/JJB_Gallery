@@ -7,6 +7,7 @@ If you encounter "Kernel didn't respond in 60 seconds" errors when rendering:
 ### Quick Fix Option 1: Use Frozen Results Only
 
 Update `_quarto.yml` execute section:
+
 ```yaml
 execute:
   freeze: true  # Only use pre-computed results, skip execution
@@ -42,11 +43,13 @@ Or comment it out from the render list in `_quarto.yml`.
 ## Testing the Fix
 
 1. Try rendering again:
+
    ```bash
    ./scripts/render_gh_pages.sh
    ```
 
 2. If still failing, use freeze mode:
+
    ```yaml
    # In _quarto.yml
    execute:
@@ -54,6 +57,7 @@ Or comment it out from the render list in `_quarto.yml`.
    ```
 
 3. Or render randomforest separately:
+
    ```bash
    quarto render Quarto/randomforest.qmd
    ```

@@ -7,9 +7,11 @@ Comprehensive overview of all projects in the JJB Gallery repository.
 ### AI & Machine Learning
 
 #### RAG Model
+
 **Location**: `projects/RAG_Model/`
 
 A complete Retrieval-Augmented Generation system with:
+
 - Vector database (FAISS)
 - Document embeddings
 - Semantic search
@@ -20,9 +22,11 @@ A complete Retrieval-Augmented Generation system with:
 **Tech Stack**: Python, LangChain, FAISS, Sentence Transformers
 
 #### Psychometrics
+
 **Location**: `projects/Psychometrics/`
 
 NASA Task Load Index (TLX) assessment tool for:
+
 - Workload measurement
 - Cognitive load assessment
 - User experience research
@@ -34,9 +38,11 @@ NASA Task Load Index (TLX) assessment tool for:
 ### Chat Interfaces
 
 #### ChatUi
+
 **Location**: `projects/ChatUi/`
 
 Modern SvelteKit chat interface for:
+
 - LLM interactions
 - Multiple model support
 - Real-time streaming
@@ -47,9 +53,11 @@ Modern SvelteKit chat interface for:
 **Tech Stack**: SvelteKit, TypeScript, MongoDB
 
 #### iOS Chatbot
+
 **Location**: `projects/ios_chatbot/`
 
 iOS-inspired chatbot with:
+
 - Beautiful gradient UI
 - Flask backend
 - RESTful API
@@ -62,9 +70,11 @@ iOS-inspired chatbot with:
 ### LLM Integration
 
 #### LiteLLM Integration
+
 **Location**: `projects/litellm/`
 
 Unified LLM API access with:
+
 - Proxy server
 - Multiple provider support
 - OpenAI-compatible API
@@ -75,9 +85,11 @@ Unified LLM API access with:
 **Tech Stack**: Python, FastAPI, LiteLLM
 
 #### CrewAI Multi-Agent System
+
 **Location**: `projects/Crewai/`
 
 Multi-agent framework with:
+
 - Specialized agent swarms
 - Domain-specific tools
 - Web and CLI interfaces
@@ -88,9 +100,11 @@ Multi-agent framework with:
 **Tech Stack**: Python, CrewAI, Streamlit
 
 #### Terminal Agents
+
 **Location**: `projects/terminal_agents/`
 
 AI coding agents for terminal with:
+
 - Code analysis
 - Code generation
 - Interactive chat
@@ -115,23 +129,27 @@ AI coding agents for terminal with:
 ## Technology Stack Summary
 
 ### Languages
+
 - **Python**: Most projects
 - **JavaScript/TypeScript**: ChatUi
 - **HTML/CSS**: iOS Chatbot
 
 ### Frameworks
+
 - **Flask**: iOS Chatbot
 - **SvelteKit**: ChatUi
 - **FastAPI**: LiteLLM proxy
 - **Streamlit**: CrewAI web interface
 
 ### ML/AI Libraries
+
 - **LangChain**: RAG Model
 - **LiteLLM**: LiteLLM Integration
 - **CrewAI**: CrewAI System
 - **Sentence Transformers**: RAG Model
 
 ### Databases
+
 - **FAISS**: RAG Model (vector database)
 - **MongoDB**: ChatUi (chat history)
 
@@ -160,6 +178,7 @@ AI coding agents for terminal with:
 ### Common Dependencies
 
 Most Python projects share:
+
 - `pydantic` - Data validation
 - `python-dotenv` - Environment variables
 - `requests` - HTTP clients
@@ -190,6 +209,7 @@ Most Python projects share:
 ## Project Status
 
 All projects are:
+
 - ✅ **Complete**: Fully implemented
 - ✅ **Documented**: Comprehensive READMEs
 - ✅ **Tested**: Basic functionality verified
@@ -209,4 +229,3 @@ All projects are:
 - [Quick Start](Quick-Start)
 - [Configuration Guide](Configuration-Guide)
 - Individual project pages
-

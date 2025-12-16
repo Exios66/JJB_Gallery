@@ -23,6 +23,7 @@ pip install -r requirements.txt
 ```
 
 **Dependencies:**
+
 - Flask
 - flask-cors
 - python-dotenv
@@ -57,6 +58,7 @@ python app.py
 Send a chat message and get a response.
 
 **Request:**
+
 ```json
 {
   "message": "Hello, how are you?",
@@ -65,6 +67,7 @@ Send a chat message and get a response.
 ```
 
 **Response:**
+
 ```json
 {
   "conversation_id": "uuid-here",
@@ -159,6 +162,7 @@ class ChatBot:
 ### Styling
 
 Modify `static/style.css` to customize:
+
 - Colors and gradients
 - Font sizes and families
 - Spacing and layout
@@ -167,6 +171,7 @@ Modify `static/style.css` to customize:
 ### Backend Logic
 
 Modify `app.py` to:
+
 - Add conversation persistence (database)
 - Implement user authentication
 - Add message history
@@ -174,7 +179,7 @@ Modify `app.py` to:
 
 ## Project Structure
 
-```
+```bash
 ios_chatbot/
 ├── app.py                 # Flask application
 ├── templates/
@@ -250,4 +255,3 @@ CORS(app, resources={r"/api/*": {"origins": "https://yourdomain.com"}})
 - [Installation Guide](Installation-Guide)
 - [Configuration Guide](Configuration-Guide)
 - [API Reference](API-Reference)
-

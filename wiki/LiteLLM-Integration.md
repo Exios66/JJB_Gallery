@@ -162,6 +162,7 @@ PORT=8080 python proxy_server.py
 OpenAI-compatible chat completions endpoint.
 
 **Request:**
+
 ```json
 {
   "model": "gpt-3.5-turbo",
@@ -325,4 +326,3 @@ ollama serve
 - [Installation Guide](Installation-Guide)
 - [Configuration Guide](Configuration-Guide)
 - [API Reference](API-Reference)
-

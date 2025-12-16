@@ -1,33 +1,31 @@
+# Essential dependencies for the project
+
+# Core data science stack
 numpy
 pandas
-seaborn
-matplotlib
 scikit-learn
-jupyter
-quarto
-ipykernel
+
+# Visualization
+matplotlib
+seaborn
+
+# Jupyter environment
 notebook
-pytest
-black
-isort
-jupyterlab
-xgboost
-lightgbm
-catboost
-polars
-scipy
-quarto-cli
-pip
-importlib-metadata
-tabulate
+ipykernel
 ipython
-ipywidgets
 nbconvert
 nbformat
-jupyter-contrib-nbextensions
-jupyter-cache
-shap
+
+# Testing
+pytest
+
+# Code quality tools
+black
+isort
+
+# CrewAI Framework
 crewai
 crewai-tools
+
+# Pydantic for data validation
 pydantic
-streamlit

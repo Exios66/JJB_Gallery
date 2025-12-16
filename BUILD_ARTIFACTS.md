@@ -4,7 +4,7 @@
 
 After rendering, Quarto creates the following structure:
 
-```
+```bash
 JJB_Gallery/
 ├── index.html              # Rendered HTML files (in root for GitHub Pages)
 ├── CHANGELOG.html
@@ -36,7 +36,7 @@ The `render_gh_pages.sh` script automatically cleans up:
 
 If you see messages like:
 
-```
+```bash
 ⚠ Removed old directory: /path/to/site_libs (should be in _build/quarto/)
 ```
 

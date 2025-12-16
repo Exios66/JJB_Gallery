@@ -226,7 +226,7 @@ chmod +x test_all.sh
 
 ### Test Individual Projects
 
-#### RAG_Model
+#### RAG_Model Test
 
 ```bash
 cd RAG_Model
@@ -234,7 +234,7 @@ python main.py
 # Type a query when prompted
 ```
 
-#### Psychometrics
+#### Psychometrics Test
 
 ```bash
 cd Psychometrics
@@ -242,7 +242,7 @@ python main.py
 # Follow the interactive prompts
 ```
 
-#### ChatUi
+#### ChatUi Test
 
 ```bash
 cd ChatUi
@@ -250,7 +250,7 @@ npm run dev
 # Open http://localhost:5173 in browser
 ```
 
-#### ios_chatbot
+#### ios_chatbot Test
 
 ```bash
 cd ios_chatbot
@@ -258,7 +258,7 @@ python app.py
 # Open http://localhost:5000 in browser
 ```
 
-#### litellm
+#### litellm Test
 
 ```bash
 cd litellm
@@ -273,30 +273,36 @@ curl http://localhost:8000/health
 
 ### Ollama (Local LLMs)
 
-1. Install from [ollama.ai](https://ollama.ai)
+1. Install from <https://ollama.ai>
 2. Pull a model:
+
    ```bash
    ollama pull llama3.1:8b
    ollama pull mistral:7b
    ```
+
 3. Start Ollama (usually runs automatically):
+
    ```bash
    ollama serve
    ```
 
 ### MongoDB (for ChatUi)
 
-**Option 1: Docker**
+#### Option 1: Docker
+
 ```bash
 docker run -d -p 27017:27017 --name mongo-chatui mongo:latest
 ```
 
-**Option 2: MongoDB Atlas**
+#### Option 2: MongoDB Atlas
+
 1. Sign up at [mongodb.com/atlas](https://www.mongodb.com/atlas)
 2. Create a free cluster
 3. Get connection string
 4. Add to ChatUi `.env.local`:
-   ```
+
+   ```bash
    MONGODB_URL=mongodb+srv://user:pass@cluster.mongodb.net/chatui
    ```
 
@@ -306,9 +312,10 @@ docker run -d -p 27017:27017 --name mongo-chatui mongo:latest
 
 #### Import Errors
 
-**Problem:** `ModuleNotFoundError` or `ImportError`
+#### Problem: `ModuleNotFoundError` or `ImportError`
 
 **Solution:**
+
 ```bash
 # Reinstall dependencies
 pip install -r requirements.txt
@@ -318,11 +325,13 @@ npm install
 
 #### Port Already in Use
 
-**Problem:** `Address already in use`
+#### Problem: `Address already in use`
 
 **Solution:**
+
 - Change port in `.env` file
 - Or kill the process using the port:
+
   ```bash
   # Find process
   lsof -i :5000
@@ -332,9 +341,10 @@ npm install
 
 #### API Key Issues
 
-**Problem:** API errors or authentication failures
+#### Problem: API errors or authentication failures
 
 **Solution:**
+
 1. Verify API key is set: `echo $OPENAI_API_KEY`
 2. Check key is valid (has credits/quota)
 3. Ensure key is in `.env` file, not just environment
@@ -342,9 +352,10 @@ npm install
 
 #### Node.js Issues (ChatUi)
 
-**Problem:** npm install fails or build errors
+#### Problem: npm install fails or build errors
 
 **Solution:**
+
 ```bash
 cd ChatUi
 rm -rf node_modules package-lock.json
@@ -354,9 +365,10 @@ npm install
 
 #### Ollama Connection Issues
 
-**Problem:** Can't connect to Ollama
+#### Problem: Can't connect to Ollama
 
 **Solution:**
+
 ```bash
 # Check if Ollama is running
 curl http://localhost:11434/api/tags
@@ -431,4 +443,3 @@ pip list
 # List installed npm packages
 npm list --depth=0
 ```
-
