@@ -1,6 +1,3 @@
-#!/usr/bin/env sh
-. "$(dirname -- "$0")/_/husky.sh"
-
 # Archive any macOS dot-underscore files before commit
 # (keeps the repo clean even if they were created locally on macOS)
 bash scripts/archive-macos-resource-forks.sh --quiet || true
