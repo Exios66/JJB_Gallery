@@ -385,9 +385,6 @@ img {
   height: auto;
 }
 
-img[alt=""] {
-  border: 2px dashed #e74c3c;
-}
 
 /* Improve button accessibility */
 button,

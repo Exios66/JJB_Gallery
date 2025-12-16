@@ -7,20 +7,24 @@ $link-hover-color: #fff;
 
 /*-- scss:rules --*/
 body {
-    background-color: #1c1c1c;
-}
-h1, h2, h3 {
-    font-family: 'Playfair Display', serif;
-    border-bottom: 1px solid #d4af37;
-    display: inline-block;
-    padding-bottom: 5px;
-}
-.navbar {
-    background-color: #000;
-    border-bottom: 3px double #d4af37;
-}
-.callout {
-    border: 1px solid #d4af37;
-    background-color: #111;
+  background-color: #1c1c1c;
 }
 
+h1,
+h2,
+h3 {
+  font-family: "Playfair Display", serif;
+  border-bottom: 1px solid #d4af37;
+  width: fit-content;
+  padding-bottom: 5px;
+}
+
+.navbar {
+  background-color: #000;
+  border-bottom: 3px double #d4af37;
+}
+
+.callout {
+  border: 1px solid #d4af37;
+  background-color: #111;
+}
